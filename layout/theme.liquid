@@ -1,23 +1,100 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    {% comment %}
+      Meta data
+    {% endcomment %}
+
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
 
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+    {% comment %}
+      Cannonical URL for SEO purposees & avoiding duplicate content
+    {% endcomment %}
+    <link rel="canonical" href="{{ canonical_url }}">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    {% comment %}
+      Preconnects for speed improvements
+    {% endcomment %}
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
-    <meta name="theme-color" content="#fafafa">
+    {% comment %}
+      Page title - contextual to page type inclusions
+    {% endcomment %}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% comment %}
+      Page description if it is present
+    {% endcomment %}
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% comment %}
+      Meta tags for social shares & open graph
+    {% endcomment %}
+    {% render 'meta-tags' %}
+
+    {% comment %}
+      Favicon
+    {% endcomment %}
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {% comment %}
+      Global constants for site wide CSS styles
+    {% endcomment %}
+
+    {% style %}
+      :root {
+        --tablet: 900px;
+        --inner-content-width: 900px;
+        --content-width: 1400px;
+        --off-white: #f4f4f4;
+        --black: #000000;
+        --grey-light: #eeeeee;
+        --highlight: #1d1d1d;
+        --text: #1d1d1d;
+        --green-dark: #144444;
+        --green-darker: #0c3333;
+        --green-mid: #305c59;
+        --green-light: #088b61;
+        --green-lighter: #ddf2e1;
+        --yellow-mid: #ffb100;
+
+
+        --h1-size: {{ settings.h1_size }}px;
+        --h2-size: {{ settings.h2_size }}px;
+        --h3-size: {{ settings.h3_size }}px;
+        --h4-size: {{ settings.h4_size }}px;
+        --h5-size: {{ settings.h5_size }}px;
+        --h6-size: {{ settings.h6_size }}px;
+        --p-size: {{ settings.p_size }}px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 10px;
+      }
+    {% endstyle %}
   </head>
 
   <body>
