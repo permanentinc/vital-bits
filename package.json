@@ -1,0 +1,25 @@
+{
+  "name": "vital-bits",
+  "version": "1.0.0",
+  "source": [
+    "source/app.js",
+    "source/style.scss"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./assets"
+    }
+  },
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "dev": "parcel watch",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.9.2",
+    "parcel": "^2.9.2"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

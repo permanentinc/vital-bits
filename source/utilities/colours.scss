@@ -1,0 +1,55 @@
+/*------------------------------------------------------------------
+Sitewide colours
+------------------------------------------------------------------*/
+
+$off-white: #f5f4f2;
+$green-light: #c1d1d0;
+$green-mid: #c0d1d0;
+
+$brown-lightest: #e6e2de;
+$brown-lighter: #cec6bf;
+$brown-light: #cfc7c0;
+$grey-light: #979797;
+$grey-mid: #818185;
+$grey-dark: #2d2d33;
+
+/*------------------------------------------------------------------
+Base colours
+------------------------------------------------------------------*/
+
+:root {
+  --primary-colour: #aca6a1;
+  --secondary-colour: #2d2d33;
+  --button-margin: 3rem;
+}
+
+$primary: #aca6a1 !default;
+$secondary: #2d2d33 !default;
+$letter-spacing: 0.3px;
+
+/*------------------------------------------------------------------
+Font colours
+------------------------------------------------------------------*/
+
+$text: $grey-dark;
+$text-light: $grey-light;
+
+.colour--white {
+  color: white !important;
+}
+
+.colour--primary {
+  color: $primary !important;
+}
+
+.colour--secondary {
+  color: $secondary !important;
+}
+
+body {
+  background: $off-white;
+}
+
+body.background-white {
+  background: white;
+}
