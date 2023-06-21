@@ -1,0 +1,34 @@
+.button {
+    background: var(--green);
+    color: white;
+    padding: 1.25rem 5rem 1.65rem;
+    border-radius: 10000rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transition: all 111ms ease;
+    overflow: hidden;
+
+    &:before {
+        @include pseudo;
+        @include full;
+        background: rgba(white, 0.15);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        position: absolute;
+        top: 0;
+    }
+
+    &:hover {
+        &:before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+}

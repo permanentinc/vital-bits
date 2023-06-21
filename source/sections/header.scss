@@ -1,0 +1,24 @@
+.header {
+    margin-top: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &-nav {
+        width: 20rem;
+    }
+
+    &-logo {
+        width: 20rem;
+    }
+
+    &-actions {
+        width: 10rem;
+        outline: 1px solid red;
+    }
+}

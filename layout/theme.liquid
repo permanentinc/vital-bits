@@ -61,13 +61,16 @@
 
     {% style %}
       :root {
-        --tablet: 900px;
+
+        /* Widths */
         --inner-content-width: 900px;
         --content-width: 1400px;
+        --outer-content-width: 1920px;
+
+        /* Colours */
         --white: #ffffff;
         --off-white: #F3F2F1;
         --black: #000000;
-
         --yellow-light: #FFEFB1;
         --pink-light: #F7D8DF;
         --purple-light: #DFDFEE;
@@ -75,13 +78,15 @@
         --blue: #557FC0;
         --green: #54BAAB;
 
+        /* Font Sizes */
         --h1-size: {{ settings.h1_size }}px;
         --h2-size: {{ settings.h2_size }}px;
         --h3-size: {{ settings.h3_size }}px;
         --h4-size: {{ settings.h4_size }}px;
         --h5-size: {{ settings.h5_size }}px;
         --h6-size: {{ settings.h6_size }}px;
-        --p-size:  {{ settings.p_size }}px;
+        --p-size: {{ settings.p_size }}px;
+
       }
 
       *,
@@ -95,14 +100,16 @@
       }
     {% endstyle %}
 
-    {{ 'app.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body>
     {{ content_for_header }}
 
+    {% section 'announcement-bar' %}
     {% section 'header' %}
+    {% section 'banner' %}
 
     <h1>Theme Liquid</h1>
 

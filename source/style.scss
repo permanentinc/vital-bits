@@ -6,11 +6,12 @@ Base imports
 @import 'utilities/colours';
 @import 'utilities/mixins';
 @import 'utilities/fonts';
+@import 'utilities/buttons';
 
 /*------------------------------------------------------------------
 Base includes
 ------------------------------------------------------------------*/
 
-html {
-    border: 10px solid red;
-}
+@import 'sections/header';
+@import 'sections/announcement';
+@import 'sections/banner';
