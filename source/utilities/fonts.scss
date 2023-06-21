@@ -52,58 +52,38 @@ body {
 
 h1,
 .h1 {
-  font-size: 7rem;
-  margin-bottom: 1.5rem;
+  font-size: var(--h1-size);
+  margin-bottom: 2rem;
   line-height: 1.1;
   letter-spacing: 0.5px;
-
-  @include media($md, max) {
-    font-size: 6rem;
-  }
 }
 
 h2,
 .h2 {
-  font-size: 5rem;
+  font-size: var(--h2-size);
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
-
-  @include media($md, max) {
-    font-size: 4rem;
-  }
-
-  @include media($sm, max) {
-    font-size: 3.6rem;
-  }
 }
 
 h3,
 .h3 {
-  font-size: 4rem;
+  font-size: var(--h3-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
-
-  @include media($md, max) {
-    font-size: 3.6rem;
-  }
 }
 
 h4,
 .h4 {
-  font-size: 3rem;
+  font-size: var(--h4-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
-
-  @include media($md, max) {
-    font-size: 2.8rem;
-  }
 }
 
 h5,
 .h5 {
-  font-size: 2.1rem;
+  font-size: var(--h5-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
@@ -111,14 +91,14 @@ h5,
 
 h6,
 .h6 {
-  font-size: 1.8rem;
+  font-size: var(--h6-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
 }
 
 p,
 li {
-  font-size: 1.6rem;
+  font-size: var(--p-size);
   margin-bottom: 1.5rem;
   line-height: 1.6;
   color: $text-light;
@@ -135,20 +115,22 @@ em {
   font-style: italic !important;
 }
 
+.small {
+  font-size: 1.4rem;
+}
+
 .smaller {
   font-size: 80% !important;
 }
 
+.center,
 .text-center {
   text-align: center;
 }
 
+.right,
 .text-right {
   text-align: right;
-}
-
-.no-margin {
-  margin: 0;
 }
 
 hr {
@@ -166,29 +148,10 @@ hr {
   font-size: 60%;
 }
 
-.downloadItem {
-  position: relative;
-  transition: all $fast;
-
-  svg {
-    margin-left: 0.5rem;
-    position: relative;
-    top: 2px;
-
-    polygon {
-      transition: all $fast;
-    }
-  }
-
-  &:hover {
-    color: $text;
-
-    polygon:first-of-type {
-      transform: translateY(2px);
-    }
-  }
+.no-margin {
+  margin: 0;
 }
 
-.ss-htmleditorfield-file {
-  margin: 8rem auto;
+.white {
+  color: white;
 }
