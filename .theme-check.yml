@@ -1,2 +1,4 @@
 SchemaJsonFormat:
   enabled: false
+RemoteAsset:
+  enabled: false  
