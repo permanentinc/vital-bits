@@ -9,6 +9,7 @@
     position: relative;
     transition: all 111ms ease;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(#000, 0.05);
 
     &:before {
         @include pseudo;

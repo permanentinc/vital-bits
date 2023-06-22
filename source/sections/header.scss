@@ -1,24 +1,108 @@
 .header {
-    margin-top: 5rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9;
     right: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    transition: all $fast;
+
+    &.nav-up {
+        transform: translateY(-170%);
+        transform: translateY(-2rem);
+        opacity: 0;
+    }
+
+    &.nav-down {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    &-wrap {
+        padding: 0 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
 
     &-nav {
-        width: 20rem;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 0 1rem;
+
+        &:after {
+            @include pseudo;
+            @include full;
+            background: var(--green);
+            opacity: 0.6;
+            border-radius: 10000rem;
+            box-shadow: 0 10px 30px rgba(#000, 0.05);
+            transition: all $faster;
+            opacity: 0;
+            transition-delay: 300ms;
+        }
+
+        &.coloured {
+            &:after {
+                opacity: 0.6;
+            }
+        }
+
+        &__item {
+            position: relative;
+            z-index: 3;
+
+            &__link {
+                padding: 1.3rem 2rem 1.6rem;
+                display: inline-block;
+                text-decoration: none;
+                font-size: 2rem;
+                @include semi;
+            }
+        }
     }
 
     &-logo {
         width: 20rem;
+        margin-left: -16rem;
     }
 
     &-actions {
         width: 10rem;
-        outline: 1px solid red;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 1rem;
+
+        &:after {
+            @include pseudo;
+            @include full;
+            background: var(--green);
+            opacity: 0.6;
+            border-radius: 10000rem;
+            box-shadow: 0 10px 30px rgba(#000, 0.05);
+        }
+
+        &__search,
+        &__cart {
+            padding: 1.5rem 1.3rem;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+            transition: all $faster;
+
+            &:hover {
+                transform: scale(0.9);
+            }
+        }
+
+        &__cart {
+        }
+
+        &__search {
+        }
     }
 }

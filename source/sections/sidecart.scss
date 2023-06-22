@@ -1,0 +1,28 @@
+.sidecart {
+    @include full;
+    position: fixed;
+    z-index: 999;
+
+    &-background {
+        @include full;
+        background: rgba(white, 0.6);
+
+        &-wave2,
+        &-wave1 {
+            @include svg(1366, 768);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transform: translateY(0%) translateX(-30%) rotate(-30deg);
+
+            path {
+                stroke: var(--green);
+            }
+        }
+
+        &-wave2 {
+            transform: translateY(-50%) translateX(-20%) rotate(-210deg);
+        }
+    }
+}
