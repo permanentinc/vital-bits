@@ -2,8 +2,13 @@
     background: var(--green);
 
     &-text {
-        margin: 0 auto;
+        margin: 0 auto 3rem;
         max-width: var(--inner-content-width);
         padding: 0.8rem 2rem 1rem;
+
+        .letter {
+            pointer-events: none;
+            display: inline-block;
+        }
     }
 }
