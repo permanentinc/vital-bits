@@ -7,13 +7,12 @@
     transition: all $fast;
 
     &.nav-up {
-        transform: translateY(-170%);
         transform: translateY(-2rem);
         opacity: 0;
     }
 
     &.nav-down {
-        transform: translateY(0%);
+        transform: translateY(0);
         opacity: 1;
     }
 
@@ -36,7 +35,7 @@
             @include pseudo;
             @include full;
             background: var(--green);
-            opacity: 0.6;
+            opacity: 0.8;
             border-radius: 10000rem;
             box-shadow: 0 10px 30px rgba(#000, 0.05);
             transition: all $faster;
@@ -46,7 +45,7 @@
 
         &.coloured {
             &:after {
-                opacity: 0.6;
+                opacity: 0.8;
             }
         }
 
@@ -81,7 +80,7 @@
             @include pseudo;
             @include full;
             background: var(--green);
-            opacity: 0.6;
+            opacity: 0.8;
             border-radius: 10000rem;
             box-shadow: 0 10px 30px rgba(#000, 0.05);
         }

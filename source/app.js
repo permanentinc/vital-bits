@@ -92,4 +92,4 @@ document.addEventListener('keyup', (e) => {
 });
 
 
-toggleSidecart();
+// toggleSidecart();
