@@ -6,7 +6,7 @@
   {% comment %}
     Background
   {% endcomment %}
-  <div class="sidecart-background">
+  <div class="sidecart-background" onclick="event.preventDefault();document.body.classList.remove('sidecart-open');">
     {% comment %}
       Wave
     {% endcomment %}
@@ -26,5 +26,24 @@
   {% comment %}
     Draw
   {% endcomment %}
-  <div class="sidecart-draw"></div>
+  <div class="sidecart-draw">
+    <div class="sidecart-draw-head">
+      <p><span>Your Cart</span></p>
+    </div>
+    <div class="sidecart-draw-items"></div>
+    <div class="sidecart-draw-actions">
+      <div class="sidecart-draw-actions-lineitem">
+        <h5><span>Subtotal</span><span> $49.99</span></h5>
+      </div>
+      <div class="sidecart-draw-actions-afterpay">
+        <span>
+          Pay in 4 instalments of
+          <span data-alternate-payment-price="" data-currency="" data-money="0">$12.49</span> with</span
+        ><img src="{{ 'afterpay.svg' | asset_url }}" width="77" height="16" loading="lazy">
+      </div>
+
+      <a href="/checkout" class="button full">Checkout</a>
+      <a href="/checkout" class="link">View my cart</a>
+    </div>
+  </div>
 </div>

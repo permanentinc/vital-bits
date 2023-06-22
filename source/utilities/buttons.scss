@@ -32,4 +32,8 @@
     &:active {
         transform: translateY(1px);
     }
+
+    &.full {
+        display: block;
+    }
 }
