@@ -73,8 +73,23 @@ anime({
     direction: 'alternate',
     loop: true,
     easing: 'easeInOutQuad',
-    duration: 4000
+    duration: 10000
 });
 
 
+/*------------------------------------------------------------------
+Side cart interactions
+------------------------------------------------------------------*/
 
+const toggleSidecart = () => {
+    document.body.classList.toggle('sidecart-open');
+};
+
+document.addEventListener('keyup', (e) => {
+    if (e.keyCode === 27) {
+        toggleSidecart();
+    }
+});
+
+
+toggleSidecart();
