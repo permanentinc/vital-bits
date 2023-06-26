@@ -23,6 +23,8 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
+        margin: 0 auto;
+        max-width: var(--content-width);
     }
 
     &-nav {
@@ -30,6 +32,10 @@
         flex-wrap: wrap;
         position: relative;
         padding: 0 1rem;
+
+        @include media($md, max) {
+            display: none;
+        }
 
         &:after {
             @include pseudo;
@@ -69,7 +75,7 @@
     }
 
     &-actions {
-        width: 10rem;
+        width: 12rem;
         position: relative;
         display: flex;
         flex-wrap: wrap;
@@ -96,12 +102,6 @@
             &:hover {
                 transform: scale(0.9);
             }
-        }
-
-        &__cart {
-        }
-
-        &__search {
         }
     }
 }
