@@ -7,7 +7,6 @@
     transition: all $fast;
     transition-delay: 800;
 
-
     &:after {
         @include pseudo;
         @include full;
@@ -69,7 +68,7 @@
         transform: translateY(0.5rem);
 
         input {
-            font-size: 4vw;
+            font-size: 4.6rem;
             border: 0;
             background: transparent;
             padding: 2rem 0;

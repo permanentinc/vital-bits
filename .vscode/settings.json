@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/pancake/": true,
+        "**/dist/js/app.js": true,
+        "**/bundle.js": true,
+        "**/bundle.map.js": true,
+        "/assets/found.js": true,
+        "**/*.map": true,
+        "assets/style.css": true,
+        "assets/app.js": true
+    },
+    "explorerExclude.backup": {}
+}
