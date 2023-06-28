@@ -1,11 +1,23 @@
 <div class="grid">
-  <div class="grid-wave1 [ js-grid-wave ]">
+  <div class="grid-wave1 [ js-wave ]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
       <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
     </svg>
   </div>
 
-  <div class="grid-wave2 [ js-grid-wave ]">
+  <div class="grid-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-wave3 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-wave4 [ js-wave ]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
       <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
     </svg>
@@ -19,7 +31,13 @@
 
     <a href="#" class="grid__item grid__item--large">
       <div class="grid__item__image">
-        <img src="http://placehold.it/1380x1380" loading="lazy" width="600" height="600">
+        <img
+          src="{{ 'placeholder.jpg' | asset_url }}"
+          alt="grid item image"
+          loading="lazy"
+          width="690"
+          height="690"
+        >
       </div>
       <div class="grid__item__copy">
         <h5 class="colour--white"><b>Tips for breast feeding</b></h5>
@@ -32,6 +50,13 @@
     <a href="#" class="grid__item grid__item--small">
       <div class="grid__item__image">
         <img src="http://placehold.it/1380x680" loading="lazy" width="600" height="300">
+        <img
+          src="{{ 'placeholder.jpg' | asset_url }}"
+          alt="grid item image"
+          loading="lazy"
+          width="690"
+          height="340"
+        >
       </div>
       <div class="grid__item__copy">
         <h5 class="colour--white"><b>The support you really need</b></h5>
@@ -43,7 +68,13 @@
 
     <a href="#" class="grid__item grid__item--small">
       <div class="grid__item__image">
-        <img src="http://placehold.it/1380x680" loading="lazy" width="600" height="300">
+        <img
+          src="{{ 'placeholder.jpg' | asset_url }}"
+          alt="grid item image"
+          loading="lazy"
+          width="690"
+          height="340"
+        >
       </div>
       <div class="grid__item__copy">
         <h5 class="colour--white"><b>Sleeping hacks from new mums</b></h5>

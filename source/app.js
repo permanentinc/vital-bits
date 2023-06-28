@@ -24,9 +24,8 @@ let header = $('.header');
 let nav = $('.header-nav');
 let headerHeight = (header) ? header.clientHeight / 3 : 0;
 
-const stickyHeader = () => {
-    console.log('fds')
 
+const stickyHeader = () => {
     let st = window.scrollY;
     if (Math.abs(previousScrollPosition - st) <= scrollDelta) return;
     if (st <= 10) {
@@ -69,7 +68,7 @@ setInterval(() => wave.play(), 20000);
 
 
 anime({
-    targets: '.js-sidecart-wave path',
+    targets: '.js-wave path',
     d: ['M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,261.3C672,277,768,267,864,250.7C960,235,1056,213,1152,213.3C1248,213,1344,235,1392,245.3L1440,256L1440,320'],
     direction: 'alternate',
     loop: true,
@@ -82,6 +81,4 @@ anime({
 Side cart interactions
 ------------------------------------------------------------------*/
 
-const toggleSidecart = () => {
-    document.body.classList.toggle('sidecart-visible');
-};
+const toggleSidecart = () => document.body.classList.toggle('sidecart-visible');
