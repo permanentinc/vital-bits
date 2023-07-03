@@ -11,7 +11,8 @@ Imports
 
 import { $, $$ } from './lib';
 import './search';
-
+import Flickity from 'flickity';
+import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 
 /*------------------------------------------------------------------
@@ -82,3 +83,49 @@ Side cart interactions
 ------------------------------------------------------------------*/
 
 const toggleSidecart = () => document.body.classList.toggle('sidecart-visible');
+
+
+/**
+ * Define the square animation
+ */
+const marquee = anime({
+    targets: '.collections__marquee__animation',
+    translateX: '-10%',
+    easing: 'linear',
+    autoplay: false,
+});
+
+/**
+ * Calculate the scroll percentage position
+ */
+const scrollPercent = () => (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+
+/**
+ * Add a scroll listener on the window object to
+ * control animations based on scroll percentage.
+ */
+window.onscroll = () => marquee.seek((scrollPercent() / 100) * marquee.duration);
+
+
+
+/*------------------------------------------------------------------
+Banner slider block - Flickity
+------------------------------------------------------------------*/
+
+new Flickity('.collections__slider', {
+    wrapAround: false,
+    pageDots: false,
+    prevNextButtons: false,
+    initialIndex: 1
+});
+
+
+
+/*------------------------------------------------------------------
+In view elements
+------------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    inView('.js-inview').on('enter', el => el.classList.add('inview'))
+}, false);

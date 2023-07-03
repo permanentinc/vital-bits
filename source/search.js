@@ -62,10 +62,10 @@ const debounce = (callback, delay) => {
  */
 const template_search_placeholder = () => {
     return /*html*/`
-            <div class="search-pane__results__grid__placeholder">
-                <div class="search-pane__results__grid__placeholder__image"></div>
-                <div class="search-pane__results__grid__placeholder__type"><p>&nbsp;</p></div>
-                <div class="search-pane__results__grid__placeholder__title"><p>&nbsp;<br>&nbsp;</p></div>
+            <div class="search-pane-results-grid__placeholder">
+                <div class="search-pane-results-grid__placeholder__image"></div>
+                <div class="search-pane-results-grid__placeholder__type"><p>&nbsp;</p></div>
+                <div class="search-pane-results-grid__placeholder__title"><p>&nbsp;<br>&nbsp;</p></div>
             </div>
         `;
 }
@@ -82,26 +82,19 @@ const template_search_result = (result) => {
     // Only return a string if there is a result to augment
     if (result) {
 
-        let type = '';
-
-        switch (result.class) {
-            case 'SilverShop\\Page\\Product': type = 'Product'; break;
-            case 'Toast\\Models\\ProductResource': type = 'Resource'; break;
-            default: type = 'Page'; break;
-        }
 
         return /*html*/`
-            <a href="${result.link}" class="search-pane__results__grid__item">
-                <div class="search-pane__results__grid__item__image">
-                    ${(result.image) ? `
-                    <img src="${result.image}" width="610" height="610" loading="lazy" alt="${result.title}">
+            <a href="${result.url}" class="search-pane-results-grid__item">
+                <div class="search-pane-results-grid__item__image">
+                    ${(result.featured_image) ? `
+                    <img src="${result.featured_image.url}" width="610" height="610" loading="lazy" alt="${result.title}">
                     ` : `
                     <img src="/themes/mercury/dist/images/standard/placeholder.png" width="610" height="610" loading="lazy" alt="${result.title}">
                     `}
                     
                 </div>
-                <div class="search-pane__results__grid__item__type"><p>${type}</p></div>
-                <div class="search-pane__results__grid__item__title"><p>${result.title}</p></div>
+                <div class="search-pane-results-grid__item__title"><p>${result.title}</p></div>
+                <div class="search-pane-results-grid__item__type"><p>${result.price}</p></div>
             </a>
             `;
     } else {
@@ -130,7 +123,7 @@ const show_search_animation = () => {
  */
 const update_search_results = () => {
     let html = '';;
-    for (let i = 0; i < 3; i++) html += template_search_result(search_results.results[i]);
+    for (let i = 0; i < 3; i++) html += template_search_result(search_results[i]);
     $search_grid.innerHTML = html;
 }
 
@@ -142,9 +135,9 @@ const update_search_results = () => {
  */
 const no_results_found = () => {
     let html = /*html*/`
-        <div class="search-pane__results__grid__no-results">
-            <h5><b>Sorry, there are no results for that term</b></h5>
-            <p>Why not try our product finder <a href="/products">here</a></p>
+        <div class="search-pane-results-grid__no-results">
+            <h5><b>Sorry, there are no suggestions for that term</b></h5>
+            <p>Why not view our collections <a href="/collections">here</a></p>
         </div>`;
     $search_grid.innerHTML = html;
 }
@@ -204,13 +197,13 @@ const search = () => {
                 console.timeEnd('search performed in ');
 
                 // Log out our new results for debugging
-                // console.log(search_results);
+                data = JSON.parse(data);
+                search_results = data.resources.results.products;
 
-                // Reassign our search results
-                search_results = JSON.parse(data);
+                console.log(search_results);
 
                 // Update the search results grid with the new results or a nothing found message
-                (search_results.results.length > 0) ? update_search_results() : no_results_found();
+                (search_results.length > 0) ? update_search_results() : no_results_found();
             });
     }
 

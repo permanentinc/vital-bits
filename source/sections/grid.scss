@@ -12,17 +12,17 @@
         left: 0;
         top: 0;
         width: 100%;
-        transform: translateY(0%) translateX(-39%) rotate(-40deg);
+        transform: translateY(0%) translateX(-50%) rotate(-40deg);
         pointer-events: none;
         z-index: -1;
 
         path {
-            stroke: var(--green);
+            stroke: var(--green); 
         }
     }
 
     &-wave2 {
-        transform: translateY(-50%) translateX(-29%) rotate(-220deg);
+        transform: translateY(-50%) translateX(-50%) rotate(-220deg);
     }
 
     &-wave3,
@@ -32,7 +32,7 @@
         left: 60%;
         top: 60%;
         width: 100%;
-        transform: translateY(0%) translateX(-39%) rotate(-40deg);
+        transform: translateY(0%) translateX(-20%) rotate(-40deg);
         pointer-events: none;
         z-index: -1;
 
@@ -42,7 +42,7 @@
     }
 
     &-wave3 {
-        transform: translateY(-50%) translateX(-29%) rotate(-220deg);
+        transform: translateY(-50%) translateX(-10%) rotate(-220deg);
     }
 
     &__wrap {
