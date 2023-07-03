@@ -122,12 +122,18 @@
     {{ content_for_header }}
 
     {% section 'header' %}
-    {% section 'banner' %}
-    {% section 'grid-block' %}
-    {% section 'sidecart' %}
 
-    <h1>Theme Liquid</h1>
+    {% section 'banner' %}
+
+    {% section 'collections-block' %}
+
+    {% section 'grid-block' %}
 
     {{ content_for_layout }}
+
+    {% comment %}
+      Side cart
+    {% endcomment %}
+    {% section 'sidecart' %}
   </body>
 </html>
