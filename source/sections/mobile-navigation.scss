@@ -1,0 +1,125 @@
+.mobile-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+    // visibility: hidden;
+    // opacity: 0;
+    transition: all $faster;
+
+    &-background {
+        position: absolute;
+        display: block;
+        background: white;
+        background: rgba(25, 55, 51, 0.7);
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: all $fast;
+        transform-origin: 0 0;
+    }
+
+    &-menu {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 50rem;
+        transform-origin: 0 0;
+        padding: 20rem 4rem 8rem;
+        overflow: hidden;
+
+        &:before {
+            @include pseudo;
+            @include full;
+            background: var(--blue);
+            background: #a5d2d7;
+            border-radius: 0 0 5rem 5rem;
+            transform: translateY(-5rem);
+            transition: all $fast;
+            transition-delay: 123ms;
+            opacity: 0;
+        }
+
+        &__item {
+            position: relative;
+            z-index: 4;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: all $fast;
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 60ms;
+                }
+            }
+
+            &__link {
+                @include bold;
+                display: block;
+                padding: 2rem;
+                font-size: 6rem;
+            }
+        }
+    }
+}
+
+.mobile-navigation-visible {
+    .header:after {
+        transform: translateY(-110%);
+    }
+    .header-actions__navigation span {
+        &:nth-child(1) {
+            transform: translateY(0.7rem) rotate(-45deg);
+        }
+        &:nth-child(2) {
+            transform: scaleX(0);
+        }
+        &:nth-child(3) {
+            transform: translateY(-0.7rem) rotate(45deg);
+        }
+    }
+
+    .mobile-navigation {
+        visibility: visible;
+        opacity: 1;
+
+        &-background {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        &-menu {
+            pointer-events: all;
+            opacity: 1;
+
+            &:before {
+                transform: translateY(0%);
+                transition-delay: 0ms;
+                opacity: 1;
+            }
+
+            &__item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .blur {
+        filter: blur(5px);
+    }
+}
+
+.blur {
+    transition: all $fast;
+    will-change: filter;
+}

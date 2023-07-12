@@ -17,7 +17,7 @@
         z-index: -1;
 
         path {
-            stroke: var(--green); 
+            stroke: var(--green);
         }
     }
 
@@ -49,6 +49,10 @@
         max-width: var(--content-width);
         margin: 0 auto;
         padding: 6rem;
+
+        @include media($md, max) {
+            padding: 4rem 2rem;
+        }
     }
 
     &__intro {

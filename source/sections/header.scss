@@ -6,9 +6,27 @@
     right: 0;
     transition: all $fast;
 
+    &:after {
+        @include pseudo;
+        @include full;
+        bottom: -1rem;
+        background: linear-gradient(to bottom, rgba(25, 55, 51, 0.7) 0%, rgba(25, 55, 51, 0) 80%);
+        opacity: 0;
+        transition: all $fast;
+    }
+
     &.nav-up {
         transform: translateY(-2rem);
         opacity: 0;
+
+        &:after {
+            opacity: 1;
+        }
+
+        @include media($lg, max) {
+            transform: translateY(-5rem);
+            opacity: 1;
+        }
     }
 
     &.nav-down {
@@ -24,7 +42,12 @@
         align-items: center;
         position: relative;
         margin: 0 auto;
+        z-index: 2;
         max-width: var(--content-width);
+
+        @include media($lg, max) {
+            padding: 0 2rem;
+        }
     }
 
     &-nav {
@@ -33,7 +56,7 @@
         position: relative;
         padding: 0 1rem;
 
-        @include media($md, max) {
+        @include media($lg, max) {
             display: none;
         }
 
@@ -72,6 +95,20 @@
     &-logo {
         width: 20rem;
         margin-left: -16rem;
+
+        svg {
+            width: 9.5rem;
+            height: auto;
+        }
+
+        @include media($lg, max) {
+            margin-left: 0;
+
+            svg {
+                width: 8rem;
+                height: auto;
+            }
+        }
     }
 
     &-actions {
@@ -82,6 +119,10 @@
         justify-content: center;
         padding: 0 1rem;
 
+        @include media($lg, max) {
+            width: 16rem;
+        }
+
         &:after {
             @include pseudo;
             @include full;
@@ -89,8 +130,13 @@
             opacity: 0.8;
             border-radius: 10000rem;
             box-shadow: 0 10px 30px rgba(#000, 0.05);
+
+            @include media($lg, max) {
+                opacity: 1;
+            }
         }
 
+        &__navigation,
         &__search,
         &__cart {
             padding: 1.5rem 1.3rem;
@@ -101,6 +147,41 @@
 
             &:hover {
                 transform: scale(0.9);
+            }
+
+            svg {
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        &__navigation {
+            display: none;
+            width: 4.5rem;
+
+            span {
+                position: absolute;
+                width: 2.3rem;
+                height: 2px;
+                background: white;
+                top: calc(50% - 2px);
+                transition: all $fast;
+
+                &:nth-child(1) {
+                    margin-top: -0.7rem;
+                }
+
+                &:nth-child(2) {
+                    margin-top: 0rem;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 0.7rem;
+                }
+            }
+
+            @include media($lg, max) {
+                display: block;
             }
         }
     }

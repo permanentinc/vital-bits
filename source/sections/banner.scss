@@ -29,5 +29,10 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+
+        @include media($md, max) {
+            top: 65%;
+            padding: 6rem 2rem;
+        }
     }
 }

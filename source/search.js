@@ -21,7 +21,7 @@ window.toggleSearchPane = () => {
 };
 
 document.addEventListener('keyup', (e) => {
-    if (e.keyCode === 27) toggleSearchPane();
+    if (e.keyCode === 27) document.body.classList.remove('search-visible');;
 });
 
 
@@ -94,7 +94,7 @@ const template_search_result = (result) => {
                     
                 </div>
                 <div class="search-pane-results-grid__item__title"><p>${result.title}</p></div>
-                <div class="search-pane-results-grid__item__type"><p>${result.price}</p></div>
+                <div class="search-pane-results-grid__item__type"><p>$${result.price}</p></div>
             </a>
             `;
     } else {
@@ -204,6 +204,7 @@ const search = () => {
 
                 // Update the search results grid with the new results or a nothing found message
                 (search_results.length > 0) ? update_search_results() : no_results_found();
+                $('.search-pane-results-action').style.display = (search_results.length > 0) ? 'block' : 'none';
             });
     }
 

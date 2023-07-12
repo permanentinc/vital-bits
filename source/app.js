@@ -85,6 +85,11 @@ Side cart interactions
 const toggleSidecart = () => document.body.classList.toggle('sidecart-visible');
 
 
+window.toggleMobileNavigation = () => {
+    document.body.classList.toggle('mobile-navigation-visible')
+};
+
+
 /**
  * Define the square animation
  */
@@ -125,7 +130,10 @@ new Flickity('.collections__slider', {
 In view elements
 ------------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
-
-
     inView('.js-inview').on('enter', el => el.classList.add('inview'))
 }, false);
+
+// on esc press toggle a class on the body
+document.addEventListener('keyup', e => {
+    if (e.keyCode === 27) toggleMobileNavigation();
+});

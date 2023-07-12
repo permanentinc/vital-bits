@@ -123,14 +123,15 @@
 
     {% section 'header' %}
 
-    {% section 'banner' %}
+    <div class="blur">
+      {% section 'banner' %}
 
-    {% section 'collections-block' %}
+      {% section 'collections-block' %}
 
-    {% section 'grid-block' %}
+      {% section 'grid-block' %}
 
-    {{ content_for_layout }}
-
+      {{ content_for_layout }}
+    </div>
     {% comment %}
       Side cart
     {% endcomment %}
