@@ -1,4 +1,6 @@
+.shopify-challenge__button,
 .button {
+    cursor: pointer;
     background: var(--green);
     color: white;
     padding: 1.25rem 5rem 1.65rem;
@@ -37,4 +39,9 @@
     &.full {
         display: block;
     }
+}
+
+.shopify-challenge__button {
+    @include semi;
+    margin: 2rem auto !important;
 }

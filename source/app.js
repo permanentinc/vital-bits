@@ -97,7 +97,7 @@ const marquee = anime({
     targets: '.collections__marquee__animation',
     translateX: '-10%',
     easing: 'linear',
-    autoplay: false,
+    autoplay: false
 });
 
 /**
@@ -121,7 +121,7 @@ new Flickity('.collections__slider', {
     wrapAround: false,
     pageDots: false,
     prevNextButtons: false,
-    initialIndex: 1
+    initialIndex: (window.innerWidth > 768) ? 1 : 0
 });
 
 
