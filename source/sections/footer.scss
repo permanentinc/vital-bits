@@ -1,0 +1,51 @@
+.footer {
+    position: relative;
+    background: var(--green);
+
+    &-wrap {
+        padding: 6rem 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        margin: 0 auto;
+        z-index: 2;
+        max-width: var(--content-width);
+
+        @include media($lg, max) {
+            padding: 4rem 2rem;
+        }
+    }
+
+    &-column {
+        h6 {
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+
+        &--1 {
+            width: 20%;
+        }
+        &--2 {
+            width: 20%;
+        }
+        &--3 {
+            width: 20%;
+        }
+        &--4 {
+            width: 40%;
+        }
+    }
+
+    &-social {
+        &__link {
+            margin-right: 1rem;
+            display: inline-block;
+
+            img {
+                filter: brightness(2);
+            }
+        }
+    }
+}
