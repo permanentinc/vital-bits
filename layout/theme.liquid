@@ -23,6 +23,8 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/yrp5bcm.css">
 
+    <link rel="stylesheet" href="https://use.typekit.net/yrp5bcm.css">
+
     {% comment %}
       Page title - contextual to page type inclusions
     {% endcomment %}
@@ -68,7 +70,11 @@
         --outer-content-width: 1920px;
 
         /* Colours */
+        --outer-content-width: 1920px;
+
+        /* Colours */
         --white: #ffffff;
+        --off-white: #F3F2F1;
         --off-white: #F3F2F1;
         --black: #000000;
         --yellow-light: #FFEFB1;
@@ -77,7 +83,14 @@
         --blue-light: #E1EDF9;
         --blue: #557FC0;
         --green: #54BAAB;
+        --yellow-light: #FFEFB1;
+        --pink-light: #F7D8DF;
+        --purple-light: #DFDFEE;
+        --blue-light: #E1EDF9;
+        --blue: #557FC0;
+        --green: #54BAAB;
 
+        /* Font Sizes */
         /* Font Sizes */
         --h1-size: {{ settings.h1_size }}px;
         --h2-size: {{ settings.h2_size }}px;
@@ -85,6 +98,12 @@
         --h4-size: {{ settings.h4_size }}px;
         --h5-size: {{ settings.h5_size }}px;
         --h6-size: {{ settings.h6_size }}px;
+        --p-size: {{ settings.p_size }}px;
+
+      }
+
+      .sidecart-background{
+        cursor: -webkit-image-set(url({{ 'close.png' | asset_url }}) 1x,url({{ 'close@2x.png' | asset_url }}) 2x) 15 15,auto;
         --p-size: {{ settings.p_size }}px;
 
       }
@@ -104,6 +123,18 @@
         font-size: 10px;
       }
     {% endstyle %}
+
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
+    <script>
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
+    </script>
 
     {{ 'style.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
