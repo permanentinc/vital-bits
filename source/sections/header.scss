@@ -72,6 +72,9 @@
         }
 
         &.coloured {
+            .animate-white-to-green {
+                background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, white 50%);
+            }
             &:after {
                 opacity: 0.8;
             }
@@ -87,6 +90,19 @@
                 display: inline-block;
                 text-decoration: none;
                 font-size: 2rem;
+
+                &:before {
+                    @include pseudo;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 1rem;
+                    background: white;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    bottom: -0rem;
+                    display: none;
+                }
             }
         }
     }
@@ -117,6 +133,7 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 0 1rem;
+        height: 5.5rem;
 
         @include media($lg, max) {
             width: 16rem;

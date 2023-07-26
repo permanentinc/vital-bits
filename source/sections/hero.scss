@@ -1,0 +1,53 @@
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 12rem;
+
+    &__background {
+        @include full;
+
+        img {
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &:after {
+            @include pseudo;
+            @include full;
+            background: rgba(black, 0.4);
+        }
+    }
+
+    &__wrap {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        padding: 6rem;
+        position: relative;
+        z-index: 4;
+
+        @include media($md, max) {
+            padding: 4rem 2rem;
+        }
+    }
+
+    &__text {
+        max-width: 50rem;
+        opacity: 0;
+        transition: all $medium;
+        transform: translateY(2rem);
+
+        &.inview {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h3 {
+            line-height: 1.4;
+        }
+    }
+}

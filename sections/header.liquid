@@ -11,13 +11,25 @@
     {% endcomment %}
     <div class="header-nav">
       <div class="header-nav__item">
-        <a href="/collections/all" class="header-nav__item__link animate-white-to-green">Shop vitals</a>
+        <a
+          href="/collections/all"
+          class="header-nav__item__link animate-white-to-green {% if link.active %}header-nav__item__link--current{% endif %}"
+          >Shop vitals</a
+        >
       </div>
       <div class="header-nav__item">
-        <a href="/collections/all" class="header-nav__item__link animate-white-to-green">Important bits</a>
+        <a
+          href="/collections/all"
+          class="header-nav__item__link animate-white-to-green {% if link.active %}header-nav__item__link--current{% endif %}"
+          >Important bits</a
+        >
       </div>
       <div class="header-nav__item">
-        <a href="/collections/all" class="header-nav__item__link animate-white-to-green">About us</a>
+        <a
+          href="/collections/all"
+          class="header-nav__item__link animate-white-to-green {% if link.active %}header-nav__item__link--current{% endif %}"
+          >About us</a
+        >
       </div>
     </div>
 
@@ -74,6 +86,24 @@
 {% endcomment %}
 
 <div class="search-pane">
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="search-pane-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="search-pane-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
   <div class="search-pane-wrap">
     <div class="search-pane-close">
       <a
@@ -90,13 +120,13 @@
     </div>
 
     <div class="search-pane-input">
-      <input type="text" placeholder="What are you looking for?..." class="[ js-search-query ]" id="search-query">
+      <input type="text" placeholder="Start typing to search..." class="[ js-search-query ]" id="search-query">
     </div>
 
     <div class="search-pane-results">
       <div class="search-pane-results-grid [ js-search-results-grid ]"></div>
       <div class="search-pane-results-action" style="display:none">
-        <p>
+        <p class="center">
           <a href="#" class="button [ js-show-all-results ]">SHOW ALL RESULTS</a>
         </p>
       </div>
@@ -112,13 +142,13 @@
   <div class="mobile-navigation-background"></div>
   <div class="mobile-navigation-menu">
     <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link white">Shop vitals</a>
+      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">Shop vitals</a>
     </div>
     <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link white">Important bits</a>
+      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">Important bits</a>
     </div>
     <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link white">About us</a>
+      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">About us</a>
     </div>
 
     <div class="mobile-navigation-menu__item mobile-navigation-menu__item--social">

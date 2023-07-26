@@ -48,8 +48,7 @@ const stickyHeader = () => {
 
 window.addEventListener('scroll', stickyHeader);
 
-
-var wave_text = $('.js-wave-text');
+let wave_text = $('.js-wave-text');
 
 wave_text.innerHTML = wave_text.textContent.replace(/\S/g, '<span class="letter">$&</span>');
 
@@ -100,17 +99,18 @@ const marquee = anime({
     autoplay: false
 });
 
+
 /**
  * Calculate the scroll percentage position
  */
 const scrollPercent = () => (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+
 
 /**
  * Add a scroll listener on the window object to
  * control animations based on scroll percentage.
  */
 window.onscroll = () => marquee.seek((scrollPercent() / 100) * marquee.duration);
-
 
 
 /*------------------------------------------------------------------
@@ -125,15 +125,12 @@ new Flickity('.collections__slider', {
 });
 
 
-
 /*------------------------------------------------------------------
 In view elements
 ------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     inView('.js-inview').on('enter', el => el.classList.add('inview'))
 }, false);
 
-// on esc press toggle a class on the body
-document.addEventListener('keyup', e => {
-    if (e.keyCode === 27) toggleMobileNavigation();
-});
+// On escape press toggle a class on the body
+document.addEventListener('keyup', e => (e.key === 'Escape') ? toggleMobileNavigation() : null);

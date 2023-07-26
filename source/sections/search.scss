@@ -6,8 +6,28 @@
     visibility: hidden;
     transition: all $fast;
     transition-delay: 800;
+    background: #000;
+    background: white;
 
-    &:after {
+    &-wave2,
+    &-wave1 {
+        @include svg(1366, 768);
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        width: 100%;
+        transform: translateY(0%) translateX(-30%) rotate(-40deg);
+
+        path {
+            stroke: var(--green);
+        }
+    }
+
+    &-wave2 {
+        transform: translateY(-50%) translateX(-20%) rotate(-220deg);
+    }
+
+    &:before {
         @include pseudo;
         @include full;
         background-image: radial-gradient(var(--green) 0.5px, transparent 0.5px), radial-gradient(var(--green) 0.5px, var(--off-white) 0.5px);
@@ -15,41 +35,25 @@
         background-position:
             0 0,
             10px 10px;
-        opacity: 0.7;
-        transition: all $fast;
-        opacity: 0;
-        transition-delay: 300ms;
+        opacity: 0.4;
     }
 
     &-wrap {
         margin: 0 auto;
         left: 5rem;
         position: absolute;
-        top: 8rem;
+        top: 7.1rem;
         right: 4rem;
-        bottom: 6rem;
         z-index: 2;
+        height: 75px;
         margin: 0 auto;
-        max-width: var(--content-width);
-
-        &:after {
-            @include pseudo;
-            @include full;
-            border-radius: 3rem;
-            background: white;
-            box-shadow: 0 10px 30px rgba(#000, 0.25);
-            transition: all $medium;
-            transform: scaleX(0.8) scaleY(0.8);
-            transform-origin: calc(100% - 3rem) 3rem;
-            opacity: 0;
-            transition-delay: 300ms;
-        }
+        max-width: var(--slim-content-width);
     }
 
     &-close {
         position: absolute;
-        right: 1.5rem;
-        top: 1.5rem;
+        top: 1.7rem;
+        right: 1.9rem;
         z-index: 88;
         transition: all $fast;
         opacity: 0;
@@ -64,28 +68,32 @@
     &-input {
         position: relative;
         z-index: 4;
-        padding: 4rem;
-        max-width: var(--inner-content-width);
         margin: 0 auto;
-        opacity: 0;
         transition-delay: 0;
         transition: all $fast;
-        transform: translateY(0.5rem);
+        background: white;
+        overflow: hidden;
+        height: 75px;
+        border-radius: 10000rem;
+        box-shadow: 0 10px 30px rgba(#000, 0.05);
+        text-align: center;
 
         input {
-            font-size: 4.6rem;
+            font-size: 3.6rem;
             border: 0;
             background: transparent;
-            padding: 2rem 0;
+            padding: 1rem 4rem;
             color: var(--green);
             width: 100%;
+            max-width: var(--slim-content-width);
+            margin: 0 auto;
             outline: 0;
             line-height: 1.4;
-            border-bottom: 2px solid var(--green);
+            @include light;
 
             @include placeholder {
                 color: var(--green);
-                opacity: 0.4;
+                opacity: 0.8;
             }
         }
     }
@@ -94,7 +102,7 @@
         position: relative;
         z-index: 4;
         padding: 4rem;
-        max-width: var(--inner-content-width);
+        max-width: var(--slim-content-width);
         margin: 0 auto;
         opacity: 0;
         transition-delay: 0;
@@ -124,7 +132,7 @@
     .search-pane-close {
         opacity: 1;
         transform: scale(1);
-        transition-delay: 1000ms;
+        transition-delay: 400ms;
     }
     .search-pane-input {
         opacity: 1;

@@ -65,6 +65,7 @@
       :root {
 
         /* Widths */
+        --slim-content-width: 768px;
         --inner-content-width: 900px;
         --content-width: 1400px;
         --outer-content-width: 1920px;
@@ -155,11 +156,13 @@
     {% section 'header' %}
 
     <div class="blur">
-      {% section 'banner' %}
-
-      {% section 'collections-block' %}
-
-      {% section 'grid-block' %}
+      {%- liquid
+        section 'banner'
+        section 'collections-block'
+        section 'grid-block'
+        section 'hero-block'
+        section 'instagram-block'
+      -%}
 
       {{ content_for_layout }}
     </div>

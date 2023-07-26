@@ -34,6 +34,10 @@ Font colours
 $text: $grey-dark;
 $text-light: $grey-light;
 
+.colour--green {
+  color: var(--green) !important;
+}
+
 .colour--white {
   color: white !important;
 }
