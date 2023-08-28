@@ -1,0 +1,72 @@
+.banner-blog {
+    position: relative;
+    background: var(--blue-mid);
+
+    &-wrap {
+        max-width: var(--content-width);
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20rem 4rem 0;
+        align-items: center;
+        perspective: 2000px;
+
+        @include media($md, max) {
+            padding-top: 14rem;
+        }
+    }
+
+    &-text {
+        width: 50%;
+        padding: 5rem 0 3rem;
+
+        @include media($xmd, max) {
+            width: 100%;
+        }
+
+        &__constraint {
+            padding-right: 4rem;
+            max-width: 60rem;
+
+            @include media($xmd, max) {
+                padding-right: 0;
+                max-width: 100rem;
+            }
+        }
+    }
+
+    &-image {
+        width: 50%;
+        border-radius: 4px;
+        margin-bottom: -6rem;
+        position: relative;
+
+        @include media($xmd, max) {
+            width: 100%;
+            max-width: 50rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        &__shadow {
+            @include full;
+            display: block;
+            border-radius: 4px;
+            opacity: 0;
+            box-shadow:
+                0 2.8px 2.2px rgba(28, 28, 28, 0.034),
+                0 6.7px 5.3px rgba(28, 28, 28, 0.048),
+                0 12.5px 10px rgba(28, 28, 28, 0.06),
+                0 22.3px 17.9px rgba(28, 28, 28, 0.072),
+                0 41.8px 33.4px rgba(28, 28, 28, 0.086);
+        }
+    }
+}

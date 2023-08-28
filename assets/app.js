@@ -655,15 +655,38 @@ window.toggleMobileNavigation = ()=>{
     autoplay: false
 });
 /**
+ * Define the square animation
+ */ const blog_image = (0, _animeEsJsDefault.default)({
+    targets: ".banner-blog-image",
+    rotateX: "10",
+    rotateY: "-10",
+    scale: 1.1,
+    easing: "linear",
+    autoplay: false
+});
+/**
+ * Define the square animation
+ */ const blog_image_shadow = (0, _animeEsJsDefault.default)({
+    targets: ".banner-blog-image__shadow",
+    opacity: 1,
+    easing: "linear",
+    autoplay: false
+});
+/**
  * Calculate the scroll percentage position
  */ const scrollPercent = ()=>(document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
 /**
  * Add a scroll listener on the window object to
  * control animations based on scroll percentage.
- */ window.onscroll = ()=>marquee.seek(scrollPercent() / 100 * marquee.duration);
+ */ window.onscroll = ()=>{
+    console.log(scrollPercent() / 100 * blog_image.duration);
+    marquee.seek(scrollPercent() / 100 * marquee.duration);
+    blog_image.seek(scrollPercent() / 100 * blog_image.duration);
+    blog_image_shadow.seek(scrollPercent() / 100 * blog_image_shadow.duration);
+};
 /*------------------------------------------------------------------
 Banner slider block - Flickity
-------------------------------------------------------------------*/ new (0, _flickityDefault.default)(".collections__slider", {
+------------------------------------------------------------------*/ if ((0, _lib.$)(".collections__slider")) new (0, _flickityDefault.default)(".collections__slider", {
     wrapAround: false,
     pageDots: false,
     prevNextButtons: false,

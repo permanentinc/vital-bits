@@ -1,0 +1,40 @@
+.blog {
+    position: relative;
+    overflow: hidden;
+    padding-top: 16rem;
+
+    &-content {
+        margin: 0 auto 10rem;
+        padding: 0 2rem;
+        max-width: var(--inner-content-width);
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--green);
+        }
+    }
+
+    &-wave2,
+    &-wave1 {
+        @include svg(1366, 768);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        transform: translateY(0%) translateX(-50%) rotate(-40deg);
+        pointer-events: none;
+        z-index: -1;
+
+        path {
+            stroke: var(--green);
+        }
+    }
+
+    &-wave2 {
+        transform: translateY(-50%) translateX(-50%) rotate(-220deg);
+    }
+}

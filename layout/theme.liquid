@@ -82,12 +82,7 @@
         --pink-light: #F7D8DF;
         --purple-light: #DFDFEE;
         --blue-light: #E1EDF9;
-        --blue: #557FC0;
-        --green: #54BAAB;
-        --yellow-light: #FFEFB1;
-        --pink-light: #F7D8DF;
-        --purple-light: #DFDFEE;
-        --blue-light: #E1EDF9;
+        --blue-mid: #A5D1D9;
         --blue: #557FC0;
         --green: #54BAAB;
 
@@ -156,15 +151,9 @@
     {% section 'header' %}
 
     <div class="blur">
-      {%- liquid
-        section 'banner'
-        section 'collections-block'
-        section 'grid-block'
-        section 'hero-block'
-        section 'instagram-block'
-      -%}
-
       {{ content_for_layout }}
+
+      {% section 'instagram-block' %}
     </div>
 
     {% comment %}

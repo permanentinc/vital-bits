@@ -1,1 +1,54 @@
-<h1>Main Article</h1>
+<div class="banner-blog">
+  <div class="banner-blog-wrap">
+    <div class="banner-blog-text">
+      <div class="banner-blog-text__constraint">
+        <h6 class="white">
+          <b>{{ article.tags }}</b>
+        </h6>
+        <h1 class="white">
+          <b>
+            {{ article.title }}
+          </b>
+        </h1>
+        <p class="white">{{ article.excerpt }}</p>
+      </div>
+    </div>
+
+    <div class="banner-blog-image">
+      <img
+        src="{{ article.image | image_url: width: 640, height: 480 }}"
+        alt="grid item image"
+        loading="lazy"
+        width="640"
+        height="480"
+      >
+      <div class="banner-blog-image__shadow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="blog">
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="blog-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="blog-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="blog-content">
+    {{ article.content }}
+  </div>
+</div>
+
+{%- render 'pagination', paginate: paginate -%}

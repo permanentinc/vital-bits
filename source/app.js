@@ -99,6 +99,29 @@ const marquee = anime({
     autoplay: false
 });
 
+/**
+ * Define the square animation
+ */
+const blog_image = anime({
+    targets: '.banner-blog-image',
+    rotateX: '10',
+    rotateY: '-10',
+    scale: 1.1,
+    easing: 'linear',
+    autoplay: false
+});
+
+
+/**
+ * Define the square animation
+ */
+const blog_image_shadow = anime({
+    targets: '.banner-blog-image__shadow',
+    opacity: 1,
+    easing: 'linear',
+    autoplay: false
+});
+
 
 /**
  * Calculate the scroll percentage position
@@ -110,20 +133,27 @@ const scrollPercent = () => (document.documentElement.scrollTop + document.body.
  * Add a scroll listener on the window object to
  * control animations based on scroll percentage.
  */
-window.onscroll = () => marquee.seek((scrollPercent() / 100) * marquee.duration);
+window.onscroll = () => {
+    console.log(scrollPercent() / 100 * blog_image.duration)
+
+    marquee.seek((scrollPercent() / 100) * marquee.duration);
+    blog_image.seek((scrollPercent() / 100) * blog_image.duration);
+    blog_image_shadow.seek((scrollPercent() / 100) * blog_image_shadow.duration);
+};
 
 
 /*------------------------------------------------------------------
 Banner slider block - Flickity
 ------------------------------------------------------------------*/
 
-new Flickity('.collections__slider', {
-    wrapAround: false,
-    pageDots: false,
-    prevNextButtons: false,
-    initialIndex: (window.innerWidth > 768) ? 1 : 0
-});
-
+if ($('.collections__slider')) {
+    new Flickity('.collections__slider', {
+        wrapAround: false,
+        pageDots: false,
+        prevNextButtons: false,
+        initialIndex: (window.innerWidth > 768) ? 1 : 0
+    });
+}
 
 /*------------------------------------------------------------------
 In view elements
