@@ -2308,6 +2308,7 @@ a.link:hover, a:not([class]):hover {
 
 .blog {
   padding-top: 16rem;
+  padding-bottom: 8rem;
   position: relative;
   overflow: hidden;
 }
@@ -2320,6 +2321,7 @@ a.link:hover, a:not([class]):hover {
 
 .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
   color: var(--green);
+  margin-bottom: 3rem;
 }
 
 .blog-wave2, .blog-wave1 {
@@ -2353,6 +2355,91 @@ a.link:hover, a:not([class]):hover {
 
 .blog-wave2 {
   transform: translateY(-50%)translateX(-50%)rotate(-220deg);
+}
+
+.related-articles {
+  padding: 0 2rem 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.related-articles-wave2, .related-articles-wave1 {
+  pointer-events: none;
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  left: 80%;
+  transform: translateY(0%)translateX(-50%)rotate(-40deg);
+}
+
+.related-articles-wave2:after, .related-articles-wave1:after {
+  content: "";
+  padding-bottom: 56.2225%;
+  display: block;
+  position: relative;
+}
+
+.related-articles-wave2 svg, .related-articles-wave1 svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.related-articles-wave2 path, .related-articles-wave1 path {
+  stroke: var(--green);
+}
+
+.related-articles-wave2 {
+  transform: translateY(-50%)translateX(-50%)rotate(-220deg);
+}
+
+.related-articles-intro {
+  max-width: var(--inner-content-width);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto 2rem;
+  display: flex;
+}
+
+.related-articles-grid {
+  max-width: var(--content-width);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  display: flex;
+}
+
+.related-articles-grid__item {
+  width: 33.3333%;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.related-articles-grid__item__image {
+  margin-bottom: 2rem;
+}
+
+.related-articles-grid__item__image img {
+  border-radius: 4px;
+}
+
+.related-articles-grid__item__content {
+  padding-bottom: 5rem;
+}
+
+.related-articles-grid__item__content h6 {
+  text-transform: uppercase;
+  color: var(--grey-light);
+}
+
+.related-articles-grid__item__content span {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

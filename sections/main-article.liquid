@@ -51,4 +51,80 @@
   </div>
 </div>
 
-{%- render 'pagination', paginate: paginate -%}
+{% comment %}
+  Related articles
+{% endcomment %}
+
+<div class="related-articles">
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="related-articles-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Wave top left
+  {% endcomment %}
+  <div class="related-articles-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Intro
+  {% endcomment %}
+  <div class="related-articles-intro">
+    <h2 class="colour--green"><b>You may also like...</b></h2>
+    <a href="/blogs/news" class="arrow-link">Browse all</a>
+  </div>
+
+  {% comment %}
+    Intro
+  {% endcomment %}
+  <div class="related-articles-grid">
+    {% for tag in article.tags %}
+      {% assign counter = 0 %}
+      {% assign skip_articles = article.handle | split: '.....' %}
+      {% for related_article in blog.articles %}
+        {% if related_article.tags contains tag and counter < 3 %}
+          {% unless skip_articles contains related_article.handle %}
+            {% assign counter = counter | plus: 1 %}
+            {% assign temp = related_article.handle | split: '.....' %}
+            {% assign skip_articles = skip_articles | concat: temp %}
+
+            <a href="{{ related_article.link }}" class="related-articles-grid__item">
+              <div class="related-articles-grid__item__image">
+                <img
+                  src="{{ related_article.image | image_url: width: 640, height: 480 }}"
+                  alt="grid item image"
+                  loading="lazy"
+                  width="640"
+                  height="480"
+                >
+              </div>
+
+              <div class="related-articles-grid__item__content">
+                <h6>
+                  <b>{{ related_article.tags }}</b>
+                </h6>
+                <h4 class="colour--green">
+                  <b>
+                    {{ related_article.title }}
+                  </b>
+                </h4>
+                <p>{{ related_article.excerpt }}</p>
+                <p>
+                  <span class="arrow-link">Read now</span>
+                </p>
+              </div>
+            </a>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>

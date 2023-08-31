@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     padding-top: 16rem;
+    padding-bottom: 8rem;
 
     &-content {
         margin: 0 auto 10rem;
@@ -15,6 +16,7 @@
         h5,
         h6 {
             color: var(--green);
+            margin-bottom: 3rem;
         }
     }
 
