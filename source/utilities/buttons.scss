@@ -36,6 +36,10 @@
         transform: translateY(1px);
     }
 
+    &.wide {
+        padding: 1.25rem 8rem 1.65rem;
+    }
+
     &.full {
         display: block;
     }

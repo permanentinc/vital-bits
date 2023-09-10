@@ -315,6 +315,10 @@ a.link:hover, a:not([class]):hover {
   transform: translateY(1px);
 }
 
+.shopify-challenge__button.wide, .button.wide {
+  padding: 1.25rem 8rem 1.65rem;
+}
+
 .shopify-challenge__button.full, .button.full {
   display: block;
 }
@@ -2357,13 +2361,13 @@ a.link:hover, a:not([class]):hover {
   transform: translateY(-50%)translateX(-50%)rotate(-220deg);
 }
 
-.related-articles {
+.articles, .related-articles {
   padding: 0 2rem 12rem;
   position: relative;
   overflow: hidden;
 }
 
-.related-articles-wave2, .related-articles-wave1 {
+.articles-wave2, .articles-wave1, .related-articles-wave2, .related-articles-wave1 {
   pointer-events: none;
   z-index: -1;
   width: 100%;
@@ -2373,14 +2377,14 @@ a.link:hover, a:not([class]):hover {
   transform: translateY(0%)translateX(-50%)rotate(-40deg);
 }
 
-.related-articles-wave2:after, .related-articles-wave1:after {
+.articles-wave2:after, .articles-wave1:after, .related-articles-wave2:after, .related-articles-wave1:after {
   content: "";
   padding-bottom: 56.2225%;
   display: block;
   position: relative;
 }
 
-.related-articles-wave2 svg, .related-articles-wave1 svg {
+.articles-wave2 svg, .articles-wave1 svg, .related-articles-wave2 svg, .related-articles-wave1 svg {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -2388,15 +2392,31 @@ a.link:hover, a:not([class]):hover {
   left: 0;
 }
 
-.related-articles-wave2 path, .related-articles-wave1 path {
+.articles-wave2 path, .articles-wave1 path, .related-articles-wave2 path, .related-articles-wave1 path {
   stroke: var(--green);
 }
 
-.related-articles-wave2 {
+.articles-wave2, .related-articles-wave2 {
   transform: translateY(-50%)translateX(-50%)rotate(-220deg);
 }
 
-.related-articles-intro {
+.articles-filters, .related-articles-filters {
+  max-width: var(--content-width);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto 2rem;
+  display: flex;
+}
+
+.articles-filters .button, .related-articles-filters .button {
+  margin-right: 2rem;
+}
+
+.articles-filters .button.active, .related-articles-filters .button.active {
+  background: var(--blue-mid);
+}
+
+.articles-intro, .related-articles-intro {
   max-width: var(--inner-content-width);
   flex-wrap: wrap;
   justify-content: space-between;
@@ -2404,42 +2424,62 @@ a.link:hover, a:not([class]):hover {
   display: flex;
 }
 
-.related-articles-grid {
+.articles-grid, .related-articles-grid {
   max-width: var(--content-width);
   flex-wrap: wrap;
-  justify-content: space-between;
   margin: 0 auto;
   display: flex;
 }
 
-.related-articles-grid__item {
+.articles-grid__item, .related-articles-grid__item {
   width: 33.3333%;
   margin-bottom: 2rem;
   padding: 0 1rem;
   position: relative;
 }
 
-.related-articles-grid__item__image {
+@media only screen and (max-width: 967px) {
+  .articles-grid__item, .related-articles-grid__item {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .articles-grid__item, .related-articles-grid__item {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.articles-grid__item__image, .related-articles-grid__item__image {
   margin-bottom: 2rem;
 }
 
-.related-articles-grid__item__image img {
+.articles-grid__item__image img, .related-articles-grid__item__image img {
   border-radius: 4px;
 }
 
-.related-articles-grid__item__content {
+.articles-grid__item__content, .related-articles-grid__item__content {
   padding-bottom: 5rem;
 }
 
-.related-articles-grid__item__content h6 {
+.articles-grid__item__content h6, .related-articles-grid__item__content h6 {
   text-transform: uppercase;
   color: var(--grey-light);
 }
 
-.related-articles-grid__item__content span {
+.articles-grid__item__content span, .related-articles-grid__item__content span {
   position: absolute;
   bottom: 2rem;
   left: 1rem;
+}
+
+.articles {
+  padding-top: 10rem;
+}
+
+.articles-grid__item {
+  margin-bottom: 6rem;
 }
 
 /*# sourceMappingURL=style.css.map */
