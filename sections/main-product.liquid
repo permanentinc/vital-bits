@@ -1,1 +1,138 @@
-<h1>Main Product</h1>
+<div class="banner__push"></div>
+
+<div class="product">
+  <div class="product-wrap">
+    <div class="product-gallery">
+      <img
+        src="{{ 'product.jpeg' | asset_url }}"
+        alt="product image"
+        loading="lazy"
+        width="667"
+        height="667"
+      >
+    </div>
+
+    <div class="product-details">
+      <p><b>PREGNANCY</b></p>
+      <h1>Sitz Bath</h1>
+      <p class="h4"></p>
+      <p>
+        Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat
+        voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut
+        consequatur voluptatem.
+      </p>
+
+      <div class="product-actions">
+        <div class="quantity">
+          <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
+          <div class="quantity-input">
+            <input type="text" value="1">
+          </div>
+          <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
+        </div>
+        <a href="#" class="button">ADD TO CART</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="related-products">
+  <div class="related-products-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="related-products-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Slider
+  {% endcomment %}
+  <div class="related-products__list">
+    {% comment %}
+      Title
+    {% endcomment %}
+    <div class="related-products__list__title">
+      <h2 class="colour--white">You may also like...</h2>
+    </div>
+
+    {% comment %}
+      Item
+    {% endcomment %}
+    <a href="#" class="related-products__list__item related-products__list__item--product">
+      <div class="related-products__list__item__image">
+        <img
+          src="{{ 'collections-3.jpg' | asset_url }}"
+          alt="related-products item image"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      </div>
+      <div class="related-products__list__item__title">
+        <h6><b>Product title</b></h6>
+        <h6><b>$29.99</b></h6>
+      </div>
+      <div class="related-products__list__item__description">
+        <p>This is a short product description.</p>
+      </div>
+    </a>
+    {% comment %}
+      Item
+    {% endcomment %}
+    <a href="#" class="related-products__list__item related-products__list__item--product">
+      <div class="related-products__list__item__image">
+        <img
+          src="{{ 'collections-3.jpg' | asset_url }}"
+          alt="related-products item image"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      </div>
+      <div class="related-products__list__item__title">
+        <h6><b>Product title</b></h6>
+        <h6><b>$29.99</b></h6>
+      </div>
+      <div class="related-products__list__item__description">
+        <p>This is a short product description.</p>
+      </div>
+    </a>
+    {% comment %}
+      Item
+    {% endcomment %}
+    <a href="#" class="related-products__list__item related-products__list__item--product">
+      <div class="related-products__list__item__image">
+        <img
+          src="{{ 'collections-3.jpg' | asset_url }}"
+          alt="related-products item image"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      </div>
+      <div class="related-products__list__item__title">
+        <h6><b>Product title</b></h6>
+        <h6><b>$29.99</b></h6>
+      </div>
+      <div class="related-products__list__item__description">
+        <p>This is a short product description.</p>
+      </div>
+    </a>
+  </div>
+
+  {% comment %}
+    Marquee
+  {% endcomment %}
+  <div class="related-products__marquee">
+    <div class="related-products__marquee__animation">
+      <span>Through lifes most vital moments</span>
+      <span>Through lifes most vital moments</span>
+      <span>Through lifes most vital moments</span>
+    </div>
+  </div>
+</div>

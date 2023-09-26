@@ -93,7 +93,7 @@ window.toggleMobileNavigation = () => {
  * Define the square animation
  */
 const marquee = anime({
-    targets: '.collections__marquee__animation',
+    targets: '.collections__marquee__animation,.related-products__marquee__animation',
     translateX: '-10%',
     easing: 'linear',
     autoplay: false
@@ -134,8 +134,6 @@ const scrollPercent = () => (document.documentElement.scrollTop + document.body.
  * control animations based on scroll percentage.
  */
 window.onscroll = () => {
-    console.log(scrollPercent() / 100 * blog_image.duration)
-
     marquee.seek((scrollPercent() / 100) * marquee.duration);
     blog_image.seek((scrollPercent() / 100) * blog_image.duration);
     blog_image_shadow.seek((scrollPercent() / 100) * blog_image_shadow.duration);
@@ -164,3 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // On escape press toggle a class on the body
 document.addEventListener('keyup', e => (e.key === 'Escape') ? toggleMobileNavigation() : null);
+
+window.changeQuantity = (event, amount) => {
+
+    let input = event.target.parentElement.querySelector('input');
+    let quantity = parseInt(input.value);
+
+    quantity = (quantity + amount < 1) ? 1 : quantity + amount;
+
+    input.value = quantity;
+}
