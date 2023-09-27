@@ -2,7 +2,7 @@
 Imports
 ------------------------------------------------------------------*/
 
-import { $, $$ } from './lib';
+import { $ } from './lib';
 
 /*------------------------------------------------------------------
 Search interactions
@@ -81,8 +81,6 @@ const template_search_placeholder = () => {
 const template_search_result = (result) => {
     // Only return a string if there is a result to augment
     if (result) {
-
-
         return /*html*/`
             <a href="${result.url}" class="search-pane-results-grid__item">
                 <div class="search-pane-results-grid__item__image">
@@ -169,6 +167,7 @@ const show_predicitive_search = () => $search_results.classList.add('active');
 */
 const hide_predicitive_search = () => $search_results.classList.remove('active');
 
+
 /**
  * 
  * Fetch the search results - wrapped in a debounce method to prevent excessive requests
@@ -185,7 +184,6 @@ const search = () => {
     // Assign our signal 
     const { signal } = controller;
 
-
     if ($search_input.value.length > 0) {
         // Log our fetch request intent
         console.time('search performed in ');
@@ -194,13 +192,13 @@ const search = () => {
         fetch(`/search/suggest.json?q=${encodeURIComponent($search_input.value)}&resources[type]=product,page,article,collection&resources[limit]=4&resources[options][unavailable_products]=last&`, { signal })
             .then(response => response.text())
             .then(data => {
+
                 console.timeEnd('search performed in ');
 
                 // Log out our new results for debugging
                 data = JSON.parse(data);
-                search_results = data.resources.results.products;
 
-                console.log(search_results);
+                search_results = data.resources.results.products;
 
                 // Update the search results grid with the new results or a nothing found message
                 (search_results.length > 0) ? update_search_results() : no_results_found();
@@ -229,7 +227,6 @@ const activate_search = (event) => {
     // Only show the animation if a user has started typing
     if ($search_input.value.length && input.match(letterNumber)) show_search_animation();
 };
-
 
 // Event handler for the search input - this is debounced to prevent excessive requests
 $search_input.addEventListener('input', debounce(search, 200));

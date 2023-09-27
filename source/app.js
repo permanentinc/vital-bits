@@ -11,6 +11,7 @@ Imports
 
 import { $, $$ } from './lib';
 import './search';
+import './shop';
 import Flickity from 'flickity';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';

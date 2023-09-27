@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .shopify-challenge__button,
 .button {
     cursor: pointer;
@@ -13,6 +15,7 @@
     transition: all 111ms ease;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(#000, 0.05);
+    font-size: 1.6rem;
 
     &:before {
         @include pseudo;
@@ -50,4 +53,48 @@
     margin: 2rem auto !important;
 }
 
+$size: 2.4rem;
 
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+}
+
+.loader {
+    left: 0;
+    right: 0;
+    top: 14px;
+    margin: 0 auto;
+    font-size: 10px;
+    position: absolute;
+    text-indent: -9999em;
+    border-top: math.div($size, 10) solid rgba(white, 0.2);
+    border-right: math.div($size, 10) solid rgba(white, 0.2);
+    border-bottom: math.div($size, 10) solid rgba(white, 0.2);
+    border-left: math.div($size, 10) solid white;
+    transform: translateZ(0);
+    animation: spinner 1s infinite linear;
+    display: none;
+}
+
+.busy {
+    position: relative;
+    pointer-events: none;
+    color: var(--green) !important;
+
+    .loader {
+        display: block;
+    }
+}

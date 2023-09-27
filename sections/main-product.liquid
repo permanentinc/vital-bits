@@ -14,24 +14,46 @@
 
     <div class="product-details">
       <p><b>PREGNANCY</b></p>
-      <h1>Sitz Bath</h1>
+      <h1>
+        <b>{{ product.title | escape }}</b>
+      </h1>
       <p class="h4"></p>
-      <p>
-        Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat
-        voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut
-        consequatur voluptatem.
-      </p>
+      {%- if product.description != blank -%}
+        <p>
+          {{ product.description }}
+        </p>
+      {%- endif -%}
 
-      <div class="product-actions">
-        <div class="quantity">
-          <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
-          <div class="quantity-input">
-            <input type="text" value="1">
+      {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
+        <select style="display:nones !important;" name="id" id="ProductSelect-{{ section.id }}" class="[ js-variant ]">
+          {% for variant in product.variants %}
+            <option
+              value="{{ variant.id }}"
+            >
+              {{ variant.title | downcase }}
+              {%- if variant.available == false %} - Sold out{% endif %}
+            </option>
+          {% endfor %}
+        </select>
+
+        <div class="product-actions">
+          <div class="quantity">
+            <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
+            <div class="quantity-input">
+              <input type="text" value="1">
+            </div>
+            <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
           </div>
-          <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
+          <a href="#" class="button [ js-add-to-cart ]">
+            {% unless product.available %}
+              Sold Out
+            {% else %}
+              Add to Cart
+            {% endunless %}
+            <span class="loader"></span>
+          </a>
         </div>
-        <a href="#" class="button">ADD TO CART</a>
-      </div>
+      {% endform %}
     </div>
   </div>
 </div>
@@ -136,3 +158,56 @@
     </div>
   </div>
 </div>
+
+{%- liquid
+  if product.selected_or_first_available_variant.featured_media
+    assign seo_media = product.selected_or_first_available_variant.featured_media
+  else
+    assign seo_media = product.featured_media
+  endif
+-%}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {% if seo_media -%}
+      "image": [
+        {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+      ],
+    {%- endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {%- endif %}
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 12 -%}
+            "gtin12": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 13 -%}
+            "gtin13": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 14 -%}
+            "gtin14": {{ variant.barcode }},
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "url" : {{ request.origin | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
