@@ -106,7 +106,95 @@
                 }
             }
         }
+
         &-items {
+            padding: 1rem 2rem;
+
+            &__item {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 1px solid var(--off-white);
+                margin-bottom: 2rem;
+                padding: 1rem 0;
+                transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+                opacity: 0;
+                backface-visibility: hidden;
+                transform: translateX(2rem) translateY(4rem);
+                will-change: opacity, transform;
+
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: 0.1s * $i;
+                    }
+                }
+
+                &__image {
+                    width: 10rem;
+                    position: relative;
+                }
+
+                &__details {
+                    width: calc(100% - 10rem);
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    position: relative;
+
+                    p {
+                        margin: 0;
+
+                        &:first-of-type {
+                            color: black;
+                        }
+                    }
+
+                    &__price {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        margin: 0;
+                    }
+
+                    &__remove {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+
+                        svg {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+
+                        path {
+                            fill: var(--grey-light);
+                        }
+                    }
+                }
+            }
+
+            .quantity {
+                margin-top: 0.5rem;
+                width: 10rem;
+                border-left: 1px solid var(--off-white);
+
+                &-add,
+                &-remove {
+                    width: 3rem;
+                    font-size: 2rem;
+                    border-right: 1px solid var(--off-white);
+                    line-height: 1.9rem;
+                }
+
+                &-input {
+                    width: calc(100% - 6rem);
+                    border-right: 1px solid var(--off-white);
+
+                    input {
+                        @include bold;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
         }
 
         &-actions {
@@ -199,6 +287,11 @@
         &-draw {
             opacity: 1;
             transform: rotateY(0);
+        }
+
+        .sidecart-draw-items__item {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
         }
     }
 }

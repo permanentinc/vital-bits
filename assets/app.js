@@ -5305,12 +5305,71 @@ exports.default = anime;
 Imports
 ------------------------------------------------------------------*/ var _lib = require("./lib");
 var _notyf = require("notyf");
+var _templates = require("./templates");
 // Base notification styles
 let notyf = new (0, _notyf.Notyf)({
     duration: 4000,
     dismissible: true,
     icon: false
 });
+/**
+ * 
+ * Update the cart count in the header
+ * 
+ * @param {numbber} count 
+ */ const updateCartCount = (count = 0)=>{
+    let $cart_count = (0, _lib.$)(".js-cart-count");
+    $cart_count.innerHTML = `<b>${count}</b>`;
+    $cart_count.classList.toggle("active", count > 0);
+};
+const updateSideCart = (cart)=>{
+    let html = "";
+    let $side_cart = (0, _lib.$)(".sidecart-draw-items");
+    cart.items.forEach((item, index)=>{
+        html += (0, _templates.sidecart_item)(item, index);
+    });
+    console.log(html);
+    $side_cart.innerHTML = html;
+};
+window.updateCart = ()=>{
+    // Send the request to Shopify
+    fetch("/cart.js").then((response)=>response.json()).then((data)=>{
+        console.log(data);
+        // Update the cart count
+        updateCartCount(data.item_count);
+        // Update the main sidecart
+        updateSideCart(data);
+    }).catch((data)=>{
+        // Show an error message in the console
+        console.log(data);
+    });
+};
+document.body.classList.add("sidecart-visible");
+updateCart();
+window.changeSideCartQuantity = (event, amount)=>{
+    let input = event.target.parentElement.querySelector("input");
+    let quantity = parseInt(input.value);
+    quantity = quantity + amount < 1 ? 1 : quantity + amount;
+    input.value = quantity;
+    let data = {
+        line: parseInt(event.target.closest(".sidecart-draw-items__item").dataset.line),
+        quantity
+    };
+    // Send the request to Shopify
+    fetch("/cart/change.js", {
+        method: "POST",
+        body: JSON.stringify(data)
+    }).then((response)=>response.json()).then((data)=>{
+        console.log(data);
+        // Update the cart count
+        updateCartCount(data.item_count);
+        // Update the main sidecart
+        updateSideCart(data);
+    }).catch((data)=>{
+        // Show an error message in the console
+        console.log(data);
+    });
+};
 /**
  * 
  * Add to cart interactions
@@ -5327,6 +5386,8 @@ let notyf = new (0, _notyf.Notyf)({
         method: "POST",
         body: new FormData(form)
     }).then((response)=>response.json()).then((data)=>{
+        // Update the cart sitewide
+        updateCart();
         // Remove the loading animation from the button
         button.classList.remove("busy");
         // Show a success message
@@ -5342,7 +5403,7 @@ let notyf = new (0, _notyf.Notyf)({
     });
 });
 
-},{"./lib":"acGTP","notyf":"kobg9"}],"kobg9":[function(require,module,exports) {
+},{"./lib":"acGTP","notyf":"kobg9","./templates":"bituW"}],"kobg9":[function(require,module,exports) {
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -5804,6 +5865,42 @@ var NotyfView = /** @class */ function() {
     };
     return Notyf;
 }();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"bituW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
+const sidecart_item = (item, index)=>{
+    return /*html*/ `
+        <div class="sidecart-draw-items__item" data-line="${index + 1}">
+            <div class="sidecart-draw-items__item__image">
+                <img src="${item.image}" loading="lazy" alt="${item.product_title}">
+            </div>
+            <div class="sidecart-draw-items__item__details">
+                
+                <a href="#" class="sidecart-draw-items__item__details__remove">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
+                </a>
+
+                <p><b>${item.product_title}</b></p>
+                <p class="small">
+                    ${item.product_title}
+                    ${item.variant_title ? `<br>${item.variant_title}` : ``}
+                </p>
+
+                <div class="quantity">
+                  <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
+                  <div class="quantity-input">
+                    <input type="text" value="1">
+                  </div>
+                  <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
+                </div>
+
+                <p class="sidecart-draw-items__item__details__price">$${item.price / 100}</p>
+            </div>
+        </div>
+    `;
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
 

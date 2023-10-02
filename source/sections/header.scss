@@ -169,6 +169,32 @@
                 position: relative;
                 top: 2px;
             }
+
+            &__count {
+                position: absolute;
+                width: 1.6rem;
+                height: 1.6rem;
+                border-radius: 10000rem;
+                color: var(--green);
+                font-size: 1rem;
+                text-align: center;
+                line-height: 1.2rem;
+                background: rgba(white, 1);
+                border-radius: 0.2rem;
+                top: 2.3rem;
+                right: 1.45rem;
+                height: 1.3rem;
+                transition: all $fast;
+                opacity: 0;
+                visibility: hidden;
+                scale: 0;
+
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                    scale: 1;
+                }
+            }
         }
 
         &__navigation {

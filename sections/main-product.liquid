@@ -44,14 +44,11 @@
             </div>
             <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
           </div>
-          <a href="#" class="button [ js-add-to-cart ]">
-            {% unless product.available %}
-              Sold Out
-            {% else %}
-              Add to Cart
-            {% endunless %}
-            <span class="loader"></span>
-          </a>
+          {% unless product.available %}
+            <a href="#" class="button" disabled>Sold out</a>
+          {% else %}
+            <a href="#" class="button [ js-add-to-cart ]">Add to Cart <span class="loader"></span></a>
+          {% endunless %}
         </div>
       {% endform %}
     </div>
