@@ -85,3 +85,56 @@
     </a>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Important bits",
+      "label": "Heading"
+    },
+    {
+      "id": "link_label",
+      "type": "text",
+      "label": "Link label"
+    },
+    {
+      "id": "link_link",
+      "type": "url",
+      "label": "Link"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "name": "Grid Item",
+      "type": "grid_item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "copy",
+          "type": "text",
+          "label": "Copy"
+        },
+        {
+          "id": "link_link",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
