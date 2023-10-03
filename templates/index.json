@@ -1,5 +1,14 @@
 {
   "sections": {
+    "ad3834d4-e660-4815-a38c-63cd6e3f84a9": {
+      "type": "banner",
+      "settings": {
+        "heading": "<h1><strong>Through lifes most <br\/>vital moments<\/strong><\/h1>",
+        "image": "shopify:\/\/shop_images\/banner.jpg",
+        "link_label": "Shop now",
+        "link_link": "shopify:\/\/collections"
+      }
+    },
     "grid-block": {
       "type": "grid-block",
       "blocks": {
@@ -51,6 +60,7 @@
     }
   },
   "order": [
+    "ad3834d4-e660-4815-a38c-63cd6e3f84a9",
     "grid-block",
     "hero-block"
   ]
