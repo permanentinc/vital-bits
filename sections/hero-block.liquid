@@ -1,14 +1,12 @@
 <div class="hero">
   <div class="hero__background">
-    {{ block.settings.image | image_url: width: 1640, height: 800 | image_tag: loading: 'lazy' }}
-{% comment %} 
     <img
-      src="{{ 'hero.jpg' | asset_url }}"
-      alt="hero item image"
+      src="{{ block.settings.image | image_url: width: 1640 }}"
+      alt="{{ block.settings.image.alt | escape }}"
       loading="lazy"
       width="1640"
       height="800"
-    > {% endcomment %}
+    >
   </div>
 
   <div class="hero__wrap">
