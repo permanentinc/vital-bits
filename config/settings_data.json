@@ -1,1 +1,31 @@
-[]
+{
+  "current": {
+    "checkout_accent_color": "#60b5ad",
+    "checkout_button_color": "#60b5ad",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "instagram-block": {
+        "type": "instagram-block",
+        "settings": {
+        }
+      },
+      "sidecart": {
+        "type": "sidecart",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}
