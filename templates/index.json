@@ -1,6 +1,11 @@
 {
   "sections": {
-    "grid-block": {}
+    "grid-block": {
+      "type": "grid-block",
+      "settings": {
+        "title": "Example grid block"
+      }
+    }
   },
   "order": [
     "grid-block"
