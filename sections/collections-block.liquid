@@ -3,74 +3,22 @@
     Grid
   {% endcomment %}
   <div class="collections__grid">
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__item" data-id="1">
-      <div class="collections__item__image">
-        <img
-          src="{{ 'collections-1.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
+    fdes
+    {%- for block in section.blocks -%}
+      {% assign count = count | plus: 1 %}
+      <div class="collections__item" data-id="{{ count }}">
+        <div class="collections__item__image">
+          {%- if block.settings.thumbnail != blank -%}
+            {{ block.settings.thumbnail | image_url: width: 400, height: 400 | image_tag }}
+          {%- endif -%}
+        </div>
+        <div class="collections__item__title">
+          <h3 class="colour--white">
+            <b>{{ collection.title }}</b>
+          </h3>
+        </div>
       </div>
-      <div class="collections__item__title">
-        <h3 class="colour--white"><b>V-Delivery</b></h3>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__item" data-id="2">
-      <div class="collections__item__image">
-        <img
-          src="{{ 'collections-2.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__item__title">
-        <h3 class="colour--white"><b>C-Section Delivery</b></h3>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__item" data-id="3">
-      <div class="collections__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__item__title">
-        <h3 class="colour--white"><b>Pregnancy</b></h3>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__item" data-id="4">
-      <div class="collections__item__image">
-        <img
-          src="{{ 'collections-4.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__item__title">
-        <h3 class="colour--white"><b>Breast Feeding</b></h3>
-      </div>
-    </div>
+    {%- endfor -%}
   </div>
 
   {% comment %}
@@ -180,9 +128,9 @@
   {% endcomment %}
   <div class="collections__marquee">
     <div class="collections__marquee__animation">
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
+      <span>{{ section.settinggs.marquee }}</span>
+      <span>{{ section.settinggs.marquee }}</span>
+      <span>{{ section.settinggs.marquee }}</span>
     </div>
   </div>
 </div>
@@ -198,6 +146,7 @@
       "label": "Marquee"
     }
   ],
+  "max_blocks": 4,
   "blocks": [
     {
       "name": "Collection Item",
