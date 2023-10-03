@@ -11,10 +11,20 @@
             "link_link": "shopify:\/\/blogs\/news",
             "image": "shopify:\/\/shop_images\/father-holding-baby-daughter.jpg"
           }
+        },
+        "325f533f-69ab-4121-9411-7e4d3783bad6": {
+          "type": "grid_item",
+          "settings": {
+            "title": "The support you really need",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "link_link": "shopify:\/\/blogs\/news\/consectetur-adipiscing-elit",
+            "image": "shopify:\/\/shop_images\/father-holding-baby-daughter.jpg"
+          }
         }
       },
       "block_order": [
-        "926e41aa-f2a1-427a-af2d-061fe052b2b5"
+        "926e41aa-f2a1-427a-af2d-061fe052b2b5",
+        "325f533f-69ab-4121-9411-7e4d3783bad6"
       ],
       "settings": {
         "heading": "Important bits",
