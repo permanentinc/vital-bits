@@ -2,6 +2,20 @@
   "sections": {
     "grid-block": {
       "type": "grid-block",
+      "blocks": {
+        "926e41aa-f2a1-427a-af2d-061fe052b2b5": {
+          "type": "grid_item",
+          "settings": {
+            "title": "Tips for breast feeding",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "link_link": "shopify:\/\/blogs\/news",
+            "image": "shopify:\/\/shop_images\/father-holding-baby-daughter.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "926e41aa-f2a1-427a-af2d-061fe052b2b5"
+      ],
       "settings": {
         "heading": "Important bits",
         "link_label": "",
