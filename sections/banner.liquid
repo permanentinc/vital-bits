@@ -1,6 +1,8 @@
 <div class="banner">
   <div class="banner-image">
-    {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
+    {%- endif -%}
   </div>
 
   <div class="banner-text">

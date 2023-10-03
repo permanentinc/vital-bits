@@ -1,6 +1,8 @@
 <div class="hero">
   <div class="hero__background">
-    {{ section.settings.image | image_url: width: 1500, height: 800 | image_tag }}
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1500, height: 800 | image_tag }}
+    {%- endif -%}
   </div>
 
   <div class="hero__wrap">
