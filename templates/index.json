@@ -11,6 +11,28 @@
     },
     "2e7b8157-5d21-422b-80a8-300911cfa1b4": {
       "type": "collections-block",
+      "blocks": {
+        "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-1.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "v-delivery"
+          }
+        },
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-2.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "c-section-delivery"
+          }
+        }
+      },
+      "block_order": [
+        "26b9ebd2-ff12-4d6f-b12a-0195c4812106",
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac"
+      ],
       "settings": {
         "marquee": "Through lifes most vital moments"
       }
