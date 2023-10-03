@@ -190,8 +190,27 @@
 {% schema %}
 {
   "name": "Collection",
-  "settings": [],
-  "blocks": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "marquee",
+      "default": "Through lifes most vital moments",
+      "label": "Marquee"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection Item",
+      "type": "collection_item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Collection"
