@@ -6,16 +6,14 @@
   <div class="banner-text">
     <h1 class="white">
       <b>
-        Through lifes most <br>
-        vital moments
+        {{ section.settings.heading }}
       </b>
     </h1>
     <p>
-      <a href="#" class="button">Shop now</a>
+      <a href="{{ section.settings.link_link }}" class="button">{{ section.settings.link_label }}</a>
     </p>
   </div>
 </div>
-
 
 {% schema %}
 {
@@ -36,10 +34,22 @@
       "id": "image",
       "type": "image_picker",
       "label": "Image"
+    },
+    {
+      "id": "link_label",
+      "type": "text",
+      "label": "Button label"
+    },
+    {
+      "id": "link_link",
+      "type": "url",
+      "label": "Button Link"
     }
   ],
-   "presets": [{
-    "name": "Banner"
-  }]
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
 }
 {% endschema %}
