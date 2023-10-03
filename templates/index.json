@@ -27,11 +27,20 @@
             "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
             "Collection": "c-section-delivery"
           }
+        },
+        "d378cc3d-6a59-4d94-b5df-516c0967eff0": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-3.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "frontpage"
+          }
         }
       },
       "block_order": [
         "26b9ebd2-ff12-4d6f-b12a-0195c4812106",
-        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac"
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac",
+        "d378cc3d-6a59-4d94-b5df-516c0967eff0"
       ],
       "settings": {
         "marquee": "Through lifes most vital moments"
