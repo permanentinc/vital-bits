@@ -1,12 +1,6 @@
 <div class="banner">
   <div class="banner-image">
-    <img
-      src="{{ 'banner.jpg' | asset_url }}"
-      alt="grid item image"
-      loading="lazy"
-      width="1640"
-      height="760"
-    >
+    {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
   </div>
 
   <div class="banner-text">
@@ -21,3 +15,28 @@
     </p>
   </div>
 </div>
+
+
+{% schema %}
+{
+  "name": "banner-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Through lifes most <br>vital moments<\/p>",
+      "label": "Heading"
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

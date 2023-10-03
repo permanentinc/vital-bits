@@ -5,27 +5,25 @@
     "sections": {
       "header": {
         "type": "header",
-        "settings": {
-        }
+        "settings": {}
       },
       "instagram-block": {
         "type": "instagram-block",
-        "settings": {
-        }
+        "settings": {}
+      },
+      "banner": {
+        "type": "banner-block",
+        "settings": {}
       },
       "sidecart": {
         "type": "sidecart",
-        "settings": {
-        }
+        "settings": {}
       },
       "footer": {
         "type": "footer",
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }
