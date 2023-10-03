@@ -3,11 +3,16 @@
     "grid-block": {
       "type": "grid-block",
       "settings": {
+        "heading": "Important bits",
+        "link_label": "",
+        "link_link": ""
       }
     },
     "hero-block": {
       "type": "hero-block",
       "settings": {
+        "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+        "image": "shopify:\/\/shop_images\/father-holding-baby-daughter.jpg"
       }
     }
   },
