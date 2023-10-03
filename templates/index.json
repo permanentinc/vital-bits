@@ -11,6 +11,46 @@
     },
     "2e7b8157-5d21-422b-80a8-300911cfa1b4": {
       "type": "collections-block",
+      "blocks": {
+        "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-1.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "v-delivery"
+          }
+        },
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-2.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "c-section-delivery"
+          }
+        },
+        "d378cc3d-6a59-4d94-b5df-516c0967eff0": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-3.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "frontpage"
+          }
+        },
+        "d683b406-8e0d-447b-ae6c-56ad44da3326": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-4.jpg",
+            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+            "Collection": "breast-feeding"
+          }
+        }
+      },
+      "block_order": [
+        "26b9ebd2-ff12-4d6f-b12a-0195c4812106",
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac",
+        "d378cc3d-6a59-4d94-b5df-516c0967eff0",
+        "d683b406-8e0d-447b-ae6c-56ad44da3326"
+      ],
       "settings": {
         "marquee": "Through lifes most vital moments"
       }
