@@ -3,7 +3,6 @@
     "grid-block": {
       "type": "grid-block",
       "settings": {
-        "title": "Example grid block"
       }
     }
   },
