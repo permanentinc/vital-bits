@@ -5,25 +5,22 @@
     "sections": {
       "header": {
         "type": "header",
-        "settings": {}
-      },
-      "instagram-block": {
-        "type": "instagram-block",
-        "settings": {}
-      },
-      "banner": {
-        "type": "banner-block",
-        "settings": {}
+        "settings": {
+        }
       },
       "sidecart": {
         "type": "sidecart",
-        "settings": {}
+        "settings": {
+        }
       },
       "footer": {
         "type": "footer",
-        "settings": {}
+        "settings": {
+        }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   }
 }
