@@ -25,64 +25,38 @@
 
   <div class="grid__wrap">
     <div class="grid__intro">
-      <h3 class="colour--primary"><b>Important bits</b></h3>
-      <p><a href="#" class="arrow-link">Shop Now</a></p>
+      <h3 class="colour--primary">
+        <b>{{ section.settings.heading }}</b>
+      </h3>
+      <p>
+        <a href="{{ section.settings.link_link }}" class="arrow-link">{{ section.settings.link_label }}</a>
+      </p>
     </div>
 
-    <a href="#" class="grid__item grid__item--large">
-      <div class="grid__item__image">
-        <img
-          src="{{ 'placeholder.jpg' | asset_url }}"
-          alt="grid item image"
-          loading="lazy"
-          width="690"
-          height="690"
-        >
-      </div>
-      <div class="grid__item__copy">
-        <h5 class="colour--white"><b>Tips for breast feeding</b></h5>
-        <p class="colour--white">
-          Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
-        </p>
-      </div>
-    </a>
+    {%- for block in section.blocks -%}
+      {% assign count = count | plus: 1 %}
 
-    <a href="#" class="grid__item grid__item--small">
-      <div class="grid__item__image">
-        <img src="http://placehold.it/1380x680" loading="lazy" width="600" height="300">
-        <img
-          src="{{ 'placeholder.jpg' | asset_url }}"
-          alt="grid item image"
-          loading="lazy"
-          width="690"
-          height="340"
-        >
-      </div>
-      <div class="grid__item__copy">
-        <h5 class="colour--white"><b>The support you really need</b></h5>
-        <p class="colour--white">
-          Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
-        </p>
-      </div>
-    </a>
-
-    <a href="#" class="grid__item grid__item--small">
-      <div class="grid__item__image">
-        <img
-          src="{{ 'placeholder.jpg' | asset_url }}"
-          alt="grid item image"
-          loading="lazy"
-          width="690"
-          height="340"
-        >
-      </div>
-      <div class="grid__item__copy">
-        <h5 class="colour--white"><b>Sleeping hacks from new mums</b></h5>
-        <p class="colour--white">
-          Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
-        </p>
-      </div>
-    </a>
+      <a
+        href="{{ block.settings.copy }}"
+        class="grid__item grid__item--{% if count == 1  %}large{% else %}small{% endif %}"
+      >
+        <div class="grid__item__image">
+          {% if count == 1 %}
+            {{ block.settings.image | image_url: width: 690, height: 690 | image_tag }}
+          {% else %}
+            {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
+          {% endif %}
+        </div>
+        <div class="grid__item__copy">
+          <h5 class="colour--white">
+            <b> {{ block.settings.title }}</b>
+          </h5>
+          <p class="colour--white">
+            {{ block.settings.copy }}
+          </p>
+        </div>
+      </a>
+    {%- endfor -%}
   </div>
 </div>
 
