@@ -3,44 +3,11 @@
     "grid-block": {
       "type": "grid-block",
       "settings": {
-        "title": "Important bits",
-        "link_label": "Shop all",
-        "link": ""
-      },
-      "blocks": {
-        "block1": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Tips for breast feeding",
-            "text": "<p>Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "block2": {
-          "type": "grid-item",
-          "settings": {
-            "title": "The support you really need",
-            "text": "<p>Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "block3": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Sleeping hacks from new mums",
-            "text": "<p>Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
       }
     },
     "hero-block": {
-      "type": "hero-block",
+      "type": "grid-block",
       "settings": {
-        "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia."
       }
     }
   },

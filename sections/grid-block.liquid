@@ -88,12 +88,7 @@
 
 {% schema %}
 {
-  "name": "grid-block",
-  "class": "section",
-  "tag": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
+  "name": "Grid",
   "settings": [
     {
       "type": "text",
@@ -115,7 +110,8 @@
   "max_blocks": 3,
   "blocks": [
     {
-      "name": "grid-item",
+      "name": "Grid Item",
+      "type": "grid_item",
       "settings": [
         {
           "id": "title",
