@@ -1,8 +1,8 @@
 {
   "sections": {
-    "grid": {}
+    "grid-block": {}
   },
   "order": [
-    "grid"
+    "grid-block"
   ]
 }
