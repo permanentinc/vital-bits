@@ -1,12 +1,14 @@
 <div class="hero">
   <div class="hero__background">
+    {{ block.settings.image | image_url: width: 1640, height: 800 | image_tag: loading: 'lazy' }}
+{% comment %} 
     <img
       src="{{ 'hero.jpg' | asset_url }}"
       alt="hero item image"
       loading="lazy"
       width="1640"
       height="800"
-    >
+    > {% endcomment %}
   </div>
 
   <div class="hero__wrap">
@@ -14,9 +16,33 @@
       <h3 class="colour--white">
         <b
           >“<br>
-          Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.</b
-        >
+          {{ section.settings.heading -}}
+        </b>
       </h3>
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "hero-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
+      "label": "Heading"
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
