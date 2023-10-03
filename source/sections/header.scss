@@ -189,6 +189,24 @@
                 visibility: hidden;
                 scale: 0;
 
+                &:after {
+                    @include vertical-center;
+                    @include pseudo;
+                    width: 1rem;
+                    height: 1rem;
+                    position: absolute;
+                    border-radius: 100rem;
+                    margin-top: 0px;
+                }
+
+                &.pulse {
+                    &:after {
+                        box-shadow: 0 0 0 0 var(--blue);
+                        animation: pulse 2s infinite;
+                        border-radius: 100rem;
+                    }
+                }
+
                 &.active {
                     opacity: 1;
                     visibility: visible;
@@ -226,5 +244,22 @@
                 display: block;
             }
         }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) translateY(-50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(black, 0.3);
+    }
+
+    70% {
+        transform: translateX(-50%) translateY(-50%) scale(1.4);
+        box-shadow: 0 0 0 10px rgba(black, 0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(black, 0);
     }
 }

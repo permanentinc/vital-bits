@@ -24,6 +24,11 @@ const updateCartCount = (count = 0) => {
     let $cart_count = $('.js-cart-count');
     $cart_count.innerHTML = `<b>${count}</b>`;
     $cart_count.classList.toggle('active', count > 0);
+
+    $('.header-actions__cart__count').classList.add('pulse');
+
+    // Remove the pulse animation class after the animation ends
+    setTimeout(() => $('.header-actions__cart__count').classList.remove('pulse'), 3000);
 }
 
 const updateSideCart = (cart) => {
@@ -31,11 +36,7 @@ const updateSideCart = (cart) => {
     let html = '';
     let $side_cart = $('.sidecart-draw-items');
 
-    cart.items.forEach((item, index) => {
-        html += sidecart_item(item, index);
-    });
-
-    console.log(html)
+    cart.items.forEach((item, index) => html += sidecart_item(item, index));
 
     $side_cart.innerHTML = html;
 
@@ -67,29 +68,31 @@ window.updateCart = () => {
 
         });
 }
-document.body.classList.add('sidecart-visible');
+
 updateCart();
+
 
 
 
 window.changeSideCartQuantity = (event, amount) => {
 
-    let input = event.target.parentElement.querySelector('input');
-    let quantity = parseInt(input.value);
-
-    quantity = (quantity + amount < 1) ? 1 : quantity + amount;
-
-    input.value = quantity;
+    let quantity, input = event.target.parentElement.querySelector('input');
+    if (amount !== 0) {
+        quantity = parseInt(input.value);
+        quantity = (quantity + amount < 1) ? 1 : quantity + amount;
+        input.value = quantity;
+    }
 
     let data = {
         line: parseInt(event.target.closest('.sidecart-draw-items__item').dataset.line),
-        quantity
+        quantity: (amount == 0) ? 0 : quantity
     };
 
 
     // Send the request to Shopify
     fetch('/cart/change.js', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
         .then((response) => response.json())
@@ -132,10 +135,17 @@ if ($('.js-add-to-cart')) {
         // Add a loading animation to the button
         button.classList.add('busy');
 
+        let data = {
+            id: form.querySelector('.js-variant').value,
+            quantity: parseInt(form.querySelector('.quantity-input input').value)
+        };
+
         // Send the request to Shopify
         fetch('/cart/add.js', {
             method: 'POST',
-            body: new FormData(form),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+            // body: new FormData(form),
         })
             .then((response) => response.json())
             .then((data) => {

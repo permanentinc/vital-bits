@@ -5321,14 +5321,14 @@ let notyf = new (0, _notyf.Notyf)({
     let $cart_count = (0, _lib.$)(".js-cart-count");
     $cart_count.innerHTML = `<b>${count}</b>`;
     $cart_count.classList.toggle("active", count > 0);
+    (0, _lib.$)(".header-actions__cart__count").classList.add("pulse");
+    // Remove the pulse animation class after the animation ends
+    setTimeout(()=>(0, _lib.$)(".header-actions__cart__count").classList.remove("pulse"), 3000);
 };
 const updateSideCart = (cart)=>{
     let html = "";
     let $side_cart = (0, _lib.$)(".sidecart-draw-items");
-    cart.items.forEach((item, index)=>{
-        html += (0, _templates.sidecart_item)(item, index);
-    });
-    console.log(html);
+    cart.items.forEach((item, index)=>html += (0, _templates.sidecart_item)(item, index));
     $side_cart.innerHTML = html;
 };
 window.updateCart = ()=>{
@@ -5344,20 +5344,24 @@ window.updateCart = ()=>{
         console.log(data);
     });
 };
-document.body.classList.add("sidecart-visible");
 updateCart();
 window.changeSideCartQuantity = (event, amount)=>{
-    let input = event.target.parentElement.querySelector("input");
-    let quantity = parseInt(input.value);
-    quantity = quantity + amount < 1 ? 1 : quantity + amount;
-    input.value = quantity;
+    let quantity, input = event.target.parentElement.querySelector("input");
+    if (amount !== 0) {
+        quantity = parseInt(input.value);
+        quantity = quantity + amount < 1 ? 1 : quantity + amount;
+        input.value = quantity;
+    }
     let data = {
         line: parseInt(event.target.closest(".sidecart-draw-items__item").dataset.line),
-        quantity
+        quantity: amount == 0 ? 0 : quantity
     };
     // Send the request to Shopify
     fetch("/cart/change.js", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(data)
     }).then((response)=>response.json()).then((data)=>{
         console.log(data);
@@ -5381,10 +5385,17 @@ window.changeSideCartQuantity = (event, amount)=>{
     let form = button.closest("form");
     // Add a loading animation to the button
     button.classList.add("busy");
+    let data = {
+        id: form.querySelector(".js-variant").value,
+        quantity: parseInt(form.querySelector(".quantity-input input").value)
+    };
     // Send the request to Shopify
     fetch("/cart/add.js", {
         method: "POST",
-        body: new FormData(form)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     }).then((response)=>response.json()).then((data)=>{
         // Update the cart sitewide
         updateCart();
@@ -5878,11 +5889,12 @@ const sidecart_item = (item, index)=>{
             </div>
             <div class="sidecart-draw-items__item__details">
                 
-                <a href="#" class="sidecart-draw-items__item__details__remove">
+                <a href="#" class="sidecart-draw-items__item__details__remove" onclick="changeSideCartQuantity(event, 0)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
                 </a>
 
                 <p><b>${item.product_title}</b></p>
+                
                 <p class="small">
                     ${item.product_title}
                     ${item.variant_title ? `<br>${item.variant_title}` : ``}
@@ -5891,7 +5903,7 @@ const sidecart_item = (item, index)=>{
                 <div class="quantity">
                   <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
                   <div class="quantity-input">
-                    <input type="text" value="1">
+                    <input type="text" value="${item.quantity}">
                   </div>
                   <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
                 </div>
