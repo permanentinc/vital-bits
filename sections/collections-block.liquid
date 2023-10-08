@@ -13,115 +13,118 @@
         </div>
         <div class="collections__item__title">
           <h3 class="colour--white">
-            <b>{{ collection.title }}</b>
+            <b>{{ block.settings.Collection.title }}</b>
           </h3>
         </div>
       </div>
     {%- endfor -%}
   </div>
 
-  {% comment %}
-    Slider
-  {% endcomment %}
-  <div class="collections__slider [ js-inview ]">
+  {%- for block in section.blocks limit: 1 -%}
     {% comment %}
-      Item
+      Slider
     {% endcomment %}
-    <div class="collections__slider__item collections__slider__item--text">
-      <h2><b>Pregnancy</b></h2>
-      <p>
-        <b>Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.</b>
-      </p>
-      <p>
-        <a href="#" class="button">Shop all</a>
-      </p>
+    <div class="collections__slider [ js-inview ]">
+      {% comment %}
+        Item
+      {% endcomment %}
+      <div class="collections__slider__item collections__slider__item--text">
+        <h2>
+          <b>{{ block.settings.Collection.title }}</b>
+        </h2>
+        <p>
+          <b>{{ block.settings.copy }}</b>
+        </p>
+        <p>
+          <a href="{{ block.settings.Collection.url }}" class="button">Shop all</a>
+        </p>
+      </div>
+      {% comment %}
+        Item
+      {% endcomment %}
+      <div class="collections__slider__item collections__slider__item--product">
+        <div class="collections__slider__item__image">
+          <img
+            src="{{ 'collections-3.jpg' | asset_url }}"
+            alt="collections item image"
+            loading="lazy"
+            width="400"
+            height="400"
+          >
+        </div>
+        <div class="collections__slider__item__title">
+          <h6><b>Product title</b></h6>
+          <h6><b>$29.99</b></h6>
+        </div>
+        <div class="collections__slider__item__description">
+          <p>This is a short product description.</p>
+        </div>
+      </div>
+      {% comment %}
+        Item
+      {% endcomment %}
+      <div class="collections__slider__item collections__slider__item--product">
+        <div class="collections__slider__item__image">
+          <img
+            src="{{ 'collections-3.jpg' | asset_url }}"
+            alt="collections item image"
+            loading="lazy"
+            width="400"
+            height="400"
+          >
+        </div>
+        <div class="collections__slider__item__title">
+          <h6><b>Product title</b></h6>
+          <h6><b>$29.99</b></h6>
+        </div>
+        <div class="collections__slider__item__description">
+          <p>This is a short product description.</p>
+        </div>
+      </div>
+      {% comment %}
+        Item
+      {% endcomment %}
+      <div class="collections__slider__item collections__slider__item--product">
+        <div class="collections__slider__item__image">
+          <img
+            src="{{ 'collections-3.jpg' | asset_url }}"
+            alt="collections item image"
+            loading="lazy"
+            width="400"
+            height="400"
+          >
+        </div>
+        <div class="collections__slider__item__title">
+          <h6><b>Product title</b></h6>
+          <h6><b>$29.99</b></h6>
+        </div>
+        <div class="collections__slider__item__description">
+          <p>This is a short product description.</p>
+        </div>
+      </div>
+      {% comment %}
+        Item
+      {% endcomment %}
+      <div class="collections__slider__item collections__slider__item--product">
+        <div class="collections__slider__item__image">
+          <img
+            src="{{ 'collections-3.jpg' | asset_url }}"
+            alt="collections item image"
+            loading="lazy"
+            width="400"
+            height="400"
+          >
+        </div>
+        <div class="collections__slider__item__title">
+          <h6><b>Product title</b></h6>
+          <h6><b>$29.99</b></h6>
+        </div>
+        <div class="collections__slider__item__description">
+          <p>This is a short product description.</p>
+        </div>
+      </div>
     </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__slider__item collections__slider__item--product">
-      <div class="collections__slider__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__slider__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="collections__slider__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__slider__item collections__slider__item--product">
-      <div class="collections__slider__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__slider__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="collections__slider__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__slider__item collections__slider__item--product">
-      <div class="collections__slider__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__slider__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="collections__slider__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </div>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <div class="collections__slider__item collections__slider__item--product">
-      <div class="collections__slider__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="collections item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="collections__slider__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="collections__slider__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </div>
-  </div>
-
+  {%- endfor -%}
   {% comment %}
     Marquee
   {% endcomment %}
