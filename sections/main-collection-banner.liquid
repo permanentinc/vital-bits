@@ -1,1 +1,15 @@
-<h1>Main Collection Banner</h1>
+<div class="banner-collection">
+  <div class="banner-collection-image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
+    {%- endif -%}
+  </div>
+
+  <div class="banner-collection-text">
+    <h1 class="white">
+      <b>
+        {{ section.settings.heading }}
+      </b>
+    </h1>
+  </div>
+</div>

@@ -94,7 +94,7 @@ window.toggleMobileNavigation = () => {
  * Define the square animation
  */
 const marquee = anime({
-    targets: '.collections__marquee__animation,.related-products__marquee__animation',
+    targets: '.collections__marquee__animation,.related-products__marquee__animation,.collection-grid__marquee__animation',
     translateX: '-10%',
     easing: 'linear',
     autoplay: false

@@ -9,11 +9,9 @@
     <div class="footer-column footer-column--1">
       <h6 class="white">Shop vitals</h6>
       <p>
-        <a href="#" class="animate-white-to-transparent-white white">Shop all</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">Pregnancy</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">V-Delivery</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">C-Section Delivery</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">Breast Feeding</a><br>
+          {% for link in linklists['footer'].links -%}
+            <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+          {%- endfor %}
       </p>
 
       {% comment %}
@@ -31,6 +29,11 @@
     {% endcomment %}
     <div class="footer-column footer-column--2">
       <h6 class="white">Important bits</h6>
+      <p>
+        {% for link in linklists['footer-middle'].links -%}
+          <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+        {%- endfor %}
+      </p>
     </div>
 
     {% comment %}
@@ -39,9 +42,9 @@
     <div class="footer-column footer-column--3">
       <h6 class="white">About us</h6>
       <p>
-        <a href="#" class="animate-white-to-transparent-white white">Contact us</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">Shipping</a><br>
-        <a href="#" class="animate-white-to-transparent-white white">T&C's</a><br>
+        {% for link in linklists['footer-right'].links -%}
+          <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+        {%- endfor %}
       </p>
 
       {% comment %}

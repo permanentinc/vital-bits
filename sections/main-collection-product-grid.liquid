@@ -1,1 +1,59 @@
-<h1>Main Collection Product Grid</h1>
+<div class="collection-grid">
+  <div class="collection-grid-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="collection-grid-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  {% comment %}
+    Slider
+  {% endcomment %}
+  <div class="collection-grid__list">
+    {% for collection in collections %}
+      {% for product in collection.products %}
+        {% comment %}
+          Item
+        {% endcomment %}
+        <a href="{{ product.url }}" class="collection-grid__list__item collection-grid__list__item--product">
+          <div class="collection-grid__list__item__image">
+            <img
+              src="{{ 'collections-3.jpg' | asset_url }}"
+              alt="collection-grid item image"
+              loading="lazy"
+              width="400"
+              height="400"
+            >
+          </div>
+          <div class="collection-grid__list__item__title">
+            <h6>
+              <b>{{ product.title }}</b>
+            </h6>
+            <h6>
+              <b>${{ product.price | divided_by: 100.00 }}</b>
+            </h6>
+          </div>
+          <div class="collection-grid__list__item__description">
+            <p>{{ product.metafields.custom.short_description }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  {% comment %}
+    Marquee
+  {% endcomment %}
+  <div class="collection-grid__marquee">
+    <div class="collection-grid__marquee__animation">
+      <span>Through lifes most vital moments</span>
+      <span>Through lifes most vital moments</span>
+      <span>Through lifes most vital moments</span>
+    </div>
+  </div>
+</div>
