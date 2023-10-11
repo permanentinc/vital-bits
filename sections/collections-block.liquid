@@ -39,27 +39,28 @@
           <a href="{{ block.settings.Collection.url }}" class="button">Shop all</a>
         </p>
       </div>
+      
       {% comment %}
         Item
       {% endcomment %}
-      <div class="collections__slider__item collections__slider__item--product">
+      {% comment %} <div class="collections__slider__item collections__slider__item--product">
         <div class="collections__slider__item__image">
-          <img
-            src="{{ 'collections-3.jpg' | asset_url }}"
-            alt="collections item image"
-            loading="lazy"
-            width="400"
-            height="400"
-          >
+          {%- if product.featured_image != blank -%}
+            {{ product.featured_image | image_url: width: 400, height: 400 | image_tag }}
+          {%- endif -%}
         </div>
         <div class="collections__slider__item__title">
-          <h6><b>Product title</b></h6>
-          <h6><b>$29.99</b></h6>
+          <h6>
+            <b>{{ product.title }}</b>
+          </h6>
+          <h6>
+            <b>${{ product.price | divided_by: 100.00 }}</b>
+          </h6>
         </div>
         <div class="collections__slider__item__description">
-          <p>This is a short product description.</p>
+          <p>{{ product.metafields.custom.short_description }}</p>
         </div>
-      </div>
+      </div> {% endcomment %}
       {% comment %}
         Item
       {% endcomment %}

@@ -9,9 +9,9 @@
     <div class="footer-column footer-column--1">
       <h6 class="white">Shop vitals</h6>
       <p>
-          {% for link in linklists['footer'].links -%}
-            <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
-          {%- endfor %}
+        {% for link in linklists.footer.links -%}
+          <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+        {%- endfor %}
       </p>
 
       {% comment %}

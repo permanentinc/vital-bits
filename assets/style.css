@@ -2946,6 +2946,7 @@ body .notyf__message a:hover {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 0 auto 2rem;
+  padding: 4rem 0;
   display: flex;
 }
 
