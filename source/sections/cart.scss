@@ -1,0 +1,171 @@
+.cart {
+    padding: 18rem 0;
+    position: relative;
+    background: white;
+
+    &:before {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20rem;
+        z-index: 1;
+        background: var(--blue-mid);
+    }
+
+    &__continue {
+        width: 100%;
+        display: block;
+        padding: 2rem;
+        background: var(--green);
+        position: relative;
+        z-index: 2;
+
+        &__wrap {
+            max-width: var(--content-width);
+            margin: 0 auto;
+        }
+    }
+
+    &__wrap {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 6rem 2rem 0;
+
+        &__form {
+            width: 100%;
+
+            .quantity {
+                @include medium;
+
+                &-remove {
+                    border-left: 1px solid var(--off-white);
+                    border-right: 1px solid var(--off-white);
+                }
+
+                &-input {
+                    border-right: 1px solid var(--off-white);
+
+                    input {
+                        @include medium;
+                        position: relative;
+                        top: -3px;
+                    }
+                }
+
+                &-add {
+                    border-right: 1px solid var(--off-white);
+                }
+            }
+
+            &__table {
+                width: 100%;
+                border-collapse: collapse;
+
+                &__head {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+
+                    tr {
+                        width: 100%;
+                        border-bottom: 1px solid var(--off-white);
+                        display: flex;
+                        align-items: center;
+
+                        th {
+                            display: flex;
+                            text-align: center;
+
+                            @include media($md, max) {
+                                display: none;
+                            }
+
+                            h6 {
+                                display: inline-block;
+                                width: 100%;
+                                text-align: center;
+                                color: var(--grey-light);
+                                text-transform: uppercase;
+                            }
+
+                            &:nth-child(1) {
+                                text-align: left;
+                                width: 10rem;
+
+                                h6 {
+                                    text-align: left;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                width: calc(100% - 50rem);
+
+                                h6 {
+                                    text-align: left;
+                                }
+                            }
+
+                            &:nth-child(3) {
+                                width: 20rem;
+                            }
+
+                            &:nth-child(4) {
+                                width: 15rem;
+                            }
+
+                            &:nth-child(5) {
+                                width: 5rem;
+                            }
+                        }
+                    }
+                }
+
+                &__body {
+                    &__row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        border-bottom: 1px solid var(--off-white);
+                        align-items: center;
+
+                        &__cell {
+                            padding: 3rem 0;
+
+                            &:nth-child(1) {
+                                width: 10rem;
+                            }
+
+                            &:nth-child(2) {
+                                width: calc(100% - 50rem);
+                                padding-left: 4rem;
+                            }
+
+                            &:nth-child(3) {
+                                width: 20rem;
+                                text-align: center;
+                            }
+
+                            &:nth-child(4) {
+                                width: 15rem;
+                                text-align: center;
+                            }
+
+                            &:nth-child(5) {
+                                width: 5rem;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__totals {
+        padding-top: 2rem;
+        width: 100%;
+        text-align: right;
+    }
+}

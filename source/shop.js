@@ -72,8 +72,6 @@ window.updateCart = () => {
 updateCart();
 
 
-
-
 window.changeSideCartQuantity = (event, amount) => {
 
     let quantity, input = event.target.parentElement.querySelector('input');
@@ -172,5 +170,50 @@ if ($('.js-add-to-cart')) {
 
 
     });
+
+}
+
+
+window.changeMainCartQuantity = (event, amount) => {
+
+    let quantity, input = event.target.parentElement.querySelector('input');
+
+    if (amount !== 0) {
+        quantity = parseInt(input.value);
+        quantity = (quantity + amount < 1) ? 1 : quantity + amount;
+        input.value = quantity;
+    }
+
+    let data = {
+        line: parseInt(event.target.closest('.cart__wrap__form__table__body__row').dataset.line),
+        quantity: (amount == 0) ? 0 : quantity
+    };
+
+
+    // Send the request to Shopify
+    fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+
+            console.log(data);
+
+            // Update the cart count
+            updateCartCount(data.item_count);
+
+            // Update the main sidecart
+            updateSideCart(data);
+
+        })
+        .catch((data) => {
+
+            // Show an error message in the console
+            console.log(data);
+
+        });
+
 
 }

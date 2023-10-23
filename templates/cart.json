@@ -1,10 +1,10 @@
 {
   "sections": {
-    "cart-items": {
+    "main": {
       "type": "main-cart"
     }
   },
   "order": [
-    "main-cart"
+    "main"
   ] 
 }
