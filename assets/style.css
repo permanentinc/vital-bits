@@ -3604,4 +3604,16 @@ body .notyf__message a:hover {
   padding-top: 2rem;
 }
 
+.shopify-challenge__container {
+  background: var(--green-light);
+  width: 100%;
+  padding: 26rem 2rem 8rem;
+  position: relative;
+  max-width: 100% !important;
+}
+
+.shopify-challenge__message {
+  color: #fff;
+}
+
 /*# sourceMappingURL=style.css.map */

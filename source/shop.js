@@ -4,7 +4,7 @@ Imports
 
 import { $ } from './lib';
 import { Notyf } from 'notyf';
-import { sidecart_item } from './templates';
+import { sidecart_item, maincart_item } from './templates';
 
 // Base notification styles
 let notyf = new Notyf({
@@ -14,11 +14,24 @@ let notyf = new Notyf({
 });
 
 
+const updateCarts = (cart) => {
+
+    // Update the cart count
+    updateCartCount(cart.item_count);
+
+    // Update the cart count
+    updateMainCart(cart);
+
+    // Update the main sidecart
+    updateSideCart(cart);
+};
+
+
 /**
  * 
  * Update the cart count in the header
  * 
- * @param {numbber} count 
+ * @param {number} count 
  */
 const updateCartCount = (count = 0) => {
     let $cart_count = $('.js-cart-count');
@@ -31,6 +44,12 @@ const updateCartCount = (count = 0) => {
     setTimeout(() => $('.header-actions__cart__count').classList.remove('pulse'), 3000);
 }
 
+/**
+ * 
+ * Update the sidecart items
+ * 
+ * @param {object} cart 
+ */
 const updateSideCart = (cart) => {
 
     let html = '';
@@ -38,27 +57,38 @@ const updateSideCart = (cart) => {
 
     cart.items.forEach((item, index) => html += sidecart_item(item, index));
 
-    $side_cart.innerHTML = html;
+    if ($side_cart) $side_cart.innerHTML = html;
+
+}
+
+/**
+ * 
+ * Update the maincart items
+ * 
+ * @param {object} cart 
+ */
+const updateMainCart = (cart) => {
+
+    let html = '';
+    let $main_cart = $('.js-cart-items');
+
+    cart.items.forEach((item, index) => html += maincart_item(item, index));
+
+    if ($main_cart) $main_cart.innerHTML = html;
 
 }
 
 
-
-
-window.updateCart = () => {
+window.fetchCart = () => {
 
     // Send the request to Shopify
     fetch('/cart.js')
         .then((response) => response.json())
         .then((data) => {
 
-            console.log(data);
+            // Update all of the carts
+            updateCarts(data);
 
-            // Update the cart count
-            updateCartCount(data.item_count);
-
-            // Update the main sidecart
-            updateSideCart(data);
 
         })
         .catch((data) => {
@@ -69,7 +99,8 @@ window.updateCart = () => {
         });
 }
 
-updateCart();
+// Initialise the cart on page load
+fetchCart();
 
 
 window.changeSideCartQuantity = (event, amount) => {
@@ -96,13 +127,9 @@ window.changeSideCartQuantity = (event, amount) => {
         .then((response) => response.json())
         .then((data) => {
 
-            console.log(data);
+            // Update all of the carts
+            updateCarts(data);
 
-            // Update the cart count
-            updateCartCount(data.item_count);
-
-            // Update the main sidecart
-            updateSideCart(data);
 
         })
         .catch((data) => {
@@ -149,7 +176,7 @@ if ($('.js-add-to-cart')) {
             .then((data) => {
 
                 // Update the cart sitewide
-                updateCart();
+                fetchCart();
 
                 // Remove the loading animation from the button
                 button.classList.remove('busy');
@@ -199,13 +226,8 @@ window.changeMainCartQuantity = (event, amount) => {
         .then((response) => response.json())
         .then((data) => {
 
-            console.log(data);
-
-            // Update the cart count
-            updateCartCount(data.item_count);
-
-            // Update the main sidecart
-            updateSideCart(data);
+            // Update all of the carts
+            updateCarts(data);
 
         })
         .catch((data) => {

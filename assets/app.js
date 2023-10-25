@@ -5312,11 +5312,19 @@ let notyf = new (0, _notyf.Notyf)({
     dismissible: true,
     icon: false
 });
+const updateCarts = (cart)=>{
+    // Update the cart count
+    updateCartCount(cart.item_count);
+    // Update the cart count
+    updateMainCart(cart);
+    // Update the main sidecart
+    updateSideCart(cart);
+};
 /**
  * 
  * Update the cart count in the header
  * 
- * @param {numbber} count 
+ * @param {number} count 
  */ const updateCartCount = (count = 0)=>{
     let $cart_count = (0, _lib.$)(".js-cart-count");
     $cart_count.innerHTML = `<b>${count}</b>`;
@@ -5325,26 +5333,40 @@ let notyf = new (0, _notyf.Notyf)({
     // Remove the pulse animation class after the animation ends
     setTimeout(()=>(0, _lib.$)(".header-actions__cart__count").classList.remove("pulse"), 3000);
 };
-const updateSideCart = (cart)=>{
+/**
+ * 
+ * Update the sidecart items
+ * 
+ * @param {object} cart 
+ */ const updateSideCart = (cart)=>{
     let html = "";
     let $side_cart = (0, _lib.$)(".sidecart-draw-items");
     cart.items.forEach((item, index)=>html += (0, _templates.sidecart_item)(item, index));
-    $side_cart.innerHTML = html;
+    if ($side_cart) $side_cart.innerHTML = html;
 };
-window.updateCart = ()=>{
+/**
+ * 
+ * Update the maincart items
+ * 
+ * @param {object} cart 
+ */ const updateMainCart = (cart)=>{
+    let html = "";
+    let $main_cart = (0, _lib.$)(".js-cart-items");
+    cart.items.forEach((item, index)=>html += (0, _templates.maincart_item)(item, index));
+    if ($main_cart) $main_cart.innerHTML = html;
+};
+window.fetchCart = ()=>{
     // Send the request to Shopify
     fetch("/cart.js").then((response)=>response.json()).then((data)=>{
-        console.log(data);
-        // Update the cart count
-        updateCartCount(data.item_count);
-        // Update the main sidecart
-        updateSideCart(data);
+        // Update all of the carts
+        updateCarts(data);
     }).catch((data)=>{
         // Show an error message in the console
         console.log(data);
     });
 };
-updateCart();
+// Initialise the cart on page load
+fetchCart();
 window.changeSideCartQuantity = (event, amount)=>{
     let quantity, input = event.target.parentElement.querySelector("input");
     if (amount !== 0) {
@@ -5364,11 +5386,8 @@ window.changeSideCartQuantity = (event, amount)=>{
         },
         body: JSON.stringify(data)
     }).then((response)=>response.json()).then((data)=>{
-        console.log(data);
-        // Update the cart count
-        updateCartCount(data.item_count);
-        // Update the main sidecart
-        updateSideCart(data);
+        // Update all of the carts
+        updateCarts(data);
     }).catch((data)=>{
         // Show an error message in the console
         console.log(data);
@@ -5398,7 +5417,7 @@ window.changeSideCartQuantity = (event, amount)=>{
         body: JSON.stringify(data)
     }).then((response)=>response.json()).then((data)=>{
         // Update the cart sitewide
-        updateCart();
+        fetchCart();
         // Remove the loading animation from the button
         button.classList.remove("busy");
         // Show a success message
@@ -5432,11 +5451,8 @@ window.changeMainCartQuantity = (event, amount)=>{
         },
         body: JSON.stringify(data)
     }).then((response)=>response.json()).then((data)=>{
-        console.log(data);
-        // Update the cart count
-        updateCartCount(data.item_count);
-        // Update the main sidecart
-        updateSideCart(data);
+        // Update all of the carts
+        updateCarts(data);
     }).catch((data)=>{
         // Show an error message in the console
         console.log(data);
@@ -5910,6 +5926,7 @@ var NotyfView = /** @class */ function() {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
+parcelHelpers.export(exports, "maincart_item", ()=>maincart_item);
 const sidecart_item = (item, index)=>{
     return /*html*/ `
         <div class="sidecart-draw-items__item" data-line="${index + 1}">
@@ -5937,10 +5954,45 @@ const sidecart_item = (item, index)=>{
                   <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
                 </div>
 
-                <p class="sidecart-draw-items__item__details__price">$${item.price / 100}</p>
+                <p class="sidecart-draw-items__item__details__price">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</p>
             </div>
         </div>
     `;
+};
+const maincart_item = (item, index)=>{
+    console.log(item);
+    return /*html*/ `
+    <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
+    <td class="cart__wrap__form__table__body__row__cell">
+      <a href="${item.link}" class="cart__wrap__form__table__body__row__cell__image">
+        <img src="${item.image}" alt="${item.product_title}" width="400" height="400">
+      </a>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--details">
+      <a class="colour--green" href="${item.link}">
+        <h5 class="no-margin"><b>${item.product_title}</b></h5>
+      </a>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell">
+      <div class="quantity quantity--cart">
+        <div class="quantity-remove" onclick="changeMainCartQuantity(event,-1)">-</div>
+        <div class="quantity-input">
+          <input type="text" value="${item.quantity}">
+        </div>
+        <div class="quantity-add" onclick="changeMainCartQuantity(event,1)">+</div>
+      </div>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--total">
+        <h5 class="no-margin">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</h5>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell">
+      <a href="/cart/change?line=${index + 1}&amp;quantity=0" data-cart-item-index="2" class="[ js-remove-from-cart ]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
+          <path fill-rule="evenodd" d="M5.488 0v3.628H.045v1.814H1.86v19.955h16.327V5.442H20V3.628h-5.442V0h-9.07Zm1.814 1.814h5.442v1.814H7.302V1.814ZM3.673 5.442h12.699v18.14H3.673V5.443Zm2.722 2.721v12.699h1.814V8.163H6.395Zm5.442 0v12.699h1.814V8.163h-1.814Z"></path>
+        </svg>
+      </a>
+    </td>
+  </tr>`;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
