@@ -3224,7 +3224,7 @@ body .notyf__message a:hover {
   user-select: none;
   width: 5rem;
   font-size: 4rem;
-  line-height: 2.5rem;
+  line-height: 3.3rem;
 }
 
 .quantity-input {
@@ -3239,7 +3239,10 @@ body .notyf__message a:hover {
   outline: 0;
   width: 100%;
   padding: 0;
+  font-family: sofia-pro, sans-serif;
   font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .collection-grid {
