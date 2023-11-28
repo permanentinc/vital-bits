@@ -20,20 +20,20 @@
             "Collection": "frontpage"
           }
         },
+        "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
+          "type": "collection_item",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/collections-1.jpg",
+            "copy": "Tailored made to aide & comfort new mums through their postpartum recovery.",
+            "Collection": "v-delivery"
+          }
+        },
         "d683b406-8e0d-447b-ae6c-56ad44da3326": {
           "type": "collection_item",
           "settings": {
             "thumbnail": "shopify:\/\/shop_images\/collections-4.jpg",
             "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
             "Collection": "breast-feeding"
-          }
-        },
-        "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
-          "type": "collection_item",
-          "settings": {
-            "thumbnail": "shopify:\/\/shop_images\/collections-1.jpg",
-            "copy": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
-            "Collection": "v-delivery"
           }
         },
         "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
@@ -47,8 +47,8 @@
       },
       "block_order": [
         "d378cc3d-6a59-4d94-b5df-516c0967eff0",
-        "d683b406-8e0d-447b-ae6c-56ad44da3326",
         "26b9ebd2-ff12-4d6f-b12a-0195c4812106",
+        "d683b406-8e0d-447b-ae6c-56ad44da3326",
         "e6afb53a-37d9-4935-a852-5bcf9b9f45ac"
       ],
       "settings": {
