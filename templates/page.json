@@ -10,12 +10,21 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
+      "type": "hero-block",
+      "settings": {
+        "heading": "tgargeae",
+        "image": "shopify:\/\/shop_images\/hero.jpg"
       }
     }
   },
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
-    "main"
+    "main",
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
   ]
 }
