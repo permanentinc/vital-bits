@@ -70,6 +70,40 @@
     },
     "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
       "type": "grid-block-with-text",
+      "blocks": {
+        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf": {
+          "type": "grid_with_text_item",
+          "settings": {
+            "title": "",
+            "copy": "",
+            "link_link": "",
+            "image": "shopify:\/\/shop_images\/collections-4.jpg"
+          }
+        },
+        "49f803c2-827b-41fb-bbbe-3314fa77f00a": {
+          "type": "grid_with_text_item",
+          "settings": {
+            "title": "",
+            "copy": "",
+            "link_link": "",
+            "image": "shopify:\/\/shop_images\/collections-1.jpg"
+          }
+        },
+        "c42618ef-12f3-4d7a-a057-3f0267568abb": {
+          "type": "grid_with_text_item",
+          "settings": {
+            "title": "",
+            "copy": "",
+            "link_link": "",
+            "image": "shopify:\/\/shop_images\/father-holding-baby-daughter.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf",
+        "49f803c2-827b-41fb-bbbe-3314fa77f00a",
+        "c42618ef-12f3-4d7a-a057-3f0267568abb"
+      ],
       "settings": {
         "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.<\/p>"
       }
