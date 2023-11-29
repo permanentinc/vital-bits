@@ -2,7 +2,7 @@
     position: relative;
 
     &-image {
-        aspect-ratio: 16/9; 
+        aspect-ratio: 16/9;
         background: var(--off-white);
         background: #a5d1d9;
         width: 100%;
@@ -34,5 +34,10 @@
             top: 65%;
             padding: 6rem 2rem;
         }
+    }
+
+    &-constraint {
+        max-width: var(--thin-content-width);
+        padding: 0 2rem;
     }
 }

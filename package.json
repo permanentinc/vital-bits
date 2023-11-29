@@ -24,6 +24,7 @@
     "flickity": "2.2",
     "in-view": "^0.6.1",
     "node-sass": "^9.0.0",
-    "notyf": "^3.10.0"
+    "notyf": "^3.10.0",
+    "vanilla-js-match-height": "^1.0.6"
   }
 }

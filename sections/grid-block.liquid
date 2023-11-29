@@ -47,6 +47,10 @@
             {% else %}
               {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
             {% endif %}
+          {% else %}
+          {% assign page = pages | where: 'link_url', block.settings.link_link | first %}
+          {% assign blogPageImage = page.image %}
+          {{ blogPageImage | image_url: width: 690, height: 340 | image_tag }}
           {%- endif -%}
         </div>
         <div class="grid__item__copy">

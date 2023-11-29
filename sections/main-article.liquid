@@ -3,7 +3,12 @@
     <div class="banner-blog-text">
       <div class="banner-blog-text__constraint">
         <h6 class="white">
-          <b>{{ article.tags }}</b>
+          <b>
+            {% for tag in article.tags %}
+              {{ tag }}
+              {% unless forloop.last %} | {% endunless %}
+            {% endfor %}
+          </b>
         </h6>
         <h1 class="white">
           <b>
@@ -87,6 +92,7 @@
   {% endcomment %}
   <div class="related-articles-grid">
     {% for tag in article.tags %}
+      {% assign rendered_articles = '' | split: ',' %}
       {% assign counter = 0 %}
       {% assign skip_articles = article.handle | split: '.....' %}
       {% for related_article in blog.articles %}
@@ -96,7 +102,12 @@
             {% assign temp = related_article.handle | split: '.....' %}
             {% assign skip_articles = skip_articles | concat: temp %}
 
-            <a href="{{ related_article.link }}" class="related-articles-grid__item">
+            {% capture matching_articles %}
+              {{ rendered_articles | append: related_article.id | append: ',' }}
+            {% endcapture %}
+            {% assign rendered_articles = rendered_articles | split: ',' %}
+
+            <a href="{{ related_article.url }}" class="related-articles-grid__item">
               <div class="related-articles-grid__item__image">
                 <img
                   src="{{ related_article.image | image_url: width: 640, height: 480 }}"
@@ -109,7 +120,12 @@
 
               <div class="related-articles-grid__item__content">
                 <h6>
-                  <b>{{ related_article.tags }}</b>
+                  <b>
+                    {% for tag in related_article.tags %}
+                      {{ tag }}
+                      {% unless forloop.last %} | {% endunless %}
+                    {% endfor -%}
+                  </b>
                 </h6>
                 <h4 class="colour--green">
                   <b>
@@ -125,6 +141,51 @@
           {% endunless %}
         {% endif %}
       {% endfor %}
+    {% endfor %}
+
+    {% assign current_article_tags = article.tags %}
+    {% assign recent_articles = blog.articles | sort: 'published_at' | reverse %}
+
+    {% for recent_article in recent_articles %}
+      {% assign recent_article_tags = recent_article.tags %}
+
+      {% if counter < 3 %}
+        {% if matching_articles contains recent_article.id or matching_articles contains article.id %}
+        {% else %}
+          {% assign counter = counter | plus: 1 %}
+          <a href="{{ recent_article.url }}" class="related-articles-grid__item">
+            <div class="related-articles-grid__item__image">
+              <img
+                src="{{ recent_article.image | image_url: width: 640, height: 480 }}"
+                alt="grid item image"
+                loading="lazy"
+                width="640"
+                height="480"
+              >
+            </div>
+
+            <div class="related-articles-grid__item__content">
+              <h6>
+                <b>
+                  {% for tag in recent_article.tags %}
+                    {{ tag }}
+                    {% unless forloop.last %} | {% endunless %}
+                  {% endfor -%}
+                </b>
+              </h6>
+              <h4 class="colour--green">
+                <b>
+                  {{ recent_article.title }}
+                </b>
+              </h4>
+              <p>{{ recent_article.excerpt }}</p>
+              <p>
+                <span class="arrow-link">Read now</span>
+              </p>
+            </div>
+          </a>
+        {% endif %}
+      {% endif %}
     {% endfor %}
   </div>
 </div>

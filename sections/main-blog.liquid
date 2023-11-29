@@ -80,7 +80,7 @@
   {% endcomment %}
   <div class="articles-grid">
     {% for article in blog.articles %}
-      <a href="{{ article.link }}" class="articles-grid__item" data-tags="{{ article.tags }}">
+      <a href="{{ article.url }}" class="articles-grid__item" data-tags="{{ article.tags }}">
         <div class="articles-grid__item__image">
           <img
             src="{{ article.image | image_url: width: 640, height: 480 }}"

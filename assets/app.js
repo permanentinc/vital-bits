@@ -588,7 +588,10 @@ var _inView = require("in-view");
 var _inViewDefault = parcelHelpers.interopDefault(_inView);
 var _animeEsJs = require("animejs/lib/anime.es.js");
 var _animeEsJsDefault = parcelHelpers.interopDefault(_animeEsJs);
+var _vanillaJsMatchHeight = require("vanilla-js-match-height");
+var _vanillaJsMatchHeightDefault = parcelHelpers.interopDefault(_vanillaJsMatchHeight);
 console.log("Vital Bits v1.0.0");
+// new MatchHeight('.articles-grid__item__content h4');
 /*------------------------------------------------------------------
 Sticky header  
 ------------------------------------------------------------------*/ let previousScrollPosition = 0;
@@ -706,7 +709,7 @@ window.changeQuantity = (event, amount)=>{
     input.value = quantity;
 };
 
-},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","vanilla-js-match-height":"1tBYQ"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -5994,6 +5997,101 @@ const maincart_item = (item, index)=>{
     </td>
   </tr>`;
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"1tBYQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+const i = {
+    parent: null,
+    byRow: !0,
+    timeOut: 50
+};
+class o {
+    init() {
+        setTimeout(()=>{
+            this.reset();
+        }, this.options.timeOut);
+    }
+    findElements() {
+        let e;
+        this.options.parent && document.querySelectorAll(this.options.parent).length ? document.querySelectorAll(this.options.parent).forEach((t)=>{
+            e = t.querySelectorAll(this.element), this.createGroup(e, t);
+        }) : (e = document.querySelectorAll(this.element), this.createGroup(e)), this.findRows();
+    }
+    findRows() {
+        this.elements && (this.elements.map((e)=>{
+            let t = [];
+            e.elements.forEach((s)=>{
+                let n = 0;
+                var _t_n;
+                this.options.byRow && (n = Math.round(s.getBoundingClientRect().top + window.scrollY)), t[n] = (_t_n = t[n]) !== null && _t_n !== void 0 ? _t_n : {
+                    offset: n,
+                    elements: []
+                }, t[n].elements.push(s);
+            }), t.map((s)=>{
+                e.rows.push({
+                    height: 0,
+                    offset: s.offset,
+                    elements: s.elements
+                });
+            });
+        }), this.setHeights());
+    }
+    createGroup(e, t) {
+        let s = {
+            elements: e,
+            rows: [],
+            parent: t
+        };
+        this.elements.push(s);
+    }
+    setHeights() {
+        if (this.elements) for (let e of this.elements)e.rows.map((t)=>{
+            let s = [];
+            t.elements.forEach((n)=>{
+                n.style.height = null, s.push(n.offsetHeight);
+            }), t.height = Math.max.apply(Math, s), t.elements.forEach((n)=>{
+                n.style.height = `${t.height}px`;
+            });
+        });
+        else this.error();
+    }
+    update() {
+        this.elements.length ? this.findRows() : this.error();
+    }
+    reset() {
+        this.elements = [], this.findElements();
+    }
+    debug() {
+        setTimeout(()=>{
+            this.elements ? this.elements.forEach((e, t)=>{
+                e.parent ? console.log(`Element: ${this.element} Parent: ${e.parent.tagName}.${e.parent.className}`) : console.log(`Element: ${this.element}`), e.rows.forEach((s, n)=>{
+                    console.log(`Offset Group: ${s.offset}`), console.log(s);
+                }), console.log(`
+
+`);
+            }) : console.log(`\u26D4 No cached MatchHeight elements found for "${this.element}" 
+
+ Make sure this element exists on the current page.`);
+        }, this.options.timeOut + 250);
+    }
+    error(e = "") {
+        e == "class" ? console.error("⛔ Missing class name in new MatchHeight()") : console.error(`\u26D4 Can't trigger update as no elements found for the MatchHeight element ${this.element}`);
+    }
+    constructor(e, t = {}){
+        this.options = {
+            ...i,
+            ...t
+        }, this.element = e, this.element ? (document.readyState !== "loading" ? this.init() : document.addEventListener("DOMContentLoaded", ()=>{
+            this.init();
+        }), window.addEventListener("resize", ()=>{
+            setTimeout(()=>{
+                this.update();
+            }, 200);
+        })) : this.error("class");
+    }
+}
+exports.default = o;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
 

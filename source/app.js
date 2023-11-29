@@ -15,6 +15,10 @@ import './shop';
 import Flickity from 'flickity';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
+import MatchHeight from 'vanilla-js-match-height';
+
+// new MatchHeight('.articles-grid__item__content h4');
+
 
 /*------------------------------------------------------------------
 Sticky header  

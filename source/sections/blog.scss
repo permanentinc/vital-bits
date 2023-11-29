@@ -40,3 +40,78 @@
         transform: translateY(-50%) translateX(-50%) rotate(-220deg);
     }
 }
+
+/*------------------------------------------------------------------
+List items
+------------------------------------------------------------------*/
+
+ul {
+    list-style: none;
+    margin: 1rem auto 3rem;
+    word-break: break-word;
+    margin-top: 2rem;
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+
+    > li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 0.5rem;
+
+        &:before {
+            @include pseudo;
+            width: 0.3rem;
+            height: 0.3rem;
+            border-radius: 50%;
+            top: 1.3rem;
+            left: 0.5rem;
+            background: currentColor;
+            background: var(--green);
+        }
+    }
+}
+
+ol {
+    list-style: none;
+    margin: 1rem auto 3rem;
+    word-break: break-word;
+    margin-top: 2rem;
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+
+    > li {
+        padding-left: 2rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+        counter-increment: counter;
+
+        &:before {
+            @include pseudo;
+            top: 4%;
+            left: 0rem;
+            content: counter(counter) '.';
+            color: inherit;
+            font-size: 1.2rem;
+            color: var(--green);
+            @include bold;
+        }
+
+        li {
+            counter-increment: internalcounter;
+
+            &:before {
+                content: counter(internalcounter) '.';
+            }
+        }
+    }
+}
