@@ -948,6 +948,7 @@ body .notyf__message a:hover {
 
 @media only screen and (max-width: 1023px) {
   .header-logo {
+    width: 14rem;
     margin-left: 0;
   }
 
@@ -1499,6 +1500,12 @@ body .notyf__message a:hover {
   width: 100%;
   min-height: 54rem;
   max-height: 72rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .banner-image {
+    min-height: 90vh;
+  }
 }
 
 .banner-image img {

@@ -118,6 +118,7 @@
 
         @include media($lg, max) {
             margin-left: 0;
+            width: 14rem;
 
             svg {
                 width: 8rem;

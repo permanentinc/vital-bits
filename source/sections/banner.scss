@@ -9,6 +9,10 @@
         max-height: 72rem;
         min-height: 54rem;
 
+        @include media($md, max) {
+            min-height: 90vh;
+        }
+
         img {
             position: absolute;
             display: block;
