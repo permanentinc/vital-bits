@@ -1,0 +1,57 @@
+<section class="accordion-element [ element ]">
+  <div class="accordion-element__wrap accordion-element__wrap--{$Width}">
+    {%- for block in section.blocks -%}
+      <div class="accordion-element__item [ js-accordion-element ]" id="accordion_{{ block.settings.id }}">
+        <button
+          class="accordion-element__trigger [ js-trigger ]"
+          aria-expanded="false"
+          aria-controls="accordion_section_{{ block.settings.id }}"
+        >
+          <h4 class="no-margin">
+            <b>{{ block.settings.title }}</b>
+          </h4>
+        </button>
+
+        <div class="accordion-element__content [ js-content ]" role="region" aria-labelledby="accordion_{{ block.settings.id }}">
+          <div class="accordion-element__inner">
+            {{ block.settings.content }}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "accordion-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "name": "Accordion Item",
+      "type": "accordion_item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "copy",
+          "type": "text",
+          "label": "Copy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,31 @@
+<div class="text">
+  <div class="text__wrap">
+    <div class="text__text [ js-inview ]">
+      {{ section.settings.text -}}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "text-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text"
+    }
+  ]
+}
+{% endschema %}

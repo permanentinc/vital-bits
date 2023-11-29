@@ -581,6 +581,7 @@ Entry
 Imports
 ------------------------------------------------------------------*/ var _lib = require("./lib");
 var _search = require("./search");
+var _accordion = require("./accordion");
 var _shop = require("./shop");
 var _flickity = require("flickity");
 var _flickityDefault = parcelHelpers.interopDefault(_flickity);
@@ -592,6 +593,7 @@ var _vanillaJsMatchHeight = require("vanilla-js-match-height");
 var _vanillaJsMatchHeightDefault = parcelHelpers.interopDefault(_vanillaJsMatchHeight);
 console.log("Vital Bits v1.0.0");
 // new MatchHeight('.articles-grid__item__content h4');
+if ((0, _lib.$)(".js-accordion-element")) (0, _lib.$$)(".js-accordion-element").forEach((element)=>new module.Accordion(element));
 /*------------------------------------------------------------------
 Sticky header  
 ------------------------------------------------------------------*/ let previousScrollPosition = 0;
@@ -709,7 +711,7 @@ window.changeQuantity = (event, amount)=>{
     input.value = quantity;
 };
 
-},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","vanilla-js-match-height":"1tBYQ"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","vanilla-js-match-height":"1tBYQ","./accordion":"lWUal"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -6092,6 +6094,99 @@ class o {
     }
 }
 exports.default = o;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"lWUal":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Accordion", ()=>Accordion);
+class Accordion {
+    /**
+     * 
+     * Initialise the accordion item
+     * 
+     */ init() {
+        // Get the initial state of the accordion
+        this.getState();
+        // Add the click event handler to the accordion
+        this.addEventListeners();
+    }
+    /**
+     * 
+     * Get the current state of the accordion
+     * 
+     */ getState() {
+        this.is_open = this.accordion.classList.contains("active");
+    }
+    /**
+    * 
+    * Toggle the current state of the accordion
+    * 
+    */ toggle() {
+        this.is_open ? this.close() : this.open();
+    }
+    /**
+     * 
+     * Add the click event handler to the accordion
+     * 
+     */ addEventListeners() {
+        this.accordion.addEventListener("click", ()=>this.toggle());
+    }
+    /**
+     * 
+     * Add the click event handler to the accordion
+     * 
+     */ updateState(state) {
+        // Update the current state
+        this.is_open = state;
+        // Update the aria-expanded attribute
+        this.trigger.setAttribute("aria-expanded", state);
+    }
+    /**
+     * 
+     * Open the accordion
+     * 
+     */ open() {
+        // Add active class to the accordion
+        this.accordion.classList.add("active");
+        // Quickly get the height we want to animate to
+        this.content.style.height = "auto";
+        var height = this.content.clientHeight + "px";
+        // Revert the heioght back to nothing
+        this.content.style.height = 0;
+        // Animate the height once the calculations are done
+        setTimeout(()=>this.content.style.height = height, 0);
+        // Update the current state
+        this.updateState(true);
+    }
+    /**
+     * 
+     * Close the accordion
+     * 
+     */ close() {
+        // Revert the height back to nothing
+        this.content.style.height = 0;
+        // Remove the active class once animations are over
+        this.content.addEventListener("transitionend", ()=>{
+            this.accordion.classList.remove("active");
+        }, {
+            once: true
+        });
+        // Update the current state
+        this.updateState(false);
+    }
+    /**
+     * 
+     * Constructor
+     * 
+     * @param {element} element accordion parent
+     */ constructor(element){
+        this.accordion = element;
+        this.trigger = this.accordion.querySelector(".js-trigger");
+        this.content = this.accordion.querySelector(".js-content");
+        // Initialise the accordion
+        this.init();
+    }
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
 
