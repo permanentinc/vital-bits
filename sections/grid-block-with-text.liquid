@@ -1,0 +1,137 @@
+<div class="grid-with-text">
+  <div class="grid-with-text-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-with-text-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-with-text-wave3 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-with-text-wave4 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="grid-with-text__wrap">
+    <div class="grid-with-text__copy">
+      {{ section.settings.copy }}
+    </div>
+    <div class="grid-with-text__grid">
+      {%- for block in section.blocks -%}
+        {% assign count = count | plus: 1 %}
+
+        {%- if block.settings.article != blank -%}
+          <a
+            href="{{ block.settings.article.url }}"
+            class="grid-with-text__item grid__item--{% if count == 1 %}large{% else %}small{% endif %}"
+          >
+            <div class="grid-with-text__item__image">
+              {%- if block.settings.article.image != blank -%}
+                {% if count == 1 %}
+                  {{ block.settings.article.image | image_url: width: 690, height: 690 | image_tag }}
+                {% else %}
+                  {{ block.settings.article.image | image_url: width: 690, height: 340 | image_tag }}
+                {% endif %}
+              {%- endif -%}
+            </div>
+            <div class="grid-with-text__item__copy">
+              <h5 class="colour--white">
+                <b> {{ block.settings.article.title }}</b>
+              </h5>
+              <p class="colour--white">
+                {{ block.settings.article.copy }}
+              </p>
+            </div>
+          </a>
+        {% else %}
+          <a
+            href="{{ block.settings.link_link }}"
+            class="grid-with-text__item grid__item--{% if count == 1 %}large{% else %}small{% endif %}"
+          >
+            <div class="grid-with-text__item__image">
+              {%- if block.settings.image != blank -%}
+                {% if count == 1 %}
+                  {{ block.settings.image | image_url: width: 690, height: 690 | image_tag }}
+                {% else %}
+                  {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
+                {% endif %}
+              {%- endif -%}
+            </div>
+            <div class="grid-with-text__item__copy">
+              <h5 class="colour--white">
+                <b> {{ block.settings.title }}</b>
+              </h5>
+              <p class="colour--white">
+                {{ block.settings.copy }}
+              </p>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "copy",
+      "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>",
+      "label": "Copy"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "name": "Grid Item",
+      "type": "grid_item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "copy",
+          "type": "text",
+          "label": "Copy"
+        },
+        {
+          "id": "link_link",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid"
+    }
+  ]
+}
+{% endschema %}
