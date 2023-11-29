@@ -59,6 +59,14 @@
         "heading": "tgargeae",
         "image": "shopify:\/\/shop_images\/hero.jpg"
       }
+    },
+    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
+      "type": "image-text-block",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/collections-1.jpg",
+        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.<\/p>",
+        "reverse_layout": false
+      }
     }
   },
   "order": [
@@ -66,6 +74,7 @@
     "main",
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
     "0390973f-ee87-43c3-b19e-3ba202d8d755",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a",
+    "2693bc49-c25c-4937-9007-efae0c7ba27c"
   ]
 }
