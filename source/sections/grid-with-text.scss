@@ -7,7 +7,7 @@
 
     &-wave2,
     &-wave1 {
-        @include svg(1366, 768);
+        @include svg(1366, 768); 
         position: absolute;
         left: 0;
         top: 0;

@@ -30,54 +30,28 @@
     <div class="grid-with-text__grid">
       {%- for block in section.blocks -%}
         {% assign count = count | plus: 1 %}
-
-        {%- if block.settings.article != blank -%}
-          <a
-            href="{{ block.settings.article.url }}"
-            class="grid-with-text__item grid__item--{% if count == 1 %}large{% else %}small{% endif %}"
-          >
-            <div class="grid-with-text__item__image">
-              {%- if block.settings.article.image != blank -%}
-                {% if count == 1 %}
-                  {{ block.settings.article.image | image_url: width: 690, height: 690 | image_tag }}
-                {% else %}
-                  {{ block.settings.article.image | image_url: width: 690, height: 340 | image_tag }}
-                {% endif %}
-              {%- endif -%}
-            </div>
-            <div class="grid-with-text__item__copy">
-              <h5 class="colour--white">
-                <b> {{ block.settings.article.title }}</b>
-              </h5>
-              <p class="colour--white">
-                {{ block.settings.article.copy }}
-              </p>
-            </div>
-          </a>
-        {% else %}
-          <a
-            href="{{ block.settings.link_link }}"
-            class="grid-with-text__item grid__item--{% if count == 1 %}large{% else %}small{% endif %}"
-          >
-            <div class="grid-with-text__item__image">
-              {%- if block.settings.image != blank -%}
-                {% if count == 1 %}
-                  {{ block.settings.image | image_url: width: 690, height: 690 | image_tag }}
-                {% else %}
-                  {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
-                {% endif %}
-              {%- endif -%}
-            </div>
-            <div class="grid-with-text__item__copy">
-              <h5 class="colour--white">
-                <b> {{ block.settings.title }}</b>
-              </h5>
-              <p class="colour--white">
-                {{ block.settings.copy }}
-              </p>
-            </div>
-          </a>
-        {%- endif -%}
+        <a
+          href="{{ block.settings.link_link }}"
+          class="grid-with-text__item grid__item--{% if count == 1 %}large{% else %}small{% endif %}"
+        >
+          <div class="grid-with-text__item__image">
+            {%- if block.settings.image != blank -%}
+              {% if count == 1 %}
+                {{ block.settings.image | image_url: width: 690, height: 690 | image_tag }}
+              {% else %}
+                {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
+              {% endif %}
+            {%- endif -%}
+          </div>
+          <div class="grid-with-text__item__copy">
+            <h5 class="colour--white">
+              <b> {{ block.settings.title }}</b>
+            </h5>
+            <p class="colour--white">
+              {{ block.settings.copy }}
+            </p>
+          </div>
+        </a>
       {%- endfor -%}
     </div>
   </div>
@@ -85,7 +59,7 @@
 
 {% schema %}
 {
-  "name": "Grid with text",
+  "name": "Grid-with-text",
   "settings": [
     {
       "type": "richtext",
@@ -97,8 +71,8 @@
   "max_blocks": 3,
   "blocks": [
     {
-      "name": "Grid Item",
-      "type": "grid_item",
+      "name": "Grid with Text Item",
+      "type": "grid_with_text_item",
       "settings": [
         {
           "id": "title",
@@ -119,11 +93,6 @@
           "id": "image",
           "type": "image_picker",
           "label": "Image"
-        },
-        {
-          "type": "article",
-          "id": "article",
-          "label": "Article"
         }
       ]
     }
