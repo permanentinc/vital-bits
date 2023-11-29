@@ -14,7 +14,7 @@
 
         <div class="accordion-element__content [ js-content ]" role="region" aria-labelledby="accordion_{{ block.settings.id }}">
           <div class="accordion-element__inner">
-            {{ block.settings.content }}
+            {{ block.settings.copy }}
           </div>
         </div>
       </div>
@@ -38,11 +38,13 @@
         {
           "id": "title",
           "type": "text",
+          "default": "Lorem ipsum dolor sit amet",
           "label": "Title"
         },
         {
           "id": "copy",
           "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>",
           "label": "Copy"
         }
       ]
