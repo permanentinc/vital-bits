@@ -14,24 +14,24 @@
       "settings": {
       }
     },
+    "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff": {
+      "type": "text-block",
+      "settings": {
+        "text": "<p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy, and we want to bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/p>"
+      }
+    },
     "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
       "type": "hero-block",
       "settings": {
         "heading": "tgargeae",
         "image": "shopify:\/\/shop_images\/hero.jpg"
       }
-    },
-    "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff": {
-      "type": "text-block",
-      "settings": {
-        "text": "<p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy, and we want to bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/p>"
-      }
     }
   },
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
     "main",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a",
-    "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff"
+    "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
   ]
 }
