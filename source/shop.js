@@ -53,11 +53,24 @@ const updateCartCount = (count = 0) => {
 const updateSideCart = (cart) => {
 
     let html = '';
+    let total = 0;
     let $side_cart = $('.sidecart-draw-items');
+    let $side_cart_total = $('.js-sidecart-total');
+    let $afterpay_payments = $('.js-afterpay-payments');
+    let $afterpay = $('.sidecart-draw-actions-afterpay');
 
-    cart.items.forEach((item, index) => html += sidecart_item(item, index));
+    cart.items.forEach((item, index) => {
+        html += sidecart_item(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
 
     if ($side_cart) $side_cart.innerHTML = html;
+
+    if ($side_cart_total) $side_cart_total.innerHTML = `$${total.toFixed(2)}`;
+
+    if ($afterpay_payments) $afterpay_payments.innerHTML = `$${(total / 4).toFixed(2)}`;
+
+    (total === 0) ? $afterpay.style.display = 'none' : $afterpay.style.display = 'block';
 
 }
 
@@ -106,6 +119,7 @@ fetchCart();
 window.changeSideCartQuantity = (event, amount) => {
 
     let quantity, input = event.target.parentElement.querySelector('input');
+
     if (amount !== 0) {
         quantity = parseInt(input.value);
         quantity = (quantity + amount < 1) ? 1 : quantity + amount;
@@ -116,7 +130,6 @@ window.changeSideCartQuantity = (event, amount) => {
         line: parseInt(event.target.closest('.sidecart-draw-items__item').dataset.line),
         quantity: (amount == 0) ? 0 : quantity
     };
-
 
     // Send the request to Shopify
     fetch('/cart/change.js', {

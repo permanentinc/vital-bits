@@ -11,7 +11,7 @@ Imports
 
 import { $, $$ } from './lib';
 import './search';
-import './accordion';
+import { Accordion } from './accordion';
 import './shop';
 import Flickity from 'flickity';
 import inView from 'in-view';
@@ -20,9 +20,11 @@ import MatchHeight from 'vanilla-js-match-height';
 
 // new MatchHeight('.articles-grid__item__content h4');
 
-
+ 
 if ($('.js-accordion-element')) {
-    $$('.js-accordion-element').forEach(element => new module.Accordion(element));
+    console.log('fds')
+
+    $$('.js-accordion-element').forEach(element => new Accordion(element));
 }
 
 /*------------------------------------------------------------------

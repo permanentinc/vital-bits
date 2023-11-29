@@ -593,7 +593,10 @@ var _vanillaJsMatchHeight = require("vanilla-js-match-height");
 var _vanillaJsMatchHeightDefault = parcelHelpers.interopDefault(_vanillaJsMatchHeight);
 console.log("Vital Bits v1.0.0");
 // new MatchHeight('.articles-grid__item__content h4');
-if ((0, _lib.$)(".js-accordion-element")) (0, _lib.$$)(".js-accordion-element").forEach((element)=>new module.Accordion(element));
+if ((0, _lib.$)(".js-accordion-element")) {
+    console.log("fds");
+    (0, _lib.$$)(".js-accordion-element").forEach((element)=>new (0, _accordion.Accordion)(element));
+}
 /*------------------------------------------------------------------
 Sticky header  
 ------------------------------------------------------------------*/ let previousScrollPosition = 0;
@@ -5345,9 +5348,19 @@ const updateCarts = (cart)=>{
  * @param {object} cart 
  */ const updateSideCart = (cart)=>{
     let html = "";
+    let total = 0;
     let $side_cart = (0, _lib.$)(".sidecart-draw-items");
-    cart.items.forEach((item, index)=>html += (0, _templates.sidecart_item)(item, index));
+    let $side_cart_total = (0, _lib.$)(".js-sidecart-total");
+    let $afterpay_payments = (0, _lib.$)(".js-afterpay-payments");
+    let $afterpay = (0, _lib.$)(".sidecart-draw-actions-afterpay");
+    cart.items.forEach((item, index)=>{
+        html += (0, _templates.sidecart_item)(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
     if ($side_cart) $side_cart.innerHTML = html;
+    if ($side_cart_total) $side_cart_total.innerHTML = `$${total.toFixed(2)}`;
+    if ($afterpay_payments) $afterpay_payments.innerHTML = `$${(total / 4).toFixed(2)}`;
+    total === 0 ? $afterpay.style.display = "none" : $afterpay.style.display = "block";
 };
 /**
  * 

@@ -2079,9 +2079,9 @@ body .notyf__message a:hover {
   outline: 0;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem 4rem;
+  padding: 1.4rem 4rem;
   font-family: sofia-pro, sans-serif;
-  font-size: 3.6rem;
+  font-size: 3rem;
   font-weight: 400;
   line-height: 1.4;
 }
@@ -3694,6 +3694,162 @@ ol > li li:before {
 
 .shopify-challenge__message {
   color: #fff;
+}
+
+.accordion-element {
+  width: 100%;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-element__wrap {
+  max-width: var(--inner-content-width);
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .accordion-element__wrap {
+    padding: 4rem 2rem;
+  }
+}
+
+.accordion-element h4 {
+  color: var(--green);
+}
+
+.accordion-element__item {
+  border-top: 1px solid var(--grey-light);
+  border-bottom: 1px solid var(--grey-light);
+  margin-bottom: -1px;
+}
+
+.accordion-element__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.accordion-element__item.active .accordion-element__trigger:after {
+  transform: rotate(0) !important;
+}
+
+.accordion-element__item:not(.active) .accordion-element__content {
+  display: none;
+}
+
+.accordion-element__trigger {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: left;
+  outline-offset: 10px;
+  background: none;
+  border: 0;
+  width: 100%;
+  padding: 2rem 2.5rem 2rem 0;
+  position: relative;
+}
+
+.accordion-element__trigger:before, .accordion-element__trigger:after {
+  content: "";
+  background: var(--green);
+  width: 2.2rem;
+  height: .3rem;
+  margin-top: -1px;
+  transition: all .5s cubic-bezier(.365, .04, .44, 1);
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.accordion-element__trigger:after {
+  transform: rotate(90deg);
+}
+
+.accordion-element__content {
+  transition: height .35s ease-in-out;
+  overflow: hidden;
+}
+
+.accordion-element__inner {
+  padding: 1rem 0 2rem;
+}
+
+.text {
+  width: 100%;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.text__wrap {
+  max-width: var(--inner-content-width);
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .text__wrap {
+    padding: 4rem 2rem;
+  }
+}
+
+.image-element__wrap {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.image-element__wrap__image {
+  text-align: center;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 50%;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .image-element__wrap__image {
+    width: 100%;
+    order: 1 !important;
+    transform: none !important;
+  }
+}
+
+.image-element__wrap__image img {
+  width: 100%;
+  height: auto;
+}
+
+.image-element__wrap__text {
+  flex-wrap: wrap;
+  align-content: center;
+  width: 50%;
+  padding: 8rem;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .image-element__wrap__text {
+    order: 2;
+    width: 100%;
+    padding: 3rem 0 0;
+  }
+}
+
+.image-element--reversed .image-element__wrap__image {
+  order: 2;
+}
+
+.image-element--reversed .image-element__wrap__text {
+  order: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
