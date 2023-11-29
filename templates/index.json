@@ -103,12 +103,45 @@
         "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
         "image": "shopify:\/\/shop_images\/hero.jpg"
       }
+    },
+    "d0fffbec-b62e-48a2-b287-2b0acfe75407": {
+      "type": "text-block",
+      "settings": {
+        "text": "<h1><strong>This is a heading<\/strong><\/h1><p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.<\/p>"
+      }
+    },
+    "37d3f785-51ce-4701-9f49-f09ee3b05c53": {
+      "type": "accordion-block",
+      "blocks": {
+        "e79de1d8-62d9-47ed-80c6-f254f3c110d8": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "This is a title",
+            "copy": "Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia."
+          }
+        },
+        "3e599787-f938-4a2b-aff1-b59df5bf48bc": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "",
+            "copy": ""
+          }
+        }
+      },
+      "block_order": [
+        "e79de1d8-62d9-47ed-80c6-f254f3c110d8",
+        "3e599787-f938-4a2b-aff1-b59df5bf48bc"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9",
     "2e7b8157-5d21-422b-80a8-300911cfa1b4",
     "grid-block",
-    "hero-block"
+    "hero-block",
+    "d0fffbec-b62e-48a2-b287-2b0acfe75407",
+    "37d3f785-51ce-4701-9f49-f09ee3b05c53"
   ]
 }
