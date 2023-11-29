@@ -12,9 +12,11 @@
           {{ section.settings.heading }}
         </b>
       </h1>
+      {% if section.settings.link_link != blank %}
       <p>
         <a href="{{ section.settings.link_link }}" class="button">{{ section.settings.link_label }}</a>
       </p>
+      {% endif %}
     </div>
   </div>
 </div>
