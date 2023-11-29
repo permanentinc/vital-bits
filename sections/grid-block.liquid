@@ -47,15 +47,6 @@
             {% else %}
               {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
             {% endif %}
-          {% else %}
-            {{ block.settings.link_link }}
-
-            {% assign desired_article = blog.articles | where: 'url', block.settings.link_link | first %}
-            {% if desired_article %}
-
-              ssss
-          {% endif %} 
-
           {%- endif -%}
         </div>
         <div class="grid__item__copy">
@@ -117,6 +108,11 @@
           "id": "image",
           "type": "image_picker",
           "label": "Image"
+        },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
         }
       ]
     }

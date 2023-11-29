@@ -2,10 +2,9 @@
   <div class="banner-blog-wrap">
     <div class="banner-blog-text">
       <div class="banner-blog-text__constraint">
+        {{ article.url }}
         <h6 class="white">
           <b>
-            {{ article.handle }}
-            {{ article.url }}
             {% for tag in article.tags %}
               {{ tag }}
               {% unless forloop.last %} | {% endunless %}
