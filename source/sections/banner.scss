@@ -2,15 +2,18 @@
     position: relative;
 
     &-image {
-        aspect-ratio: 16/9;
         background: var(--off-white);
         background: #a5d1d9;
         width: 100%;
-        max-height: 72rem;
-        min-height: 54rem;
 
         @include media($md, max) {
-            min-height: 90vh;
+            @include full;
+        }
+
+        @include media($md) {
+            aspect-ratio: 16/9;
+            max-height: 72rem;
+            min-height: 54rem;
         }
 
         img {
@@ -35,8 +38,11 @@
         transform: translateY(-50%);
 
         @include media($md, max) {
-            top: 65%;
+            top: 0;
+            transform: translateY(0);
             padding: 6rem 2rem;
+            position: relative;
+            padding-top: 20rem;
         }
     }
 

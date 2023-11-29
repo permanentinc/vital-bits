@@ -948,7 +948,7 @@ body .notyf__message a:hover {
 
 @media only screen and (max-width: 1023px) {
   .header-logo {
-    width: 14rem;
+    width: 10rem;
     margin-left: 0;
   }
 
@@ -1494,17 +1494,26 @@ body .notyf__message a:hover {
 }
 
 .banner-image {
-  aspect-ratio: 16 / 9;
   background: var(--off-white);
   background: #a5d1d9;
   width: 100%;
-  min-height: 54rem;
-  max-height: 72rem;
 }
 
 @media only screen and (max-width: 767px) {
   .banner-image {
-    min-height: 90vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .banner-image {
+    aspect-ratio: 16 / 9;
+    min-height: 54rem;
+    max-height: 72rem;
   }
 }
 
@@ -1531,8 +1540,10 @@ body .notyf__message a:hover {
 
 @media only screen and (max-width: 767px) {
   .banner-text {
-    padding: 6rem 2rem;
-    top: 65%;
+    padding: 20rem 2rem 6rem;
+    position: relative;
+    top: 0;
+    transform: translateY(0);
   }
 }
 
