@@ -1,5 +1,6 @@
 {
   "current": {
+    "favicon": "shopify:\/\/shop_images\/Favicon.png",
     "checkout_accent_color": "#60b5ad",
     "checkout_button_color": "#60b5ad",
     "sections": {
@@ -15,6 +16,11 @@
       },
       "footer": {
         "type": "footer",
+        "settings": {
+        }
+      },
+      "instagram-block": {
+        "type": "instagram-block",
         "settings": {
         }
       }
