@@ -6,9 +6,9 @@ Image and text blocka
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin: 6rem auto;
-  padding: 0 2rem;
-  
+  padding: 8rem  2rem;
+  background: var(--blue-light);
+
   &__wrap {
     width: 100%;
     display: flex;
@@ -17,7 +17,7 @@ Image and text blocka
     align-items: center;
     max-width: var(--content-width);
     margin: 0 auto;
- 
+
     &__image {
       width: 50%;
       position: relative;
@@ -45,6 +45,10 @@ Image and text blocka
       display: flex;
       flex-wrap: wrap;
       align-content: center;
+
+      * {
+        color: var(--green);
+      }
 
       @include media($md, max) {
         width: 100%;

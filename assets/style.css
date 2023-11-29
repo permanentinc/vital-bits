@@ -3798,9 +3798,9 @@ ol > li li:before {
 }
 
 .image-element {
+  background: var(--blue-light);
   width: 100%;
-  margin: 6rem auto;
-  padding: 0 2rem;
+  padding: 8rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -3844,6 +3844,10 @@ ol > li li:before {
   padding: 8rem;
   display: flex;
   position: relative;
+}
+
+.image-element__wrap__text * {
+  color: var(--green);
 }
 
 @media only screen and (max-width: 767px) {
@@ -3953,7 +3957,14 @@ ol > li li:before {
 .grid-with-text__copy {
   width: 50%;
   margin-bottom: 2rem;
-  padding-right: 2rem;
+  padding-right: 8rem;
+}
+
+@media only screen and (max-width: 967px) {
+  .grid-with-text__copy {
+    width: 100%;
+    padding-right: 0;
+  }
 }
 
 .grid-with-text__copy * {
@@ -3963,6 +3974,13 @@ ol > li li:before {
 .grid-with-text__grid {
   width: 50%;
   margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 967px) {
+  .grid-with-text__grid {
+    width: 100%;
+    padding-right: 0;
+  }
 }
 
 .grid-with-text__item {
