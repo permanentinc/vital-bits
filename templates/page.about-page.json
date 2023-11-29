@@ -56,16 +56,9 @@
     "2693bc49-c25c-4937-9007-efae0c7ba27c": {
       "type": "image-text-block",
       "settings": {
-        "image": "shopify:\/\/shop_images\/collections-1.jpg",
+        "image": "shopify:\/\/shop_images\/hero.jpg",
         "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.<\/p>",
         "reverse_layout": false
-      }
-    },
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
-      "type": "hero-block",
-      "settings": {
-        "heading": "tgargeae",
-        "image": "shopify:\/\/shop_images\/hero.jpg"
       }
     },
     "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
@@ -105,7 +98,14 @@
         "c42618ef-12f3-4d7a-a057-3f0267568abb"
       ],
       "settings": {
-        "copy": "<h2><strong>We get it…<\/strong><\/h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. <\/p>"
+        "copy": "<h2><strong>We get it…<\/strong><\/h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. <\/p><p><\/p>"
+      }
+    },
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
+      "type": "hero-block",
+      "settings": {
+        "heading": "tgargeae",
+        "image": "shopify:\/\/shop_images\/hero.jpg"
       }
     }
   },
@@ -115,7 +115,7 @@
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
     "0390973f-ee87-43c3-b19e-3ba202d8d755",
     "2693bc49-c25c-4937-9007-efae0c7ba27c",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a",
-    "390d78e5-ef2c-4dae-b4ed-12b122745bf4"
+    "390d78e5-ef2c-4dae-b4ed-12b122745bf4",
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
   ]
 }
