@@ -3797,11 +3797,21 @@ ol > li li:before {
   }
 }
 
+.image-element {
+  width: 100%;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
 .image-element__wrap {
+  max-width: var(--content-width);
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -3928,8 +3938,10 @@ ol > li li:before {
 
 .grid-with-text__wrap {
   max-width: var(--content-width);
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 6rem;
+  display: flex;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3938,13 +3950,19 @@ ol > li li:before {
   }
 }
 
-.grid-with-text__intro {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 100%;
+.grid-with-text__copy {
+  width: 50%;
   margin-bottom: 2rem;
-  display: flex;
+  padding-right: 2rem;
+}
+
+.grid-with-text__copy * {
+  color: var(--green);
+}
+
+.grid-with-text__grid {
+  width: 50%;
+  margin-bottom: 2rem;
 }
 
 .grid-with-text__item {

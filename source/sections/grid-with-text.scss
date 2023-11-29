@@ -7,7 +7,7 @@
 
     &-wave2,
     &-wave1 {
-        @include svg(1366, 768); 
+        @include svg(1366, 768);
         position: absolute;
         left: 0;
         top: 0;
@@ -49,19 +49,27 @@
         max-width: var(--content-width);
         margin: 0 auto;
         padding: 6rem;
+        display: flex;
+        flex-wrap: wrap;
 
         @include media($md, max) {
             padding: 4rem 2rem;
         }
     }
 
-    &__intro {
-        width: 100%;
+    &__copy {
+        width: 50%;
         margin-bottom: 2rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-end;
+        padding-right: 2rem;
+
+        * {
+            color: var(--green);
+        }
+    }
+
+    &__grid {
+        width: 50%;
+        margin-bottom: 2rem;
     }
 
     &__item {

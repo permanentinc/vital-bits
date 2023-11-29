@@ -3,13 +3,21 @@ Image and text blocka
 ------------------------------------------------------------------*/
 
 .image-element {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  
   &__wrap {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-
+    max-width: var(--content-width);
+    margin: 0 auto;
+ 
     &__image {
       width: 50%;
       position: relative;
