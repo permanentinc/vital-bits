@@ -3287,7 +3287,7 @@ ol > li li:before {
   padding-left: 4rem;
 }
 
-.product-details p, .product-details h1 {
+.product-details li, .product-details p, .product-details h1, .product-details h2, .product-details h3, .product-details h4, .product-details h5, .product-details h6 {
   color: var(--green);
   max-width: 50rem;
 }

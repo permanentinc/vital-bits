@@ -13,7 +13,8 @@
     </div>
 
     <div class="product-details">
-      <p><b>PREGNANCY</b></p>
+
+      <p><b>{% for collection in product.collections %}{{ collection.title }}{% endfor %}</b></p>
       <h1>
         <b>{{ product.title | escape }}</b>
       </h1>
@@ -79,70 +80,34 @@
       <h2 class="colour--white">You may also like...</h2>
     </div>
 
-    {% comment %}
-      Item
-    {% endcomment %}
-    <a href="#" class="related-products__list__item related-products__list__item--product">
-      <div class="related-products__list__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="related-products item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="related-products__list__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="related-products__list__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </a>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <a href="#" class="related-products__list__item related-products__list__item--product">
-      <div class="related-products__list__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="related-products item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="related-products__list__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="related-products__list__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </a>
-    {% comment %}
-      Item
-    {% endcomment %}
-    <a href="#" class="related-products__list__item related-products__list__item--product">
-      <div class="related-products__list__item__image">
-        <img
-          src="{{ 'collections-3.jpg' | asset_url }}"
-          alt="related-products item image"
-          loading="lazy"
-          width="400"
-          height="400"
-        >
-      </div>
-      <div class="related-products__list__item__title">
-        <h6><b>Product title</b></h6>
-        <h6><b>$29.99</b></h6>
-      </div>
-      <div class="related-products__list__item__description">
-        <p>This is a short product description.</p>
-      </div>
-    </a>
-  </div>
+    {% assign count = 0 %}
+    {% for related_product in product.collections.first.products %}
+      {% if count < 3 and related_product.id != product.id %}
+       {% comment %}
+       Item
+       {% endcomment %}
+       <a href="#" class="related-products__list__item related-products__list__item--product">
+         <div class="related-products__list__item__image">
+            {% if related_product.featured_media %}
+              {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+              {% else %}
+              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image">
+            {% endif %}
+         </div>
+         <div class="related-products__list__item__title">
+           <h6><b>{{ related_product.title | escape }}</b></h6>
+           <h6><b>$29.99</b></h6>
+         </div>
+         <div class="related-products__list__item__description">
+           {% comment %} <p> {% endcomment %}
+            {% comment %} {{ related_product.description }} {% endcomment %}
+          {% comment %} </p> {% endcomment %}
+         </div>
+       </a>
+     {% endif %}
+    {% endfor %}
+
+   
 
   {% comment %}
     Marquee

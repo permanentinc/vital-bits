@@ -143,11 +143,9 @@
       {% endfor %}
     {% endfor %}
 
-    {% assign current_article_tags = article.tags %}
     {% assign recent_articles = blog.articles | sort: 'published_at' | reverse %}
 
     {% for recent_article in recent_articles %}
-      {% assign recent_article_tags = recent_article.tags %}
 
       {% if counter < 3 %}
         {% if matching_articles contains recent_article.id or matching_articles contains article.id %}

@@ -22,8 +22,14 @@
         padding-left: 4rem;
         padding-top: 6rem;
 
+        li,
         p,
-        h1 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--green);
             max-width: 50rem;
         }
@@ -76,7 +82,5 @@
     }
 }
 
-
-[data-theme="C-Section Delivery"]{
-    
+[data-theme='C-Section Delivery'] {
 }
