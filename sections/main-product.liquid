@@ -91,17 +91,17 @@
             {% if related_product.featured_media %}
               {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
               {% else %}
-              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image">
+              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
             {% endif %}
          </div>
          <div class="related-products__list__item__title">
            <h6><b>{{ related_product.title | escape }}</b></h6>
-           <h6><b>$29.99</b></h6>
+           <h6><b>${{ product.price | divided_by: 100.00 }}</b></h6>
          </div>
          <div class="related-products__list__item__description">
-           {% comment %} <p> {% endcomment %}
-            {% comment %} {{ related_product.description }} {% endcomment %}
-          {% comment %} </p> {% endcomment %}
+           <p>
+            {{ product.metafields.custom.short_description }}
+          </p>
          </div>
        </a>
      {% endif %}
