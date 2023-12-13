@@ -23,6 +23,21 @@
 Accordion Element
 ------------------------------------------------------------------*/
 
+.accordion-element-dynamic {
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: -1px;
+
+    .accordion-element__item {
+        border-top: 1px solid var(--green);
+        border-bottom: 1px solid var(--green);
+
+        b {
+            font-weight: 600;
+        }
+    }
+}
+
 .accordion-element {
     &__item {
         border-top: 1px solid var(--grey-light);

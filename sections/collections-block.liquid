@@ -48,9 +48,11 @@
       {% endcomment %}
       <div class="collections__slider__item collections__slider__item--product">
         <div class="collections__slider__item__image">
-          {%- if product.featured_image != blank -%}
-            {{ product.featured_image | image_url: width: 400, height: 400 | image_tag }}
-          {%- endif -%}
+          {% if product.featured_media %}
+            {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+          {% else %}
+            <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
+          {% endif %}
         </div>
         <div class="collections__slider__item__title">
           <h6>

@@ -3,13 +3,18 @@
 <div class="product">
   <div class="product-wrap">
     <div class="product-gallery">
-      <img
-        src="{{ 'product.jpeg' | asset_url }}"
-        alt="product image"
-        loading="lazy"
-        width="667"
-        height="667"
-      >
+
+      <div class="[ js-product-imagery-slider ]">
+        {% for media in product.media %}
+        <img class="[ js-product-slider-item-image ]" src="{{ media.preview_image | img_url: '540x540', crop: 'center' }}" srcset="
+            {{ media.preview_image | img_url: '540x540', crop: 'center' }} 540w,
+            {{ media.preview_image | img_url: '768x768', crop: 'center' }} 768w,
+            {{ media.preview_image | img_url: '968x968', crop: 'center' }} 968w,
+            {{ media.preview_image | img_url: '1080x1080', crop: 'center' }} 1080w" alt="{{ media.preview_image.alt | escape }}" data-lightbox-image="{{ media.preview_image | img_url: '1080x1080', crop: 'center' }}" />
+        {% endfor %}
+      </div>
+
+     
     </div>
 
     <div class="product-details">
@@ -19,11 +24,8 @@
         <b>{{ product.title | escape }}</b>
       </h1>
       <p class="h4"></p>
-      {%- if product.description != blank -%}
-        <p>
-          {{ product.description }}
-        </p>
-      {%- endif -%}
+
+     
 
       {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
         <select style="display:nones !important;" name="id" id="ProductSelect-{{ section.id }}" class="[ js-variant ]">
@@ -52,6 +54,13 @@
           {% endunless %}
         </div>
       {% endform %}
+
+       
+      {%- if product.description != blank -%}
+        <p>
+          {{ product.description }}
+        </p>
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -90,7 +99,7 @@
          <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
               {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
-              {% else %}
+            {% else %}
               <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
             {% endif %}
          </div>

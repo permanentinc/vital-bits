@@ -17,14 +17,70 @@ import Flickity from 'flickity';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 import MatchHeight from 'vanilla-js-match-height';
+import Choices from 'choices.js';
 
 // new MatchHeight('.articles-grid__item__content h4');
 
- 
-if ($('.js-accordion-element')) {
-    console.log('fds')
 
+if ($('.js-accordion-element')) {
     $$('.js-accordion-element').forEach(element => new Accordion(element));
+}
+
+if ($('.product-details')) {
+
+
+    // Declare our choices options
+    const options = {
+        searchEnabled: false,
+        itemSelectText: '',
+        shouldSort: false,
+        placeholder: true,
+        allowHTML: true
+    };
+
+    if ($('.js-variant')) new Choices($('.js-variant'), options);
+
+    $$('.product-details h4').forEach(element => {
+        let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        //wrap html in span
+        let html = element.outerHTML;
+
+        // strip all html tags
+        html = html.replace(/(<([^>]+)>)/gi, "");
+
+        // get all the html until the next h4
+        let content = '';
+        let next = element.nextElementSibling;
+        while (next && next.tagName !== 'H4') {
+            content += next.outerHTML;
+            nextNext = next.nextElementSibling;
+            next.outerHTML = '';
+            next = nextNext;
+        }
+
+        element.outerHTML = /*html*/`
+                <section class="accordion-element accordion-element-dynamic [ element ]">
+                    <div class="accordion-element__wrap">
+                        <div class="accordion-element__item [ js-accordion-element ][ js-accordion-element-dynamic ]" id="accordion_${uuid}">
+                            <button class="accordion-element__trigger [ js-trigger ]" aria-expanded="false" aria-controls="accordion_section_${uuid}">
+                                <h6 class="no-margin">
+                                    <b>${html}</b>
+                                </h6>
+                            </button>
+                            <div class="accordion-element__content [ js-content ]" role="region" aria-labelledby="accordion_section_${uuid}">
+                                <div class="accordion-element__inner">
+                                  ${content}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>`;
+    });
+
+    setTimeout(() => {
+        $$('.js-accordion-element-dynamic').forEach(element => new Accordion(element));
+    }, 400);
+
 }
 
 /*------------------------------------------------------------------

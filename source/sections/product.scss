@@ -12,6 +12,12 @@
         max-width: var(--content-width);
     }
 
+    &-details {
+        form {
+            margin-bottom: 4rem;
+        }
+    }
+
     &-gallery {
         width: 50%;
         padding-right: 4rem;
