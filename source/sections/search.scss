@@ -60,8 +60,11 @@
         transform: scale(0.8);
         transition-delay: 0ms;
 
-        path {
-            fill: var(--green);
+        @include media($md, max) {
+            img {
+                width: 3rem;
+                height: 3rem;
+            }
         }
     }
 
@@ -77,6 +80,10 @@
         border-radius: 10000rem;
         box-shadow: 0 10px 30px rgba(#000, 0.05);
         text-align: center;
+
+        @include media($md, max) {
+            height: 62px;
+        }
 
         input {
             font-size: 3rem;
@@ -95,6 +102,10 @@
                 color: var(--green);
                 opacity: 0.8;
             }
+
+            @include media($md, max) {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -108,6 +119,10 @@
         transition-delay: 0;
         transition: all $fast;
         transform: translateY(0.5rem);
+
+        @include media($md, max) {
+            padding: 4rem 0;
+        }
     }
 }
 
@@ -170,6 +185,10 @@
         width: calc(33.3333% - 2rem);
         margin: 0 1rem 2rem;
         padding: 1rem;
+
+        @include media($md, max) {
+            padding: 0;
+        }
 
         &__image {
             @include aspect(1, 1);

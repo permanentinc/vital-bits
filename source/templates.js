@@ -1,8 +1,8 @@
 export const sidecart_item = (item, index) => {
-    return  /*html*/`
+  return  /*html*/`
         <div class="sidecart-draw-items__item" data-line="${index + 1}">
             <div class="sidecart-draw-items__item__image">
-                <img src="${item.image}" loading="lazy" alt="${item.product_title}">
+                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
             </div>
             <div class="sidecart-draw-items__item__details">
                 
@@ -32,9 +32,9 @@ export const sidecart_item = (item, index) => {
 };
 
 export const maincart_item = (item, index) => {
-    console.log(item)
+  console.log(item)
 
-    return  /*html*/`
+  return  /*html*/`
     <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
     <td class="cart__wrap__form__table__body__row__cell">
       <a href="${item.link}" class="cart__wrap__form__table__body__row__cell__image">

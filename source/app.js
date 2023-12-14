@@ -38,7 +38,16 @@ if ($('.product-details')) {
         allowHTML: true
     };
 
-    if ($('.js-variant')) new Choices($('.js-variant'), options);
+    if ($('.js-variant')) {
+        new Choices($('.js-variant'), options);
+
+        $('.js-variant').addEventListener('change', event => {
+            let variant = event.detail.value;
+            let variantData = window.inventories[variant];
+
+            $('.js-variation-price').innerHTML = variantData.price;
+        });
+    }
 
     $$('.product-details h4').forEach(element => {
         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);

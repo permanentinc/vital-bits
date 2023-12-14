@@ -605,7 +605,14 @@ if ((0, _lib.$)(".product-details")) {
         placeholder: true,
         allowHTML: true
     };
-    if ((0, _lib.$)(".js-variant")) new (0, _choicesJsDefault.default)((0, _lib.$)(".js-variant"), options);
+    if ((0, _lib.$)(".js-variant")) {
+        new (0, _choicesJsDefault.default)((0, _lib.$)(".js-variant"), options);
+        (0, _lib.$)(".js-variant").addEventListener("change", (event)=>{
+            let variant = event.detail.value;
+            let variantData = window.inventories[variant];
+            (0, _lib.$)(".js-variation-price").innerHTML = variantData.price;
+        });
+    }
     (0, _lib.$$)(".product-details h4").forEach((element)=>{
         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         //wrap html in span
@@ -5995,7 +6002,7 @@ const sidecart_item = (item, index)=>{
     return /*html*/ `
         <div class="sidecart-draw-items__item" data-line="${index + 1}">
             <div class="sidecart-draw-items__item__image">
-                <img src="${item.image}" loading="lazy" alt="${item.product_title}">
+                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
             </div>
             <div class="sidecart-draw-items__item__details">
                 

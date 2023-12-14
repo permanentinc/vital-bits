@@ -88,5 +88,105 @@
     }
 }
 
-[data-theme='C-Section Delivery'] {
+html {
+    [data-theme='C-Section Delivery'],
+    [data-theme='V-Delivery'] {
+        background: var(--purple-light);
+
+        .announcement,
+        .related-products,
+        .header-nav.coloured:after,
+        .header-actions:after {
+            background: var(--orange);
+        }
+
+        .animate-white-to-green {
+            background-image: linear-gradient(90deg, var(--orange) 50%, white 50%);
+        }
+        .choices__inner {
+            border-color: var(--orange);
+
+            &:hover .choices__inner {
+                border-color: var(--orange);
+            }
+        }
+
+        .header-actions__cart__count {
+            color: var(--orange);
+        }
+
+        .product {
+            background: var(--purple-light);
+        }
+
+        .product-details {
+            * {
+                color: var(--orange);
+            }
+
+            .button {
+                background: var(--orange);
+                color: var(--purple-light);
+            }
+
+            .accordion-element__trigger:before,
+            .accordion-element__trigger:after {
+                background: var(--orange);
+            }
+            .accordion-element__item {
+                border-color: var(--orange);
+            }
+        }
+    }
+}
+
+html {
+    [data-theme='Breast Feeding'] {
+        background: var(--pink-light);
+
+        .announcement,
+        .related-products,
+        .header-nav.coloured:after,
+        .header-actions:after {
+            background: var(--pink);
+        }
+
+        .animate-white-to-green {
+            background-image: linear-gradient(90deg, var(--pink) 50%, white 50%);
+        }
+        .choices__inner {
+            border-color: var(--pink);
+
+            &:hover .choices__inner {
+                border-color: var(--pink);
+            }
+        }
+
+        .header-actions__cart__count {
+            color: var(--pink);
+        }
+
+        .product {
+            background: var(--pink-light);
+        }
+
+        .product-details {
+            * {
+                color: var(--pink);
+            }
+
+            .button {
+                background: var(--pink);
+                color: var(--pink-light);
+            }
+
+            .accordion-element__trigger:before,
+            .accordion-element__trigger:after {
+                background: var(--pink);
+            }
+            .accordion-element__item {
+                border-color: var(--pink);
+            }
+        }
+    }
 }

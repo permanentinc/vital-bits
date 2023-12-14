@@ -14,18 +14,18 @@
         {% endfor %}
       </div>
 
-     
     </div>
 
     <div class="product-details">
 
-      <p><b>{% for collection in product.collections %}{{ collection.title }}{% endfor %}</b></p>
+      <p class="h5 uppercase"><b>{{ product.collections.first.title }}</b></p>
       <h1>
         <b>{{ product.title | escape }}</b>
       </h1>
-      <p class="h4"></p>
-
-     
+      
+      <p class="h4"><b class="[ js-variation-price ]">{{ product.price | money }}</b></p>
+      <p>&nbsp;</p>
+      
 
       {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
         <select style="display:nones !important;" name="id" id="ProductSelect-{{ section.id }}" class="[ js-variant ]">
@@ -105,14 +105,15 @@
          </div>
          <div class="related-products__list__item__title">
            <h6><b>{{ related_product.title | escape }}</b></h6>
-           <h6><b>${{ product.price | divided_by: 100.00 }}</b></h6>
+           <h6><b>{{ related_product.price | money }}</b></h6>
          </div>
          <div class="related-products__list__item__description">
            <p>
-            {{ product.metafields.custom.short_description }}
+            {{ related_product.metafields.custom.short_description }}
           </p>
          </div>
        </a>
+        {% assign count = count | plus: 1 %}
      {% endif %}
     {% endfor %}
 
@@ -181,4 +182,18 @@
       {%- endfor -%}
     ]
   }
+</script>
+
+
+<script>
+  window.inventories = [];
+  {% for variant in product.variants %}
+
+  window.inventories[{{ variant.id }}] = {
+    'id': {{ variant.id }},
+    'quantity': '{{ variant.inventory_quantity | default: 0 }}',
+    'price': '{{ variant.price | money }}'
+  };
+
+  {% endfor %}
 </script>

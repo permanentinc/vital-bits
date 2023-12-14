@@ -24,9 +24,8 @@
     {% comment %}
       Slider
     {% endcomment %}
-    
+
     <div class="collections__slider [ js-inview ]">
-    
       {% comment %}
         Item
       {% endcomment %}
@@ -34,43 +33,48 @@
         <h2>
           <b>{{ block.settings.Collection.title }}</b>
         </h2>
-        <p> 
+        <p>
           <b>{{ block.settings.copy }}</b>
         </p>
         <p>
           <a href="{{ block.settings.Collection.url }}" class="button">Shop all</a>
         </p>
       </div>
-      
-      {%- for product in block.settings.Collection.products -%}
-      {% comment %}
-        Item
-      {% endcomment %}
-      <div class="collections__slider__item collections__slider__item--product">
-        <div class="collections__slider__item__image">
-          {% if product.featured_media %}
-            {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
-          {% else %}
-            <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
-          {% endif %}
-        </div>
-        <div class="collections__slider__item__title">
-          <h6>
-            <b>{{ product.title }}</b>
-          </h6>
-          <h6>
-            <b>${{ product.price | divided_by: 100.00 }}</b>
-          </h6>
-        </div>
-        <div class="collections__slider__item__description">
-          <p>{{ product.metafields.custom.short_description }}</p>
-        </div>
-      </div> 
 
-    {%- endfor -%}
-         </div> 
+      {%- for product in block.settings.Collection.products -%}
+        {% comment %}
+          Item
+        {% endcomment %}
+        <div class="collections__slider__item collections__slider__item--product">
+          <div class="collections__slider__item__image">
+            {% if product.featured_media %}
+              {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+            {% else %}
+              <img
+                src="{{ 'placeholder.jpeg' | asset_url }}"
+                alt="placeholder image"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+          <div class="collections__slider__item__title">
+            <h6>
+              <b>{{ product.title }}</b>
+            </h6>
+            <h6>
+              <b>{{ product.price | money }}</b>
+            </h6>
+          </div>
+          <div class="collections__slider__item__description">
+            <p>{{ product.metafields.custom.short_description }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
   {%- endfor -%}
-  
+
   {% comment %}
     Marquee
   {% endcomment %}
@@ -125,3 +129,4 @@
   ]
 }
 {% endschema %}
+

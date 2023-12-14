@@ -54,6 +54,18 @@
     </svg>
   </div>
 
+  <div class="articles-wave3 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="articles-wave4 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
   {% comment %}
     Intro
   {% endcomment %}
@@ -65,11 +77,11 @@
       {% for tag in blogs.news.tags %}
         <a
           href="#"
-          class="button wide"
+          class="button "
           data-filter="{{ tag }}"
           onclick="event.preventDefault();window.filterArticles('{{ tag }}')"
         >
-          {{- tag -}}
+          {{ tag }}
         </a>
       {% endfor %}
     </p>
@@ -89,11 +101,14 @@
             width="640"
             height="480"
           >
+          <div class="animatedPanel [ js-inview ]">
+            <div class="animatedPanel__colour"></div>
+          </div>
         </div>
 
-        <div class="articles-grid__item__content">
+        <div class="articles-grid__item__content [ js-inview ]">
           <h6>
-            <b>{{ article.tags }}</b>
+            <b>{{ article.tags | join: ' | ' }}</b>
           </h6>
           <h4 class="colour--green">
             <b>
@@ -111,7 +126,6 @@
 
   <script>
     function filterArticles(tag) {
-        
       var articles = document.querySelectorAll('.articles-grid__item');
       var filters = document.querySelectorAll('.articles-filters .button');
 

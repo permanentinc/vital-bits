@@ -33,7 +33,7 @@
               <b>{{ product.title }}</b>
             </h6>
             <h6>
-              <b>${{ product.price | divided_by: 100.00 }}</b>
+              <b>{{ product.price | money }}</b>
             </h6>
           </div>
           <div class="collection-grid__list__item__description">
