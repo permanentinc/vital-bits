@@ -36,6 +36,15 @@ Accordion Element
             font-weight: 600;
         }
     }
+
+    .accordion-element__wrap {
+        padding-left: 0;
+        padding-right: 0;
+
+        @include media($md, max) {
+            padding: 0;
+        }
+    }
 }
 
 .accordion-element {

@@ -3874,10 +3874,24 @@ ol > li li:before {
   padding-right: 4rem;
 }
 
+@media only screen and (max-width: 767px) {
+  .product-gallery {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
 .product-details {
   width: 50%;
   padding-top: 6rem;
   padding-left: 4rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .product-details {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 
 .product-details li, .product-details p, .product-details h1, .product-details h2, .product-details h3, .product-details h4, .product-details h5, .product-details h6 {
@@ -4424,6 +4438,17 @@ html [data-theme="Breast Feeding"] .product-details .accordion-element__item {
 
 .accordion-element-dynamic .accordion-element__item b {
   font-weight: 600;
+}
+
+.accordion-element-dynamic .accordion-element__wrap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .accordion-element-dynamic .accordion-element__wrap {
+    padding: 0;
+  }
 }
 
 .accordion-element__item {

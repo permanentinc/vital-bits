@@ -21,12 +21,22 @@
     &-gallery {
         width: 50%;
         padding-right: 4rem;
+
+        @include media($md, max) {
+            width: 100%;
+            padding-right: 0;
+        }
     }
 
     &-details {
         width: 50%;
         padding-left: 4rem;
         padding-top: 6rem;
+
+        @include media($md, max) {
+            width: 100%;
+            padding-left: 0;
+        }
 
         li,
         p,
