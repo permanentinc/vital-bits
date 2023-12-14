@@ -1717,7 +1717,7 @@ body .choices .choices__list--dropdown .choices__item {
 }
 
 .mobile-navigation {
-  z-index: 3;
+  z-index: 5;
   visibility: hidden;
   opacity: 0;
   transition: all .2s cubic-bezier(.365, .04, .44, 1);
@@ -4117,6 +4117,13 @@ html [data-theme="Breast Feeding"] .product-details .accordion-element__item {
 @media only screen and (max-width: 767px) {
   .collection-grid__list__item--product {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .collection-grid__list__item--product {
+    width: 100%;
+    max-width: none;
   }
 }
 

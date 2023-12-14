@@ -66,6 +66,11 @@
                     width: 80%;
                 }
 
+                @include media($sm, max) {
+                    width: 100%;
+                    max-width: none;
+                }
+
                 h6,
                 p {
                     color: var(--green) !important;
