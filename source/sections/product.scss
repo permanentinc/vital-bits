@@ -8,6 +8,7 @@
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
 
         max-width: var(--content-width);
     }
@@ -16,15 +17,69 @@
         form {
             margin-bottom: 4rem;
         }
+
+        &__category {
+            @include bold;
+            opacity: 0.5;
+            font-size: 1.5rem;
+
+            b {
+                letter-spacing: 0.1rem;
+            }
+        }
     }
 
     &-gallery {
         width: 50%;
         padding-right: 4rem;
+        position: relative;
 
         @include media($md, max) {
             width: 100%;
             padding-right: 0;
+        }
+        &-previous {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            cursor: none;
+            z-index: 4;
+            transition: all 0.3s ease-in-out;
+
+            @include media($md, max) {
+                display: none;
+            }
+        }
+
+        &-next {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            cursor: none;
+            z-index: 4;
+            transition: all 0.3s ease-in-out;
+
+            @include media($md, max) {
+                display: none;
+            }
+        }
+
+        &-progresscircle {
+            @include svg(1, 1);
+            position: absolute;
+            top: 1.5rem;
+            right: 5rem;
+            width: 3rem;
+            z-index: 4;
+
+            circle {
+                stroke-width: 4px;
+                stroke: var(--green);
+            }
         }
     }
 
@@ -57,7 +112,10 @@
         width: 100%;
         align-items: center;
         align-content: center;
-        margin-top: 4rem;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid var(--green-light);
+        border-bottom: 1px solid var(--green-light);
 
         .quantity {
             margin-right: 2rem;

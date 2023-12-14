@@ -3861,6 +3861,7 @@ ol > li li:before {
 .product-wrap {
   max-width: var(--content-width);
   flex-wrap: wrap;
+  align-items: flex-start;
   margin: 0 auto;
   display: flex;
 }
@@ -3869,9 +3870,21 @@ ol > li li:before {
   margin-bottom: 4rem;
 }
 
+.product-details__category {
+  opacity: .5;
+  font-family: sofia-pro, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.product-details__category b {
+  letter-spacing: .1rem;
+}
+
 .product-gallery {
   width: 50%;
   padding-right: 4rem;
+  position: relative;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3879,6 +3892,68 @@ ol > li li:before {
     width: 100%;
     padding-right: 0;
   }
+}
+
+.product-gallery-previous {
+  cursor: none;
+  z-index: 4;
+  width: 50%;
+  transition: all .3s ease-in-out;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .product-gallery-previous {
+    display: none;
+  }
+}
+
+.product-gallery-next {
+  cursor: none;
+  z-index: 4;
+  width: 50%;
+  transition: all .3s ease-in-out;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .product-gallery-next {
+    display: none;
+  }
+}
+
+.product-gallery-progresscircle {
+  z-index: 4;
+  width: 3rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 5rem;
+}
+
+.product-gallery-progresscircle:after {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+  position: relative;
+}
+
+.product-gallery-progresscircle svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-gallery-progresscircle circle {
+  stroke-width: 4px;
+  stroke: var(--green);
 }
 
 .product-details {
@@ -3900,11 +3975,14 @@ ol > li li:before {
 }
 
 .product-actions {
+  border-top: 1px solid var(--green-light);
+  border-bottom: 1px solid var(--green-light);
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
   display: flex;
 }
 
@@ -4826,6 +4904,80 @@ html [data-theme="Breast Feeding"] .product-details .accordion-element__item {
 
 .grid-with-text__item:hover .grid-with-text__item__copy p {
   opacity: 1;
+}
+
+.customCursor {
+  pointer-events: none;
+  z-index: 110001;
+  width: 6px;
+  height: 6px;
+  position: fixed;
+  top: -3px;
+  left: -3px;
+}
+
+@media only screen and (max-width: 767px) {
+  .customCursor {
+    opacity: 0;
+  }
+}
+
+.customCursor .previous {
+  opacity: 0;
+  transition: all .333s cubic-bezier(.175, .885, .32, 1.275);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%)translateX(-50%)scale(0)rotate(180deg);
+}
+
+.customCursor .previous svg {
+  overflow: visible;
+}
+
+.customCursor .previous svg path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2px;
+}
+
+.customCursor.previous .previous {
+  opacity: 1;
+  transform: translateY(-50%)translateX(-50%)scale(1)rotate(0);
+}
+
+.customCursor .next {
+  opacity: 0;
+  transition: all .333s cubic-bezier(.175, .885, .32, 1.275);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%)translateX(-50%)scale(0)rotate(-180deg);
+}
+
+.customCursor .next svg {
+  overflow: visible;
+}
+
+.customCursor .next svg path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2px;
+}
+
+.customCursor.next .next {
+  opacity: 1;
+  transform: translateY(-50%)translateX(-50%)scale(1)rotate(0);
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

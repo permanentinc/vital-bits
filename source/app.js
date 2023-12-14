@@ -11,13 +11,16 @@ Imports
 
 import { $, $$ } from './lib';
 import './search';
-import { Accordion } from './accordion';
 import './shop';
+import './cursor';
+import { Accordion } from './accordion';
 import Flickity from 'flickity';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 import MatchHeight from 'vanilla-js-match-height';
 import Choices from 'choices.js';
+
+
 
 // new MatchHeight('.articles-grid__item__content h4');
 
@@ -249,3 +252,97 @@ window.changeQuantity = (event, amount) => {
 
     input.value = quantity;
 }
+
+
+
+
+/*------------------------------------------------------------------
+Import external
+------------------------------------------------------------------*/
+
+// import $ from 'jquery';
+// import slick from 'slick-carousel';
+
+/*------------------------------------------------------------------
+Doc Ready
+------------------------------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    let tick;
+    let hovered = false;
+    let percent = 0;
+    let $productSliderProgress = $('.js-gallery-progress');
+    let $productSliderProgressCircle = $('.js-gallery-progress-circle');
+    let $productSlider = $('.js-product-imagery-slider');
+    let $productGallery = $('.product-gallery');
+
+    if ($productSlider) {
+
+
+        /**
+         * Reset the progress bars' animation to zero 
+         */
+        const resetProgressbar = () => {
+            $productSliderProgress.style.width = `${0}%`;
+            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (0));
+            clearInterval(tick);
+        };
+
+
+        /**
+         * Start the progress bar animating 
+         */
+        const startProgressbar = () => {
+            resetProgressbar();
+            hovered = false;
+            percent = 0;
+            tick = setInterval(interval, 10);
+        };
+
+
+        /**
+         * Set our animation speed for the progress bar
+         */
+        const interval = () => {
+            if (!hovered) percent += .19;
+            $productSliderProgress.style.width = `${percent}%`;
+            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (percent * Math.PI));
+        };
+
+
+        // // Add event listeners for mouseenter and mouseleave
+        // $productGallery.addEventListener('mouseenter', () => hovered = true);
+        // $productGallery.addEventListener('mouseleave', () => startProgressbar());
+
+        // // Add event listeners for mouseenter and mouseleave
+        // $productGallery.addEventListener('mouseenter', () => hovered = true);
+        // $productGallery.addEventListener('mouseleave', () => hovered = false, resetProgressbar());
+
+
+        let product_slider = new Flickity('.js-product-imagery-slider', {
+            wrapAround: false,
+            pageDots: false,
+            prevNextButtons: false,
+            autoPlay: 5250
+        });
+
+        startProgressbar()
+
+        product_slider.on('change', () => startProgressbar());
+
+
+        $('.js-cursor-previous').addEventListener('click', (e) => {
+            e.preventDefault();
+            product_slider.previous();
+        });
+
+
+        $('.js-cursor-next').addEventListener('click', (e) => {
+            e.preventDefault();
+            product_slider.next();
+        });
+    }
+
+});
+

@@ -581,8 +581,9 @@ Entry
 Imports
 ------------------------------------------------------------------*/ var _lib = require("./lib");
 var _search = require("./search");
-var _accordion = require("./accordion");
 var _shop = require("./shop");
+var _cursor = require("./cursor");
+var _accordion = require("./accordion");
 var _flickity = require("flickity");
 var _flickityDefault = parcelHelpers.interopDefault(_flickity);
 var _inView = require("in-view");
@@ -766,8 +767,69 @@ window.changeQuantity = (event, amount)=>{
     quantity = quantity + amount < 1 ? 1 : quantity + amount;
     input.value = quantity;
 };
+/*------------------------------------------------------------------
+Import external
+------------------------------------------------------------------*/ // import $ from 'jquery';
+// import slick from 'slick-carousel';
+/*------------------------------------------------------------------
+Doc Ready
+------------------------------------------------------------------*/ document.addEventListener("DOMContentLoaded", ()=>{
+    let tick;
+    let hovered = false;
+    let percent = 0;
+    let $productSliderProgress = (0, _lib.$)(".js-gallery-progress");
+    let $productSliderProgressCircle = (0, _lib.$)(".js-gallery-progress-circle");
+    let $productSlider = (0, _lib.$)(".js-product-imagery-slider");
+    let $productGallery = (0, _lib.$)(".product-gallery");
+    if ($productSlider) {
+        /**
+         * Reset the progress bars' animation to zero 
+         */ const resetProgressbar = ()=>{
+            $productSliderProgress.style.width = `${0}%`;
+            $productSliderProgressCircle.setAttribute("stroke-dashoffset", 0);
+            clearInterval(tick);
+        };
+        /**
+         * Start the progress bar animating 
+         */ const startProgressbar = ()=>{
+            resetProgressbar();
+            hovered = false;
+            percent = 0;
+            tick = setInterval(interval, 10);
+        };
+        /**
+         * Set our animation speed for the progress bar
+         */ const interval = ()=>{
+            if (!hovered) percent += .19;
+            $productSliderProgress.style.width = `${percent}%`;
+            $productSliderProgressCircle.setAttribute("stroke-dashoffset", percent * Math.PI);
+        };
+        // // Add event listeners for mouseenter and mouseleave
+        // $productGallery.addEventListener('mouseenter', () => hovered = true);
+        // $productGallery.addEventListener('mouseleave', () => startProgressbar());
+        // // Add event listeners for mouseenter and mouseleave
+        // $productGallery.addEventListener('mouseenter', () => hovered = true);
+        // $productGallery.addEventListener('mouseleave', () => hovered = false, resetProgressbar());
+        let product_slider = new (0, _flickityDefault.default)(".js-product-imagery-slider", {
+            wrapAround: false,
+            pageDots: false,
+            prevNextButtons: false,
+            autoPlay: 5250
+        });
+        startProgressbar();
+        product_slider.on("change", ()=>startProgressbar());
+        (0, _lib.$)(".js-cursor-previous").addEventListener("click", (e)=>{
+            e.preventDefault();
+            product_slider.previous();
+        });
+        (0, _lib.$)(".js-cursor-next").addEventListener("click", (e)=>{
+            e.preventDefault();
+            product_slider.next();
+        });
+    }
+});
 
-},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","vanilla-js-match-height":"1tBYQ","./accordion":"lWUal","choices.js":"7Oucv"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","vanilla-js-match-height":"1tBYQ","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -11528,6 +11590,37 @@ class Accordion {
     /******/ }();
 });
 
-},{}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
+},{}],"9Us5D":[function(require,module,exports) {
+var _lib = require("./lib");
+document.addEventListener("DOMContentLoaded", function() {
+    let clientX = -100;
+    let clientY = -100;
+    const innerCursor = document.querySelector(".customCursor");
+    const initCursor = ()=>{
+        document.addEventListener("mousemove", (e)=>{
+            clientX = e.clientX;
+            clientY = e.clientY;
+        });
+        const render = ()=>{
+            innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+            requestAnimationFrame(render);
+        };
+        requestAnimationFrame(render);
+    };
+    const animateCursor = (type, remove)=>(0, _lib.$)(".customCursor").classList.toggle(type, remove);
+    initCursor();
+    // Get the element with the class 'js-cursor-previous'
+    const $previous = (0, _lib.$)(".js-cursor-previous");
+    // Add event listeners for mouseenter and mouseleave
+    $previous.addEventListener("mouseenter", ()=>animateCursor("previous", true));
+    $previous.addEventListener("mouseleave", ()=>animateCursor("previous", false));
+    // Get the element with the class 'js-cursor-previous'
+    const $next = (0, _lib.$)(".js-cursor-next");
+    // Add event listeners for mouseenter and mouseleave
+    $next.addEventListener("mouseenter", ()=>animateCursor("next", true));
+    $next.addEventListener("mouseleave", ()=>animateCursor("next", false));
+});
+
+},{"./lib":"acGTP"}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
 
 //# sourceMappingURL=app.js.map

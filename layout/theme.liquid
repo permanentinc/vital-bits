@@ -105,12 +105,12 @@
       .sidecart-background{
         cursor: -webkit-image-set(url({{ 'close.png' | asset_url }}) 1x,url({{ 'close@2x.png' | asset_url }}) 2x) 15 15,auto;
         --p-size: {{ settings.p_size }}px;
-
       }
 
       .sidecart-background{
         cursor: -webkit-image-set(url({{ 'close.png' | asset_url }}) 1x,url({{ 'close@2x.png' | asset_url }}) 2x) 15 15,auto;
       }
+
 
 
       *,
@@ -157,6 +157,8 @@
   >
     {{ content_for_header }}
 
+    {% section 'custom-cursors' %}
+
     {% section 'header' %}
 
     {{ content_for_layout }}
@@ -167,6 +169,7 @@
       Side cart
     {% endcomment %}
     {% section 'sidecart' %}
+
 
     {% section 'footer' %}
   </body>
