@@ -4,6 +4,7 @@
       "type": "banner",
       "settings": {
         "heading": "<h1><strong>About us<\/strong><\/h1><h6>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. <\/h6>",
+        "image": "shopify:\/\/shop_images\/about_banner.png",
         "link_label": "",
         "link_link": ""
       }
