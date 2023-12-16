@@ -3,22 +3,25 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "background-1"
+      }
+    },
+    "e08464f5-a336-4692-bf0d-a419914b0cf5": {
+      "type": "banner",
+      "settings": {
+        "heading": "<h1><strong>Shop our range<\/strong><\/h1>",
+        "link_label": "",
+        "link_link": ""
       }
     },
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square"
       }
     }
   },
   "order": [
     "banner",
+    "e08464f5-a336-4692-bf0d-a419914b0cf5",
     "main"
   ]
 }
