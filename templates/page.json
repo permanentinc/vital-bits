@@ -14,6 +14,12 @@
       "settings": {
       }
     },
+    "f150e94c-ba51-4b49-bfac-63691354ecbc": {
+      "type": "contact-block",
+      "settings": {
+        "text": "<h2><strong>We would love to hear from you…<\/strong><\/h2><p>If you have an enquiry, please get in touch via this form and one of our team will be in touch shortly.<\/p>"
+      }
+    },
     "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
       "type": "hero-block",
       "settings": {
@@ -25,6 +31,7 @@
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
     "main",
+    "f150e94c-ba51-4b49-bfac-63691354ecbc",
     "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
   ]
 }
