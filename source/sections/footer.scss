@@ -30,6 +30,11 @@
     }
 
     &-column {
+        &-payment {
+            margin-right: 2rem;
+            margin-top: 1rem;
+        }
+
         h6 {
             margin-bottom: 0.5rem;
             opacity: 0.6;
@@ -118,7 +123,7 @@
     }
 
     &-newsletter {
-        margin-bottom: 1rem;
+        margin-bottom: 4rem;
         position: relative;
         width: 100%;
 

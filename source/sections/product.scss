@@ -1,3 +1,6 @@
+.afterpay-info-icon {
+    bottom: -4px !important;
+}
 .product {
     padding: 0 2rem;
     padding-top: 20rem;
@@ -38,6 +41,23 @@
             width: 100%;
             padding-right: 0;
         }
+
+        &-lightbox {
+            @include svg(40, 27);
+            bottom: 1rem;
+            right: 5rem;
+            z-index: 33;
+            cursor: pointer;
+            position: absolute;
+            width: 4rem;
+
+            svg {
+                path {
+                    fill: var(--green);
+                }
+            }
+        }
+
         &-previous {
             position: absolute;
             top: 0;
@@ -157,9 +177,14 @@
 }
 
 html {
+    [data-theme='Post Partum'],
     [data-theme='C-Section Delivery'],
     [data-theme='V-Delivery'] {
         background: var(--purple-light);
+
+        .js-gradient-background {
+            background: var(--purple-light) !important;
+        }
 
         .announcement,
         .related-products,
@@ -171,6 +196,7 @@ html {
         .animate-white-to-green {
             background-image: linear-gradient(90deg, var(--orange) 50%, white 50%);
         }
+
         .choices__inner {
             border-color: var(--orange);
 
@@ -179,8 +205,11 @@ html {
             }
         }
 
+        .collection-grid__list__item__title h6,
+        .collection-grid__list__item__description p,
+        .collection-grid__list__title h2,
         .header-actions__cart__count {
-            color: var(--orange);
+            color: var(--orange) !important;
         }
 
         .product {
@@ -205,12 +234,54 @@ html {
                 border-color: var(--orange);
             }
         }
+
+      
+        .product-gallery-lightbox {
+            path {
+                fill: var(--orange) !important;
+            }
+        }
+
+        .js-wave path,
+        .previous path,
+        .next path {
+            stroke: var(--orange) !important;
+        }
+
+        .product-gallery-progresscircle {
+            circle {
+                stroke: var(--orange);
+            }
+        }
+
+        .product-actions {
+            border-color: var(--orange);
+        }
+
+        .goverlay {
+            background: var(--purple-light);
+        }
+        .gbtn {
+            path {
+                fill: var(--orange);
+            }
+        }
+        li:before {
+            background: var(--orange);
+        }
+        .collection-grid__marquee__animation span {
+            -webkit-text-stroke-color: var(--orange);
+        }
     }
 }
 
 html {
     [data-theme='Breast Feeding'] {
         background: var(--pink-light);
+
+        .js-gradient-background {
+            background: var(--pink-light) !important;
+        }
 
         .announcement,
         .related-products,
@@ -230,8 +301,11 @@ html {
             }
         }
 
+        .collection-grid__list__item__title h6,
+        .collection-grid__list__item__description p,
+        .collection-grid__list__title h2,
         .header-actions__cart__count {
-            color: var(--pink);
+            color: var(--pink) !important;
         }
 
         .product {
@@ -255,6 +329,45 @@ html {
             .accordion-element__item {
                 border-color: var(--pink);
             }
+        }
+
+        .product-gallery-lightbox {
+            path {
+                fill: var(--pink) !important;
+            }
+        }
+
+        .js-wave path,
+        .previous path,
+        .next path {
+            stroke: var(--pink) !important;
+        }
+
+        .product-gallery-progresscircle {
+            circle {
+                stroke: var(--pink);
+            }
+        }
+
+        .product-actions {
+            border-color: var(--pink);
+        }
+
+        .goverlay {
+            background: var(--pink-light);
+        }
+        .gbtn {
+            path {
+                fill: var(--pink);
+            }
+        }
+
+        li:before {
+            background: var(--pink);
+        }
+
+        .collection-grid__marquee__animation span {
+            -webkit-text-stroke-color: var(--pink);
         }
     }
 }

@@ -82,6 +82,7 @@
             top: 50%;
             transition: all $fast;
             z-index: 4;
+            opacity: 0.6;
             background-image: linear-gradient(180deg, rgba(black, 0) 0%, black 100%);
         }
 
@@ -135,7 +136,7 @@
         &:hover {
             &:before {
                 transform: scaleY(1);
-                opacity: 0.2;
+                opacity: 0.8;
             }
 
             .grid__item__copy {

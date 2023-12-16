@@ -32,8 +32,6 @@ export const sidecart_item = (item, index) => {
 };
 
 export const maincart_item = (item, index) => {
-  console.log(item)
-
   return  /*html*/`
     <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
     <td class="cart__wrap__form__table__body__row__cell">

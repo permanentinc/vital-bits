@@ -6,11 +6,15 @@
 
       <div class="product-slider [ js-product-imagery-slider ]">
         {% for media in product.media %}
-        <img class="[ js-product-slider-item-image ]" src="{{ media.preview_image | img_url: '540x540', crop: 'center' }}" srcset="
-            {{ media.preview_image | img_url: '540x540', crop: 'center' }} 540w,
-            {{ media.preview_image | img_url: '768x768', crop: 'center' }} 768w,
-            {{ media.preview_image | img_url: '968x968', crop: 'center' }} 968w,
-            {{ media.preview_image | img_url: '1080x1080', crop: 'center' }} 1080w" alt="{{ media.preview_image.alt | escape }}" data-lightbox-image="{{ media.preview_image | img_url: '1080x1080', crop: 'center' }}" />
+        <img class="[ js-product-slider-item-image ]" src="{{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }}" 
+          srcset="
+            {{ media.preview_image | image_url: width: 622, height: 622, crop: 'center' }} 622w,
+            {{ media.preview_image | image_url: width: 768, height: 768, crop: 'center' }} 768w,
+            {{ media.preview_image | image_url: width: 968, height: 968, crop: 'center' }} 968w,
+            {{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }} 1080w" 
+            alt="{{ media.preview_image.alt | escape }}" data-lightbox-image="{{ media.preview_image | image_url: '1080x1080', crop: 'center' }}"
+            width="1080" height="1080" loading="lazy"
+          />
         {% endfor %}
       </div>
 
@@ -46,7 +50,8 @@
       </h1>
       
       <p class="h3"><b class="[ js-variation-price ]">{{ product.price | money }}</b></p>
-      <p>&nbsp;</p>
+
+      <afterpay-placement data-modal-link-style="circled-question-icon" data-size="xs" data-modal-theme="white" data-logo-type="badge" data-badge-theme="black-on-white" data-locale="en_NZ" data-currency="NZD" data-amount="{{ product.price | money_without_currency }}"></afterpay-placement>
 
       {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
         <div class="product-actions">
@@ -63,8 +68,8 @@
             <a href="#" class="button [ js-add-to-cart ]">Add to Cart <span class="loader"></span></a>
           {% endunless %}
         </div>
-        
-        <select style="display:nones !important;" name="id" id="ProductSelect-{{ section.id }}" class="[ js-variant ]">
+
+        <select {% if product.variants.size == 1 %}style="display:none;"{% else %}class="[ js-variant ]"{% endif %} name="id" id="ProductSelect-{{ section.id }}" >
           {% for variant in product.variants %}
             <option
               value="{{ variant.id }}"
@@ -220,3 +225,5 @@
 
   {% endfor %}
 </script>
+
+<script src="https://js.afterpay.com/afterpay-1.x.js" async></script>

@@ -17,12 +17,22 @@ import { Accordion } from './accordion';
 import Flickity from 'flickity';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
-import MatchHeight from 'vanilla-js-match-height';
 import Choices from 'choices.js';
+import GLightbox from 'glightbox';
 
 
 
-// new MatchHeight('.articles-grid__item__content h4');
+
+
+inView('.js-gradient').on('enter', el => {
+    el.classList.add('inview');
+
+    $('body').setAttribute('data-theme', el.dataset.collection);
+
+});
+
+
+// new ('.articles-grid__item__content h4');
 
 
 if ($('.js-accordion-element')) {
@@ -264,21 +274,19 @@ Import external
 // import slick from 'slick-carousel';
 
 /*------------------------------------------------------------------
-Doc Ready
+Product gallery slider
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
 
     let tick;
-    let hovered = false;
     let percent = 0;
+    let hovered = false;
+    let $productSlider = $('.js-product-imagery-slider');
     let $productSliderProgress = $('.js-gallery-progress');
     let $productSliderProgressCircle = $('.js-gallery-progress-circle');
-    let $productSlider = $('.js-product-imagery-slider');
-    let $productGallery = $('.product-gallery');
 
     if ($productSlider) {
-
 
         /**
          * Reset the progress bars' animation to zero 
@@ -310,27 +318,17 @@ document.addEventListener('DOMContentLoaded', () => {
             $productSliderProgressCircle.setAttribute('stroke-dashoffset', (percent * Math.PI));
         };
 
-
-        // // Add event listeners for mouseenter and mouseleave
-        // $productGallery.addEventListener('mouseenter', () => hovered = true);
-        // $productGallery.addEventListener('mouseleave', () => startProgressbar());
-
-        // // Add event listeners for mouseenter and mouseleave
-        // $productGallery.addEventListener('mouseenter', () => hovered = true);
-        // $productGallery.addEventListener('mouseleave', () => hovered = false, resetProgressbar());
-
-
         let product_slider = new Flickity('.js-product-imagery-slider', {
-            wrapAround: false,
+            wrapAround: true,
             pageDots: false,
             prevNextButtons: false,
-            autoPlay: 5250
+            autoPlay: 5250,
+
         });
 
         startProgressbar()
 
         product_slider.on('change', () => startProgressbar());
-
 
         $('.js-cursor-previous').addEventListener('click', (e) => {
             e.preventDefault();
@@ -342,6 +340,44 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             product_slider.next();
         });
+
+
+        let images = [];
+
+        const productSliderItemImages = document.querySelectorAll('.js-product-slider-item-image');
+        productSliderItemImages.forEach((el) => {
+            images.push({ 'href': el.getAttribute('data-lightbox-image'), 'type': 'image' });
+        });
+
+        const myGallery = GLightbox({
+            height: '90%',
+            touchNavigation: true,
+            elements: images
+        });
+
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('js-product-lightbox')) {
+                e.preventDefault();
+                myGallery.open();
+            }
+        });
+
+
+
+        if ($('.eye-roll')) {
+            document.body.addEventListener('mousemove', function (event) {
+                let eye = $('.eye-roll');
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientWidth / 2);
+                let rad = Math.atan2(event.pageX - x, event.pageY - y);
+                let rot = (rad * (180 / Math.PI) * -1) + 180;
+                eye.style.webkitTransform = 'rotate(' + rot + 'deg)';
+                eye.style.mozTransform = 'rotate(' + rot + 'deg)';
+                eye.style.msTransform = 'rotate(' + rot + 'deg)';
+                eye.style.transform = 'rotate(' + rot + 'deg)';
+            });
+        }
+
     }
 
 });

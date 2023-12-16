@@ -1,3 +1,5 @@
+<div class="[ js-gradient-background ]"></div>
+
 <div class="collection-grid">
   <div class="collection-grid-wave1 [ js-wave ]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
@@ -16,17 +18,33 @@
   {% endcomment %}
   <div class="collection-grid__list">
     {% for collection in collections %}
+      <div
+        class="collection-grid__list__title [ js-in-view ]"
+      >
+        <h2 class="h1">
+          <b>{{ collection.title }}</b>
+        </h2>
+      </div>
+
+      <div class="[ js-gradient ]" data-collection="{{ collection.title }}"></div>
+
       {% for product in collection.products %}
         {% comment %}
           Item
         {% endcomment %}
         <a href="{{ product.url }}" class="collection-grid__list__item collection-grid__list__item--product">
           <div class="collection-grid__list__item__image">
-           {% if product.featured_image %}
-                {{ product.featured_image | image_url: width: 400, height: 400 | image_tag }}
-              {% else %}
-                <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
-              {% endif %}
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 400, height: 400 | image_tag }}
+            {% else %}
+              <img
+                src="{{ 'placeholder.jpeg' | asset_url }}"
+                alt="placeholder image"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+            {% endif %}
           </div>
           <div class="collection-grid__list__item__title">
             <h6>

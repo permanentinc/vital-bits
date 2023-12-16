@@ -5,7 +5,7 @@
         <div class="banner-blog-text">
           <div class="banner-blog-text__constraint">
             <h6 class="white">
-              <b>{{ article.tags }}</b>
+              <b>{{ article.tags | join: ' | ' | upcase }}</b>
             </h6>
             <h1 class="white">
               <b>
@@ -70,14 +70,15 @@
     Intro
   {% endcomment %}
   <div class="articles-filters">
+    <h2 class="colour--green h1"><b>Filter </b></h2>
     <p class="colour--green">
-      <a href="#" class="button wide" data-filter="All" onclick="event.preventDefault();window.filterArticles('All')"
+      <a href="#" class="tag active" data-filter="All" onclick="event.preventDefault();window.filterArticles('All')"
         >All</a
       >
       {% for tag in blogs.news.tags %}
         <a
           href="#"
-          class="button "
+          class="tag"
           data-filter="{{ tag }}"
           onclick="event.preventDefault();window.filterArticles('{{ tag }}')"
         >
@@ -127,7 +128,7 @@
   <script>
     function filterArticles(tag) {
       var articles = document.querySelectorAll('.articles-grid__item');
-      var filters = document.querySelectorAll('.articles-filters .button');
+      var filters = document.querySelectorAll('.articles-filters .tag');
 
       filters.forEach(function (filter) {
         filter.dataset.filter === tag ? filter.classList.add('active') : filter.classList.remove('active');

@@ -23,6 +23,7 @@
     "animejs": "^3.2.1",
     "choices.js": "^10.2.0",
     "flickity": "2.2",
+    "glightbox": "^3.2.0",
     "in-view": "^0.6.1",
     "node-sass": "^9.0.0",
     "notyf": "^3.10.0",

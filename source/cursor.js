@@ -30,16 +30,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the element with the class 'js-cursor-previous'
     const $previous = $('.js-cursor-previous');
 
-    // Add event listeners for mouseenter and mouseleave
-    $previous.addEventListener('mouseenter', () => animateCursor('previous', true));
-    $previous.addEventListener('mouseleave', () => animateCursor('previous', false));
+    if ($previous) {
+        // Add event listeners for mouseenter and mouseleave
+        $previous.addEventListener('mouseenter', () => animateCursor('previous', true));
+        $previous.addEventListener('mouseleave', () => animateCursor('previous', false));
+    }
 
     // Get the element with the class 'js-cursor-previous'
     const $next = $('.js-cursor-next');
 
-    // Add event listeners for mouseenter and mouseleave
-    $next.addEventListener('mouseenter', () => animateCursor('next', true));
-    $next.addEventListener('mouseleave', () => animateCursor('next', false));
-
+    if ($next) {
+        // Add event listeners for mouseenter and mouseleave
+        $next.addEventListener('mouseenter', () => animateCursor('next', true));
+        $next.addEventListener('mouseleave', () => animateCursor('next', false));
+    }
 
 });

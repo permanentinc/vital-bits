@@ -1,0 +1,33 @@
+.js-gradient-background {
+    @include full;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all $fast;
+    background: var(--blue-light);
+}
+
+.collection-grid__list__item__title h6,
+.collection-grid__list__item__description p{
+    transition: all $fast;
+}
+
+.collection-grid {
+    background: transparent;
+
+    &__list {
+        justify-content: center !important;
+
+        &__title {
+            width: 100%;
+            margin:6rem auto;
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+                color: var(--green);
+            }
+        }
+    }
+}

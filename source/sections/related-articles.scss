@@ -45,19 +45,35 @@
     }
 
     &-filters {
-        max-width: var(--content-width);
-        margin: 0 auto 2rem;
+        max-width: var(--inner-content-width);
+        margin: 0 auto 6rem;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 4rem 0;
+        justify-content: space-between;
+        padding: 4rem 1rem 2rem;
+        border-bottom:1px solid var(--green-light);
 
-        .button {
-            margin-right: 2rem;
-            margin-bottom: 2rem;
+        h2 {
+            width: 20rem;
+        }
+
+        p {
+            text-align: right;
+            width: calc(100% - 30rem);
+        }
+
+        .tag {
+            margin-right: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            border-radius: 10000rem;
+            padding: 0.8rem 2.6rem;
+            border: 1px solid var(--green);
+            display: inline-block;
 
             &.active {
-                background: var(--blue-mid);
+                background: var(--green);
+                color: white;
             }
         }
     }

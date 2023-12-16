@@ -157,9 +157,10 @@
   >
     {{ content_for_header }}
 
-    {% section 'custom-cursors' %}
-
-    {% section 'header' %}
+    {%- liquid
+      section 'custom-cursors'
+      section 'header'
+    -%}
 
     {{ content_for_layout }}
 
@@ -169,7 +170,6 @@
       Side cart
     {% endcomment %}
     {% section 'sidecart' %}
-
 
     {% section 'footer' %}
   </body>
