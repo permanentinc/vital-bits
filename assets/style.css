@@ -2997,6 +2997,16 @@ body .choices .choices__list--dropdown .choices__item {
   opacity: 1;
 }
 
+[data-page-type="list-collections"] .banner-image {
+  aspect-ratio: 16 / 4;
+  min-height: 34rem;
+  max-height: 72rem;
+}
+
+[data-page-type="list-collections"] .banner-text {
+  margin-top: 4rem;
+}
+
 .collections {
   background: #e1edf9;
   padding-bottom: 4rem;
@@ -3924,6 +3934,32 @@ ol > li li:before {
   letter-spacing: .1rem;
 }
 
+.product-slider {
+  width: 100%;
+}
+
+.product-slider-item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-slider-item:after {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+  position: relative;
+}
+
+.product-slider-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .product-gallery {
   width: 50%;
   padding-right: 4rem;
@@ -3935,6 +3971,26 @@ ol > li li:before {
     width: 100%;
     padding-right: 0;
   }
+}
+
+.product-gallery-sale {
+  z-index: 3;
+  color: #0000;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--green);
+  padding: 0 2rem 2rem 0;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: .7;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.product-gallery-sale .char {
+  padding-bottom: 10px;
 }
 
 .product-gallery-lightbox {
@@ -4031,6 +4087,35 @@ ol > li li:before {
   width: 50%;
   padding-top: 6rem;
   padding-left: 4rem;
+  position: relative;
+}
+
+.product-details-price {
+  position: relative;
+}
+
+.product-details-old-price {
+  font-size: 70%;
+  position: relative;
+}
+
+.product-details-old-price:before {
+  content: "";
+  content: "WHY PAY";
+  font-size: 1rem;
+  display: block;
+  position: absolute;
+}
+
+.product-details-old-price:after {
+  content: "";
+  background: var(--green);
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  top: 55%;
+  transform: rotate(-10deg);
 }
 
 @media only screen and (max-width: 767px) {
@@ -4165,11 +4250,11 @@ html [data-theme="Post Partum"] .gbtn path, html [data-theme="C-Section Delivery
   fill: var(--orange);
 }
 
-html [data-theme="Post Partum"] li:before, html [data-theme="C-Section Delivery"] li:before, html [data-theme="V-Delivery"] li:before {
+html [data-theme="Post Partum"] .product-details-old-price:after, html [data-theme="Post Partum"] li:before, html [data-theme="C-Section Delivery"] .product-details-old-price:after, html [data-theme="C-Section Delivery"] li:before, html [data-theme="V-Delivery"] .product-details-old-price:after, html [data-theme="V-Delivery"] li:before {
   background: var(--orange);
 }
 
-html [data-theme="Post Partum"] .collection-grid__marquee__animation span, html [data-theme="C-Section Delivery"] .collection-grid__marquee__animation span, html [data-theme="V-Delivery"] .collection-grid__marquee__animation span {
+html [data-theme="Post Partum"] .product-gallery-sale, html [data-theme="Post Partum"] .collection-grid__marquee__animation span, html [data-theme="C-Section Delivery"] .product-gallery-sale, html [data-theme="C-Section Delivery"] .collection-grid__marquee__animation span, html [data-theme="V-Delivery"] .product-gallery-sale, html [data-theme="V-Delivery"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--orange);
 }
 
@@ -4242,11 +4327,11 @@ html [data-theme="Breast Feeding"] .gbtn path {
   fill: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] li:before {
+html [data-theme="Breast Feeding"] .product-details-old-price:after, html [data-theme="Breast Feeding"] li:before {
   background: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .collection-grid__marquee__animation span {
+html [data-theme="Breast Feeding"] .product-gallery-sale, html [data-theme="Breast Feeding"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--pink);
 }
 
@@ -5820,6 +5905,123 @@ iframe.wait-autoplay {
   text-align: center;
   text-transform: uppercase;
   color: var(--green);
+}
+
+.contact-element {
+  background: var(--off-white);
+  width: 100%;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-element__wrap {
+  max-width: var(--content-width);
+  flex-wrap: wrap;
+  place-content: flex-start space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.contact-element__wrap__form {
+  flex-wrap: wrap;
+  width: 50%;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .contact-element__wrap__form {
+    width: 100%;
+    order: 2 !important;
+    transform: none !important;
+  }
+}
+
+.contact-element__wrap__form [class^="WidgetBackground__Container"] {
+  padding: 0 !important;
+}
+
+.contact-element__wrap__form [class^="ButtonBase__ButtonContainer"] {
+  background: var(--green) !important;
+  border-radius: 10000rem !important;
+  padding: .5rem 3rem !important;
+}
+
+.contact-element__wrap__form [class^="SubmitMessage__Text"] {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form [class^="ButtonBase__Overlay"] {
+  background: none !important;
+}
+
+.contact-element__wrap__form [class^="WidgetTitle__"] {
+  display: none;
+}
+
+.contact-element__wrap__form [class^="Loader__Spinner"] {
+  border-color: transparent var(--green) var(--green) !important;
+}
+
+.contact-element__wrap__form a {
+  color: var(--green) !important;
+  text-decoration: none !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"] {
+  border: 2px solid var(--green) !important;
+  color: var(--green) !important;
+  background: none !important;
+  border-radius: 10000rem !important;
+  padding: 1.5rem 2rem !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"] label {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"]::-webkit-input-placeholder {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"]:-moz-placeholder {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"]::-moz-placeholder {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form [class^="TextControlBase__TextControlBaseContainer"]:-ms-input-placeholder {
+  color: var(--green) !important;
+}
+
+.contact-element__wrap__form input:checked ~ [class^="ChoiceOption__Container"] [class^="ChoiceOption__Item"] {
+  background: var(--green) !important;
+}
+
+.contact-element__wrap__text {
+  flex-wrap: wrap;
+  align-content: center;
+  width: 50%;
+  padding: 4rem 8rem;
+  display: flex;
+  position: relative;
+}
+
+.contact-element__wrap__text * {
+  color: var(--green);
+}
+
+@media only screen and (max-width: 767px) {
+  .contact-element__wrap__text {
+    order: 1;
+    width: 100%;
+    padding: 0 0 3rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

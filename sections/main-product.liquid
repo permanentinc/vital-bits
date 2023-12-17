@@ -1,11 +1,17 @@
 <div class="banner__push"></div>
 
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %} 
+{%- assign on_sale = true -%}
+{% endif %}
+
 <div class="product">
   <div class="product-wrap">
     <div class="product-gallery">
 
       <div class="product-slider [ js-product-imagery-slider ]">
         {% for media in product.media %}
+          <div class="product-slider-item">
         <img class="[ js-product-slider-item-image ]" src="{{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }}" 
           srcset="
             {{ media.preview_image | image_url: width: 622, height: 622, crop: 'center' }} 622w,
@@ -15,6 +21,7 @@
             alt="{{ media.preview_image.alt | escape }}" data-lightbox-image="{{ media.preview_image | image_url: '1080x1080', crop: 'center' }}"
             width="1080" height="1080" loading="lazy"
           />
+        </div>
         {% endfor %}
       </div>
 
@@ -39,6 +46,11 @@
           <circle class="[ js-gallery-progress-circle ]" stroke-linecap="square" cx="50" cy="50" r="48" stroke="#000" stroke-width="2" fill="none" stroke-dasharray="315" stroke-dashoffset="100" stroke-mitterlimit="0" transform="rotate(-90 ) translate(-100 0)" />
         </svg>
       </span>
+      {% if on_sale %}
+        <span class="product-gallery-sale">SALE</span>
+        {% endif %}
+
+  
 
     </div>
 
@@ -49,7 +61,21 @@
         <b>{{ product.title | escape }}</b>
       </h1>
       
-      <p class="h3"><b class="[ js-variation-price ]">{{ product.price | money }}</b></p>
+   
+
+      <div class="product-details-price">
+      <p class="h3"><b class="[ js-variation-price ]">
+        
+        {% if on_sale %}
+          <span class="product-details-old-price"> {{ product.compare_at_price | money }}</span>
+          {% endif %}
+        {{ product.price | money }}
+      
+      </b></p>
+
+ 
+  
+      </div>
 
       <afterpay-placement data-modal-link-style="circled-question-icon" data-size="xs" data-modal-theme="white" data-logo-type="badge" data-badge-theme="black-on-white" data-locale="en_NZ" data-currency="NZD" data-amount="{{ product.price | money_without_currency }}"></afterpay-placement>
 
@@ -134,6 +160,7 @@
          <div class="related-products__list__item__title">
            <h6><b>{{ related_product.title | escape }}</b></h6>
            <h6><b>{{ related_product.price | money }}</b></h6>
+           
          </div>
          <div class="related-products__list__item__description">
            <p>

@@ -1,0 +1,106 @@
+/*------------------------------------------------------------------
+Image and text blocka
+------------------------------------------------------------------*/
+
+.contact-element {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 8rem 2rem;
+  background: var(--off-white);
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    max-width: var(--content-width);
+    margin: 0 auto;
+
+    &__form {
+      width: 50%;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+
+      @include media($md, max) {
+        width: 100%;
+        transform: none !important;
+        order: 2 !important;
+      }
+
+      [class^='WidgetBackground__Container'] {
+        padding: 0 !important;
+      }
+
+      [class^='ButtonBase__ButtonContainer'] {
+        border-radius: 10000rem !important;
+        background: var(--green) !important;
+        padding: 0.5rem 3rem !important;
+      }
+
+      [class^='SubmitMessage__Text'] {
+        color: var(--green) !important;
+      }
+
+      [class^='ButtonBase__Overlay'] {
+        background: transparent !important;
+      }
+
+      [class^='WidgetTitle__'] {
+        display: none;
+      }
+
+      [class^='Loader__Spinner'] {
+        border-color: transparent var(--green) var(--green) !important;
+      }
+
+      a {
+        color: var(--green) !important;
+        text-decoration: none !important;
+      }
+
+      [class^='TextControlBase__TextControlBaseContainer'] {
+        border: 2px solid var(--green) !important;
+        border-radius: 10000rem !important;
+        background: transparent !important;
+        color: var(--green) !important;
+
+        padding: 1.5rem 2rem !important;
+
+        label {
+          color: var(--green) !important;
+        }
+
+        @include placeholder {
+          color: var(--green) !important;
+        }
+      }
+
+      input:checked ~ [class^='ChoiceOption__Container'] [class^='ChoiceOption__Item'] {
+        background: var(--green) !important;
+      }
+    }
+
+    &__text {
+      width: 50%;
+      padding: 4rem 8rem;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+
+      * {
+        color: var(--green);
+      }
+
+      @include media($md, max) {
+        width: 100%;
+        order: 1;
+        padding:  0 0 3rem;
+      }
+    }
+  }
+}

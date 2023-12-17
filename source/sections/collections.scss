@@ -1,3 +1,13 @@
+[data-page-type='list-collections'] {
+    .banner-image {
+        aspect-ratio: 16 / 4;
+        min-height: 34rem;
+        max-height: 72rem;
+    }
+    .banner-text {
+        margin-top: 4rem;
+    }
+}
 .collections {
     position: relative;
     background: #e1edf9;

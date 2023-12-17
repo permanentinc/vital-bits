@@ -1,11 +1,12 @@
-<div class="element image-element {% if block.settings.reverse_layout %}image-element--reversed{%- endif -%}">
-  <div class="image-element__wrap image-element__wrap--{$Width}">
-    <div class="image-element__wrap__image">
+<div class="element contact-element {% if block.settings.reverse_layout %}contact-element--reversed{%- endif -%}">
+  <div class="contact-element__wrap contact-element__wrap--{$Width}">
+    <div class="contact-element__wrap__text">
       {{ section.settings.text }}
     </div>
 
-    <div class="image-element__wrap__text">
-      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script><div class="elfsight-app-5d5a66fb-e3fc-4407-abe5-704355cb81f6" data-elfsight-app-lazy></div>
+    <div class="contact-element__wrap__form">
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <div class="elfsight-app-5d5a66fb-e3fc-4407-abe5-704355cb81f6" data-elfsight-app-lazy></div>
     </div>
   </div>
 </div>
