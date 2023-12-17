@@ -4528,6 +4528,11 @@ html [data-theme="Breast Feeding"] .product-gallery-sale, html [data-theme="Brea
   }
 }
 
+.banner-collection-text-description * {
+  color: #fff;
+  font-size: 1.6rem;
+}
+
 .cart {
   background: #fff;
   padding: 18rem 0;
