@@ -3,8 +3,13 @@
     width: 100%;
     overflow: hidden;
     padding: 6rem 2rem;
-
     background: var(--blue-light);
+
+    .related-products__marquee__animation {
+        span {
+            -webkit-text-stroke-color: var(--green);
+        }
+    }
 
     &__wrap {
         max-width: var(--inner-content-width);

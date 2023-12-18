@@ -599,7 +599,6 @@ console.log("Vital Bits v1.0.0");
     el.classList.add("inview");
     (0, _lib.$)("body").setAttribute("data-theme", el.dataset.collection);
 });
-// new ('.articles-grid__item__content h4');
 if ((0, _lib.$)(".js-accordion-element")) (0, _lib.$$)(".js-accordion-element").forEach((element)=>new (0, _accordion.Accordion)(element));
 if ((0, _lib.$)(".product-details")) {
     // Declare our choices options
@@ -824,7 +823,7 @@ Product gallery slider
             product_slider.next();
         });
         let images = [];
-        const productSliderItemImages = document.querySelectorAll(".js-product-slider-item-image");
+        const productSliderItemImages = (0, _lib.$$)(".js-product-slider-item-image");
         productSliderItemImages.forEach((el)=>{
             images.push({
                 "href": el.getAttribute("data-lightbox-image"),
@@ -855,6 +854,72 @@ Product gallery slider
         });
     }
 });
+/*------------------------------------------------------------------
+Variables
+------------------------------------------------------------------*/ const $megaHover = (0, _lib.$$)(".js-mega-menu-hover");
+const $megaTarget = (0, _lib.$$)(".mega");
+let hoverTimeout;
+const showMenu = (element)=>{
+    clearTimeout(hoverTimeout);
+    $megaHover.forEach((item)=>item.classList.remove("hovered"));
+    $megaTarget.forEach((item)=>item.classList.remove("active"));
+    element.classList.add("hovered");
+    if ((0, _lib.$)(`.mega[data-id="${element.getAttribute("data-id")}"]`)) (0, _lib.$)(`.mega[data-id="${element.getAttribute("data-id")}"]`).classList.add("active");
+};
+const hideMenu = ()=>{
+    $megaTarget.forEach((item)=>item.classList.remove("active"));
+    $megaHover.forEach((item)=>item.classList.remove("hovered"));
+};
+$megaHover.forEach((item)=>{
+    item.addEventListener("mouseenter", (e)=>showMenu(e.currentTarget));
+    item.addEventListener("mouseleave", ()=>hoverTimeout = setTimeout(()=>hideMenu(), 800));
+});
+$megaTarget.forEach((item)=>{
+    item.addEventListener("mouseenter", ()=>clearTimeout(hoverTimeout));
+    item.addEventListener("mouseleave", ()=>hoverTimeout = setTimeout(()=>hideMenu(), 800));
+});
+window.addEventListener("scroll", ()=>hideMenu());
+document.addEventListener("DOMContentLoaded", function() {
+    /*------------------------------------------------------------------
+    Preload Images
+    ------------------------------------------------------------------*/ const preloadImage = (url)=>{
+        var img = new Image();
+        img.src = url;
+    };
+    const megaImages = (0, _lib.$$)(".js-mega-image");
+    if (megaImages) megaImages.forEach((element)=>preloadImage(element.dataset.image));
+    /*------------------------------------------------------------------
+    Mega menu imagery
+    ------------------------------------------------------------------*/ let clientX = -250;
+    let clientY = -250;
+    const megaImage = (0, _lib.$)(".megaImage");
+    const initCursor = ()=>{
+        document.addEventListener("mousemove", (e)=>{
+            clientX = e.clientX;
+            clientY = e.clientY;
+        });
+        const render = ()=>{
+            megaImage.style.transform = `translate(${clientX}px, ${clientY}px)`;
+            requestAnimationFrame(render);
+        };
+        requestAnimationFrame(render);
+    };
+    const switchImage = (element, show)=>{
+        console.log("switchImage");
+        const megaImage = (0, _lib.$)(".megaImage");
+        const megaImageImage = (0, _lib.$)(".megaImage__image");
+        if (show) {
+            megaImage.classList.add("active");
+            megaImageImage.style.backgroundImage = `url(${element.dataset.image})`;
+        } else megaImage.classList.remove("active");
+    };
+    initCursor();
+    console.log(megaImages);
+    megaImages.forEach((element)=>{
+        element.addEventListener("mouseenter", (e)=>switchImage(e.currentTarget, true));
+        element.addEventListener("mouseleave", (e)=>switchImage(e.currentTarget, false));
+    });
+}, false);
 
 },{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D","glightbox":"119aE"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

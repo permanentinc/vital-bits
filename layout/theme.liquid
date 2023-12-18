@@ -154,6 +154,9 @@
     {%- if request.page_type == 'product' -%}
       data-theme="{{ product.collections[0].title }}"
     {%- endif -%}
+    {%- if request.page_type == 'collection' -%}
+      data-theme="{{ collection.title }}"
+    {%- endif -%}
   >
     {{ content_for_header }}
 

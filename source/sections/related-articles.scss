@@ -55,11 +55,20 @@
 
         h2 {
             width: 20rem;
+
+            @include media($xmd, max) {
+                width: 100%;
+            }
         }
 
         p {
             text-align: right;
             width: calc(100% - 30rem);
+
+            @include media($xmd, max) {
+                width: 100%;
+                text-align: left;
+            }
         }
 
         .tag {

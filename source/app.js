@@ -32,9 +32,6 @@ inView('.js-gradient').on('enter', el => {
 });
 
 
-// new ('.articles-grid__item__content h4');
-
-
 if ($('.js-accordion-element')) {
     $$('.js-accordion-element').forEach(element => new Accordion(element));
 }
@@ -344,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let images = [];
 
-        const productSliderItemImages = document.querySelectorAll('.js-product-slider-item-image');
+        const productSliderItemImages = $$('.js-product-slider-item-image');
         productSliderItemImages.forEach((el) => {
             images.push({ 'href': el.getAttribute('data-lightbox-image'), 'type': 'image' });
         });
@@ -382,3 +379,106 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
+
+
+/*------------------------------------------------------------------
+Variables
+------------------------------------------------------------------*/
+
+
+
+const $megaHover = $$('.js-mega-menu-hover');
+const $megaTarget = $$('.mega');
+let hoverTimeout;
+
+const showMenu = (element) => {
+    clearTimeout(hoverTimeout);
+    $megaHover.forEach(item => item.classList.remove('hovered'));
+    $megaTarget.forEach(item => item.classList.remove('active'));
+    element.classList.add('hovered');
+    if ($(`.mega[data-id="${element.getAttribute('data-id')}"]`)) $(`.mega[data-id="${element.getAttribute('data-id')}"]`).classList.add('active');
+};
+
+const hideMenu = () => {
+    $megaTarget.forEach(item => item.classList.remove('active'));
+    $megaHover.forEach(item => item.classList.remove('hovered'));
+};
+
+$megaHover.forEach(item => {
+    item.addEventListener('mouseenter', (e) => showMenu(e.currentTarget));
+    item.addEventListener('mouseleave', () => hoverTimeout = setTimeout(() => hideMenu(), 800));
+});
+
+$megaTarget.forEach(item => {
+    item.addEventListener('mouseenter', () => clearTimeout(hoverTimeout));
+    item.addEventListener('mouseleave', () => hoverTimeout = setTimeout(() => hideMenu(), 800));
+});
+
+window.addEventListener('scroll', () => hideMenu());
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+
+
+    /*------------------------------------------------------------------
+    Preload Images
+    ------------------------------------------------------------------*/
+
+    const preloadImage = (url) => {
+        var img = new Image();
+        img.src = url;
+    }
+
+    const megaImages = $$('.js-mega-image');
+
+    if (megaImages) megaImages.forEach((element) => preloadImage(element.dataset.image));
+
+    /*------------------------------------------------------------------
+    Mega menu imagery
+    ------------------------------------------------------------------*/
+
+    let clientX = -250;
+    let clientY = -250;
+
+    const megaImage = $('.megaImage');
+
+    const initCursor = () => {
+
+        document.addEventListener('mousemove', e => {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        });
+
+        const render = () => {
+            megaImage.style.transform = `translate(${clientX}px, ${clientY}px)`;
+            requestAnimationFrame(render);
+        };
+
+        requestAnimationFrame(render);
+    };
+
+    const switchImage = (element, show) => {
+        console.log('switchImage')
+
+        const megaImage = $('.megaImage');
+        const megaImageImage = $('.megaImage__image');
+        if (show) {
+            megaImage.classList.add('active');
+            megaImageImage.style.backgroundImage = `url(${element.dataset.image})`;
+        } else {
+            megaImage.classList.remove('active');
+        }
+    };
+
+    initCursor();
+console.log(megaImages)
+
+    megaImages.forEach((element) => {
+        element.addEventListener('mouseenter', (e) => switchImage(e.currentTarget, true));
+        element.addEventListener('mouseleave', (e) => switchImage(e.currentTarget, false));
+    });
+
+}, false);

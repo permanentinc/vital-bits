@@ -1,0 +1,201 @@
+//------------------------------------------------------------------
+// Mega Menu Hover Effects
+//------------------------------------------------------------------
+
+.megaImage {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  width: 8rem;
+  height: 8rem;
+  left: 3rem;
+  top: -16.5rem;
+  z-index: 1;
+  perspective: 600;
+
+  .megaImage__image {
+    @include full;
+    @include cover;
+    transition: all $fast;
+    opacity: 0;
+    transform: rotateY(40deg);
+    transform-origin: 0% 0;
+    will-change: all;
+    perspective: 600px;
+    visibility: hidden;
+    box-shadow: 0 10px 30px rgba(#000, 0.05);
+    background-color: white;
+    border-radius: 10000rem;
+  }
+
+  &.active {
+    .megaImage__image {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+  }
+}
+
+//------------------------------------------------------------------
+// Mega Menu
+//------------------------------------------------------------------
+
+.mega {
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 18rem;
+  background: var(--blue-light);
+  z-index: 99;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all $medium;
+
+  border-radius: 0 0 5rem 5rem;
+  border-radius: 5rem;
+  box-shadow: 0 10px 30px rgba(#000, 0.05);
+
+  &__shadow {
+    width: 100%;
+    height: 15px;
+    box-shadow: $z7;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+  .animated {
+    transition: all $medium;
+    transform: translateY(2rem);
+    opacity: 0;
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i * 111}ms;
+      }
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+    .animated {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    max-width: $lg;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 3rem 2rem 3rem;
+    justify-content: center;
+
+    &__column {
+      width: 25%;
+      width: 33.33333333%;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      padding: 1rem 4rem;
+
+      &--bordered {
+        &:after {
+          @include pseudo;
+          right: 0;
+          top: 1rem;
+          bottom: 1rem;
+          width: 1px;
+          background: var(--green);
+        }
+      }
+
+      &--blocked {
+        padding: 1rem 4rem;
+      }
+
+      &__link {
+        width: 100%;
+        padding: 1rem 0 0;
+        margin-bottom: 1rem;
+
+        a {
+          transition: all $fast;
+          font-size: 2.2rem;
+
+          &:hover {
+            color: var(--blue-dark);
+          }
+        }
+      }
+
+      &__sublink {
+        width: 100%;
+        margin: 0;
+        display: block;
+        margin-bottom: 0.5rem;
+
+        + .mega__wrap__column__link {
+          margin-top: 1rem;
+        }
+
+        a {
+          padding: 0.5rem 0;
+          display: inline-block;
+          color: var(--green);
+        }
+      }
+
+      &__block {
+        padding: 2rem 2rem;
+        height: 100%;
+        width: 100%;
+        background: var(--green);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+
+        p {
+          text-transform: uppercase;
+          font-weight: bold;
+          color: white;
+          text-align: center;
+          width: 100%;
+          font-size: 2.6rem;
+          color: transparent;
+          -webkit-text-fill-color: rgba(var(--green), 0);
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: var(--green);
+          padding: 0;
+          margin: 0;
+
+          &.filled {
+            color: var(--green);
+            -webkit-text-fill-color: var(--green);
+            -webkit-text-stroke-width: 0px;
+            -webkit-text-stroke-color: var(--green);
+          }
+
+          .button {
+            min-width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

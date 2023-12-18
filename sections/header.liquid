@@ -14,7 +14,8 @@
         <div class="header-nav__item">
           <a
             href="{{ link.url }}"
-            class="header-nav__item__link animate-white-to-green {% if link.active %}header-nav__item__link--current{% endif %}"
+            data-id="{{ link.title }}"
+            class="header-nav__item__link animate-white-to-green {% if link.active %}header-nav__item__link--current{% endif %} [ js-mega-menu-hover ]"
           >
             {{ link.title }}
           </a>
@@ -72,6 +73,14 @@
     </div>
   </div>
 </div>
+
+
+
+{% comment %}
+MegaMenu
+{% endcomment %}
+
+{% render 'mega' %}
 
 {% comment %}
   Search pane
