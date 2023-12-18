@@ -6,7 +6,8 @@
         "heading": "<h1><strong>About us<\/strong><\/h1><h6>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. <\/h6>",
         "image": "shopify:\/\/shop_images\/about_banner.png",
         "link_label": "",
-        "link_link": ""
+        "link_link": "",
+        "height": "normal"
       }
     },
     "main": {
@@ -108,6 +109,43 @@
         "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
         "image": "shopify:\/\/shop_images\/hero.jpg"
       }
+    },
+    "e20d9126-0b7b-4882-a4af-dadfed53b225": {
+      "type": "icons-block",
+      "blocks": {
+        "16cdbefb-a59c-46ad-8533-f0c54bb1fec0": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/icon-molecule.png",
+            "title": "One-stop shop",
+            "copy": "<p><strong>Provide a one-stop shop for new and expectant mothers to buy with confidence.<\/strong><\/p>"
+          }
+        },
+        "9687f40b-23de-4822-92d1-60e24896dc6b": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/icon-magic.png",
+            "title": "Make motherhood easier",
+            "copy": "<p><strong>Provide all the necessary information to make motherhood easier, more comfortable and more accessible.<\/strong><\/p>"
+          }
+        },
+        "ce645685-9d39-443f-8afc-08a301f0ddf3": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Bring back the independence",
+            "copy": "<p><strong>Bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/strong><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16cdbefb-a59c-46ad-8533-f0c54bb1fec0",
+        "9687f40b-23de-4822-92d1-60e24896dc6b",
+        "ce645685-9d39-443f-8afc-08a301f0ddf3"
+      ],
+      "settings": {
+        "heading": "Our mission",
+        "text": "<p><strong>Providing all the vital things for all the vital bits, during all those vital times.<\/strong><\/p>"
+      }
     }
   },
   "order": [
@@ -117,6 +155,7 @@
     "2693bc49-c25c-4937-9007-efae0c7ba27c",
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
     "0390973f-ee87-43c3-b19e-3ba202d8d755",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
+    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a",
+    "e20d9126-0b7b-4882-a4af-dadfed53b225"
   ]
 }
