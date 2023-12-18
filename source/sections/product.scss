@@ -287,6 +287,10 @@ html {
             .button {
                 background: var(--orange);
                 color: var(--purple-light);
+                
+                &.busy {
+                    color: var(--orange) !important;
+                }
             }
 
             .accordion-element__trigger:before,
@@ -337,6 +341,14 @@ html {
         .collection-grid__marquee__animation span {
             -webkit-text-stroke-color: var(--orange);
         }
+
+        .notyf__ripple {
+            background: var(--orange) !important;
+        }
+
+        .notyf__message a {
+            color: var(--orange) !important;
+        }
     }
 }
 
@@ -385,6 +397,10 @@ html {
             .button {
                 background: var(--pink);
                 color: var(--pink-light);
+
+                &.busy {
+                    color: var(--pink) !important;
+                }
             }
 
             .accordion-element__trigger:before,
@@ -435,6 +451,14 @@ html {
         .product-gallery-sale,
         .collection-grid__marquee__animation span {
             -webkit-text-stroke-color: var(--pink);
+        }
+
+        .notyf__ripple {
+            background: var(--pink) !important;
+        }
+
+        .notyf__message a {
+            color: var(--pink) !important;
         }
     }
 }

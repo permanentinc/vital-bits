@@ -4218,6 +4218,10 @@ html [data-theme="Post Partum"] .product-details .button, html [data-theme="C-Se
   color: var(--purple-light);
 }
 
+html [data-theme="Post Partum"] .product-details .button.busy, html [data-theme="C-Section Delivery"] .product-details .button.busy, html [data-theme="V-Delivery"] .product-details .button.busy {
+  color: var(--orange) !important;
+}
+
 html [data-theme="Post Partum"] .product-details .accordion-element__trigger:before, html [data-theme="Post Partum"] .product-details .accordion-element__trigger:after, html [data-theme="C-Section Delivery"] .product-details .accordion-element__trigger:before, html [data-theme="C-Section Delivery"] .product-details .accordion-element__trigger:after, html [data-theme="V-Delivery"] .product-details .accordion-element__trigger:before, html [data-theme="V-Delivery"] .product-details .accordion-element__trigger:after {
   background: var(--orange);
 }
@@ -4258,6 +4262,14 @@ html [data-theme="Post Partum"] .product-gallery-sale, html [data-theme="Post Pa
   -webkit-text-stroke-color: var(--orange);
 }
 
+html [data-theme="Post Partum"] .notyf__ripple, html [data-theme="C-Section Delivery"] .notyf__ripple, html [data-theme="V-Delivery"] .notyf__ripple {
+  background: var(--orange) !important;
+}
+
+html [data-theme="Post Partum"] .notyf__message a, html [data-theme="C-Section Delivery"] .notyf__message a, html [data-theme="V-Delivery"] .notyf__message a {
+  color: var(--orange) !important;
+}
+
 html [data-theme="Breast Feeding"] {
   background: var(--pink-light);
 }
@@ -4293,6 +4305,10 @@ html [data-theme="Breast Feeding"] .product-details * {
 html [data-theme="Breast Feeding"] .product-details .button {
   background: var(--pink);
   color: var(--pink-light);
+}
+
+html [data-theme="Breast Feeding"] .product-details .button.busy {
+  color: var(--pink) !important;
 }
 
 html [data-theme="Breast Feeding"] .product-details .accordion-element__trigger:before, html [data-theme="Breast Feeding"] .product-details .accordion-element__trigger:after {
@@ -4333,6 +4349,14 @@ html [data-theme="Breast Feeding"] .product-details-old-price:after, html [data-
 
 html [data-theme="Breast Feeding"] .product-gallery-sale, html [data-theme="Breast Feeding"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--pink);
+}
+
+html [data-theme="Breast Feeding"] .notyf__ripple {
+  background: var(--pink) !important;
+}
+
+html [data-theme="Breast Feeding"] .notyf__message a {
+  color: var(--pink) !important;
 }
 
 .collection-grid {

@@ -51,8 +51,8 @@ if ($('.product-details')) {
         allowHTML: true
     };
 
-    if ($('.js-variant')) {
-        new Choices($('.js-variant'), options);
+    if ($('.js-choices')) {
+        new Choices($('.js-choices'), options);
 
         $('.js-variant').addEventListener('change', event => {
             let variant = event.detail.value;

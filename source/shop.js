@@ -83,11 +83,18 @@ const updateSideCart = (cart) => {
 const updateMainCart = (cart) => {
 
     let html = '';
+    let total = 0;
     let $main_cart = $('.js-cart-items');
+    let $main_cart_total = $('.js-cart-total');
 
-    cart.items.forEach((item, index) => html += maincart_item(item, index));
+    cart.items.forEach((item, index) => {
+        html += maincart_item(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
 
     if ($main_cart) $main_cart.innerHTML = html;
+
+    if ($main_cart_total) $main_cart_total.innerHTML = `$${total.toFixed(2)}`;
 
 }
 

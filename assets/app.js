@@ -610,8 +610,8 @@ if ((0, _lib.$)(".product-details")) {
         placeholder: true,
         allowHTML: true
     };
-    if ((0, _lib.$)(".js-variant")) {
-        new (0, _choicesJsDefault.default)((0, _lib.$)(".js-variant"), options);
+    if ((0, _lib.$)(".js-choices")) {
+        new (0, _choicesJsDefault.default)((0, _lib.$)(".js-choices"), options);
         (0, _lib.$)(".js-variant").addEventListener("change", (event)=>{
             let variant = event.detail.value;
             let variantData = window.inventories[variant];
@@ -5511,9 +5511,15 @@ const updateCarts = (cart)=>{
  * @param {object} cart 
  */ const updateMainCart = (cart)=>{
     let html = "";
+    let total = 0;
     let $main_cart = (0, _lib.$)(".js-cart-items");
-    cart.items.forEach((item, index)=>html += (0, _templates.maincart_item)(item, index));
+    let $main_cart_total = (0, _lib.$)(".js-cart-total");
+    cart.items.forEach((item, index)=>{
+        html += (0, _templates.maincart_item)(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
     if ($main_cart) $main_cart.innerHTML = html;
+    if ($main_cart_total) $main_cart_total.innerHTML = `$${total.toFixed(2)}`;
 };
 window.fetchCart = ()=>{
     // Send the request to Shopify

@@ -95,7 +95,7 @@
           {% endunless %}
         </div>
 
-        <select {% if product.variants.size == 1 %}style="display:none;"{% else %}class="[ js-variant ]"{% endif %} name="id" id="ProductSelect-{{ section.id }}" >
+        <select {% if product.variants.size == 1 %}style="display:none;" class="[ js-variant ]"{% else %}class="[ js-variant ][ js-choices ]"{% endif %}  name="id" id="ProductSelect-{{ section.id }}" >
           {% for variant in product.variants %}
             <option
               value="{{ variant.id }}"
