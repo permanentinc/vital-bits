@@ -116,7 +116,7 @@
         "16cdbefb-a59c-46ad-8533-f0c54bb1fec0": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icon-molecule.png",
+            "icon": "shopify:\/\/shop_images\/icon-molecule_8f6ee8c5-2748-465d-b204-68ee819dbd75.png",
             "title": "One-stop shop",
             "copy": "<p><strong>Provide a one-stop shop for new and expectant mothers to buy with confidence.<\/strong><\/p>"
           }
@@ -124,7 +124,7 @@
         "9687f40b-23de-4822-92d1-60e24896dc6b": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icon-magic.png",
+            "icon": "shopify:\/\/shop_images\/icon-magic_fddcff99-f571-4a13-8745-01e6c6403613.png",
             "title": "Make motherhood easier",
             "copy": "<p><strong>Provide all the necessary information to make motherhood easier, more comfortable and more accessible.<\/strong><\/p>"
           }
@@ -132,6 +132,7 @@
         "ce645685-9d39-443f-8afc-08a301f0ddf3": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify:\/\/shop_images\/icon-hands.png",
             "title": "Bring back the independence",
             "copy": "<p><strong>Bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/strong><\/p>"
           }
