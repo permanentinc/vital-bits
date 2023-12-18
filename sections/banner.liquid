@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner banner--{{ section.settings.height }}">
   <div class="banner-image">
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
@@ -13,9 +13,9 @@
         </b>
       </h1>
       {% if section.settings.link_link != blank %}
-      <p>
-        <a href="{{ section.settings.link_link }}" class="button">{{ section.settings.link_label }}</a>
-      </p>
+        <p>
+          <a href="{{ section.settings.link_link }}" class="button">{{ section.settings.link_label }}</a>
+        </p>
       {% endif %}
     </div>
   </div>
@@ -50,6 +50,26 @@
       "id": "link_link",
       "type": "url",
       "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Banner height",
+      "options": [
+        {
+          "value": "slim",
+          "label": "Slim"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "tall",
+          "label": "Tall"
+        }
+      ],
+      "default": "normal"
     }
   ],
   "presets": [

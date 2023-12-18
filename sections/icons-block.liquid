@@ -1,0 +1,85 @@
+<section class="icon-element [ element ]">
+  <div class="icon-element__wrap">
+    <div class="icon-element__intro">
+      <div class="icon-element__intro__constaint">
+        <h2>
+          <b>{{ block.settings.heading }}</b>
+        </h2>
+        {{ block.settings.text }}
+      </div>
+    </div>
+
+    {%- for block in section.blocks -%}
+      <div class="icon-element__item">
+        <div class="icon-element__image">
+          {{ section.settings.image | image_url: width: 400, height: 400 | image_tag }}
+        </div>
+
+        <div class="icon-element__text">
+          <h4 class="no-margin">
+            <b>{{ block.settings.title }}</b>
+          </h4>
+
+          <div class="icon-element__inner">
+            {{ block.settings.copy }}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "icon-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "default": "Lorem ipsum dolor sit amet",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Icon Item",
+      "type": "icon_item",
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Icon"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "default": "Lorem ipsum dolor sit amet",
+          "label": "Title"
+        },
+        {
+          "id": "copy",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>",
+          "label": "Copy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon"
+    }
+  ]
+}
+{% endschema %}
