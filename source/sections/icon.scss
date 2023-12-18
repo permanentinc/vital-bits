@@ -2,12 +2,15 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin: 6rem auto;
-    padding: 0 2rem;
+    padding: 6rem 2rem;
+
+    background: var(--blue-light);
 
     &__wrap {
         max-width: var(--inner-content-width);
         margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
 
         @include media($md, max) {
             padding: 4rem 2rem;
@@ -19,7 +22,42 @@
         margin-bottom: 4rem;
 
         &__constraint {
-            max-width: 50rem;
+            max-width: 40rem;
+
+            * {
+                color: var(--green);
+            }
+        }
+    }
+
+    &__item {
+        width: calc(33.33333333%);
+        padding: 0 2rem;
+        margin-bottom: 4rem;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    &__text {
+        width: 100%;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        &__title {
+            margin-bottom: 1rem;
+        }
+
+        * {
+            color: var(--green);
+        }
+
+        p,
+        strong {
+            font-weight: 400 !important;
         }
     }
 }

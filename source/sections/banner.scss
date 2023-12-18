@@ -1,6 +1,19 @@
 .banner {
     position: relative;
 
+    &--slim {
+        .banner-image {
+            @include media($md) {
+                aspect-ratio: 16/5;
+                max-height: 72rem;
+                min-height: 30rem;
+            }
+        }
+        .banner-text {
+            top: 65%;
+        }
+    }
+
     &-image {
         background: var(--off-white);
         background: #a5d1d9;
