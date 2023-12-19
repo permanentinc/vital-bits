@@ -150,10 +150,23 @@
 
             &__image {
                 width: 100%;
+                position: relative;
+                margin-bottom: 2rem;
+
+                &:after {
+                    content: '';
+                    position: relative;
+                    display: block;
+                    padding-bottom: 100%;
+                }
 
                 img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
-                    height: auto;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
 
@@ -162,6 +175,15 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
+
+                h6 {
+                    &:first-of-type {
+                        width: calc(100% - 5rem);
+                    }
+                    &:last-of-type {
+                        width: 5rem;
+                    }
+                }
             }
 
             &__description {
@@ -197,6 +219,80 @@
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: #64bfb4;
             }
+        }
+    }
+}
+
+.collections {
+    // transition: all $faster;
+
+    .collections__slider * {
+        // transition: all $faster;
+    }
+
+
+    &[data-theme='post-partum'],
+    &[data-theme='c-section-delivery'],
+    &[data-theme='v-delivery'] {
+        background: var(--purple-light) !important;
+
+        .collections__slider * {
+            color: var(--orange);
+        }
+
+        .button {
+            background: var(--orange) !important;
+            color: var(--purple-light) !important;
+
+            &.busy {
+                color: var(--orange) !important;
+            }
+        }
+
+        .collections__marquee__animation span {
+            -webkit-text-stroke-color: var(--orange);
+        }
+    }
+
+    &[data-theme='breast-feeding'] {
+        background: var(--pink-light) !important;
+
+        .collections__slider * {
+            color: var(--pink);
+        }
+
+        .button {
+            background: var(--pink) !important;
+            color: var(--pink-light) !important;
+
+            &.busy {
+                color: var(--pink) !important;
+            }
+        }
+
+        .collections__marquee__animation span {
+            -webkit-text-stroke-color: var(--pink);
+        }
+    }
+
+    &[data-theme='pregnancy'] {
+        background: var(--blue-light) !important;
+
+        .collections__slider * {
+            color: var(--green);
+        }
+
+        .button {
+            background: var(--green) !important;
+            color: var(--blue-light) !important;
+
+            &.busy {
+                color: var(--green) !important;
+            }
+        }
+
+        .collections__marquee__animation span {
+            -webkit-text-stroke-color: var(--green);
         }
     }
 }

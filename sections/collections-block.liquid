@@ -5,7 +5,14 @@
   <div class="collections__grid">
     {%- for block in section.blocks -%}
       {% assign count = count | plus: 1 %}
-      <div class="collections__item" data-id="{{ count }}">
+      <div
+        class="collections__item [ js-collection-slider-trigger ]"
+        data-id="{{ count }}"
+        data-handle="{{ block.settings.Collection.handle }}"
+        data-title="{{ block.settings.Collection.title }}"
+        data-url="{{ block.settings.Collection.url }}"
+        data-copy="{{ block.settings.copy }}"
+      >
         <div class="collections__item__image">
           {%- if block.settings.thumbnail != blank -%}
             {{ block.settings.thumbnail | image_url: width: 400, height: 400 | image_tag }}
@@ -45,7 +52,7 @@
         {% comment %}
           Item
         {% endcomment %}
-        <div class="collections__slider__item collections__slider__item--product">
+        <a href="{{ product.url }}" class="collections__slider__item collections__slider__item--product">
           <div class="collections__slider__item__image">
             {% if product.featured_media %}
               {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
@@ -70,7 +77,7 @@
           <div class="collections__slider__item__description">
             <p>{{ product.metafields.custom.short_description }}</p>
           </div>
-        </div>
+        </a>
       {%- endfor -%}
     </div>
   {%- endfor -%}
@@ -129,4 +136,3 @@
   ]
 }
 {% endschema %}
-

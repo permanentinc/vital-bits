@@ -56,8 +56,9 @@
   transition: all $medium;
 
   border-radius: 0 0 5rem 5rem;
-  border-radius: 5rem;
   box-shadow: 0 10px 30px rgba(#000, 0.05);
+  box-shadow:$z9;
+
 
   &__shadow {
     width: 100%;

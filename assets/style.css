@@ -3213,11 +3213,24 @@ body .choices .choices__list--dropdown .choices__item {
 
 .collections__slider__item__image {
   width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.collections__slider__item__image:after {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+  position: relative;
 }
 
 .collections__slider__item__image img {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .collections__slider__item__title {
@@ -3225,6 +3238,14 @@ body .choices .choices__list--dropdown .choices__item {
   justify-content: space-between;
   width: 100%;
   display: flex;
+}
+
+.collections__slider__item__title h6:first-of-type {
+  width: calc(100% - 5rem);
+}
+
+.collections__slider__item__title h6:last-of-type {
+  width: 5rem;
 }
 
 .collections__slider__item__description {
@@ -3259,6 +3280,69 @@ body .choices .choices__list--dropdown .choices__item {
   font-size: 7vw;
   font-weight: 700;
   line-height: 8vw;
+}
+
+.collections[data-theme="post-partum"], .collections[data-theme="c-section-delivery"], .collections[data-theme="v-delivery"] {
+  background: var(--purple-light) !important;
+}
+
+.collections[data-theme="post-partum"] .collections__slider *, .collections[data-theme="c-section-delivery"] .collections__slider *, .collections[data-theme="v-delivery"] .collections__slider * {
+  color: var(--orange);
+}
+
+.collections[data-theme="post-partum"] .button, .collections[data-theme="c-section-delivery"] .button, .collections[data-theme="v-delivery"] .button {
+  background: var(--orange) !important;
+  color: var(--purple-light) !important;
+}
+
+.collections[data-theme="post-partum"] .button.busy, .collections[data-theme="c-section-delivery"] .button.busy, .collections[data-theme="v-delivery"] .button.busy {
+  color: var(--orange) !important;
+}
+
+.collections[data-theme="post-partum"] .collections__marquee__animation span, .collections[data-theme="c-section-delivery"] .collections__marquee__animation span, .collections[data-theme="v-delivery"] .collections__marquee__animation span {
+  -webkit-text-stroke-color: var(--orange);
+}
+
+.collections[data-theme="breast-feeding"] {
+  background: var(--pink-light) !important;
+}
+
+.collections[data-theme="breast-feeding"] .collections__slider * {
+  color: var(--pink);
+}
+
+.collections[data-theme="breast-feeding"] .button {
+  background: var(--pink) !important;
+  color: var(--pink-light) !important;
+}
+
+.collections[data-theme="breast-feeding"] .button.busy {
+  color: var(--pink) !important;
+}
+
+.collections[data-theme="breast-feeding"] .collections__marquee__animation span {
+  -webkit-text-stroke-color: var(--pink);
+}
+
+.collections[data-theme="pregnancy"] {
+  background: var(--blue-light) !important;
+}
+
+.collections[data-theme="pregnancy"] .collections__slider * {
+  color: var(--green);
+}
+
+.collections[data-theme="pregnancy"] .button {
+  background: var(--green) !important;
+  color: var(--blue-light) !important;
+}
+
+.collections[data-theme="pregnancy"] .button.busy {
+  color: var(--green) !important;
+}
+
+.collections[data-theme="pregnancy"] .collections__marquee__animation span {
+  -webkit-text-stroke-color: var(--green);
 }
 
 .hero {
@@ -6218,14 +6302,14 @@ iframe.wait-autoplay {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  border-radius: 5rem;
+  border-radius: 0 0 5rem 5rem;
   transition: all .75s cubic-bezier(.365, .04, .44, 1);
   display: block;
   position: fixed;
   top: 18rem;
   left: 0;
   right: 0;
-  box-shadow: 0 10px 30px #0000000d;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 20px 25px -5px #0f172a1a, 0 8px 10px -6px #0f172a1a;
 }
 
 .mega__shadow {

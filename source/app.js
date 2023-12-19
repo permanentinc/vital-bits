@@ -21,14 +21,9 @@ import Choices from 'choices.js';
 import GLightbox from 'glightbox';
 
 
-
-
-
 inView('.js-gradient').on('enter', el => {
     el.classList.add('inview');
-
     $('body').setAttribute('data-theme', el.dataset.collection);
-
 });
 
 
@@ -37,7 +32,6 @@ if ($('.js-accordion-element')) {
 }
 
 if ($('.product-details')) {
-
 
     // Declare our choices options
     const options = {
@@ -232,11 +226,84 @@ Banner slider block - Flickity
 ------------------------------------------------------------------*/
 
 if ($('.collections__slider')) {
-    new Flickity('.collections__slider', {
+    window.flkty = new Flickity('.collections__slider', {
         wrapAround: false,
         pageDots: false,
         prevNextButtons: false,
         initialIndex: (window.innerWidth > 768) ? 1 : 0
+    });
+}
+
+
+let $collection_triggers = $$('.js-collection-slider-trigger');
+
+if ($collection_triggers) {
+    $collection_triggers.forEach(element => {
+        element.addEventListener('click', (e) => {
+            e.preventDefault();
+            let handle = element.getAttribute('data-handle');
+
+            console.log(handle);
+
+            // Send the request to Shopify
+            fetch(`/collections/${handle}/products.json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.products);
+
+                    let items = $$('.collections__slider__item--product');
+
+                    items.forEach((item) => {
+                        window.flkty.remove(item);
+                    });
+
+                    $('.collections').setAttribute('data-theme', handle);
+
+                    var newItems = [];
+
+                    data.products.forEach((product) => {
+
+                        let full_description = product.body_html;
+
+                        // extract the first paragraph from the description
+                        let description = full_description.match(/<p>(.*?)<\/p>/)[0];
+
+                        let newElement = document.createElement('a');
+                        newElement.classList.add('collections__slider__item');
+                        newElement.classList.add('collections__slider__item--product');
+
+                        newElement.setAttribute('href', '/products/' + product.handle);
+
+                        newElement.innerHTML = `
+                            <div class="collections__slider__item__image">
+                                <img src="${product.images[0].src}" alt="${product.images[0].alt}">
+                            </div>
+                            <div class="collections__slider__item__title">
+                                <h6><b>${product.title}</b></h6>
+                                <h6><b>${product.variants[0].price}</b></h6>
+                            </div>
+                            <div class="collections__slider__item__title">
+                                ${description}
+                            </div>
+                            `;
+
+                        newItems.push(newElement);
+
+                    });
+
+
+                    flkty.append(newItems);
+
+                    // got to the first slide
+                    flkty.select((window.innerWidth > 768) ? 1 : 0);
+
+                })
+                .catch((data) => {
+                    // Show an error message in the console
+                    console.log(data);
+                });
+        })
+
     });
 }
 
@@ -248,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 // On escape press toggle a class on the body
-document.addEventListener('keyup', e => (e.key === 'Escape') ? toggleMobileNavigation() : null);
+// document.addEventListener('keyup', e => (e.key === 'Escape') ? toggleMobileNavigation() : null);
 
 window.changeQuantity = (event, amount) => {
 
@@ -474,7 +541,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     initCursor();
-console.log(megaImages)
 
     megaImages.forEach((element) => {
         element.addEventListener('mouseenter', (e) => switchImage(e.currentTarget, true));
@@ -482,3 +548,6 @@ console.log(megaImages)
     });
 
 }, false);
+
+
+

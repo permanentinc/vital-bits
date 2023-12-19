@@ -751,11 +751,57 @@ window.toggleMobileNavigation = ()=>{
 };
 /*------------------------------------------------------------------
 Banner slider block - Flickity
-------------------------------------------------------------------*/ if ((0, _lib.$)(".collections__slider")) new (0, _flickityDefault.default)(".collections__slider", {
+------------------------------------------------------------------*/ if ((0, _lib.$)(".collections__slider")) window.flkty = new (0, _flickityDefault.default)(".collections__slider", {
     wrapAround: false,
     pageDots: false,
     prevNextButtons: false,
     initialIndex: window.innerWidth > 768 ? 1 : 0
+});
+let $collection_triggers = (0, _lib.$$)(".js-collection-slider-trigger");
+if ($collection_triggers) $collection_triggers.forEach((element)=>{
+    element.addEventListener("click", (e)=>{
+        e.preventDefault();
+        let handle = element.getAttribute("data-handle");
+        console.log(handle);
+        // Send the request to Shopify
+        fetch(`/collections/${handle}/products.json`).then((response)=>response.json()).then((data)=>{
+            console.log(data.products);
+            let items = (0, _lib.$$)(".collections__slider__item--product");
+            items.forEach((item)=>{
+                window.flkty.remove(item);
+            });
+            (0, _lib.$)(".collections").setAttribute("data-theme", handle);
+            var newItems = [];
+            data.products.forEach((product)=>{
+                let full_description = product.body_html;
+                // extract the first paragraph from the description
+                let description = full_description.match(/<p>(.*?)<\/p>/)[0];
+                let newElement = document.createElement("a");
+                newElement.classList.add("collections__slider__item");
+                newElement.classList.add("collections__slider__item--product");
+                newElement.setAttribute("href", "/products/" + product.handle);
+                newElement.innerHTML = `
+                            <div class="collections__slider__item__image">
+                                <img src="${product.images[0].src}" alt="${product.images[0].alt}">
+                            </div>
+                            <div class="collections__slider__item__title">
+                                <h6><b>${product.title}</b></h6>
+                                <h6><b>${product.variants[0].price}</b></h6>
+                            </div>
+                            <div class="collections__slider__item__title">
+                                ${description}
+                            </div>
+                            `;
+                newItems.push(newElement);
+            });
+            flkty.append(newItems);
+            // got to the first slide
+            flkty.select(window.innerWidth > 768 ? 1 : 0);
+        }).catch((data)=>{
+            // Show an error message in the console
+            console.log(data);
+        });
+    });
 });
 /*------------------------------------------------------------------
 In view elements
@@ -763,7 +809,7 @@ In view elements
     (0, _inViewDefault.default)(".js-inview").on("enter", (el)=>el.classList.add("inview"));
 }, false);
 // On escape press toggle a class on the body
-document.addEventListener("keyup", (e)=>e.key === "Escape" ? toggleMobileNavigation() : null);
+// document.addEventListener('keyup', e => (e.key === 'Escape') ? toggleMobileNavigation() : null);
 window.changeQuantity = (event, amount)=>{
     let input = event.target.parentElement.querySelector("input");
     let quantity = parseInt(input.value);
@@ -914,7 +960,6 @@ document.addEventListener("DOMContentLoaded", function() {
         } else megaImage.classList.remove("active");
     };
     initCursor();
-    console.log(megaImages);
     megaImages.forEach((element)=>{
         element.addEventListener("mouseenter", (e)=>switchImage(e.currentTarget, true));
         element.addEventListener("mouseleave", (e)=>switchImage(e.currentTarget, false));

@@ -76,7 +76,9 @@
           {% comment %}
             V-DELIVERY
           {% endcomment %}
-          <h6 class="mega__wrap__column__link"><a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a></h6>
+          <h6 class="mega__wrap__column__link">
+            <a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a>
+          </h6>
           {% for product in collections['v-delivery'].products limit: 3 %}
             <p class="mega__wrap__column__sublink">
               <a
@@ -92,8 +94,6 @@
           <p class="mega__wrap__column__sublink">
             <a href="{{ collections.v-delivery.url }}">View more</a>
           </p>
-          
-
 
           {% comment %}
             post-partum
