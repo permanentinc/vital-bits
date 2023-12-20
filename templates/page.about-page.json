@@ -16,6 +16,14 @@
       "settings": {
       }
     },
+    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
+      "type": "image-text-block",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero.jpg",
+        "text": "<h2><strong>We get it…<\/strong><\/h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. <\/p><p><\/p>",
+        "reverse_layout": true
+      }
+    },
     "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
       "type": "grid-block-with-text",
       "blocks": {
@@ -54,14 +62,6 @@
       ],
       "settings": {
         "copy": "<h5><strong>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions -<\/strong> from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. <\/h5>"
-      }
-    },
-    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
-      "type": "image-text-block",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/hero.jpg",
-        "text": "<h2><strong>We get it…<\/strong><\/h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. <\/p><p><\/p>",
-        "reverse_layout": false
       }
     },
     "e20d9126-0b7b-4882-a4af-dadfed53b225": {
@@ -154,8 +154,8 @@
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
     "main",
-    "390d78e5-ef2c-4dae-b4ed-12b122745bf4",
     "2693bc49-c25c-4937-9007-efae0c7ba27c",
+    "390d78e5-ef2c-4dae-b4ed-12b122745bf4",
     "e20d9126-0b7b-4882-a4af-dadfed53b225",
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
     "0390973f-ee87-43c3-b19e-3ba202d8d755",
