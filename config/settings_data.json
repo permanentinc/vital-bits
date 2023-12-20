@@ -1,6 +1,7 @@
 {
   "current": {
     "favicon": "shopify:\/\/shop_images\/Favicon.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/collection_banner.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/230426_vitalbits_logo.svg",
     "checkout_logo_size": "medium",
     "checkout_input_background_color_mode": "transparent",
