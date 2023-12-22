@@ -140,7 +140,7 @@
       Title
     {% endcomment %}
     <div class="related-products__list__title">
-      <h2 class="colour--white">You may also like...</h2>
+      <h2 class="colour--white"><b>You may also like...</b></h2>
     </div>
 
     {% assign count = 0 %}
@@ -172,6 +172,34 @@
      {% endif %}
     {% endfor %}
 
+
+    {% for related_product in collections.all.products %}
+      {% if count < 3 and related_product.id != product.id %}
+       {% comment %}
+       Item
+       {% endcomment %}
+       <a href="#" class="related-products__list__item related-products__list__item--product">
+         <div class="related-products__list__item__image">
+            {% if related_product.featured_media %}
+              {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+            {% else %}
+              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
+            {% endif %}
+         </div>
+         <div class="related-products__list__item__title">
+           <h6><b>{{ related_product.title | escape }}</b></h6>
+           <h6><b>{{ related_product.price | money }}</b></h6>
+           
+         </div>
+         <div class="related-products__list__item__description">
+           <p>
+            {{ related_product.metafields.custom.short_description }}
+          </p>
+         </div>
+       </a>
+        {% assign count = count | plus: 1 %}
+     {% endif %}
+    {% endfor %}
    
 
   {% comment %}
@@ -185,6 +213,8 @@
     </div>
   </div>
 </div>
+
+
 
 {%- liquid
   if product.selected_or_first_available_variant.featured_media
@@ -254,3 +284,24 @@
 </script>
 
 <script src="https://js.afterpay.com/afterpay-1.x.js" async></script>
+
+
+
+</div>
+
+<div class="reviews">
+  <script type="text/javascript">
+    (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="https://staticw2.yotpo.com/JxEyiC9n5SoKqDH4Fb95zCfSuBU0OmI5FIS55jG5/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+    </script>
+  
+  
+  <div class="yotpo yotpo-main-widget"
+    data-product-id="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | image_url: 'large' | replace: '?', '%3F' | replace: '&', '%26' }}"
+    data-price="{{ variant.price | money_without_currency }}"
+    data-currency="{{ shop.currency }}"
+    data-description="{{ product.description | escape }}">
+    </div>
+</div>

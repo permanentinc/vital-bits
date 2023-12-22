@@ -155,12 +155,6 @@
             position: relative;
             font-size: 70%;
 
-            &:before {
-                @include pseudo;
-                content: 'WHY PAY';
-                font-size: 1rem;
-            }
-
             &:after {
                 @include pseudo;
                 width: 100%;
@@ -239,11 +233,31 @@
     }
 }
 
+[data-theme='Pregnancy'] {
+    .header-nav__item__link {
+        color: var(--green) !important;
+        -webkit-text-fill-color: initial;
+    }
+
+    .header-logo path {
+        fill: var(--green);
+    }
+}
+
 html {
     [data-theme='Post Partum'],
     [data-theme='C-Section Delivery'],
     [data-theme='V-Delivery'] {
         background: var(--purple-light);
+
+        .header-nav__item__link {
+            color: var(--orange) !important;
+            -webkit-text-fill-color: initial;
+        }
+
+        .header-logo path {
+            fill: var(--orange);
+        }
 
         .js-gradient-background {
             background: var(--purple-light) !important;
@@ -287,7 +301,7 @@ html {
             .button {
                 background: var(--orange);
                 color: var(--purple-light);
-                
+
                 &.busy {
                     color: var(--orange) !important;
                 }
@@ -355,6 +369,15 @@ html {
 html {
     [data-theme='Breast Feeding'] {
         background: var(--pink-light);
+
+        .header-nav__item__link {
+            color: var(--pink) !important;
+            -webkit-text-fill-color: initial;
+        }
+
+        .header-logo path {
+            fill: var(--pink);
+        }
 
         .js-gradient-background {
             background: var(--pink-light) !important;
@@ -460,5 +483,18 @@ html {
         .notyf__message a {
             color: var(--pink) !important;
         }
+    }
+}
+
+.reviews {
+    padding: 6rem 0;
+
+    * {
+        font-family: 'sofia-pro', sans-serif !important;
+    }
+    
+    .write-review-button{
+        padding: 1.25rem 5rem 1.65rem !important;
+        background: var(--green) !important;
     }
 }

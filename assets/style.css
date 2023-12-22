@@ -280,7 +280,7 @@ a.link:hover, a:not([class]):hover {
   right: 0;
 }
 
-.shopify-challenge__button, .button {
+.yotpo-default-button, .shopify-challenge__button, .button {
   cursor: pointer;
   background: var(--green);
   color: #fff;
@@ -297,7 +297,7 @@ a.link:hover, a:not([class]):hover {
   box-shadow: 0 10px 30px #0000000d;
 }
 
-.shopify-challenge__button:before, .button:before {
+.yotpo-default-button:before, .shopify-challenge__button:before, .button:before {
   content: "";
   transform-origin: 100% 100%;
   background: #ffffff26;
@@ -311,20 +311,20 @@ a.link:hover, a:not([class]):hover {
   transform: scaleX(0);
 }
 
-.shopify-challenge__button:hover:before, .button:hover:before {
+.yotpo-default-button:hover:before, .shopify-challenge__button:hover:before, .button:hover:before {
   transform-origin: 0 100%;
   transform: scaleX(1);
 }
 
-.shopify-challenge__button:active, .button:active {
+.yotpo-default-button:active, .shopify-challenge__button:active, .button:active {
   transform: translateY(1px);
 }
 
-.shopify-challenge__button.wide, .button.wide {
+.yotpo-default-button.wide, .shopify-challenge__button.wide, .button.wide {
   padding: 1.25rem 8rem 1.65rem;
 }
 
-.shopify-challenge__button.full, .button.full {
+.yotpo-default-button.full, .shopify-challenge__button.full, .button.full {
   display: block;
 }
 
@@ -3998,7 +3998,6 @@ ol > li li:before {
   white-space: nowrap;
   flex-wrap: wrap;
   display: flex;
-  overflow: hidden;
 }
 
 .related-products__marquee__animation {
@@ -4220,14 +4219,6 @@ ol > li li:before {
   position: relative;
 }
 
-.product-details-old-price:before {
-  content: "";
-  content: "WHY PAY";
-  font-size: 1rem;
-  display: block;
-  position: absolute;
-}
-
 .product-details-old-price:after {
   content: "";
   background: var(--green);
@@ -4302,8 +4293,26 @@ ol > li li:before {
   line-height: 1.4;
 }
 
+[data-theme="Pregnancy"] .header-nav__item__link {
+  -webkit-text-fill-color: initial;
+  color: var(--green) !important;
+}
+
+[data-theme="Pregnancy"] .header-logo path {
+  fill: var(--green);
+}
+
 html [data-theme="Post Partum"], html [data-theme="C-Section Delivery"], html [data-theme="V-Delivery"] {
   background: var(--purple-light);
+}
+
+html [data-theme="Post Partum"] .header-nav__item__link, html [data-theme="C-Section Delivery"] .header-nav__item__link, html [data-theme="V-Delivery"] .header-nav__item__link {
+  -webkit-text-fill-color: initial;
+  color: var(--orange) !important;
+}
+
+html [data-theme="Post Partum"] .header-logo path, html [data-theme="C-Section Delivery"] .header-logo path, html [data-theme="V-Delivery"] .header-logo path {
+  fill: var(--orange);
 }
 
 html [data-theme="Post Partum"] .js-gradient-background, html [data-theme="C-Section Delivery"] .js-gradient-background, html [data-theme="V-Delivery"] .js-gradient-background {
@@ -4395,6 +4404,15 @@ html [data-theme="Breast Feeding"] {
   background: var(--pink-light);
 }
 
+html [data-theme="Breast Feeding"] .header-nav__item__link {
+  -webkit-text-fill-color: initial;
+  color: var(--pink) !important;
+}
+
+html [data-theme="Breast Feeding"] .header-logo path {
+  fill: var(--pink);
+}
+
 html [data-theme="Breast Feeding"] .js-gradient-background {
   background: var(--pink-light) !important;
 }
@@ -4478,6 +4496,19 @@ html [data-theme="Breast Feeding"] .notyf__ripple {
 
 html [data-theme="Breast Feeding"] .notyf__message a {
   color: var(--pink) !important;
+}
+
+.reviews {
+  padding: 6rem 0;
+}
+
+.reviews * {
+  font-family: sofia-pro, sans-serif !important;
+}
+
+.reviews .write-review-button {
+  background: var(--green) !important;
+  padding: 1.25rem 5rem 1.65rem !important;
 }
 
 .collection-grid {
