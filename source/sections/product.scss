@@ -487,14 +487,46 @@ html {
 }
 
 .reviews {
+    background: var(--off-white);
     padding: 6rem 0;
+
+    &__wrap {
+        max-width: var(--inner-content-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
 
     * {
         font-family: 'sofia-pro', sans-serif !important;
     }
-    
-    .write-review-button{
+
+    .yotpo-nav-wrapper {
+        border-color: var(--green) !important;
+    }
+
+    .yotpo-nav-wrapper span,
+    .y-label {
+        color: var(--green) !important;
+    }
+    .write-review-button {
         padding: 1.25rem 5rem 1.65rem !important;
         background: var(--green) !important;
+        font-weight: 700 !important;
+        font-size: 1.6rem !important;
+    }
+
+    .yotpo-label-container {
+        display: none !important;
+    }
+    .write-question-review-button {
+        height: auto !important;
+    }
+    .write-question-review-buttons-container .write-question-review-button .write-question-review-button-icon {
+        color: var(--blue-light) !important;
+    }
+    .write-question-review-button-text {
+        color: white !important;
+        text-transform: none !important;
+        font-size: 1.6rem;
     }
 }

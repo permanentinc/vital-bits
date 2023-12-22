@@ -857,6 +857,10 @@ body .notyf__message a:hover {
   transform: translateY(0);
 }
 
+.header.nav-down .header-nav__item__link {
+  -webkit-text-fill-color: transparent !important;
+}
+
 .header-wrap {
   z-index: 2;
   max-width: var(--content-width);
@@ -4499,16 +4503,51 @@ html [data-theme="Breast Feeding"] .notyf__message a {
 }
 
 .reviews {
+  background: var(--off-white);
   padding: 6rem 0;
+}
+
+.reviews__wrap {
+  max-width: var(--inner-content-width);
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .reviews * {
   font-family: sofia-pro, sans-serif !important;
 }
 
+.reviews .yotpo-nav-wrapper {
+  border-color: var(--green) !important;
+}
+
+.reviews .yotpo-nav-wrapper span, .reviews .y-label {
+  color: var(--green) !important;
+}
+
 .reviews .write-review-button {
   background: var(--green) !important;
   padding: 1.25rem 5rem 1.65rem !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+}
+
+.reviews .yotpo-label-container {
+  display: none !important;
+}
+
+.reviews .write-question-review-button {
+  height: auto !important;
+}
+
+.reviews .write-question-review-buttons-container .write-question-review-button .write-question-review-button-icon {
+  color: var(--blue-light) !important;
+}
+
+.reviews .write-question-review-button-text {
+  font-size: 1.6rem;
+  color: #fff !important;
+  text-transform: none !important;
 }
 
 .collection-grid {

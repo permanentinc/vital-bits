@@ -1,40 +1,45 @@
 <div class="banner__push"></div>
 
 {% assign on_sale = false %}
-{% if product.compare_at_price > product.price %} 
-{%- assign on_sale = true -%}
+{% if product.compare_at_price > product.price %}
+  {%- assign on_sale = true -%}
 {% endif %}
 
 <div class="product">
   <div class="product-wrap">
     <div class="product-gallery">
-
       <div class="product-slider [ js-product-imagery-slider ]">
         {% for media in product.media %}
           <div class="product-slider-item">
-        <img class="[ js-product-slider-item-image ]" src="{{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }}" 
-          srcset="
-            {{ media.preview_image | image_url: width: 622, height: 622, crop: 'center' }} 622w,
-            {{ media.preview_image | image_url: width: 768, height: 768, crop: 'center' }} 768w,
-            {{ media.preview_image | image_url: width: 968, height: 968, crop: 'center' }} 968w,
-            {{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }} 1080w" 
-            alt="{{ media.preview_image.alt | escape }}" data-lightbox-image="{{ media.preview_image | image_url: '1080x1080', crop: 'center' }}"
-            width="1080" height="1080" loading="lazy"
-          />
-        </div>
+            <img
+              class="[ js-product-slider-item-image ]"
+              src="{{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }}"
+              srcset="
+                {{ media.preview_image | image_url: width: 622, height: 622, crop: 'center' }} 622w,
+                {{ media.preview_image | image_url: width: 768, height: 768, crop: 'center' }} 768w,
+                {{ media.preview_image | image_url: width: 968, height: 968, crop: 'center' }} 968w,
+                {{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }} 1080w
+              "
+              alt="{{ media.preview_image.alt | escape }}"
+              data-lightbox-image="{{ media.preview_image | image_url: '1080x1080', crop: 'center' }}"
+              width="1080"
+              height="1080"
+              loading="lazy"
+            >
+          </div>
         {% endfor %}
       </div>
 
       <div class="product-gallery-previous [ js-cursor-previous ]"></div>
       <div class="product-gallery-next [ js-cursor-next ]"></div>
       <div class="product-gallery-lightbox [ js-product-lightbox ]">
-
         <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.679 4.005a.899.899 0 00-.8.913v2.05a.899.899 0 101.797 0v-2.05a.899.899 0 00-.997-.913zm-9.635 1.138a.899.899 0 00-.772 1.166l.59 1.994a.902.902 0 001.727-.52l-.59-1.994a.899.899 0 00-.955-.646zm19.27 0a.899.899 0 00-.759.646l-.59 1.994a.902.902 0 001.728.52l.59-1.994a.899.899 0 00-.97-1.166zM1.168 8.88a.899.899 0 00-.675 1.39l1.152 1.784a.9.9 0 101.517-.969L2.01 9.3a.899.899 0 00-.842-.421zm37.092 0a.899.899 0 00-.716.421l-1.152 1.784a.9.9 0 101.517.97l1.152-1.785a.899.899 0 00-.8-1.39zm-18.483 1.419c-8.233 0-15.487 3.715-19.607 9.368a.899.899 0 000 1.053c4.12 5.652 11.374 9.368 19.607 9.368 8.233 0 15.487-3.716 19.607-9.368a.899.899 0 000-1.053c-4.12-5.653-11.374-9.368-19.607-9.368zm0 2.26c4.23 0 7.64 3.41 7.64 7.641 0 4.232-3.41 7.64-7.64 7.64a7.626 7.626 0 01-7.64-7.64c0-4.231 3.41-7.64 7.64-7.64zm-5.87.254a9.44 9.44 0 00-3.568 7.387c0 2.996 1.41 5.655 3.595 7.388-4.92-1.202-9.096-3.873-11.867-7.388 2.765-3.512 6.93-6.18 11.84-7.387zm11.741 0c4.91 1.208 9.074 3.875 11.84 7.387-2.771 3.515-6.948 6.186-11.868 7.388 2.186-1.733 3.595-4.392 3.595-7.388a9.44 9.44 0 00-3.567-7.387z" fill="#000" fill-rule="nonzero" /></svg>
+          <path d="M19.679 4.005a.899.899 0 00-.8.913v2.05a.899.899 0 101.797 0v-2.05a.899.899 0 00-.997-.913zm-9.635 1.138a.899.899 0 00-.772 1.166l.59 1.994a.902.902 0 001.727-.52l-.59-1.994a.899.899 0 00-.955-.646zm19.27 0a.899.899 0 00-.759.646l-.59 1.994a.902.902 0 001.728.52l.59-1.994a.899.899 0 00-.97-1.166zM1.168 8.88a.899.899 0 00-.675 1.39l1.152 1.784a.9.9 0 101.517-.969L2.01 9.3a.899.899 0 00-.842-.421zm37.092 0a.899.899 0 00-.716.421l-1.152 1.784a.9.9 0 101.517.97l1.152-1.785a.899.899 0 00-.8-1.39zm-18.483 1.419c-8.233 0-15.487 3.715-19.607 9.368a.899.899 0 000 1.053c4.12 5.652 11.374 9.368 19.607 9.368 8.233 0 15.487-3.716 19.607-9.368a.899.899 0 000-1.053c-4.12-5.653-11.374-9.368-19.607-9.368zm0 2.26c4.23 0 7.64 3.41 7.64 7.641 0 4.232-3.41 7.64-7.64 7.64a7.626 7.626 0 01-7.64-7.64c0-4.231 3.41-7.64 7.64-7.64zm-5.87.254a9.44 9.44 0 00-3.568 7.387c0 2.996 1.41 5.655 3.595 7.388-4.92-1.202-9.096-3.873-11.867-7.388 2.765-3.512 6.93-6.18 11.84-7.387zm11.741 0c4.91 1.208 9.074 3.875 11.84 7.387-2.771 3.515-6.948 6.186-11.868 7.388 2.186-1.733 3.595-4.392 3.595-7.388a9.44 9.44 0 00-3.567-7.387z" fill="#000" fill-rule="nonzero" />
+        </svg>
 
         <svg class="eye-roll" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.045 12a4.058 4.058 0 014.045 4.045 4.058 4.058 0 01-4.045 4.045A4.058 4.058 0 0116 16.045 4.058 4.058 0 0120.045 12zm0 1.798a2.233 2.233 0 00-2.247 2.247c0 1.252.995 2.247 2.247 2.247a2.233 2.233 0 002.247-2.247 2.233 2.233 0 00-2.247-2.247z" fill="#000" fill-rule="nonzero" /></svg>
-
+          <path d="M20.045 12a4.058 4.058 0 014.045 4.045 4.058 4.058 0 01-4.045 4.045A4.058 4.058 0 0116 16.045 4.058 4.058 0 0120.045 12zm0 1.798a2.233 2.233 0 00-2.247 2.247c0 1.252.995 2.247 2.247 2.247a2.233 2.233 0 002.247-2.247 2.233 2.233 0 00-2.247-2.247z" fill="#000" fill-rule="nonzero" />
+        </svg>
       </div>
 
       <span class="product-gallery-progress">
@@ -48,36 +53,38 @@
       </span>
       {% if on_sale %}
         <span class="product-gallery-sale">SALE</span>
-        {% endif %}
-
-  
-
+      {% endif %}
     </div>
 
     <div class="product-details">
-
-      <h6 class="product-details__category no-margin"><b>{{ product.collections.first.title | upcase }}</b></h6>
+      <h6 class="product-details__category no-margin">
+        <b>{{ product.collections.first.title | upcase }}</b>
+      </h6>
       <h1>
         <b>{{ product.title | escape }}</b>
       </h1>
-      
-   
 
       <div class="product-details-price">
-      <p class="h3"><b class="[ js-variation-price ]">
-        
-        {% if on_sale %}
-          <span class="product-details-old-price"> {{ product.compare_at_price | money }}</span>
-          {% endif %}
-        {{ product.price | money }}
-      
-      </b></p>
-
- 
-  
+        <p class="h3">
+          <b class="[ js-variation-price ]">
+            {% if on_sale %}
+              <span class="product-details-old-price"> {{ product.compare_at_price | money }}</span>
+            {% endif %}
+            {{ product.price | money }}
+          </b>
+        </p>
       </div>
 
-      <afterpay-placement data-modal-link-style="circled-question-icon" data-size="xs" data-modal-theme="white" data-logo-type="badge" data-badge-theme="black-on-white" data-locale="en_NZ" data-currency="NZD" data-amount="{{ product.price | money_without_currency }}"></afterpay-placement>
+      <afterpay-placement
+        data-modal-link-style="circled-question-icon"
+        data-size="xs"
+        data-modal-theme="white"
+        data-logo-type="badge"
+        data-badge-theme="black-on-white"
+        data-locale="en_NZ"
+        data-currency="NZD"
+        data-amount="{{ product.price | money_without_currency }}"
+      ></afterpay-placement>
 
       {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
         <div class="product-actions">
@@ -95,7 +102,15 @@
           {% endunless %}
         </div>
 
-        <select {% if product.variants.size == 1 %}style="display:none;" class="[ js-variant ]"{% else %}class="[ js-variant ][ js-choices ]"{% endif %}  name="id" id="ProductSelect-{{ section.id }}" >
+        <select
+          {% if product.variants.size == 1 %}
+            style="display:none;" class="[ js-variant ]"
+          {% else %}
+            class="[ js-variant ][ js-choices ]"
+          {% endif %}
+          name="id"
+          id="ProductSelect-{{ section.id }}"
+        >
           {% for variant in product.variants %}
             <option
               value="{{ variant.id }}"
@@ -105,11 +120,8 @@
             </option>
           {% endfor %}
         </select>
-
-        
       {% endform %}
 
-       
       {%- if product.description != blank -%}
         <p>
           {{ product.description }}
@@ -146,162 +158,181 @@
     {% assign count = 0 %}
     {% for related_product in product.collections.first.products %}
       {% if count < 3 and related_product.id != product.id %}
-       {% comment %}
-       Item
-       {% endcomment %}
-       <a href="#" class="related-products__list__item related-products__list__item--product">
-         <div class="related-products__list__item__image">
+        {% comment %}
+          Item
+        {% endcomment %}
+        <a href="#" class="related-products__list__item related-products__list__item--product">
+          <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
               {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
             {% else %}
-              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
+              <img
+                src="{{ 'placeholder.jpeg' | asset_url }}"
+                alt="placeholder image"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
             {% endif %}
-         </div>
-         <div class="related-products__list__item__title">
-           <h6><b>{{ related_product.title | escape }}</b></h6>
-           <h6><b>{{ related_product.price | money }}</b></h6>
-           
-         </div>
-         <div class="related-products__list__item__description">
-           <p>
-            {{ related_product.metafields.custom.short_description }}
-          </p>
-         </div>
-       </a>
+          </div>
+          <div class="related-products__list__item__title">
+            <h6>
+              <b>{{ related_product.title | escape }}</b>
+            </h6>
+            <h6>
+              <b>{{ related_product.price | money }}</b>
+            </h6>
+          </div>
+          <div class="related-products__list__item__description">
+            <p>
+              {{ related_product.metafields.custom.short_description }}
+            </p>
+          </div>
+        </a>
         {% assign count = count | plus: 1 %}
-     {% endif %}
+      {% endif %}
     {% endfor %}
-
 
     {% for related_product in collections.all.products %}
       {% if count < 3 and related_product.id != product.id %}
-       {% comment %}
-       Item
-       {% endcomment %}
-       <a href="#" class="related-products__list__item related-products__list__item--product">
-         <div class="related-products__list__item__image">
+        {% comment %}
+          Item
+        {% endcomment %}
+        <a href="#" class="related-products__list__item related-products__list__item--product">
+          <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
               {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
             {% else %}
-              <img src="{{ 'placeholder.jpeg' | asset_url }}" alt="placeholder image" width="400" height="400" loading="lazy">
+              <img
+                src="{{ 'placeholder.jpeg' | asset_url }}"
+                alt="placeholder image"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
             {% endif %}
-         </div>
-         <div class="related-products__list__item__title">
-           <h6><b>{{ related_product.title | escape }}</b></h6>
-           <h6><b>{{ related_product.price | money }}</b></h6>
-           
-         </div>
-         <div class="related-products__list__item__description">
-           <p>
-            {{ related_product.metafields.custom.short_description }}
-          </p>
-         </div>
-       </a>
+          </div>
+          <div class="related-products__list__item__title">
+            <h6>
+              <b>{{ related_product.title | escape }}</b>
+            </h6>
+            <h6>
+              <b>{{ related_product.price | money }}</b>
+            </h6>
+          </div>
+          <div class="related-products__list__item__description">
+            <p>
+              {{ related_product.metafields.custom.short_description }}
+            </p>
+          </div>
+        </a>
         {% assign count = count | plus: 1 %}
-     {% endif %}
+      {% endif %}
     {% endfor %}
-   
 
-  {% comment %}
-    Marquee
-  {% endcomment %}
-  <div class="related-products__marquee">
-    <div class="related-products__marquee__animation">
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
+    {% comment %}
+      Marquee
+    {% endcomment %}
+    <div class="related-products__marquee">
+      <div class="related-products__marquee__animation">
+        <span>Through lifes most vital moments</span>
+        <span>Through lifes most vital moments</span>
+        <span>Through lifes most vital moments</span>
+      </div>
     </div>
   </div>
-</div>
 
+  {%- liquid
+    if product.selected_or_first_available_variant.featured_media
+      assign seo_media = product.selected_or_first_available_variant.featured_media
+    else
+      assign seo_media = product.featured_media
+    endif
+  -%}
 
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": {{ product.title | json }},
+      "url": {{ request.origin | append: product.url | json }},
+      {% if seo_media -%}
+        "image": [
+          {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+        ],
+      {%- endif %}
+      "description": {{ product.description | strip_html | json }},
+      {% if product.selected_or_first_available_variant.sku != blank -%}
+        "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      {%- endif %}
+      "brand": {
+        "@type": "Brand",
+        "name": {{ product.vendor | json }}
+      },
+      "offers": [
+        {%- for variant in product.variants -%}
+          {
+            "@type" : "Offer",
+            {%- if variant.sku != blank -%}
+              "sku": {{ variant.sku | json }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 12 -%}
+              "gtin12": {{ variant.barcode }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 13 -%}
+              "gtin13": {{ variant.barcode }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 14 -%}
+              "gtin14": {{ variant.barcode }},
+            {%- endif -%}
+            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "price" : {{ variant.price | divided_by: 100.00 | json }},
+            "priceCurrency" : {{ cart.currency.iso_code | json }},
+            "url" : {{ request.origin | append: variant.url | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
 
-{%- liquid
-  if product.selected_or_first_available_variant.featured_media
-    assign seo_media = product.selected_or_first_available_variant.featured_media
-  else
-    assign seo_media = product.featured_media
-  endif
--%}
+  <script>
+    window.inventories = [];
+    {% for variant in product.variants %}
 
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "url": {{ request.origin | append: product.url | json }},
-    {% if seo_media -%}
-      "image": [
-        {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
-      ],
-    {%- endif %}
-    "description": {{ product.description | strip_html | json }},
-    {% if product.selected_or_first_available_variant.sku != blank -%}
-      "sku": {{ product.selected_or_first_available_variant.sku | json }},
-    {%- endif %}
-    "brand": {
-      "@type": "Brand",
-      "name": {{ product.vendor | json }}
-    },
-    "offers": [
-      {%- for variant in product.variants -%}
-        {
-          "@type" : "Offer",
-          {%- if variant.sku != blank -%}
-            "sku": {{ variant.sku | json }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 12 -%}
-            "gtin12": {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 13 -%}
-            "gtin13": {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 14 -%}
-            "gtin14": {{ variant.barcode }},
-          {%- endif -%}
-          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-          "price" : {{ variant.price | divided_by: 100.00 | json }},
-          "priceCurrency" : {{ cart.currency.iso_code | json }},
-          "url" : {{ request.origin | append: variant.url | json }}
-        }{% unless forloop.last %},{% endunless %}
-      {%- endfor -%}
-    ]
-  }
-</script>
+    window.inventories[{{ variant.id }}] = {
+      'id': {{ variant.id }},
+      'quantity': '{{ variant.inventory_quantity | default: 0 }}',
+      'price': '{{ variant.price | money }}'
+    };
 
+    {% endfor %}
+  </script>
 
-<script>
-  window.inventories = [];
-  {% for variant in product.variants %}
-
-  window.inventories[{{ variant.id }}] = {
-    'id': {{ variant.id }},
-    'quantity': '{{ variant.inventory_quantity | default: 0 }}',
-    'price': '{{ variant.price | money }}'
-  };
-
-  {% endfor %}
-</script>
-
-<script src="https://js.afterpay.com/afterpay-1.x.js" async></script>
-
-
-
+  <script src="https://js.afterpay.com/afterpay-1.x.js" async></script>
 </div>
 
 <div class="reviews">
-  <script type="text/javascript">
-    (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="https://staticw2.yotpo.com/JxEyiC9n5SoKqDH4Fb95zCfSuBU0OmI5FIS55jG5/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+  <div class="reviews__wrap">
+    <script type="text/javascript">
+      (function e() {
+        var e = document.createElement('script');
+        (e.type = 'text/javascript'),
+          (e.async = true),
+          (e.src = 'https://staticw2.yotpo.com/JxEyiC9n5SoKqDH4Fb95zCfSuBU0OmI5FIS55jG5/widget.js');
+        var t = document.getElementsByTagName('script')[0];
+        t.parentNode.insertBefore(e, t);
+      })();
     </script>
-  
-  
-  <div class="yotpo yotpo-main-widget"
-    data-product-id="{{ product.id }}"
-    data-name="{{ product.title | escape }}"
-    data-url="{{ shop.url }}{{ product.url }}"
-    data-image-url="{{ product.featured_image | image_url: 'large' | replace: '?', '%3F' | replace: '&', '%26' }}"
-    data-price="{{ variant.price | money_without_currency }}"
-    data-currency="{{ shop.currency }}"
-    data-description="{{ product.description | escape }}">
-    </div>
+
+    <div
+      class="yotpo yotpo-main-widget"
+      data-product-id="{{ product.id }}"
+      data-name="{{ product.title | escape }}"
+      data-url="{{ shop.url }}{{ product.url }}"
+      data-image-url="{{ product.featured_image | image_url: 'large' | replace: '?', '%3F' | replace: '&', '%26' }}"
+      data-price="{{ variant.price | money_without_currency }}"
+      data-currency="{{ shop.currency }}"
+      data-description="{{ product.description | escape }}"
+    ></div>
+  </div>
 </div>
