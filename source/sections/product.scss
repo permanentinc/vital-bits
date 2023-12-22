@@ -523,6 +523,7 @@ html {
     .y-label {
         color: var(--green) !important;
     }
+
     .yotpo-submit,
     .write-review-button {
         padding: 1.25rem 5rem 1.65rem !important;
@@ -530,8 +531,7 @@ html {
         font-weight: 700 !important;
         font-size: 1.6rem !important;
 
-
-        &:hover{
+        &:hover {
             background: var(--green) !important;
         }
     }

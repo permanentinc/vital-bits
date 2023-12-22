@@ -964,6 +964,15 @@ document.addEventListener("DOMContentLoaded", function() {
         element.addEventListener("mouseenter", (e)=>switchImage(e.currentTarget, true));
         element.addEventListener("mouseleave", (e)=>switchImage(e.currentTarget, false));
     });
+    let interval = 2000;
+    setInterval(()=>{
+        document.querySelector(".js-animate-1").classList.add("filled");
+        setTimeout(()=>document.querySelector(".js-animate-1").classList.remove("filled"), interval / 3 * 1);
+        setTimeout(()=>document.querySelector(".js-animate-2").classList.add("filled"), interval / 3 * 1);
+        setTimeout(()=>document.querySelector(".js-animate-2").classList.remove("filled"), interval / 3 * 2);
+        setTimeout(()=>document.querySelector(".js-animate-3").classList.add("filled"), interval / 3 * 2);
+        setTimeout(()=>document.querySelector(".js-animate-3").classList.remove("filled"), interval / 3 * 3);
+    }, interval);
 }, false);
 
 },{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D","glightbox":"119aE"}],"acGTP":[function(require,module,exports) {
