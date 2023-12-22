@@ -547,16 +547,6 @@ document.addEventListener('DOMContentLoaded', function () {
         element.addEventListener('mouseleave', (e) => switchImage(e.currentTarget, false));
     });
 
-    let interval = 2000;
-
-    setInterval(() => {
-        document.querySelector('.js-animate-1').classList.add('filled');
-        setTimeout(() => document.querySelector('.js-animate-1').classList.remove('filled'), (interval / 3) * 1);
-        setTimeout(() => document.querySelector('.js-animate-2').classList.add('filled'), (interval / 3) * 1);
-        setTimeout(() => document.querySelector('.js-animate-2').classList.remove('filled'), (interval / 3) * 2);
-        setTimeout(() => document.querySelector('.js-animate-3').classList.add('filled'), (interval / 3) * 2);
-        setTimeout(() => document.querySelector('.js-animate-3').classList.remove('filled'), (interval / 3) * 3);
-    }, interval);
 
 }, false);
 

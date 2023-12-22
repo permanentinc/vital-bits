@@ -119,7 +119,8 @@
         </div>
 
         <div class="mega__wrap__column mega__wrap__column--blocked animated [ js-in-view ]">
-          <a href="/collections/kits-&-gifts" class="mega__wrap__column__block [ js-cursor-sale ]">
+          <a href="/collections/kits-gifts" class="mega__wrap__column__block [ js-cursor-sale ]">
+            {{ collections.kits-gifts.image | image_url: width: 250, height: 450 | image_tag }}
             <p>
               <span class="button"><b>Kits & Gifts</b></span>
             </p>
