@@ -4335,6 +4335,10 @@ html [data-theme="Post Partum"] .choices__inner, html [data-theme="C-Section Del
   border-color: var(--orange);
 }
 
+html [data-theme="Post Partum"] .collection-grid__list__title h2, html [data-theme="C-Section Delivery"] .collection-grid__list__title h2, html [data-theme="V-Delivery"] .collection-grid__list__title h2 {
+  -webkit-text-stroke-color: var(--orange);
+}
+
 html [data-theme="Post Partum"] .collection-grid__list__item__title h6, html [data-theme="Post Partum"] .collection-grid__list__item__description p, html [data-theme="Post Partum"] .collection-grid__list__title h2, html [data-theme="Post Partum"] .header-actions__cart__count, html [data-theme="C-Section Delivery"] .collection-grid__list__item__title h6, html [data-theme="C-Section Delivery"] .collection-grid__list__item__description p, html [data-theme="C-Section Delivery"] .collection-grid__list__title h2, html [data-theme="C-Section Delivery"] .header-actions__cart__count, html [data-theme="V-Delivery"] .collection-grid__list__item__title h6, html [data-theme="V-Delivery"] .collection-grid__list__item__description p, html [data-theme="V-Delivery"] .collection-grid__list__title h2, html [data-theme="V-Delivery"] .header-actions__cart__count {
   color: var(--orange) !important;
 }
@@ -4433,6 +4437,10 @@ html [data-theme="Breast Feeding"] .choices__inner, html [data-theme="Breast Fee
   border-color: var(--pink);
 }
 
+html [data-theme="Breast Feeding"] .collection-grid__list__title h2 {
+  -webkit-text-stroke-color: var(--pink);
+}
+
 html [data-theme="Breast Feeding"] .collection-grid__list__item__title h6, html [data-theme="Breast Feeding"] .collection-grid__list__item__description p, html [data-theme="Breast Feeding"] .collection-grid__list__title h2, html [data-theme="Breast Feeding"] .header-actions__cart__count {
   color: var(--pink) !important;
 }
@@ -4517,7 +4525,11 @@ html [data-theme="Breast Feeding"] .notyf__message a {
   font-family: sofia-pro, sans-serif !important;
 }
 
-.reviews .yotpo-nav-wrapper {
+.reviews .form-element textarea, .reviews .form-element input {
+  outline: 0;
+}
+
+.reviews .form-element textarea:focus, .reviews .form-element input:focus, .reviews .yotpo-nav-wrapper {
   border-color: var(--green) !important;
 }
 
@@ -4525,11 +4537,20 @@ html [data-theme="Breast Feeding"] .notyf__message a {
   color: var(--green) !important;
 }
 
-.reviews .write-review-button {
+.reviews .yotpo-submit, .reviews .write-review-button {
   background: var(--green) !important;
   padding: 1.25rem 5rem 1.65rem !important;
   font-size: 1.6rem !important;
   font-weight: 700 !important;
+}
+
+.reviews .yotpo-submit:hover, .reviews .write-review-button:hover {
+  background: var(--green) !important;
+}
+
+.reviews .write-question-review-buttons-container .write-question-review-button:hover {
+  background: var(--green) !important;
+  border-color: #0000 !important;
 }
 
 .reviews .yotpo-label-container {
@@ -4610,6 +4631,18 @@ html [data-theme="Breast Feeding"] .notyf__message a {
 .collection-grid__list__title {
   width: 100%;
   padding: 0 2rem;
+}
+
+.collection-grid__list__title h2 {
+  white-space: nowrap;
+  color: #0000;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--green);
+  padding: 4rem 1rem;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 8vw;
 }
 
 .collection-grid__list__item {
@@ -6551,7 +6584,8 @@ iframe.wait-autoplay {
 
 .mega__wrap__column__sublink a {
   color: var(--green);
-  padding: .5rem 0;
+  padding: 0 0;
+  font-size: 1.4rem;
   display: inline-block;
 }
 

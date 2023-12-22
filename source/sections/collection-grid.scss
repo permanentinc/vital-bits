@@ -43,6 +43,18 @@
         &__title {
             width: 100%;
             padding: 0 2rem;
+
+            h2 {
+                line-height: 8vw;
+                font-weight: 700;
+                white-space: nowrap;
+                font-size: 6rem;
+                padding: 4rem 1rem;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: var(--green);
+            }
         }
 
         &__item {

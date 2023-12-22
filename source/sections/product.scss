@@ -281,7 +281,9 @@ html {
                 border-color: var(--orange);
             }
         }
-
+        .collection-grid__list__title h2 {
+            -webkit-text-stroke-color: var(--orange);
+        }
         .collection-grid__list__item__title h6,
         .collection-grid__list__item__description p,
         .collection-grid__list__title h2,
@@ -400,7 +402,9 @@ html {
                 border-color: var(--pink);
             }
         }
-
+        .collection-grid__list__title h2 {
+            -webkit-text-stroke-color: var(--pink);
+        }
         .collection-grid__list__item__title h6,
         .collection-grid__list__item__description p,
         .collection-grid__list__title h2,
@@ -500,6 +504,17 @@ html {
         font-family: 'sofia-pro', sans-serif !important;
     }
 
+    .form-element {
+        textarea,
+        input {
+            outline: 0;
+
+            &:focus {
+                border-color: var(--green) !important;
+            }
+        }
+    }
+
     .yotpo-nav-wrapper {
         border-color: var(--green) !important;
     }
@@ -508,11 +523,22 @@ html {
     .y-label {
         color: var(--green) !important;
     }
+    .yotpo-submit,
     .write-review-button {
         padding: 1.25rem 5rem 1.65rem !important;
         background: var(--green) !important;
         font-weight: 700 !important;
         font-size: 1.6rem !important;
+
+
+        &:hover{
+            background: var(--green) !important;
+        }
+    }
+
+    .write-question-review-buttons-container .write-question-review-button:hover {
+        background: var(--green) !important;
+        border-color: transparent !important;
     }
 
     .yotpo-label-container {
