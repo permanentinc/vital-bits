@@ -6636,4 +6636,154 @@ iframe.wait-autoplay {
   margin-bottom: 2rem;
 }
 
+[data-page-type="password"] .instagram, [data-page-type="password"] .footer, [data-page-type="password"] .header {
+  display: none;
+}
+
+.landing {
+  background: var(--green);
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-logo {
+    text-align: center;
+    display: block;
+  }
+
+  .landing-logo svg {
+    margin: 0 auto 2rem;
+    display: inline-block;
+    transform: translateX(-.8rem);
+  }
+}
+
+.landing-left {
+  width: 60%;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1023px) {
+  .landing-left {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-left {
+    padding: 4rem 2rem;
+  }
+}
+
+.landing-left h1 {
+  white-space: nowrap;
+  color: #0000;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  letter-spacing: -2px;
+  font-size: 7vw;
+  font-weight: 700;
+  line-height: 8vw;
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+}
+
+@media only screen and (min-width: 1600px) {
+  .landing-left h1 {
+    font-size: 11rem;
+    line-height: 1.1;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .landing-left h1 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+  }
+
+  .landing-left h1 br {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-left h1 {
+    white-space: normal;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 1.3;
+  }
+}
+
+.landing-right {
+  background: var(--blue-light);
+  flex-wrap: wrap;
+  width: 40%;
+  padding: 4rem;
+  display: flex;
+}
+
+@media only screen and (max-width: 1023px) {
+  .landing-right {
+    width: 100%;
+  }
+}
+
+.landing-constraint {
+  width: 100%;
+  max-width: 50rem;
+}
+
+.landing-intro {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.landing-copy {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.landing-wave2, .landing-wave1 {
+  pointer-events: none;
+  z-index: 1;
+  width: 70vw;
+  position: absolute;
+  bottom: -10%;
+  right: -20%;
+  transform: translateY(18%)translateX(0%)rotate(-40deg);
+}
+
+.landing-wave2:after, .landing-wave1:after {
+  content: "";
+  padding-bottom: 56.2225%;
+  display: block;
+  position: relative;
+}
+
+.landing-wave2 svg, .landing-wave1 svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.landing-wave2 path, .landing-wave1 path {
+  stroke: #fff;
+}
+
+.landing-wave2 {
+  transform: translateY(-5%)translateX(0%)rotate(-220deg);
+}
+
 /*# sourceMappingURL=style.css.map */

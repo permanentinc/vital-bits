@@ -487,9 +487,6 @@ window.addEventListener('scroll', () => hideMenu());
 
 document.addEventListener('DOMContentLoaded', function () {
 
-
-
-
     /*------------------------------------------------------------------
     Preload Images
     ------------------------------------------------------------------*/
