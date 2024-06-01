@@ -19,7 +19,32 @@ import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 import Choices from 'choices.js';
 import GLightbox from 'glightbox';
+import Splitting from "splitting";
+import Typewriter from 'typewriter-effect/dist/core';
 
+document.addEventListener('DOMContentLoaded', function () {
+    Splitting();
+
+    //We care for your bits. Your private bits. Your life bits.
+
+    var typewriter = new Typewriter($('.js-typed'), {
+        delay: 100,
+        cursor: ''
+    });
+
+    typewriter
+        .pauseFor(1500)
+        .typeString('We care for your bits.')
+        .pauseFor(1000)
+        .deleteChars(5)
+        .typeString('private bits.')
+        .pauseFor(1000)
+        .deleteChars(13)
+        .typeString('life bits.')
+        .start();
+
+
+}, false);
 
 inView('.js-gradient').on('enter', el => {
     el.classList.add('inview');

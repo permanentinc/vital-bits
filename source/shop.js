@@ -120,7 +120,7 @@ window.fetchCart = () => {
 }
 
 // Initialise the cart on page load
-fetchCart();
+if (document.body.dataset.pageType != 'password') fetchCart();
 
 
 window.changeSideCartQuantity = (event, amount) => {

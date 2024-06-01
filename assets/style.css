@@ -6649,6 +6649,12 @@ iframe.wait-autoplay {
   position: relative;
 }
 
+.landing-logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
 @media only screen and (max-width: 767px) {
   .landing-logo {
     text-align: center;
@@ -6671,7 +6677,12 @@ iframe.wait-autoplay {
 
 @media only screen and (max-width: 1023px) {
   .landing-left {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    min-height: 60vh;
+    display: flex;
   }
 }
 
@@ -6766,7 +6777,7 @@ iframe.wait-autoplay {
   position: absolute;
   bottom: -10%;
   right: -20%;
-  transform: translateY(18%)translateX(0%)rotate(-40deg);
+  transform: translateY(18%)translateX(6%)rotate(-40deg);
 }
 
 .landing-wave2:after, .landing-wave1:after {
@@ -6789,7 +6800,40 @@ iframe.wait-autoplay {
 }
 
 .landing-wave2 {
-  transform: translateY(-5%)translateX(0%)rotate(-220deg);
+  transform: translateY(-5%)translateX(6%)rotate(-220deg);
+}
+
+[data-splitting] {
+  opacity: 0;
+}
+
+[data-splitting] .word {
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-splitting] .word .char {
+  font-size: inherit;
+  margin: 0;
+  padding-bottom: 20px;
+  transition: all .555s ease-in-out;
+  display: inline-block;
+  position: relative;
+  transform: translateY(100%);
+}
+
+[data-splitting] .char {
+  transition-delay: calc(30ms + 40ms * var(--char-index)) !important;
+}
+
+.inview [data-splitting] {
+  opacity: 1;
+}
+
+.inview [data-splitting] .word .char {
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=style.css.map */

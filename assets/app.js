@@ -594,7 +594,20 @@ var _choicesJs = require("choices.js");
 var _choicesJsDefault = parcelHelpers.interopDefault(_choicesJs);
 var _glightbox = require("glightbox");
 var _glightboxDefault = parcelHelpers.interopDefault(_glightbox);
+var _splitting = require("splitting");
+var _splittingDefault = parcelHelpers.interopDefault(_splitting);
+var _core = require("typewriter-effect/dist/core");
+var _coreDefault = parcelHelpers.interopDefault(_core);
 console.log("Vital Bits v1.0.0");
+document.addEventListener("DOMContentLoaded", function() {
+    (0, _splittingDefault.default)();
+    //We care for your bits. Your private bits. Your life bits.
+    var typewriter = new (0, _coreDefault.default)((0, _lib.$)(".js-typed"), {
+        delay: 100,
+        cursor: ""
+    });
+    typewriter.pauseFor(1500).typeString("We care for your bits.").pauseFor(1000).deleteChars(5).typeString("private bits.").pauseFor(1000).deleteChars(13).typeString("life bits.").start();
+}, false);
 (0, _inViewDefault.default)(".js-gradient").on("enter", (el)=>{
     el.classList.add("inview");
     (0, _lib.$)("body").setAttribute("data-theme", el.dataset.collection);
@@ -966,7 +979,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }, false);
 
-},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D","glightbox":"119aE"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D","glightbox":"119aE","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -5642,7 +5655,7 @@ window.fetchCart = ()=>{
     });
 };
 // Initialise the cart on page load
-fetchCart();
+if (document.body.dataset.pageType != "password") fetchCart();
 window.changeSideCartQuantity = (event, amount)=>{
     let quantity, input = event.target.parentElement.querySelector("input");
     if (amount !== 0) {
@@ -13321,6 +13334,1003 @@ document.addEventListener("DOMContentLoaded", function() {
         return t.init(), t;
     };
 });
+
+},{}],"bzYwE":[function(require,module,exports) {
+(function(global, factory) {
+    module.exports = factory();
+})(this, function() {
+    "use strict";
+    var root = document;
+    var createText = root.createTextNode.bind(root);
+    /**
+ * # setProperty
+ * Apply a CSS var
+ * @param {HTMLElement} el
+ * @param {string} varName 
+ * @param {string|number} value 
+ */ function setProperty(el, varName, value) {
+        el.style.setProperty(varName, value);
+    }
+    /**
+ * 
+ * @param {!HTMLElement} el 
+ * @param {!HTMLElement} child 
+ */ function appendChild(el, child) {
+        return el.appendChild(child);
+    }
+    /**
+ * 
+ * @param {!HTMLElement} parent 
+ * @param {string} key 
+ * @param {string} text 
+ * @param {boolean} whitespace 
+ */ function createElement(parent, key, text, whitespace) {
+        var el = root.createElement("span");
+        key && (el.className = key);
+        if (text) {
+            !whitespace && el.setAttribute("data-" + key, text);
+            el.textContent = text;
+        }
+        return parent && appendChild(parent, el) || el;
+    }
+    /**
+ * 
+ * @param {!HTMLElement} el 
+ * @param {string} key 
+ */ function getData(el, key) {
+        return el.getAttribute("data-" + key);
+    }
+    /**
+ * 
+ * @param {import('../types').Target} e 
+ * @param {!HTMLElement} parent
+ * @returns {!Array<!HTMLElement>}
+ */ function $(e, parent) {
+        return !e || e.length == 0 ? [] : e.nodeName ? [
+            e
+        ] : [].slice.call(e[0].nodeName ? e : (parent || root).querySelectorAll(e));
+    }
+    /**
+ * Creates and fills an array with the value provided
+ * @param {number} len
+ * @param {() => T} valueProvider
+ * @return {T}
+ * @template T
+ */ function Array2D(len) {
+        var a = [];
+        for(; len--;)a[len] = [];
+        return a;
+    }
+    /**
+ * A for loop wrapper used to reduce js minified size.
+ * @param {!Array<T>} items 
+ * @param {function(T):void} consumer
+ * @template T
+ */ function each(items, consumer) {
+        items && items.some(consumer);
+    }
+    /**
+ * @param {T} obj 
+ * @return {function(string):*}
+ * @template T
+ */ function selectFrom(obj) {
+        return function(key) {
+            return obj[key];
+        };
+    }
+    /**
+ * # Splitting.index
+ * Index split elements and add them to a Splitting instance.
+ *
+ * @param {HTMLElement} element
+ * @param {string} key 
+ * @param {!Array<!HTMLElement> | !Array<!Array<!HTMLElement>>} items 
+ */ function index(element, key, items) {
+        var prefix = "--" + key;
+        var cssVar = prefix + "-index";
+        each(items, function(items, i) {
+            if (Array.isArray(items)) each(items, function(item) {
+                setProperty(item, cssVar, i);
+            });
+            else setProperty(items, cssVar, i);
+        });
+        setProperty(element, prefix + "-total", items.length);
+    }
+    /**
+ * @type {Record<string, import('./types').ISplittingPlugin>}
+ */ var plugins = {};
+    /**
+ * @param {string} by
+ * @param {string} parent
+ * @param {!Array<string>} deps
+ * @return {!Array<string>}
+ */ function resolvePlugins(by, parent, deps) {
+        // skip if already visited this dependency
+        var index = deps.indexOf(by);
+        if (index == -1) {
+            // if new to dependency array, add to the beginning
+            deps.unshift(by);
+            // recursively call this function for all dependencies
+            var plugin = plugins[by];
+            if (!plugin) throw new Error("plugin not loaded: " + by);
+            each(plugin.depends, function(p) {
+                resolvePlugins(p, by, deps);
+            });
+        } else {
+            // if this dependency was added already move to the left of
+            // the parent dependency so it gets loaded in order
+            var indexOfParent = deps.indexOf(parent);
+            deps.splice(index, 1);
+            deps.splice(indexOfParent, 0, by);
+        }
+        return deps;
+    }
+    /**
+ * Internal utility for creating plugins... essentially to reduce
+ * the size of the library
+ * @param {string} by 
+ * @param {string} key 
+ * @param {string[]} depends 
+ * @param {Function} split 
+ * @returns {import('./types').ISplittingPlugin}
+ */ function createPlugin(by, depends, key, split) {
+        return {
+            by: by,
+            depends: depends,
+            key: key,
+            split: split
+        };
+    }
+    /**
+ *
+ * @param {string} by
+ * @returns {import('./types').ISplittingPlugin[]}
+ */ function resolve(by) {
+        return resolvePlugins(by, 0, []).map(selectFrom(plugins));
+    }
+    /**
+ * Adds a new plugin to splitting
+ * @param {import('./types').ISplittingPlugin} opts
+ */ function add(opts) {
+        plugins[opts.by] = opts;
+    }
+    /**
+ * # Splitting.split
+ * Split an element's textContent into individual elements
+ * @param {!HTMLElement} el  Element to split
+ * @param {string} key 
+ * @param {string} splitOn 
+ * @param {boolean} includePrevious 
+ * @param {boolean} preserveWhitespace
+ * @return {!Array<!HTMLElement>}
+ */ function splitText(el, key, splitOn, includePrevious, preserveWhitespace) {
+        // Combine any strange text nodes or empty whitespace.
+        el.normalize();
+        // Use fragment to prevent unnecessary DOM thrashing.
+        var elements = [];
+        var F = document.createDocumentFragment();
+        if (includePrevious) elements.push(el.previousSibling);
+        var allElements = [];
+        $(el.childNodes).some(function(next) {
+            if (next.tagName && !next.hasChildNodes()) {
+                // keep elements without child nodes (no text and no children)
+                allElements.push(next);
+                return;
+            }
+            // Recursively run through child nodes
+            if (next.childNodes && next.childNodes.length) {
+                allElements.push(next);
+                elements.push.apply(elements, splitText(next, key, splitOn, includePrevious, preserveWhitespace));
+                return;
+            }
+            // Get the text to split, trimming out the whitespace
+            /** @type {string} */ var wholeText = next.wholeText || "";
+            var contents = wholeText.trim();
+            // If there's no text left after trimming whitespace, continue the loop
+            if (contents.length) {
+                // insert leading space if there was one
+                if (wholeText[0] === " ") allElements.push(createText(" "));
+                // Concatenate the split text children back into the full array
+                var useSegmenter = splitOn === "" && typeof Intl.Segmenter === "function";
+                each(useSegmenter ? Array.from(new Intl.Segmenter().segment(contents)).map(function(x) {
+                    return x.segment;
+                }) : contents.split(splitOn), function(splitText, i) {
+                    if (i && preserveWhitespace) allElements.push(createElement(F, "whitespace", " ", preserveWhitespace));
+                    var splitEl = createElement(F, key, splitText);
+                    elements.push(splitEl);
+                    allElements.push(splitEl);
+                });
+                // insert trailing space if there was one
+                if (wholeText[wholeText.length - 1] === " ") allElements.push(createText(" "));
+            }
+        });
+        each(allElements, function(el) {
+            appendChild(F, el);
+        });
+        // Clear out the existing element
+        el.innerHTML = "";
+        appendChild(el, F);
+        return elements;
+    }
+    /** an empty value */ var _ = 0;
+    function copy(dest, src) {
+        for(var k in src)dest[k] = src[k];
+        return dest;
+    }
+    var WORDS = "words";
+    var wordPlugin = createPlugin(/* by= */ WORDS, /* depends= */ _, /* key= */ "word", /* split= */ function(el) {
+        return splitText(el, "word", /\s+/, 0, 1);
+    });
+    var CHARS = "chars";
+    var charPlugin = createPlugin(/* by= */ CHARS, /* depends= */ [
+        WORDS
+    ], /* key= */ "char", /* split= */ function(el, options, ctx) {
+        var results = [];
+        each(ctx[WORDS], function(word, i) {
+            results.push.apply(results, splitText(word, "char", "", options.whitespace && i));
+        });
+        return results;
+    });
+    /**
+ * # Splitting
+ * 
+ * @param {import('./types').ISplittingOptions} opts
+ * @return {!Array<*>}
+ */ function Splitting(opts) {
+        opts = opts || {};
+        var key = opts.key;
+        return $(opts.target || "[data-splitting]").map(function(el) {
+            var ctx = el["\uD83C\uDF4C"];
+            if (!opts.force && ctx) return ctx;
+            ctx = el["\uD83C\uDF4C"] = {
+                el: el
+            };
+            var by = opts.by || getData(el, "splitting");
+            if (!by || by == "true") by = CHARS;
+            var items = resolve(by);
+            var opts2 = copy({}, opts);
+            each(items, function(plugin) {
+                if (plugin.split) {
+                    var pluginBy = plugin.by;
+                    var key2 = (key ? "-" + key : "") + plugin.key;
+                    var results = plugin.split(el, opts2, ctx);
+                    key2 && index(el, key2, results);
+                    ctx[pluginBy] = results;
+                    el.classList.add(pluginBy);
+                }
+            });
+            el.classList.add("splitting");
+            return ctx;
+        });
+    }
+    /**
+ * # Splitting.html
+ * 
+ * @param {import('./types').ISplittingOptions} opts
+ */ function html(opts) {
+        opts = opts || {};
+        var parent = opts.target = createElement();
+        parent.innerHTML = opts.content;
+        Splitting(opts);
+        return parent.outerHTML;
+    }
+    Splitting.html = html;
+    Splitting.add = add;
+    /**
+ * Detects the grid by measuring which elements align to a side of it.
+ * @param {!HTMLElement} el 
+ * @param {import('../core/types').ISplittingOptions} options
+ * @param {*} side 
+ */ function detectGrid(el, options, side) {
+        var items = $(options.matching || el.children, el);
+        var c = {};
+        each(items, function(w) {
+            var val = Math.round(w[side]);
+            (c[val] || (c[val] = [])).push(w);
+        });
+        return Object.keys(c).map(Number).sort(byNumber).map(selectFrom(c));
+    }
+    /**
+ * Sorting function for numbers.
+ * @param {number} a 
+ * @param {number} b
+ * @return {number} 
+ */ function byNumber(a, b) {
+        return a - b;
+    }
+    var linePlugin = createPlugin(/* by= */ "lines", /* depends= */ [
+        WORDS
+    ], /* key= */ "line", /* split= */ function(el, options, ctx) {
+        return detectGrid(el, {
+            matching: ctx[WORDS]
+        }, "offsetTop");
+    });
+    var itemPlugin = createPlugin(/* by= */ "items", /* depends= */ _, /* key= */ "item", /* split= */ function(el, options) {
+        return $(options.matching || el.children, el);
+    });
+    var rowPlugin = createPlugin(/* by= */ "rows", /* depends= */ _, /* key= */ "row", /* split= */ function(el, options) {
+        return detectGrid(el, options, "offsetTop");
+    });
+    var columnPlugin = createPlugin(/* by= */ "cols", /* depends= */ _, /* key= */ "col", /* split= */ function(el, options) {
+        return detectGrid(el, options, "offsetLeft");
+    });
+    var gridPlugin = createPlugin(/* by= */ "grid", /* depends= */ [
+        "rows",
+        "cols"
+    ]);
+    var LAYOUT = "layout";
+    var layoutPlugin = createPlugin(/* by= */ LAYOUT, /* depends= */ _, /* key= */ _, /* split= */ function(el, opts) {
+        // detect and set options
+        var rows = opts.rows = +(opts.rows || getData(el, "rows") || 1);
+        var columns = opts.columns = +(opts.columns || getData(el, "columns") || 1);
+        // Seek out the first <img> if the value is true 
+        opts.image = opts.image || getData(el, "image") || el.currentSrc || el.src;
+        if (opts.image) {
+            var img = $("img", el)[0];
+            opts.image = img && (img.currentSrc || img.src);
+        }
+        // add optional image to background
+        if (opts.image) setProperty(el, "background-image", "url(" + opts.image + ")");
+        var totalCells = rows * columns;
+        var elements = [];
+        var container = createElement(_, "cell-grid");
+        while(totalCells--){
+            // Create a span
+            var cell = createElement(container, "cell");
+            createElement(cell, "cell-inner");
+            elements.push(cell);
+        }
+        // Append elements back into the parent
+        appendChild(el, container);
+        return elements;
+    });
+    var cellRowPlugin = createPlugin(/* by= */ "cellRows", /* depends= */ [
+        LAYOUT
+    ], /* key= */ "row", /* split= */ function(el, opts, ctx) {
+        var rowCount = opts.rows;
+        var result = Array2D(rowCount);
+        each(ctx[LAYOUT], function(cell, i, src) {
+            result[Math.floor(i / (src.length / rowCount))].push(cell);
+        });
+        return result;
+    });
+    var cellColumnPlugin = createPlugin(/* by= */ "cellColumns", /* depends= */ [
+        LAYOUT
+    ], /* key= */ "col", /* split= */ function(el, opts, ctx) {
+        var columnCount = opts.columns;
+        var result = Array2D(columnCount);
+        each(ctx[LAYOUT], function(cell, i) {
+            result[i % columnCount].push(cell);
+        });
+        return result;
+    });
+    var cellPlugin = createPlugin(/* by= */ "cells", /* depends= */ [
+        "cellRows",
+        "cellColumns"
+    ], /* key= */ "cell", /* split= */ function(el, opt, ctx) {
+        // re-index the layout as the cells
+        return ctx[LAYOUT];
+    });
+    // install plugins
+    // word/char plugins
+    add(wordPlugin);
+    add(charPlugin);
+    add(linePlugin);
+    // grid plugins
+    add(itemPlugin);
+    add(rowPlugin);
+    add(columnPlugin);
+    add(gridPlugin);
+    // cell-layout plugins
+    add(layoutPlugin);
+    add(cellRowPlugin);
+    add(cellColumnPlugin);
+    add(cellPlugin);
+    return Splitting;
+});
+
+},{}],"2Xppi":[function(require,module,exports) {
+var process = require("ec6f68100f91676a");
+!function(e, t) {
+    module.exports = t();
+}("undefined" != typeof self ? self : this, ()=>(()=>{
+        var e = {
+            75: function(e) {
+                (function() {
+                    var t, n, r, o, a, i;
+                    "undefined" != typeof performance && null !== performance && performance.now ? e.exports = function() {
+                        return performance.now();
+                    } : "undefined" != typeof process && null !== process && process.hrtime ? (e.exports = function() {
+                        return (t() - a) / 1e6;
+                    }, n = process.hrtime, o = (t = function() {
+                        var e;
+                        return 1e9 * (e = n())[0] + e[1];
+                    })(), i = 1e9 * process.uptime(), a = o - i) : Date.now ? (e.exports = function() {
+                        return Date.now() - r;
+                    }, r = Date.now()) : (e.exports = function() {
+                        return (new Date).getTime() - r;
+                    }, r = (new Date).getTime());
+                }).call(this);
+            },
+            4087: (e, t, n)=>{
+                for(var r = n(75), o = "undefined" == typeof window ? n.g : window, a = [
+                    "moz",
+                    "webkit"
+                ], i = "AnimationFrame", s = o["request" + i], u = o["cancel" + i] || o["cancelRequest" + i], l = 0; !s && l < a.length; l++)s = o[a[l] + "Request" + i], u = o[a[l] + "Cancel" + i] || o[a[l] + "CancelRequest" + i];
+                if (!s || !u) {
+                    var c = 0, p = 0, d = [];
+                    s = function(e) {
+                        if (0 === d.length) {
+                            var t = r(), n = Math.max(0, 16.666666666666668 - (t - c));
+                            c = n + t, setTimeout(function() {
+                                var e = d.slice(0);
+                                d.length = 0;
+                                for(var t = 0; t < e.length; t++)if (!e[t].cancelled) try {
+                                    e[t].callback(c);
+                                } catch (e) {
+                                    setTimeout(function() {
+                                        throw e;
+                                    }, 0);
+                                }
+                            }, Math.round(n));
+                        }
+                        return d.push({
+                            handle: ++p,
+                            callback: e,
+                            cancelled: !1
+                        }), p;
+                    }, u = function(e) {
+                        for(var t = 0; t < d.length; t++)d[t].handle === e && (d[t].cancelled = !0);
+                    };
+                }
+                e.exports = function(e) {
+                    return s.call(o, e);
+                }, e.exports.cancel = function() {
+                    u.apply(o, arguments);
+                }, e.exports.polyfill = function(e) {
+                    e || (e = o), e.requestAnimationFrame = s, e.cancelAnimationFrame = u;
+                };
+            }
+        }, t = {};
+        function n(r) {
+            var o = t[r];
+            if (void 0 !== o) return o.exports;
+            var a = t[r] = {
+                exports: {}
+            };
+            return e[r].call(a.exports, a, a.exports, n), a.exports;
+        }
+        n.n = (e)=>{
+            var t = e && e.__esModule ? ()=>e.default : ()=>e;
+            return n.d(t, {
+                a: t
+            }), t;
+        }, n.d = (e, t)=>{
+            for(var r in t)n.o(t, r) && !n.o(e, r) && Object.defineProperty(e, r, {
+                enumerable: !0,
+                get: t[r]
+            });
+        }, n.g = function() {
+            if ("object" == typeof globalThis) return globalThis;
+            try {
+                return this || new Function("return this")();
+            } catch (e) {
+                if ("object" == typeof window) return window;
+            }
+        }(), n.o = (e, t)=>Object.prototype.hasOwnProperty.call(e, t);
+        var r = {};
+        return (()=>{
+            "use strict";
+            n.d(r, {
+                default: ()=>C
+            });
+            var e = n(4087), t = n.n(e);
+            const o = function(e) {
+                return new RegExp(/<[a-z][\s\S]*>/i).test(e);
+            }, a = function(e, t) {
+                return Math.floor(Math.random() * (t - e + 1)) + e;
+            };
+            var i = "TYPE_CHARACTER", s = "REMOVE_CHARACTER", u = "REMOVE_ALL", l = "REMOVE_LAST_VISIBLE_NODE", c = "PAUSE_FOR", p = "CALL_FUNCTION", d = "ADD_HTML_TAG_ELEMENT", f = "CHANGE_DELETE_SPEED", v = "CHANGE_DELAY", h = "CHANGE_CURSOR", m = "PASTE_STRING", y = "HTML_TAG";
+            function g(e) {
+                return g = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+                    return typeof e;
+                } : function(e) {
+                    return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
+                }, g(e);
+            }
+            function E(e, t) {
+                var n = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                    var r = Object.getOwnPropertySymbols(e);
+                    t && (r = r.filter(function(t) {
+                        return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                    })), n.push.apply(n, r);
+                }
+                return n;
+            }
+            function w(e) {
+                for(var t = 1; t < arguments.length; t++){
+                    var n = null != arguments[t] ? arguments[t] : {};
+                    t % 2 ? E(Object(n), !0).forEach(function(t) {
+                        A(e, t, n[t]);
+                    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : E(Object(n)).forEach(function(t) {
+                        Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t));
+                    });
+                }
+                return e;
+            }
+            function b(e) {
+                return function(e) {
+                    if (Array.isArray(e)) return T(e);
+                }(e) || function(e) {
+                    if ("undefined" != typeof Symbol && null != e[Symbol.iterator] || null != e["@@iterator"]) return Array.from(e);
+                }(e) || function(e, t) {
+                    if (e) {
+                        if ("string" == typeof e) return T(e, t);
+                        var n = Object.prototype.toString.call(e).slice(8, -1);
+                        return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? T(e, t) : void 0;
+                    }
+                }(e) || function() {
+                    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+                }();
+            }
+            function T(e, t) {
+                (null == t || t > e.length) && (t = e.length);
+                for(var n = 0, r = new Array(t); n < t; n++)r[n] = e[n];
+                return r;
+            }
+            function S(e, t) {
+                for(var n = 0; n < t.length; n++){
+                    var r = t[n];
+                    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, N(r.key), r);
+                }
+            }
+            function A(e, t, n) {
+                return (t = N(t)) in e ? Object.defineProperty(e, t, {
+                    value: n,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0
+                }) : e[t] = n, e;
+            }
+            function N(e) {
+                var t = function(e, t) {
+                    if ("object" !== g(e) || null === e) return e;
+                    var n = e[Symbol.toPrimitive];
+                    if (void 0 !== n) {
+                        var r = n.call(e, "string");
+                        if ("object" !== g(r)) return r;
+                        throw new TypeError("@@toPrimitive must return a primitive value.");
+                    }
+                    return String(e);
+                }(e);
+                return "symbol" === g(t) ? t : String(t);
+            }
+            const C = function() {
+                function n(r, g) {
+                    var E = this;
+                    if (function(e, t) {
+                        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+                    }(this, n), A(this, "state", {
+                        cursorAnimation: null,
+                        lastFrameTime: null,
+                        pauseUntil: null,
+                        eventQueue: [],
+                        eventLoop: null,
+                        eventLoopPaused: !1,
+                        reverseCalledEvents: [],
+                        calledEvents: [],
+                        visibleNodes: [],
+                        initialOptions: null,
+                        elements: {
+                            container: null,
+                            wrapper: document.createElement("span"),
+                            cursor: document.createElement("span")
+                        }
+                    }), A(this, "options", {
+                        strings: null,
+                        cursor: "|",
+                        delay: "natural",
+                        pauseFor: 1500,
+                        deleteSpeed: "natural",
+                        loop: !1,
+                        autoStart: !1,
+                        devMode: !1,
+                        skipAddStyles: !1,
+                        wrapperClassName: "Typewriter__wrapper",
+                        cursorClassName: "Typewriter__cursor",
+                        stringSplitter: null,
+                        onCreateTextNode: null,
+                        onRemoveNode: null
+                    }), A(this, "setupWrapperElement", function() {
+                        E.state.elements.container && (E.state.elements.wrapper.className = E.options.wrapperClassName, E.state.elements.cursor.className = E.options.cursorClassName, E.state.elements.cursor.innerHTML = E.options.cursor, E.state.elements.container.innerHTML = "", E.state.elements.container.appendChild(E.state.elements.wrapper), E.state.elements.container.appendChild(E.state.elements.cursor));
+                    }), A(this, "start", function() {
+                        return E.state.eventLoopPaused = !1, E.runEventLoop(), E;
+                    }), A(this, "pause", function() {
+                        return E.state.eventLoopPaused = !0, E;
+                    }), A(this, "stop", function() {
+                        return E.state.eventLoop && ((0, e.cancel)(E.state.eventLoop), E.state.eventLoop = null), E;
+                    }), A(this, "pauseFor", function(e) {
+                        return E.addEventToQueue(c, {
+                            ms: e
+                        }), E;
+                    }), A(this, "typeOutAllStrings", function() {
+                        return "string" == typeof E.options.strings ? (E.typeString(E.options.strings).pauseFor(E.options.pauseFor), E) : (E.options.strings.forEach(function(e) {
+                            E.typeString(e).pauseFor(E.options.pauseFor).deleteAll(E.options.deleteSpeed);
+                        }), E);
+                    }), A(this, "typeString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        if (o(e)) return E.typeOutHTMLString(e, t);
+                        if (e) {
+                            var n = (E.options || {}).stringSplitter, r = "function" == typeof n ? n(e) : e.split("");
+                            E.typeCharacters(r, t);
+                        }
+                        return E;
+                    }), A(this, "pasteString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        return o(e) ? E.typeOutHTMLString(e, t, !0) : (e && E.addEventToQueue(m, {
+                            character: e,
+                            node: t
+                        }), E);
+                    }), A(this, "typeOutHTMLString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null, n = arguments.length > 2 ? arguments[2] : void 0, r = function(e) {
+                            var t = document.createElement("div");
+                            return t.innerHTML = e, t.childNodes;
+                        }(e);
+                        if (r.length > 0) for(var o = 0; o < r.length; o++){
+                            var a = r[o], i = a.innerHTML;
+                            a && 3 !== a.nodeType ? (a.innerHTML = "", E.addEventToQueue(d, {
+                                node: a,
+                                parentNode: t
+                            }), n ? E.pasteString(i, a) : E.typeString(i, a)) : a.textContent && (n ? E.pasteString(a.textContent, t) : E.typeString(a.textContent, t));
+                        }
+                        return E;
+                    }), A(this, "deleteAll", function() {
+                        var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "natural";
+                        return E.addEventToQueue(u, {
+                            speed: e
+                        }), E;
+                    }), A(this, "changeDeleteSpeed", function(e) {
+                        if (!e) throw new Error("Must provide new delete speed");
+                        return E.addEventToQueue(f, {
+                            speed: e
+                        }), E;
+                    }), A(this, "changeDelay", function(e) {
+                        if (!e) throw new Error("Must provide new delay");
+                        return E.addEventToQueue(v, {
+                            delay: e
+                        }), E;
+                    }), A(this, "changeCursor", function(e) {
+                        if (!e) throw new Error("Must provide new cursor");
+                        return E.addEventToQueue(h, {
+                            cursor: e
+                        }), E;
+                    }), A(this, "deleteChars", function(e) {
+                        if (!e) throw new Error("Must provide amount of characters to delete");
+                        for(var t = 0; t < e; t++)E.addEventToQueue(s);
+                        return E;
+                    }), A(this, "callFunction", function(e, t) {
+                        if (!e || "function" != typeof e) throw new Error("Callback must be a function");
+                        return E.addEventToQueue(p, {
+                            cb: e,
+                            thisArg: t
+                        }), E;
+                    }), A(this, "typeCharacters", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        if (!e || !Array.isArray(e)) throw new Error("Characters must be an array");
+                        return e.forEach(function(e) {
+                            E.addEventToQueue(i, {
+                                character: e,
+                                node: t
+                            });
+                        }), E;
+                    }), A(this, "removeCharacters", function(e) {
+                        if (!e || !Array.isArray(e)) throw new Error("Characters must be an array");
+                        return e.forEach(function() {
+                            E.addEventToQueue(s);
+                        }), E;
+                    }), A(this, "addEventToQueue", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+                        return E.addEventToStateProperty(e, t, n, "eventQueue");
+                    }), A(this, "addReverseCalledEvent", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+                        return E.options.loop ? E.addEventToStateProperty(e, t, n, "reverseCalledEvents") : E;
+                    }), A(this, "addEventToStateProperty", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2], r = arguments.length > 3 ? arguments[3] : void 0, o = {
+                            eventName: e,
+                            eventArgs: t || {}
+                        };
+                        return E.state[r] = n ? [
+                            o
+                        ].concat(b(E.state[r])) : [].concat(b(E.state[r]), [
+                            o
+                        ]), E;
+                    }), A(this, "runEventLoop", function() {
+                        E.state.lastFrameTime || (E.state.lastFrameTime = Date.now());
+                        var e = Date.now(), n = e - E.state.lastFrameTime;
+                        if (!E.state.eventQueue.length) {
+                            if (!E.options.loop) return;
+                            E.state.eventQueue = b(E.state.calledEvents), E.state.calledEvents = [], E.options = w({}, E.state.initialOptions);
+                        }
+                        if (E.state.eventLoop = t()(E.runEventLoop), !E.state.eventLoopPaused) {
+                            if (E.state.pauseUntil) {
+                                if (e < E.state.pauseUntil) return;
+                                E.state.pauseUntil = null;
+                            }
+                            var r, o = b(E.state.eventQueue), g = o.shift();
+                            if (!(n <= (r = g.eventName === l || g.eventName === s ? "natural" === E.options.deleteSpeed ? a(40, 80) : E.options.deleteSpeed : "natural" === E.options.delay ? a(120, 160) : E.options.delay))) {
+                                var T = g.eventName, S = g.eventArgs;
+                                switch(E.logInDevMode({
+                                    currentEvent: g,
+                                    state: E.state,
+                                    delay: r
+                                }), T){
+                                    case m:
+                                    case i:
+                                        var A = S.character, N = S.node, C = document.createTextNode(A), _ = C;
+                                        E.options.onCreateTextNode && "function" == typeof E.options.onCreateTextNode && (_ = E.options.onCreateTextNode(A, C)), _ && (N ? N.appendChild(_) : E.state.elements.wrapper.appendChild(_)), E.state.visibleNodes = [].concat(b(E.state.visibleNodes), [
+                                            {
+                                                type: "TEXT_NODE",
+                                                character: A,
+                                                node: _
+                                            }
+                                        ]);
+                                        break;
+                                    case s:
+                                        o.unshift({
+                                            eventName: l,
+                                            eventArgs: {
+                                                removingCharacterNode: !0
+                                            }
+                                        });
+                                        break;
+                                    case c:
+                                        var O = g.eventArgs.ms;
+                                        E.state.pauseUntil = Date.now() + parseInt(O);
+                                        break;
+                                    case p:
+                                        var L = g.eventArgs, D = L.cb, M = L.thisArg;
+                                        D.call(M, {
+                                            elements: E.state.elements
+                                        });
+                                        break;
+                                    case d:
+                                        var x = g.eventArgs, P = x.node, j = x.parentNode;
+                                        j ? j.appendChild(P) : E.state.elements.wrapper.appendChild(P), E.state.visibleNodes = [].concat(b(E.state.visibleNodes), [
+                                            {
+                                                type: y,
+                                                node: P,
+                                                parentNode: j || E.state.elements.wrapper
+                                            }
+                                        ]);
+                                        break;
+                                    case u:
+                                        var R = E.state.visibleNodes, k = S.speed, Q = [];
+                                        k && Q.push({
+                                            eventName: f,
+                                            eventArgs: {
+                                                speed: k,
+                                                temp: !0
+                                            }
+                                        });
+                                        for(var F = 0, H = R.length; F < H; F++)Q.push({
+                                            eventName: l,
+                                            eventArgs: {
+                                                removingCharacterNode: !1
+                                            }
+                                        });
+                                        k && Q.push({
+                                            eventName: f,
+                                            eventArgs: {
+                                                speed: E.options.deleteSpeed,
+                                                temp: !0
+                                            }
+                                        }), o.unshift.apply(o, Q);
+                                        break;
+                                    case l:
+                                        var I = g.eventArgs.removingCharacterNode;
+                                        if (E.state.visibleNodes.length) {
+                                            var U = E.state.visibleNodes.pop(), q = U.type, G = U.node, Y = U.character;
+                                            E.options.onRemoveNode && "function" == typeof E.options.onRemoveNode && E.options.onRemoveNode({
+                                                node: G,
+                                                character: Y
+                                            }), G && G.parentNode.removeChild(G), q === y && I && o.unshift({
+                                                eventName: l,
+                                                eventArgs: {}
+                                            });
+                                        }
+                                        break;
+                                    case f:
+                                        E.options.deleteSpeed = g.eventArgs.speed;
+                                        break;
+                                    case v:
+                                        E.options.delay = g.eventArgs.delay;
+                                        break;
+                                    case h:
+                                        E.options.cursor = g.eventArgs.cursor, E.state.elements.cursor.innerHTML = g.eventArgs.cursor;
+                                }
+                                E.options.loop && (g.eventName === l || g.eventArgs && g.eventArgs.temp || (E.state.calledEvents = [].concat(b(E.state.calledEvents), [
+                                    g
+                                ]))), E.state.eventQueue = o, E.state.lastFrameTime = e;
+                            }
+                        }
+                    }), r) {
+                        if ("string" == typeof r) {
+                            var T = document.querySelector(r);
+                            if (!T) throw new Error("Could not find container element");
+                            this.state.elements.container = T;
+                        } else this.state.elements.container = r;
+                    }
+                    g && (this.options = w(w({}, this.options), g)), this.state.initialOptions = w({}, this.options), this.init();
+                }
+                var r, g;
+                return r = n, g = [
+                    {
+                        key: "init",
+                        value: function() {
+                            var e, t;
+                            this.setupWrapperElement(), this.addEventToQueue(h, {
+                                cursor: this.options.cursor
+                            }, !0), this.addEventToQueue(u, null, !0), !window || window.___TYPEWRITER_JS_STYLES_ADDED___ || this.options.skipAddStyles || (e = ".Typewriter__cursor{-webkit-animation:Typewriter-cursor 1s infinite;animation:Typewriter-cursor 1s infinite;margin-left:1px}@-webkit-keyframes Typewriter-cursor{0%{opacity:0}50%{opacity:1}100%{opacity:0}}@keyframes Typewriter-cursor{0%{opacity:0}50%{opacity:1}100%{opacity:0}}", (t = document.createElement("style")).appendChild(document.createTextNode(e)), document.head.appendChild(t), window.___TYPEWRITER_JS_STYLES_ADDED___ = !0), !0 === this.options.autoStart && this.options.strings && this.typeOutAllStrings().start();
+                        }
+                    },
+                    {
+                        key: "logInDevMode",
+                        value: function(e) {
+                            this.options.devMode && console.log(e);
+                        }
+                    }
+                ], S(r.prototype, g), Object.defineProperty(r, "prototype", {
+                    writable: !1
+                }), n;
+            }();
+        })(), r.default;
+    })());
+
+},{"ec6f68100f91676a":"4QX5Y"}],"4QX5Y":[function(require,module,exports) {
+// shim for using process in browser
+var process = module.exports = {};
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+var cachedSetTimeout;
+var cachedClearTimeout;
+function defaultSetTimout() {
+    throw new Error("setTimeout has not been defined");
+}
+function defaultClearTimeout() {
+    throw new Error("clearTimeout has not been defined");
+}
+(function() {
+    try {
+        if (typeof setTimeout === "function") cachedSetTimeout = setTimeout;
+        else cachedSetTimeout = defaultSetTimout;
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === "function") cachedClearTimeout = clearTimeout;
+        else cachedClearTimeout = defaultClearTimeout;
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+})();
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) //normal enviroments in sane situations
+    return clearTimeout(marker);
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) return;
+    draining = false;
+    if (currentQueue.length) queue = currentQueue.concat(queue);
+    else queueIndex = -1;
+    if (queue.length) drainQueue();
+}
+function drainQueue() {
+    if (draining) return;
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+    var len = queue.length;
+    while(len){
+        currentQueue = queue;
+        queue = [];
+        while(++queueIndex < len)if (currentQueue) currentQueue[queueIndex].run();
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+process.nextTick = function(fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) for(var i = 1; i < arguments.length; i++)args[i - 1] = arguments[i];
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) runTimeout(drainQueue);
+};
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function() {
+    this.fun.apply(null, this.array);
+};
+process.title = "browser";
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ""; // empty string to avoid regexp issues
+process.versions = {};
+function noop() {}
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+process.listeners = function(name) {
+    return [];
+};
+process.binding = function(name) {
+    throw new Error("process.binding is not supported");
+};
+process.cwd = function() {
+    return "/";
+};
+process.chdir = function(dir) {
+    throw new Error("process.chdir is not supported");
+};
+process.umask = function() {
+    return 0;
+};
 
 },{}]},["6cUJw","fWapj"], "fWapj", "parcelRequire2d09")
 
