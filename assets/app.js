@@ -602,11 +602,39 @@ console.log("Vital Bits v1.0.0");
 document.addEventListener("DOMContentLoaded", function() {
     (0, _splittingDefault.default)();
     //We care for your bits. Your private bits. Your life bits.
-    var typewriter = new (0, _coreDefault.default)((0, _lib.$)(".js-typed"), {
+    var typewriter1 = new (0, _coreDefault.default)((0, _lib.$)(".js-typed-1"), {
         delay: 100,
         cursor: ""
     });
-    typewriter.pauseFor(1500).typeString("We care for your bits.").pauseFor(1000).deleteChars(5).typeString("private bits.").pauseFor(1000).deleteChars(13).typeString("life bits.").start();
+    typewriter1.pauseFor(50).typeString("We care for your bits.").start();
+    var typewriter2 = new (0, _coreDefault.default)((0, _lib.$)(".js-typed-2"), {
+        delay: 100,
+        cursor: ""
+    });
+    typewriter2.pauseFor(3000).typeString("Your private bits.").start();
+    var typewriter3 = new (0, _coreDefault.default)((0, _lib.$)(".js-typed-3"), {
+        delay: 100,
+        cursor: ""
+    });
+    typewriter3.pauseFor(5500).typeString("Your life bits.").start();
+// typewriter
+//     .pauseFor(1500)
+//     .typeString('We care for your bits.')
+//     .pauseFor(1000)
+//     .deleteChars(5)
+//     .typeString('private bits.')
+//     .pauseFor(1000)
+//     .deleteChars(13)
+//     .typeString('life bits.')
+//     .start();
+// typewriter
+//     .pauseFor(1500)
+//     .typeString('We care for your bits.')
+//     .pauseFor(1000)
+//     .typeString('Your private bits.')
+//     .pauseFor(1000)
+//     .typeString('Your life bits.')
+//     .start();
 }, false);
 (0, _inViewDefault.default)(".js-gradient").on("enter", (el)=>{
     el.classList.add("inview");

@@ -6652,8 +6652,8 @@ iframe.wait-autoplay {
 
 .landing-logo {
   position: absolute;
-  top: 2rem;
-  left: 3rem;
+  top: 4rem;
+  left: 6rem;
 }
 
 .landing-logo path {
@@ -6664,6 +6664,8 @@ iframe.wait-autoplay {
   .landing-logo {
     text-align: center;
     display: block;
+    top: 2rem;
+    left: 3rem;
   }
 
   .landing-logo svg {
@@ -6675,8 +6677,8 @@ iframe.wait-autoplay {
 
 .landing-header {
   position: absolute;
-  top: 4rem;
-  right: 4rem;
+  top: 3rem;
+  right: 6rem;
 }
 
 @media only screen and (max-width: 767px) {
@@ -6753,7 +6755,7 @@ iframe.wait-autoplay {
 .landing-copy {
   margin-top: auto;
   margin-bottom: 0;
-  padding: 4rem;
+  padding: 6rem;
 }
 
 @media only screen and (max-width: 767px) {

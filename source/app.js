@@ -27,22 +27,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //We care for your bits. Your private bits. Your life bits.
 
-    var typewriter = new Typewriter($('.js-typed'), {
+    var typewriter1 = new Typewriter($('.js-typed-1'), {
         delay: 100,
         cursor: ''
     });
+    typewriter1.pauseFor(50).typeString('We care for your bits.').start();
 
-    typewriter
-        .pauseFor(1500)
-        .typeString('We care for your bits.')
-        .pauseFor(1000)
-        .deleteChars(5)
-        .typeString('private bits.')
-        .pauseFor(1000)
-        .deleteChars(13)
-        .typeString('life bits.')
-        .start();
 
+    var typewriter2 = new Typewriter($('.js-typed-2'), {
+        delay: 100,
+        cursor: ''
+    });
+    typewriter2.pauseFor(3000).typeString('Your private bits.').start();
+
+
+    var typewriter3 = new Typewriter($('.js-typed-3'), {
+        delay: 100,
+        cursor: ''
+    });
+    typewriter3.pauseFor(5500).typeString('Your life bits.').start();
+
+    // typewriter
+    //     .pauseFor(1500)
+    //     .typeString('We care for your bits.')
+    //     .pauseFor(1000)
+    //     .deleteChars(5)
+    //     .typeString('private bits.')
+    //     .pauseFor(1000)
+    //     .deleteChars(13)
+    //     .typeString('life bits.')
+    //     .start();
+
+    // typewriter
+    //     .pauseFor(1500)
+    //     .typeString('We care for your bits.')
+    //     .pauseFor(1000)
+
+    //     .typeString('Your private bits.')
+    //     .pauseFor(1000)
+    //     .typeString('Your life bits.')
+    //     .start();
 
 }, false);
 
