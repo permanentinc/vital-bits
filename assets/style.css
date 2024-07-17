@@ -6641,18 +6641,23 @@ iframe.wait-autoplay {
 }
 
 .landing {
-  background: var(--green);
+  background: var(--blue-light);
   flex-wrap: wrap;
   width: 100%;
   min-height: 100vh;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .landing-logo {
   position: absolute;
   top: 2rem;
   left: 3rem;
+}
+
+.landing-logo path {
+  fill: var(--green);
 }
 
 @media only screen and (max-width: 767px) {
@@ -6668,101 +6673,70 @@ iframe.wait-autoplay {
   }
 }
 
-.landing-left {
-  width: 60%;
-  padding: 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-@media only screen and (max-width: 1023px) {
-  .landing-left {
-    text-align: left;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    width: 100%;
-    min-height: 60vh;
-    display: flex;
-  }
+.landing-header {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
 }
 
 @media only screen and (max-width: 767px) {
-  .landing-left {
-    padding: 4rem 2rem;
+  .landing-header {
+    top: 12rem;
+    left: 2rem;
+    right: auto;
   }
 }
 
-.landing-left h1 {
+.landing h1 {
+  text-align: right;
   white-space: nowrap;
   color: #0000;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: var(--green);
   letter-spacing: -2px;
+  z-index: 21;
   font-size: 7vw;
   font-weight: 700;
-  line-height: 8vw;
-  position: absolute;
-  bottom: 4rem;
-  left: 4rem;
+  line-height: 3vw;
 }
 
 @media only screen and (max-width: 1023px) {
-  .landing-left h1 {
+  .landing h1 {
     text-align: left;
   }
 }
 
 @media only screen and (min-width: 1600px) {
-  .landing-left h1 {
+  .landing h1 {
     font-size: 11rem;
     line-height: 1.1;
   }
 }
 
 @media only screen and (max-width: 1023px) {
-  .landing-left h1 {
+  .landing h1 {
     position: relative;
     bottom: 0;
     left: 0;
   }
 
-  .landing-left h1 br {
+  .landing h1 br {
     display: none;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .landing-left h1 {
+  .landing h1 {
     white-space: normal;
     text-align: left;
-    margin-bottom: -3.3rem;
+    margin-bottom: -3.7rem;
     font-size: 5rem;
     line-height: .8;
   }
 
-  .landing-left h1 [data-splitting] .word {
+  .landing h1 [data-splitting] .word {
     line-height: .8;
-  }
-}
-
-.landing-right {
-  background: var(--blue-light);
-  flex-wrap: wrap;
-  width: 40%;
-  padding: 4rem;
-  display: flex;
-}
-
-@media only screen and (max-width: 1023px) {
-  .landing-right {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .landing-right {
-    padding: 4rem 2rem;
   }
 }
 
@@ -6779,6 +6753,13 @@ iframe.wait-autoplay {
 .landing-copy {
   margin-top: auto;
   margin-bottom: 0;
+  padding: 4rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-copy {
+    padding: 2rem;
+  }
 }
 
 .landing-wave2, .landing-wave1 {
@@ -6807,7 +6788,7 @@ iframe.wait-autoplay {
 }
 
 .landing-wave2 path, .landing-wave1 path {
-  stroke: #fff;
+  stroke: var(--green);
 }
 
 @media only screen and (max-width: 767px) {
