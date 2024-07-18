@@ -617,6 +617,14 @@ document.addEventListener("DOMContentLoaded", function() {
         cursor: ""
     });
     typewriter3.pauseFor(5500).typeString("Your life bits.").start();
+    setTimeout(()=>{
+        typewriter1.stop().deleteAll(1);
+        typewriter2.stop().deleteAll(1);
+        typewriter3.stop().deleteAll(1);
+        typewriter1.pauseFor(50).typeString("We care for your bits.").start();
+        typewriter2.pauseFor(3000).typeString("Your private bits.").start();
+        typewriter3.pauseFor(5500).typeString("Your life bits.").start();
+    }, 8522);
 // typewriter
 //     .pauseFor(1500)
 //     .typeString('We care for your bits.')
