@@ -19,7 +19,7 @@
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160, height: 160 }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
                 {{- product.title -}}
               </a>
@@ -39,7 +39,7 @@
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160, height: 160 }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
                 {{- product.title -}}
               </a>
@@ -61,7 +61,7 @@
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160, height: 160 }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
                 {{- product.title -}}
               </a>
@@ -85,7 +85,7 @@
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160, height: 160 }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
                 {{- product.title -}}
               </a>
@@ -107,7 +107,7 @@
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160, height: 160 }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
                 {{- product.title -}}
               </a>
@@ -120,7 +120,7 @@
 
         <div class="mega__wrap__column mega__wrap__column--blocked animated [ js-in-view ]">
           <a href="/collections/kits-gifts" class="mega__wrap__column__block [ js-cursor-sale ]">
-            {{ collections.kits-gifts.image | image_url: width: 250, height: 450 | image_tag }}
+            {{ collections.kits-gifts.image | image_url: width: 250 | image_url: height: 450 | image_tag }}
             <p>
               <span class="button"><b>Kits & Gifts</b></span>
             </p>

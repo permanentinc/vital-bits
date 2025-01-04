@@ -15,7 +15,7 @@
       >
         <div class="collections__item__image">
           {%- if block.settings.thumbnail != blank -%}
-            {{ block.settings.thumbnail | image_url: width: 400, height: 400 | image_tag }}
+            {{ block.settings.thumbnail | image_url: width: 400 | image_url: height: 400 | image_tag }}
           {%- endif -%}
         </div>
         <div class="collections__item__title">
@@ -55,7 +55,7 @@
         <a href="{{ product.url }}" class="collections__slider__item collections__slider__item--product">
           <div class="collections__slider__item__image">
             {% if product.featured_media %}
-              {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+              {{ product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"

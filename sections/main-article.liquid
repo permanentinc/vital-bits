@@ -18,7 +18,7 @@
 
     <div class="banner-blog-image">
       <img
-        src="{{ article.image | image_url: width: 640, height: 480 }}"
+        src="{{ article.image | image_url: width: 640 | image_url: height: 480 }}"
         alt="grid item image"
         loading="lazy"
         width="640"
@@ -107,7 +107,7 @@
             <a href="{{ related_article.url }}" class="related-articles-grid__item">
               <div class="related-articles-grid__item__image">
                 <img
-                  src="{{ related_article.image | image_url: width: 640, height: 480 }}"
+                  src="{{ related_article.image | image_url: width: 640 | image_url: height: 480 }}"
                   alt="grid item image"
                   loading="lazy"
                   width="640"
@@ -132,7 +132,7 @@
           {% endunless %}
         {% endif %}
       {% endfor %}
-    {% endfor %}
+    {% endfor %}w
 
     {% assign recent_articles = blog.articles | sort: 'published_at' | reverse %}
 
@@ -144,7 +144,7 @@
           <a href="{{ recent_article.url }}" class="related-articles-grid__item">
             <div class="related-articles-grid__item__image">
               <img
-                src="{{ recent_article.image | image_url: width: 640, height: 480 }}"
+                src="{{ recent_article.image | image_url: width: 640 | image_url: height: 480 }}"
                 alt="grid item image"
                 loading="lazy"
                 width="640"

@@ -1,10 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "787878e1-8b58-4773-9ef8-4ac108efc294": {
       "type": "banner",
       "settings": {
-        "heading": "<h1><strong>About us<\/strong><\/h1>",
-        "image": "shopify:\/\/shop_images\/about_banner.png",
+        "heading": "<h1><strong>About us</strong></h1>",
+        "image": "shopify://shop_images/about_banner.png",
         "link_label": "",
         "link_link": "",
         "height": "slim"
@@ -13,14 +22,13 @@
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "2693bc49-c25c-4937-9007-efae0c7ba27c": {
       "type": "image-text-block",
       "settings": {
-        "image": "shopify:\/\/shop_images\/hero.jpg",
-        "text": "<h2><strong>We get it…<\/strong><\/h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. <\/p><p><\/p>",
+        "image": "shopify://shop_images/hero.jpg",
+        "text": "<h2><strong>We get it…</strong></h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. </p><p></p>",
         "reverse_layout": true
       }
     },
@@ -33,7 +41,7 @@
             "title": "",
             "copy": "",
             "link_link": "",
-            "image": "shopify:\/\/shop_images\/collections-4.jpg"
+            "image": "shopify://shop_images/collections-4.jpg"
           }
         },
         "49f803c2-827b-41fb-bbbe-3314fa77f00a": {
@@ -42,7 +50,7 @@
             "title": "",
             "copy": "",
             "link_link": "",
-            "image": "shopify:\/\/shop_images\/collections-1.jpg"
+            "image": "shopify://shop_images/collections-1.jpg"
           }
         },
         "c42618ef-12f3-4d7a-a057-3f0267568abb": {
@@ -51,7 +59,7 @@
             "title": "",
             "copy": "",
             "link_link": "",
-            "image": "shopify:\/\/shop_images\/collections-2.jpg"
+            "image": "shopify://shop_images/collections-2.jpg"
           }
         }
       },
@@ -61,7 +69,7 @@
         "c42618ef-12f3-4d7a-a057-3f0267568abb"
       ],
       "settings": {
-        "copy": "<h5><strong>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions -<\/strong> from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. <\/h5>"
+        "copy": "<h5><strong>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions -</strong> from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. </h5>"
       }
     },
     "e20d9126-0b7b-4882-a4af-dadfed53b225": {
@@ -70,25 +78,25 @@
         "16cdbefb-a59c-46ad-8533-f0c54bb1fec0": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icon-molecule_8f6ee8c5-2748-465d-b204-68ee819dbd75.png",
+            "icon": "shopify://shop_images/icon-molecule_8f6ee8c5-2748-465d-b204-68ee819dbd75.png",
             "title": "One-stop shop",
-            "copy": "<p><strong>Provide a one-stop shop for new and expectant mothers to buy with confidence.<\/strong><\/p>"
+            "copy": "<p><strong>Provide a one-stop shop for new and expectant mothers to buy with confidence.</strong></p>"
           }
         },
         "9687f40b-23de-4822-92d1-60e24896dc6b": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icon-magic_fddcff99-f571-4a13-8745-01e6c6403613.png",
+            "icon": "shopify://shop_images/icon-magic_fddcff99-f571-4a13-8745-01e6c6403613.png",
             "title": "Make motherhood easier",
-            "copy": "<p><strong>Provide all the necessary information to make motherhood easier, more comfortable and more accessible.<\/strong><\/p>"
+            "copy": "<p><strong>Provide all the necessary information to make motherhood easier, more comfortable and more accessible.</strong></p>"
           }
         },
         "ce645685-9d39-443f-8afc-08a301f0ddf3": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icon-hands.png",
+            "icon": "shopify://shop_images/icon-hands.png",
             "title": "Bring back the independence",
-            "copy": "<p><strong>Bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/strong><\/p>"
+            "copy": "<p><strong>Bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.</strong></p>"
           }
         }
       },
@@ -99,14 +107,14 @@
       ],
       "settings": {
         "heading": "Our mission",
-        "text": "<p><strong>Providing all the vital things for all the vital bits, during all those vital times.<\/strong><\/p>"
+        "text": "<p><strong>Providing all the vital things for all the vital bits, during all those vital times.</strong></p>"
       }
     },
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff": {
       "type": "text-block",
       "disabled": true,
       "settings": {
-        "text": "<p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy, and we want to bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.<\/p>"
+        "text": "<p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy, and we want to bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.</p>"
       }
     },
     "0390973f-ee87-43c3-b19e-3ba202d8d755": {
@@ -116,21 +124,21 @@
           "type": "accordion_item",
           "settings": {
             "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.<\/p>"
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
           }
         },
         "aa7d303a-0cf7-4e4e-ad4d-d1bd55b9f9f2": {
           "type": "accordion_item",
           "settings": {
             "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.<\/p>"
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
           }
         },
         "a7a4b5db-45a8-4fd3-ac87-52d5e6434034": {
           "type": "accordion_item",
           "settings": {
             "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.<\/p>"
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
           }
         }
       },
@@ -140,14 +148,13 @@
         "a7a4b5db-45a8-4fd3-ac87-52d5e6434034"
       ],
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
       "type": "hero-block",
       "settings": {
         "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
-        "image": "shopify:\/\/shop_images\/hero.jpg"
+        "image": "shopify://shop_images/hero.jpg"
       }
     }
   },

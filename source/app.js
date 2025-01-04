@@ -23,6 +23,8 @@ import Splitting from "splitting";
 import Typewriter from 'typewriter-effect/dist/core';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+
     Splitting();
 
     //We care for your bits. Your private bits. Your life bits.
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         typewriter1.stop().deleteAll(1);
         typewriter2.stop().deleteAll(1);
         typewriter3.stop().deleteAll(1);
- 
+
         typewriter1.pauseFor(50).typeString('We care for your bits.').start();
         typewriter2.pauseFor(3000).typeString('Your private bits.').start();
         typewriter3.pauseFor(5500).typeString('Your life bits.').start();

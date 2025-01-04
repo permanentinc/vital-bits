@@ -59,10 +59,12 @@ const updateSideCart = (cart) => {
     let $afterpay_payments = $('.js-afterpay-payments');
     let $afterpay = $('.sidecart-draw-actions-afterpay');
 
-    cart.items.forEach((item, index) => {
-        html += sidecart_item(item, index);
-        total += parseFloat(item.quantity * item.price / 100);
-    });
+    if (cart.items) {
+        cart.items.forEach((item, index) => {
+            html += sidecart_item(item, index);
+            total += parseFloat(item.quantity * item.price / 100);
+        });
+    }
 
     if ($side_cart) $side_cart.innerHTML = html;
 
@@ -87,10 +89,12 @@ const updateMainCart = (cart) => {
     let $main_cart = $('.js-cart-items');
     let $main_cart_total = $('.js-cart-total');
 
-    cart.items.forEach((item, index) => {
-        html += maincart_item(item, index);
-        total += parseFloat(item.quantity * item.price / 100);
-    });
+    if (cart.items) {
+        cart.items.forEach((item, index) => {
+            html += maincart_item(item, index);
+            total += parseFloat(item.quantity * item.price / 100);
+        });
+    }
 
     if ($main_cart) $main_cart.innerHTML = html;
 

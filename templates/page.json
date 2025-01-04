@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "787878e1-8b58-4773-9ef8-4ac108efc294": {
       "type": "banner",
       "settings": {
-        "heading": "<h1><strong>About us<\/strong><\/h1><h6>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. <\/h6>",
+        "heading": "<h1><strong>About us</strong></h1><h6>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. </h6>",
         "link_label": "",
         "link_link": ""
       }
@@ -11,20 +20,19 @@
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "f150e94c-ba51-4b49-bfac-63691354ecbc": {
       "type": "contact-block",
       "settings": {
-        "text": "<h2><strong>We would love to hear from you…<\/strong><\/h2><p>If you have an enquiry, please get in touch via this form and one of our team will be in touch shortly.<\/p>"
+        "text": "<h2><strong>We would love to hear from you…</strong></h2><p>If you have an enquiry, please get in touch via this form and one of our team will be in touch shortly.</p>"
       }
     },
     "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
       "type": "hero-block",
       "settings": {
         "heading": "tgargeae",
-        "image": "shopify:\/\/shop_images\/hero.jpg"
+        "image": "shopify://shop_images/hero.jpg"
       }
     }
   },

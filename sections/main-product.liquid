@@ -13,12 +13,12 @@
           <div class="product-slider-item">
             <img
               class="[ js-product-slider-item-image ]"
-              src="{{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }}"
+              src="{{ media.preview_image | image_url: width: 1080 | image_url: height: 1080, crop: 'center' }}"
               srcset="
-                {{ media.preview_image | image_url: width: 622, height: 622, crop: 'center' }} 622w,
-                {{ media.preview_image | image_url: width: 768, height: 768, crop: 'center' }} 768w,
-                {{ media.preview_image | image_url: width: 968, height: 968, crop: 'center' }} 968w,
-                {{ media.preview_image | image_url: width: 1080, height: 1080, crop: 'center' }} 1080w
+                {{ media.preview_image | image_url: width: 622 | image_url: height: 622, crop: 'center' }} 622w,
+                {{ media.preview_image | image_url: width: 768 | image_url: height: 768, crop: 'center' }} 768w,
+                {{ media.preview_image | image_url: width: 968 | image_url: height: 968, crop: 'center' }} 968w,
+                {{ media.preview_image | image_url: width: 1080 | image_url: height: 1080, crop: 'center' }} 1080w
               "
               alt="{{ media.preview_image.alt | escape }}"
               data-lightbox-image="{{ media.preview_image | image_url: '1080x1080', crop: 'center' }}"
@@ -164,7 +164,7 @@
         <a href="#" class="related-products__list__item related-products__list__item--product">
           <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+              {{ related_product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"
@@ -201,7 +201,7 @@
         <a href="#" class="related-products__list__item related-products__list__item--product">
           <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+              {{ related_product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"

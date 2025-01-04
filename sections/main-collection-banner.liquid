@@ -1,7 +1,7 @@
 <div class="banner-collection">
   <div class="banner-collection-image">
     {%- if collection.image != blank -%}
-      {{ collection.image | image_url: width: 1640, height: 760 | image_tag }}
+      {{ collection.image | image_url: width: 1640 | image_url: height: 760 | image_tag }}
     {%- endif -%}
   </div>
 

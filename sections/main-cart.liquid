@@ -39,7 +39,7 @@
             <tr class="cart__wrap__form__table__body__row" data-line="{{ forloop.index }}">
               <td class="cart__wrap__form__table__body__row__cell">
                 <a href="{{ item.url }}" class="cart__wrap__form__table__body__row__cell__image">
-                  {{ item.image | image_url: width: 400, height: 400 | image_tag }}
+                  {{ item.image | image_url: width: 400 | image_url: height: 400 | image_tag }}
                 </a>
               </td>
 

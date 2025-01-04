@@ -1015,7 +1015,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }, false);
 
-},{"./lib":"acGTP","./search":"4fKJc","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./shop":"1fHDu","./accordion":"lWUal","choices.js":"7Oucv","./cursor":"9Us5D","glightbox":"119aE","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","./shop":"1fHDu","./cursor":"9Us5D","./accordion":"lWUal","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","choices.js":"7Oucv","glightbox":"119aE","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -1226,7 +1226,845 @@ $search_button.addEventListener("click", go_to_all_results); // For dev purposes
  // Focus on the search input
  // setTimeout(() => document.getElementById('SearchForm_SearchForm_Search').focus(), 1500);
 
-},{"./lib":"acGTP"}],"lGlvh":[function(require,module,exports) {
+},{"./lib":"acGTP"}],"1fHDu":[function(require,module,exports) {
+/*------------------------------------------------------------------
+Imports
+------------------------------------------------------------------*/ var _lib = require("./lib");
+var _notyf = require("notyf");
+var _templates = require("./templates");
+// Base notification styles
+let notyf = new (0, _notyf.Notyf)({
+    duration: 4000,
+    dismissible: true,
+    icon: false
+});
+const updateCarts = (cart)=>{
+    // Update the cart count
+    updateCartCount(cart.item_count);
+    // Update the cart count
+    updateMainCart(cart);
+    // Update the main sidecart
+    updateSideCart(cart);
+};
+/**
+ * 
+ * Update the cart count in the header
+ * 
+ * @param {number} count 
+ */ const updateCartCount = (count = 0)=>{
+    let $cart_count = (0, _lib.$)(".js-cart-count");
+    $cart_count.innerHTML = `<b>${count}</b>`;
+    $cart_count.classList.toggle("active", count > 0);
+    (0, _lib.$)(".header-actions__cart__count").classList.add("pulse");
+    // Remove the pulse animation class after the animation ends
+    setTimeout(()=>(0, _lib.$)(".header-actions__cart__count").classList.remove("pulse"), 3000);
+};
+/**
+ * 
+ * Update the sidecart items
+ * 
+ * @param {object} cart 
+ */ const updateSideCart = (cart)=>{
+    let html = "";
+    let total = 0;
+    let $side_cart = (0, _lib.$)(".sidecart-draw-items");
+    let $side_cart_total = (0, _lib.$)(".js-sidecart-total");
+    let $afterpay_payments = (0, _lib.$)(".js-afterpay-payments");
+    let $afterpay = (0, _lib.$)(".sidecart-draw-actions-afterpay");
+    if (cart.items) cart.items.forEach((item, index)=>{
+        html += (0, _templates.sidecart_item)(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
+    if ($side_cart) $side_cart.innerHTML = html;
+    if ($side_cart_total) $side_cart_total.innerHTML = `$${total.toFixed(2)}`;
+    if ($afterpay_payments) $afterpay_payments.innerHTML = `$${(total / 4).toFixed(2)}`;
+    total === 0 ? $afterpay.style.display = "none" : $afterpay.style.display = "block";
+};
+/**
+ * 
+ * Update the maincart items
+ * 
+ * @param {object} cart 
+ */ const updateMainCart = (cart)=>{
+    let html = "";
+    let total = 0;
+    let $main_cart = (0, _lib.$)(".js-cart-items");
+    let $main_cart_total = (0, _lib.$)(".js-cart-total");
+    if (cart.items) cart.items.forEach((item, index)=>{
+        html += (0, _templates.maincart_item)(item, index);
+        total += parseFloat(item.quantity * item.price / 100);
+    });
+    if ($main_cart) $main_cart.innerHTML = html;
+    if ($main_cart_total) $main_cart_total.innerHTML = `$${total.toFixed(2)}`;
+};
+window.fetchCart = ()=>{
+    // Send the request to Shopify
+    fetch("/cart.js").then((response)=>response.json()).then((data)=>{
+        // Update all of the carts
+        updateCarts(data);
+    }).catch((data)=>{
+        // Show an error message in the console
+        console.log(data);
+    });
+};
+// Initialise the cart on page load
+if (document.body.dataset.pageType != "password") fetchCart();
+window.changeSideCartQuantity = (event, amount)=>{
+    let quantity, input = event.target.parentElement.querySelector("input");
+    if (amount !== 0) {
+        quantity = parseInt(input.value);
+        quantity = quantity + amount < 1 ? 1 : quantity + amount;
+        input.value = quantity;
+    }
+    let data = {
+        line: parseInt(event.target.closest(".sidecart-draw-items__item").dataset.line),
+        quantity: amount == 0 ? 0 : quantity
+    };
+    // Send the request to Shopify
+    fetch("/cart/change.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((response)=>response.json()).then((data)=>{
+        // Update all of the carts
+        updateCarts(data);
+    }).catch((data)=>{
+        // Show an error message in the console
+        console.log(data);
+    });
+};
+/**
+ * 
+ * Add to cart interactions
+ * 
+ */ if ((0, _lib.$)(".js-add-to-cart")) (0, _lib.$)(".js-add-to-cart").addEventListener("click", (e)=>{
+    e.preventDefault();
+    // Declare our variables
+    let button = e.target;
+    let form = button.closest("form");
+    // Add a loading animation to the button
+    button.classList.add("busy");
+    let data = {
+        id: form.querySelector(".js-variant").value,
+        quantity: parseInt(form.querySelector(".quantity-input input").value)
+    };
+    // Send the request to Shopify
+    fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((response)=>response.json()).then((data)=>{
+        // Update the cart sitewide
+        fetchCart();
+        // Remove the loading animation from the button
+        button.classList.remove("busy");
+        // Show a success message
+        notyf.success({
+            message: "Your cart has been updated",
+            icon: false
+        });
+    }).catch((data)=>{
+        // Remove the loading animation from the button
+        button.classList.remove("busy");
+        // Show an error message in the console
+        console.log(data);
+    });
+});
+window.changeMainCartQuantity = (event, amount)=>{
+    let quantity, input = event.target.parentElement.querySelector("input");
+    if (amount !== 0) {
+        quantity = parseInt(input.value);
+        quantity = quantity + amount < 1 ? 1 : quantity + amount;
+        input.value = quantity;
+    }
+    let data = {
+        line: parseInt(event.target.closest(".cart__wrap__form__table__body__row").dataset.line),
+        quantity: amount == 0 ? 0 : quantity
+    };
+    // Send the request to Shopify
+    fetch("/cart/change.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((response)=>response.json()).then((data)=>{
+        // Update all of the carts
+        updateCarts(data);
+    }).catch((data)=>{
+        // Show an error message in the console
+        console.log(data);
+    });
+};
+
+},{"./lib":"acGTP","notyf":"kobg9","./templates":"bituW"}],"kobg9":[function(require,module,exports) {
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DEFAULT_OPTIONS", ()=>DEFAULT_OPTIONS);
+parcelHelpers.export(exports, "Notyf", ()=>Notyf);
+parcelHelpers.export(exports, "NotyfArray", ()=>NotyfArray);
+parcelHelpers.export(exports, "NotyfArrayEvent", ()=>NotyfArrayEvent);
+parcelHelpers.export(exports, "NotyfEvent", ()=>NotyfEvent);
+parcelHelpers.export(exports, "NotyfNotification", ()=>NotyfNotification);
+parcelHelpers.export(exports, "NotyfView", ()=>NotyfView);
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for(var s, i = 1, n = arguments.length; i < n; i++){
+            s = arguments[i];
+            for(var p in s)if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var NotyfNotification = /** @class */ function() {
+    function NotyfNotification(options) {
+        this.options = options;
+        this.listeners = {};
+    }
+    NotyfNotification.prototype.on = function(eventType, cb) {
+        var callbacks = this.listeners[eventType] || [];
+        this.listeners[eventType] = callbacks.concat([
+            cb
+        ]);
+    };
+    NotyfNotification.prototype.triggerEvent = function(eventType, event) {
+        var _this = this;
+        var callbacks = this.listeners[eventType] || [];
+        callbacks.forEach(function(cb) {
+            return cb({
+                target: _this,
+                event: event
+            });
+        });
+    };
+    return NotyfNotification;
+}();
+var NotyfArrayEvent;
+(function(NotyfArrayEvent) {
+    NotyfArrayEvent[NotyfArrayEvent["Add"] = 0] = "Add";
+    NotyfArrayEvent[NotyfArrayEvent["Remove"] = 1] = "Remove";
+})(NotyfArrayEvent || (NotyfArrayEvent = {}));
+var NotyfArray = /** @class */ function() {
+    function NotyfArray() {
+        this.notifications = [];
+    }
+    NotyfArray.prototype.push = function(elem) {
+        this.notifications.push(elem);
+        this.updateFn(elem, NotyfArrayEvent.Add, this.notifications);
+    };
+    NotyfArray.prototype.splice = function(index, num) {
+        var elem = this.notifications.splice(index, num)[0];
+        this.updateFn(elem, NotyfArrayEvent.Remove, this.notifications);
+        return elem;
+    };
+    NotyfArray.prototype.indexOf = function(elem) {
+        return this.notifications.indexOf(elem);
+    };
+    NotyfArray.prototype.onUpdate = function(fn) {
+        this.updateFn = fn;
+    };
+    return NotyfArray;
+}();
+var NotyfEvent;
+(function(NotyfEvent) {
+    NotyfEvent["Dismiss"] = "dismiss";
+    NotyfEvent["Click"] = "click";
+})(NotyfEvent || (NotyfEvent = {}));
+var DEFAULT_OPTIONS = {
+    types: [
+        {
+            type: "success",
+            className: "notyf__toast--success",
+            backgroundColor: "#3dc763",
+            icon: {
+                className: "notyf__icon--success",
+                tagName: "i"
+            }
+        },
+        {
+            type: "error",
+            className: "notyf__toast--error",
+            backgroundColor: "#ed3d3d",
+            icon: {
+                className: "notyf__icon--error",
+                tagName: "i"
+            }
+        }
+    ],
+    duration: 2000,
+    ripple: true,
+    position: {
+        x: "right",
+        y: "bottom"
+    },
+    dismissible: false
+};
+var NotyfView = /** @class */ function() {
+    function NotyfView() {
+        this.notifications = [];
+        this.events = {};
+        this.X_POSITION_FLEX_MAP = {
+            left: "flex-start",
+            center: "center",
+            right: "flex-end"
+        };
+        this.Y_POSITION_FLEX_MAP = {
+            top: "flex-start",
+            center: "center",
+            bottom: "flex-end"
+        };
+        // Creates the main notifications container
+        var docFrag = document.createDocumentFragment();
+        var notyfContainer = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf"
+        });
+        docFrag.appendChild(notyfContainer);
+        document.body.appendChild(docFrag);
+        this.container = notyfContainer;
+        // Identifies the main animation end event
+        this.animationEndEventName = this._getAnimationEndEventName();
+        this._createA11yContainer();
+    }
+    NotyfView.prototype.on = function(event, cb) {
+        var _a;
+        this.events = __assign(__assign({}, this.events), (_a = {}, _a[event] = cb, _a));
+    };
+    NotyfView.prototype.update = function(notification, type) {
+        if (type === NotyfArrayEvent.Add) this.addNotification(notification);
+        else if (type === NotyfArrayEvent.Remove) this.removeNotification(notification);
+    };
+    NotyfView.prototype.removeNotification = function(notification) {
+        var _this = this;
+        var renderedNotification = this._popRenderedNotification(notification);
+        var node;
+        if (!renderedNotification) return;
+        node = renderedNotification.node;
+        node.classList.add("notyf__toast--disappear");
+        var handleEvent;
+        node.addEventListener(this.animationEndEventName, handleEvent = function(event) {
+            if (event.target === node) {
+                node.removeEventListener(_this.animationEndEventName, handleEvent);
+                _this.container.removeChild(node);
+            }
+        });
+    };
+    NotyfView.prototype.addNotification = function(notification) {
+        var node = this._renderNotification(notification);
+        this.notifications.push({
+            notification: notification,
+            node: node
+        });
+        // For a11y purposes, we still want to announce that there's a notification in the screen
+        // even if it comes with no message.
+        this._announce(notification.options.message || "Notification");
+    };
+    NotyfView.prototype._renderNotification = function(notification) {
+        var _a;
+        var card = this._buildNotificationCard(notification);
+        var className = notification.options.className;
+        if (className) (_a = card.classList).add.apply(_a, className.split(" "));
+        this.container.appendChild(card);
+        return card;
+    };
+    NotyfView.prototype._popRenderedNotification = function(notification) {
+        var idx = -1;
+        for(var i = 0; i < this.notifications.length && idx < 0; i++)if (this.notifications[i].notification === notification) idx = i;
+        if (idx !== -1) return this.notifications.splice(idx, 1)[0];
+        return;
+    };
+    NotyfView.prototype.getXPosition = function(options) {
+        var _a;
+        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.x) || "right";
+    };
+    NotyfView.prototype.getYPosition = function(options) {
+        var _a;
+        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.y) || "bottom";
+    };
+    NotyfView.prototype.adjustContainerAlignment = function(options) {
+        var align = this.X_POSITION_FLEX_MAP[this.getXPosition(options)];
+        var justify = this.Y_POSITION_FLEX_MAP[this.getYPosition(options)];
+        var style = this.container.style;
+        style.setProperty("justify-content", justify);
+        style.setProperty("align-items", align);
+    };
+    NotyfView.prototype._buildNotificationCard = function(notification) {
+        var _this = this;
+        var options = notification.options;
+        var iconOpts = options.icon;
+        // Adjust container according to position (e.g. top-left, bottom-center, etc)
+        this.adjustContainerAlignment(options);
+        // Create elements
+        var notificationElem = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf__toast"
+        });
+        var ripple = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf__ripple"
+        });
+        var wrapper = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf__wrapper"
+        });
+        var message = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf__message"
+        });
+        message.innerHTML = options.message || "";
+        var mainColor = options.background || options.backgroundColor;
+        // Build the icon and append it to the card
+        if (iconOpts) {
+            var iconContainer = this._createHTMLElement({
+                tagName: "div",
+                className: "notyf__icon"
+            });
+            if (typeof iconOpts === "string" || iconOpts instanceof String) iconContainer.innerHTML = new String(iconOpts).valueOf();
+            if (typeof iconOpts === "object") {
+                var _a = iconOpts.tagName, tagName = _a === void 0 ? "i" : _a, className_1 = iconOpts.className, text = iconOpts.text, _b = iconOpts.color, color = _b === void 0 ? mainColor : _b;
+                var iconElement = this._createHTMLElement({
+                    tagName: tagName,
+                    className: className_1,
+                    text: text
+                });
+                if (color) iconElement.style.color = color;
+                iconContainer.appendChild(iconElement);
+            }
+            wrapper.appendChild(iconContainer);
+        }
+        wrapper.appendChild(message);
+        notificationElem.appendChild(wrapper);
+        // Add ripple if applicable, else just paint the full toast
+        if (mainColor) {
+            if (options.ripple) {
+                ripple.style.background = mainColor;
+                notificationElem.appendChild(ripple);
+            } else notificationElem.style.background = mainColor;
+        }
+        // Add dismiss button
+        if (options.dismissible) {
+            var dismissWrapper = this._createHTMLElement({
+                tagName: "div",
+                className: "notyf__dismiss"
+            });
+            var dismissButton = this._createHTMLElement({
+                tagName: "button",
+                className: "notyf__dismiss-btn"
+            });
+            dismissWrapper.appendChild(dismissButton);
+            wrapper.appendChild(dismissWrapper);
+            notificationElem.classList.add("notyf__toast--dismissible");
+            dismissButton.addEventListener("click", function(event) {
+                var _a, _b;
+                (_b = (_a = _this.events)[NotyfEvent.Dismiss]) === null || _b === void 0 || _b.call(_a, {
+                    target: notification,
+                    event: event
+                });
+                event.stopPropagation();
+            });
+        }
+        notificationElem.addEventListener("click", function(event) {
+            var _a, _b;
+            return (_b = (_a = _this.events)[NotyfEvent.Click]) === null || _b === void 0 ? void 0 : _b.call(_a, {
+                target: notification,
+                event: event
+            });
+        });
+        // Adjust margins depending on whether its an upper or lower notification
+        var className = this.getYPosition(options) === "top" ? "upper" : "lower";
+        notificationElem.classList.add("notyf__toast--" + className);
+        return notificationElem;
+    };
+    NotyfView.prototype._createHTMLElement = function(_a) {
+        var tagName = _a.tagName, className = _a.className, text = _a.text;
+        var elem = document.createElement(tagName);
+        if (className) elem.className = className;
+        elem.textContent = text || null;
+        return elem;
+    };
+    /**
+     * Creates an invisible container which will announce the notyfs to
+     * screen readers
+     */ NotyfView.prototype._createA11yContainer = function() {
+        var a11yContainer = this._createHTMLElement({
+            tagName: "div",
+            className: "notyf-announcer"
+        });
+        a11yContainer.setAttribute("aria-atomic", "true");
+        a11yContainer.setAttribute("aria-live", "polite");
+        // Set the a11y container to be visible hidden. Can't use display: none as
+        // screen readers won't read it.
+        a11yContainer.style.border = "0";
+        a11yContainer.style.clip = "rect(0 0 0 0)";
+        a11yContainer.style.height = "1px";
+        a11yContainer.style.margin = "-1px";
+        a11yContainer.style.overflow = "hidden";
+        a11yContainer.style.padding = "0";
+        a11yContainer.style.position = "absolute";
+        a11yContainer.style.width = "1px";
+        a11yContainer.style.outline = "0";
+        document.body.appendChild(a11yContainer);
+        this.a11yContainer = a11yContainer;
+    };
+    /**
+     * Announces a message to screenreaders.
+     */ NotyfView.prototype._announce = function(message) {
+        var _this = this;
+        this.a11yContainer.textContent = "";
+        // This 100ms timeout is necessary for some browser + screen-reader combinations:
+        // - Both JAWS and NVDA over IE11 will not announce anything without a non-zero timeout.
+        // - With Chrome and IE11 with NVDA or JAWS, a repeated (identical) message won't be read a
+        //   second time without clearing and then using a non-zero delay.
+        // (using JAWS 17 at time of this writing).
+        // https://github.com/angular/material2/blob/master/src/cdk/a11y/live-announcer/live-announcer.ts
+        setTimeout(function() {
+            _this.a11yContainer.textContent = message;
+        }, 100);
+    };
+    /**
+     * Determine which animationend event is supported
+     */ NotyfView.prototype._getAnimationEndEventName = function() {
+        var el = document.createElement("_fake");
+        var transitions = {
+            MozTransition: "animationend",
+            OTransition: "oAnimationEnd",
+            WebkitTransition: "webkitAnimationEnd",
+            transition: "animationend"
+        };
+        var t;
+        for(t in transitions){
+            if (el.style[t] !== undefined) return transitions[t];
+        }
+        // No supported animation end event. Using "animationend" as a fallback
+        return "animationend";
+    };
+    return NotyfView;
+}();
+/**
+ * Main controller class. Defines the main Notyf API.
+ */ var Notyf = /** @class */ function() {
+    function Notyf(opts) {
+        var _this = this;
+        this.dismiss = this._removeNotification;
+        this.notifications = new NotyfArray();
+        this.view = new NotyfView();
+        var types = this.registerTypes(opts);
+        this.options = __assign(__assign({}, DEFAULT_OPTIONS), opts);
+        this.options.types = types;
+        this.notifications.onUpdate(function(elem, type) {
+            return _this.view.update(elem, type);
+        });
+        this.view.on(NotyfEvent.Dismiss, function(_a) {
+            var target = _a.target, event = _a.event;
+            _this._removeNotification(target);
+            // tslint:disable-next-line: no-string-literal
+            target["triggerEvent"](NotyfEvent.Dismiss, event);
+        });
+        // tslint:disable-next-line: no-string-literal
+        this.view.on(NotyfEvent.Click, function(_a) {
+            var target = _a.target, event = _a.event;
+            return target["triggerEvent"](NotyfEvent.Click, event);
+        });
+    }
+    Notyf.prototype.error = function(payload) {
+        var options = this.normalizeOptions("error", payload);
+        return this.open(options);
+    };
+    Notyf.prototype.success = function(payload) {
+        var options = this.normalizeOptions("success", payload);
+        return this.open(options);
+    };
+    Notyf.prototype.open = function(options) {
+        var defaultOpts = this.options.types.find(function(_a) {
+            var type = _a.type;
+            return type === options.type;
+        }) || {};
+        var config = __assign(__assign({}, defaultOpts), options);
+        this.assignProps([
+            "ripple",
+            "position",
+            "dismissible"
+        ], config);
+        var notification = new NotyfNotification(config);
+        this._pushNotification(notification);
+        return notification;
+    };
+    Notyf.prototype.dismissAll = function() {
+        while(this.notifications.splice(0, 1));
+    };
+    /**
+     * Assigns properties to a config object based on two rules:
+     * 1. If the config object already sets that prop, leave it as so
+     * 2. Otherwise, use the default prop from the global options
+     *
+     * It's intended to build the final config object to open a notification. e.g. if
+     * 'dismissible' is not set, then use the value from the global config.
+     *
+     * @param props - properties to be assigned to the config object
+     * @param config - object whose properties need to be set
+     */ Notyf.prototype.assignProps = function(props, config) {
+        var _this = this;
+        props.forEach(function(prop) {
+            // intentional double equality to check for both null and undefined
+            config[prop] = config[prop] == null ? _this.options[prop] : config[prop];
+        });
+    };
+    Notyf.prototype._pushNotification = function(notification) {
+        var _this = this;
+        this.notifications.push(notification);
+        var duration = notification.options.duration !== undefined ? notification.options.duration : this.options.duration;
+        if (duration) setTimeout(function() {
+            return _this._removeNotification(notification);
+        }, duration);
+    };
+    Notyf.prototype._removeNotification = function(notification) {
+        var index = this.notifications.indexOf(notification);
+        if (index !== -1) this.notifications.splice(index, 1);
+    };
+    Notyf.prototype.normalizeOptions = function(type, payload) {
+        var options = {
+            type: type
+        };
+        if (typeof payload === "string") options.message = payload;
+        else if (typeof payload === "object") options = __assign(__assign({}, options), payload);
+        return options;
+    };
+    Notyf.prototype.registerTypes = function(opts) {
+        var incomingTypes = (opts && opts.types || []).slice();
+        var finalDefaultTypes = DEFAULT_OPTIONS.types.map(function(defaultType) {
+            // find if there's a default type within the user input's types, if so, it means the user
+            // wants to change some of the default settings
+            var userTypeIdx = -1;
+            incomingTypes.forEach(function(t, idx) {
+                if (t.type === defaultType.type) userTypeIdx = idx;
+            });
+            var userType = userTypeIdx !== -1 ? incomingTypes.splice(userTypeIdx, 1)[0] : {};
+            return __assign(__assign({}, defaultType), userType);
+        });
+        return finalDefaultTypes.concat(incomingTypes);
+    };
+    return Notyf;
+}();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"bituW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
+parcelHelpers.export(exports, "maincart_item", ()=>maincart_item);
+const sidecart_item = (item, index)=>{
+    return /*html*/ `
+        <div class="sidecart-draw-items__item" data-line="${index + 1}">
+            <div class="sidecart-draw-items__item__image">
+                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
+            </div>
+            <div class="sidecart-draw-items__item__details">
+                
+                <a href="#" class="sidecart-draw-items__item__details__remove" onclick="changeSideCartQuantity(event, 0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
+                </a>
+
+                <p><b>${item.product_title}</b></p>
+                
+                <p class="small">
+                    ${item.product_title}
+                    ${item.variant_title ? `<br>${item.variant_title}` : ``}
+                </p>
+
+                <div class="quantity">
+                  <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
+                  <div class="quantity-input">
+                    <input type="text" value="${item.quantity}">
+                  </div>
+                  <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
+                </div>
+
+                <p class="sidecart-draw-items__item__details__price">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</p>
+            </div>
+        </div>
+    `;
+};
+const maincart_item = (item, index)=>{
+    return /*html*/ `
+    <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
+    <td class="cart__wrap__form__table__body__row__cell">
+      <a href="${item.link}" class="cart__wrap__form__table__body__row__cell__image">
+        <img src="${item.image}" alt="${item.product_title}" width="400" height="400">
+      </a>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--details">
+      <a class="colour--green" href="${item.link}">
+        <h5 class="no-margin"><b>${item.product_title}</b></h5>
+      </a>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell">
+      <div class="quantity quantity--cart">
+        <div class="quantity-remove" onclick="changeMainCartQuantity(event,-1)">-</div>
+        <div class="quantity-input">
+          <input type="text" value="${item.quantity}">
+        </div>
+        <div class="quantity-add" onclick="changeMainCartQuantity(event,1)">+</div>
+      </div>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--total">
+        <h5 class="no-margin">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</h5>
+    </td>
+    <td class="cart__wrap__form__table__body__row__cell">
+      <a href="/cart/change?line=${index + 1}&amp;quantity=0" data-cart-item-index="2" class="[ js-remove-from-cart ]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
+          <path fill-rule="evenodd" d="M5.488 0v3.628H.045v1.814H1.86v19.955h16.327V5.442H20V3.628h-5.442V0h-9.07Zm1.814 1.814h5.442v1.814H7.302V1.814ZM3.673 5.442h12.699v18.14H3.673V5.443Zm2.722 2.721v12.699h1.814V8.163H6.395Zm5.442 0v12.699h1.814V8.163h-1.814Z"></path>
+        </svg>
+      </a>
+    </td>
+  </tr>`;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"9Us5D":[function(require,module,exports) {
+var _lib = require("./lib");
+document.addEventListener("DOMContentLoaded", function() {
+    let clientX = -100;
+    let clientY = -100;
+    const innerCursor = document.querySelector(".customCursor");
+    const initCursor = ()=>{
+        document.addEventListener("mousemove", (e)=>{
+            clientX = e.clientX;
+            clientY = e.clientY;
+        });
+        const render = ()=>{
+            innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+            requestAnimationFrame(render);
+        };
+        requestAnimationFrame(render);
+    };
+    const animateCursor = (type, remove)=>(0, _lib.$)(".customCursor").classList.toggle(type, remove);
+    initCursor();
+    // Get the element with the class 'js-cursor-previous'
+    const $previous = (0, _lib.$)(".js-cursor-previous");
+    if ($previous) {
+        // Add event listeners for mouseenter and mouseleave
+        $previous.addEventListener("mouseenter", ()=>animateCursor("previous", true));
+        $previous.addEventListener("mouseleave", ()=>animateCursor("previous", false));
+    }
+    // Get the element with the class 'js-cursor-previous'
+    const $next = (0, _lib.$)(".js-cursor-next");
+    if ($next) {
+        // Add event listeners for mouseenter and mouseleave
+        $next.addEventListener("mouseenter", ()=>animateCursor("next", true));
+        $next.addEventListener("mouseleave", ()=>animateCursor("next", false));
+    }
+});
+
+},{"./lib":"acGTP"}],"lWUal":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Accordion", ()=>Accordion);
+class Accordion {
+    /**
+     * 
+     * Initialise the accordion item
+     * 
+     */ init() {
+        // Get the initial state of the accordion
+        this.getState();
+        // Add the click event handler to the accordion
+        this.addEventListeners();
+    }
+    /**
+     * 
+     * Get the current state of the accordion
+     * 
+     */ getState() {
+        this.is_open = this.accordion.classList.contains("active");
+    }
+    /**
+    * 
+    * Toggle the current state of the accordion
+    * 
+    */ toggle() {
+        this.is_open ? this.close() : this.open();
+    }
+    /**
+     * 
+     * Add the click event handler to the accordion
+     * 
+     */ addEventListeners() {
+        this.accordion.addEventListener("click", ()=>this.toggle());
+    }
+    /**
+     * 
+     * Add the click event handler to the accordion
+     * 
+     */ updateState(state) {
+        // Update the current state
+        this.is_open = state;
+        // Update the aria-expanded attribute
+        this.trigger.setAttribute("aria-expanded", state);
+    }
+    /**
+     * 
+     * Open the accordion
+     * 
+     */ open() {
+        // Add active class to the accordion
+        this.accordion.classList.add("active");
+        // Quickly get the height we want to animate to
+        this.content.style.height = "auto";
+        var height = this.content.clientHeight + "px";
+        // Revert the heioght back to nothing
+        this.content.style.height = 0;
+        // Animate the height once the calculations are done
+        setTimeout(()=>this.content.style.height = height, 0);
+        // Update the current state
+        this.updateState(true);
+    }
+    /**
+     * 
+     * Close the accordion
+     * 
+     */ close() {
+        // Revert the height back to nothing
+        this.content.style.height = 0;
+        // Remove the active class once animations are over
+        this.content.addEventListener("transitionend", ()=>{
+            this.accordion.classList.remove("active");
+        }, {
+            once: true
+        });
+        // Update the current state
+        this.updateState(false);
+    }
+    /**
+     * 
+     * Constructor
+     * 
+     * @param {element} element accordion parent
+     */ constructor(element){
+        this.accordion = element;
+        this.trigger = this.accordion.querySelector(".js-trigger");
+        this.content = this.accordion.querySelector(".js-content");
+        // Initialise the accordion
+        this.init();
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"lGlvh":[function(require,module,exports) {
 /*!
  * Flickity v2.2.2
  * Touch, responsive, flickable carousels
@@ -5608,809 +6446,6 @@ anime.random = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 exports.default = anime;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"1fHDu":[function(require,module,exports) {
-/*------------------------------------------------------------------
-Imports
-------------------------------------------------------------------*/ var _lib = require("./lib");
-var _notyf = require("notyf");
-var _templates = require("./templates");
-// Base notification styles
-let notyf = new (0, _notyf.Notyf)({
-    duration: 4000,
-    dismissible: true,
-    icon: false
-});
-const updateCarts = (cart)=>{
-    // Update the cart count
-    updateCartCount(cart.item_count);
-    // Update the cart count
-    updateMainCart(cart);
-    // Update the main sidecart
-    updateSideCart(cart);
-};
-/**
- * 
- * Update the cart count in the header
- * 
- * @param {number} count 
- */ const updateCartCount = (count = 0)=>{
-    let $cart_count = (0, _lib.$)(".js-cart-count");
-    $cart_count.innerHTML = `<b>${count}</b>`;
-    $cart_count.classList.toggle("active", count > 0);
-    (0, _lib.$)(".header-actions__cart__count").classList.add("pulse");
-    // Remove the pulse animation class after the animation ends
-    setTimeout(()=>(0, _lib.$)(".header-actions__cart__count").classList.remove("pulse"), 3000);
-};
-/**
- * 
- * Update the sidecart items
- * 
- * @param {object} cart 
- */ const updateSideCart = (cart)=>{
-    let html = "";
-    let total = 0;
-    let $side_cart = (0, _lib.$)(".sidecart-draw-items");
-    let $side_cart_total = (0, _lib.$)(".js-sidecart-total");
-    let $afterpay_payments = (0, _lib.$)(".js-afterpay-payments");
-    let $afterpay = (0, _lib.$)(".sidecart-draw-actions-afterpay");
-    cart.items.forEach((item, index)=>{
-        html += (0, _templates.sidecart_item)(item, index);
-        total += parseFloat(item.quantity * item.price / 100);
-    });
-    if ($side_cart) $side_cart.innerHTML = html;
-    if ($side_cart_total) $side_cart_total.innerHTML = `$${total.toFixed(2)}`;
-    if ($afterpay_payments) $afterpay_payments.innerHTML = `$${(total / 4).toFixed(2)}`;
-    total === 0 ? $afterpay.style.display = "none" : $afterpay.style.display = "block";
-};
-/**
- * 
- * Update the maincart items
- * 
- * @param {object} cart 
- */ const updateMainCart = (cart)=>{
-    let html = "";
-    let total = 0;
-    let $main_cart = (0, _lib.$)(".js-cart-items");
-    let $main_cart_total = (0, _lib.$)(".js-cart-total");
-    cart.items.forEach((item, index)=>{
-        html += (0, _templates.maincart_item)(item, index);
-        total += parseFloat(item.quantity * item.price / 100);
-    });
-    if ($main_cart) $main_cart.innerHTML = html;
-    if ($main_cart_total) $main_cart_total.innerHTML = `$${total.toFixed(2)}`;
-};
-window.fetchCart = ()=>{
-    // Send the request to Shopify
-    fetch("/cart.js").then((response)=>response.json()).then((data)=>{
-        // Update all of the carts
-        updateCarts(data);
-    }).catch((data)=>{
-        // Show an error message in the console
-        console.log(data);
-    });
-};
-// Initialise the cart on page load
-if (document.body.dataset.pageType != "password") fetchCart();
-window.changeSideCartQuantity = (event, amount)=>{
-    let quantity, input = event.target.parentElement.querySelector("input");
-    if (amount !== 0) {
-        quantity = parseInt(input.value);
-        quantity = quantity + amount < 1 ? 1 : quantity + amount;
-        input.value = quantity;
-    }
-    let data = {
-        line: parseInt(event.target.closest(".sidecart-draw-items__item").dataset.line),
-        quantity: amount == 0 ? 0 : quantity
-    };
-    // Send the request to Shopify
-    fetch("/cart/change.js", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }).then((response)=>response.json()).then((data)=>{
-        // Update all of the carts
-        updateCarts(data);
-    }).catch((data)=>{
-        // Show an error message in the console
-        console.log(data);
-    });
-};
-/**
- * 
- * Add to cart interactions
- * 
- */ if ((0, _lib.$)(".js-add-to-cart")) (0, _lib.$)(".js-add-to-cart").addEventListener("click", (e)=>{
-    e.preventDefault();
-    // Declare our variables
-    let button = e.target;
-    let form = button.closest("form");
-    // Add a loading animation to the button
-    button.classList.add("busy");
-    let data = {
-        id: form.querySelector(".js-variant").value,
-        quantity: parseInt(form.querySelector(".quantity-input input").value)
-    };
-    // Send the request to Shopify
-    fetch("/cart/add.js", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }).then((response)=>response.json()).then((data)=>{
-        // Update the cart sitewide
-        fetchCart();
-        // Remove the loading animation from the button
-        button.classList.remove("busy");
-        // Show a success message
-        notyf.success({
-            message: "Your cart has been updated",
-            icon: false
-        });
-    }).catch((data)=>{
-        // Remove the loading animation from the button
-        button.classList.remove("busy");
-        // Show an error message in the console
-        console.log(data);
-    });
-});
-window.changeMainCartQuantity = (event, amount)=>{
-    let quantity, input = event.target.parentElement.querySelector("input");
-    if (amount !== 0) {
-        quantity = parseInt(input.value);
-        quantity = quantity + amount < 1 ? 1 : quantity + amount;
-        input.value = quantity;
-    }
-    let data = {
-        line: parseInt(event.target.closest(".cart__wrap__form__table__body__row").dataset.line),
-        quantity: amount == 0 ? 0 : quantity
-    };
-    // Send the request to Shopify
-    fetch("/cart/change.js", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }).then((response)=>response.json()).then((data)=>{
-        // Update all of the carts
-        updateCarts(data);
-    }).catch((data)=>{
-        // Show an error message in the console
-        console.log(data);
-    });
-};
-
-},{"./lib":"acGTP","notyf":"kobg9","./templates":"bituW"}],"kobg9":[function(require,module,exports) {
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DEFAULT_OPTIONS", ()=>DEFAULT_OPTIONS);
-parcelHelpers.export(exports, "Notyf", ()=>Notyf);
-parcelHelpers.export(exports, "NotyfArray", ()=>NotyfArray);
-parcelHelpers.export(exports, "NotyfArrayEvent", ()=>NotyfArrayEvent);
-parcelHelpers.export(exports, "NotyfEvent", ()=>NotyfEvent);
-parcelHelpers.export(exports, "NotyfNotification", ()=>NotyfNotification);
-parcelHelpers.export(exports, "NotyfView", ()=>NotyfView);
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for(var s, i = 1, n = arguments.length; i < n; i++){
-            s = arguments[i];
-            for(var p in s)if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var NotyfNotification = /** @class */ function() {
-    function NotyfNotification(options) {
-        this.options = options;
-        this.listeners = {};
-    }
-    NotyfNotification.prototype.on = function(eventType, cb) {
-        var callbacks = this.listeners[eventType] || [];
-        this.listeners[eventType] = callbacks.concat([
-            cb
-        ]);
-    };
-    NotyfNotification.prototype.triggerEvent = function(eventType, event) {
-        var _this = this;
-        var callbacks = this.listeners[eventType] || [];
-        callbacks.forEach(function(cb) {
-            return cb({
-                target: _this,
-                event: event
-            });
-        });
-    };
-    return NotyfNotification;
-}();
-var NotyfArrayEvent;
-(function(NotyfArrayEvent) {
-    NotyfArrayEvent[NotyfArrayEvent["Add"] = 0] = "Add";
-    NotyfArrayEvent[NotyfArrayEvent["Remove"] = 1] = "Remove";
-})(NotyfArrayEvent || (NotyfArrayEvent = {}));
-var NotyfArray = /** @class */ function() {
-    function NotyfArray() {
-        this.notifications = [];
-    }
-    NotyfArray.prototype.push = function(elem) {
-        this.notifications.push(elem);
-        this.updateFn(elem, NotyfArrayEvent.Add, this.notifications);
-    };
-    NotyfArray.prototype.splice = function(index, num) {
-        var elem = this.notifications.splice(index, num)[0];
-        this.updateFn(elem, NotyfArrayEvent.Remove, this.notifications);
-        return elem;
-    };
-    NotyfArray.prototype.indexOf = function(elem) {
-        return this.notifications.indexOf(elem);
-    };
-    NotyfArray.prototype.onUpdate = function(fn) {
-        this.updateFn = fn;
-    };
-    return NotyfArray;
-}();
-var NotyfEvent;
-(function(NotyfEvent) {
-    NotyfEvent["Dismiss"] = "dismiss";
-    NotyfEvent["Click"] = "click";
-})(NotyfEvent || (NotyfEvent = {}));
-var DEFAULT_OPTIONS = {
-    types: [
-        {
-            type: "success",
-            className: "notyf__toast--success",
-            backgroundColor: "#3dc763",
-            icon: {
-                className: "notyf__icon--success",
-                tagName: "i"
-            }
-        },
-        {
-            type: "error",
-            className: "notyf__toast--error",
-            backgroundColor: "#ed3d3d",
-            icon: {
-                className: "notyf__icon--error",
-                tagName: "i"
-            }
-        }
-    ],
-    duration: 2000,
-    ripple: true,
-    position: {
-        x: "right",
-        y: "bottom"
-    },
-    dismissible: false
-};
-var NotyfView = /** @class */ function() {
-    function NotyfView() {
-        this.notifications = [];
-        this.events = {};
-        this.X_POSITION_FLEX_MAP = {
-            left: "flex-start",
-            center: "center",
-            right: "flex-end"
-        };
-        this.Y_POSITION_FLEX_MAP = {
-            top: "flex-start",
-            center: "center",
-            bottom: "flex-end"
-        };
-        // Creates the main notifications container
-        var docFrag = document.createDocumentFragment();
-        var notyfContainer = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf"
-        });
-        docFrag.appendChild(notyfContainer);
-        document.body.appendChild(docFrag);
-        this.container = notyfContainer;
-        // Identifies the main animation end event
-        this.animationEndEventName = this._getAnimationEndEventName();
-        this._createA11yContainer();
-    }
-    NotyfView.prototype.on = function(event, cb) {
-        var _a;
-        this.events = __assign(__assign({}, this.events), (_a = {}, _a[event] = cb, _a));
-    };
-    NotyfView.prototype.update = function(notification, type) {
-        if (type === NotyfArrayEvent.Add) this.addNotification(notification);
-        else if (type === NotyfArrayEvent.Remove) this.removeNotification(notification);
-    };
-    NotyfView.prototype.removeNotification = function(notification) {
-        var _this = this;
-        var renderedNotification = this._popRenderedNotification(notification);
-        var node;
-        if (!renderedNotification) return;
-        node = renderedNotification.node;
-        node.classList.add("notyf__toast--disappear");
-        var handleEvent;
-        node.addEventListener(this.animationEndEventName, handleEvent = function(event) {
-            if (event.target === node) {
-                node.removeEventListener(_this.animationEndEventName, handleEvent);
-                _this.container.removeChild(node);
-            }
-        });
-    };
-    NotyfView.prototype.addNotification = function(notification) {
-        var node = this._renderNotification(notification);
-        this.notifications.push({
-            notification: notification,
-            node: node
-        });
-        // For a11y purposes, we still want to announce that there's a notification in the screen
-        // even if it comes with no message.
-        this._announce(notification.options.message || "Notification");
-    };
-    NotyfView.prototype._renderNotification = function(notification) {
-        var _a;
-        var card = this._buildNotificationCard(notification);
-        var className = notification.options.className;
-        if (className) (_a = card.classList).add.apply(_a, className.split(" "));
-        this.container.appendChild(card);
-        return card;
-    };
-    NotyfView.prototype._popRenderedNotification = function(notification) {
-        var idx = -1;
-        for(var i = 0; i < this.notifications.length && idx < 0; i++)if (this.notifications[i].notification === notification) idx = i;
-        if (idx !== -1) return this.notifications.splice(idx, 1)[0];
-        return;
-    };
-    NotyfView.prototype.getXPosition = function(options) {
-        var _a;
-        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.x) || "right";
-    };
-    NotyfView.prototype.getYPosition = function(options) {
-        var _a;
-        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.y) || "bottom";
-    };
-    NotyfView.prototype.adjustContainerAlignment = function(options) {
-        var align = this.X_POSITION_FLEX_MAP[this.getXPosition(options)];
-        var justify = this.Y_POSITION_FLEX_MAP[this.getYPosition(options)];
-        var style = this.container.style;
-        style.setProperty("justify-content", justify);
-        style.setProperty("align-items", align);
-    };
-    NotyfView.prototype._buildNotificationCard = function(notification) {
-        var _this = this;
-        var options = notification.options;
-        var iconOpts = options.icon;
-        // Adjust container according to position (e.g. top-left, bottom-center, etc)
-        this.adjustContainerAlignment(options);
-        // Create elements
-        var notificationElem = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf__toast"
-        });
-        var ripple = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf__ripple"
-        });
-        var wrapper = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf__wrapper"
-        });
-        var message = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf__message"
-        });
-        message.innerHTML = options.message || "";
-        var mainColor = options.background || options.backgroundColor;
-        // Build the icon and append it to the card
-        if (iconOpts) {
-            var iconContainer = this._createHTMLElement({
-                tagName: "div",
-                className: "notyf__icon"
-            });
-            if (typeof iconOpts === "string" || iconOpts instanceof String) iconContainer.innerHTML = new String(iconOpts).valueOf();
-            if (typeof iconOpts === "object") {
-                var _a = iconOpts.tagName, tagName = _a === void 0 ? "i" : _a, className_1 = iconOpts.className, text = iconOpts.text, _b = iconOpts.color, color = _b === void 0 ? mainColor : _b;
-                var iconElement = this._createHTMLElement({
-                    tagName: tagName,
-                    className: className_1,
-                    text: text
-                });
-                if (color) iconElement.style.color = color;
-                iconContainer.appendChild(iconElement);
-            }
-            wrapper.appendChild(iconContainer);
-        }
-        wrapper.appendChild(message);
-        notificationElem.appendChild(wrapper);
-        // Add ripple if applicable, else just paint the full toast
-        if (mainColor) {
-            if (options.ripple) {
-                ripple.style.background = mainColor;
-                notificationElem.appendChild(ripple);
-            } else notificationElem.style.background = mainColor;
-        }
-        // Add dismiss button
-        if (options.dismissible) {
-            var dismissWrapper = this._createHTMLElement({
-                tagName: "div",
-                className: "notyf__dismiss"
-            });
-            var dismissButton = this._createHTMLElement({
-                tagName: "button",
-                className: "notyf__dismiss-btn"
-            });
-            dismissWrapper.appendChild(dismissButton);
-            wrapper.appendChild(dismissWrapper);
-            notificationElem.classList.add("notyf__toast--dismissible");
-            dismissButton.addEventListener("click", function(event) {
-                var _a, _b;
-                (_b = (_a = _this.events)[NotyfEvent.Dismiss]) === null || _b === void 0 || _b.call(_a, {
-                    target: notification,
-                    event: event
-                });
-                event.stopPropagation();
-            });
-        }
-        notificationElem.addEventListener("click", function(event) {
-            var _a, _b;
-            return (_b = (_a = _this.events)[NotyfEvent.Click]) === null || _b === void 0 ? void 0 : _b.call(_a, {
-                target: notification,
-                event: event
-            });
-        });
-        // Adjust margins depending on whether its an upper or lower notification
-        var className = this.getYPosition(options) === "top" ? "upper" : "lower";
-        notificationElem.classList.add("notyf__toast--" + className);
-        return notificationElem;
-    };
-    NotyfView.prototype._createHTMLElement = function(_a) {
-        var tagName = _a.tagName, className = _a.className, text = _a.text;
-        var elem = document.createElement(tagName);
-        if (className) elem.className = className;
-        elem.textContent = text || null;
-        return elem;
-    };
-    /**
-     * Creates an invisible container which will announce the notyfs to
-     * screen readers
-     */ NotyfView.prototype._createA11yContainer = function() {
-        var a11yContainer = this._createHTMLElement({
-            tagName: "div",
-            className: "notyf-announcer"
-        });
-        a11yContainer.setAttribute("aria-atomic", "true");
-        a11yContainer.setAttribute("aria-live", "polite");
-        // Set the a11y container to be visible hidden. Can't use display: none as
-        // screen readers won't read it.
-        a11yContainer.style.border = "0";
-        a11yContainer.style.clip = "rect(0 0 0 0)";
-        a11yContainer.style.height = "1px";
-        a11yContainer.style.margin = "-1px";
-        a11yContainer.style.overflow = "hidden";
-        a11yContainer.style.padding = "0";
-        a11yContainer.style.position = "absolute";
-        a11yContainer.style.width = "1px";
-        a11yContainer.style.outline = "0";
-        document.body.appendChild(a11yContainer);
-        this.a11yContainer = a11yContainer;
-    };
-    /**
-     * Announces a message to screenreaders.
-     */ NotyfView.prototype._announce = function(message) {
-        var _this = this;
-        this.a11yContainer.textContent = "";
-        // This 100ms timeout is necessary for some browser + screen-reader combinations:
-        // - Both JAWS and NVDA over IE11 will not announce anything without a non-zero timeout.
-        // - With Chrome and IE11 with NVDA or JAWS, a repeated (identical) message won't be read a
-        //   second time without clearing and then using a non-zero delay.
-        // (using JAWS 17 at time of this writing).
-        // https://github.com/angular/material2/blob/master/src/cdk/a11y/live-announcer/live-announcer.ts
-        setTimeout(function() {
-            _this.a11yContainer.textContent = message;
-        }, 100);
-    };
-    /**
-     * Determine which animationend event is supported
-     */ NotyfView.prototype._getAnimationEndEventName = function() {
-        var el = document.createElement("_fake");
-        var transitions = {
-            MozTransition: "animationend",
-            OTransition: "oAnimationEnd",
-            WebkitTransition: "webkitAnimationEnd",
-            transition: "animationend"
-        };
-        var t;
-        for(t in transitions){
-            if (el.style[t] !== undefined) return transitions[t];
-        }
-        // No supported animation end event. Using "animationend" as a fallback
-        return "animationend";
-    };
-    return NotyfView;
-}();
-/**
- * Main controller class. Defines the main Notyf API.
- */ var Notyf = /** @class */ function() {
-    function Notyf(opts) {
-        var _this = this;
-        this.dismiss = this._removeNotification;
-        this.notifications = new NotyfArray();
-        this.view = new NotyfView();
-        var types = this.registerTypes(opts);
-        this.options = __assign(__assign({}, DEFAULT_OPTIONS), opts);
-        this.options.types = types;
-        this.notifications.onUpdate(function(elem, type) {
-            return _this.view.update(elem, type);
-        });
-        this.view.on(NotyfEvent.Dismiss, function(_a) {
-            var target = _a.target, event = _a.event;
-            _this._removeNotification(target);
-            // tslint:disable-next-line: no-string-literal
-            target["triggerEvent"](NotyfEvent.Dismiss, event);
-        });
-        // tslint:disable-next-line: no-string-literal
-        this.view.on(NotyfEvent.Click, function(_a) {
-            var target = _a.target, event = _a.event;
-            return target["triggerEvent"](NotyfEvent.Click, event);
-        });
-    }
-    Notyf.prototype.error = function(payload) {
-        var options = this.normalizeOptions("error", payload);
-        return this.open(options);
-    };
-    Notyf.prototype.success = function(payload) {
-        var options = this.normalizeOptions("success", payload);
-        return this.open(options);
-    };
-    Notyf.prototype.open = function(options) {
-        var defaultOpts = this.options.types.find(function(_a) {
-            var type = _a.type;
-            return type === options.type;
-        }) || {};
-        var config = __assign(__assign({}, defaultOpts), options);
-        this.assignProps([
-            "ripple",
-            "position",
-            "dismissible"
-        ], config);
-        var notification = new NotyfNotification(config);
-        this._pushNotification(notification);
-        return notification;
-    };
-    Notyf.prototype.dismissAll = function() {
-        while(this.notifications.splice(0, 1));
-    };
-    /**
-     * Assigns properties to a config object based on two rules:
-     * 1. If the config object already sets that prop, leave it as so
-     * 2. Otherwise, use the default prop from the global options
-     *
-     * It's intended to build the final config object to open a notification. e.g. if
-     * 'dismissible' is not set, then use the value from the global config.
-     *
-     * @param props - properties to be assigned to the config object
-     * @param config - object whose properties need to be set
-     */ Notyf.prototype.assignProps = function(props, config) {
-        var _this = this;
-        props.forEach(function(prop) {
-            // intentional double equality to check for both null and undefined
-            config[prop] = config[prop] == null ? _this.options[prop] : config[prop];
-        });
-    };
-    Notyf.prototype._pushNotification = function(notification) {
-        var _this = this;
-        this.notifications.push(notification);
-        var duration = notification.options.duration !== undefined ? notification.options.duration : this.options.duration;
-        if (duration) setTimeout(function() {
-            return _this._removeNotification(notification);
-        }, duration);
-    };
-    Notyf.prototype._removeNotification = function(notification) {
-        var index = this.notifications.indexOf(notification);
-        if (index !== -1) this.notifications.splice(index, 1);
-    };
-    Notyf.prototype.normalizeOptions = function(type, payload) {
-        var options = {
-            type: type
-        };
-        if (typeof payload === "string") options.message = payload;
-        else if (typeof payload === "object") options = __assign(__assign({}, options), payload);
-        return options;
-    };
-    Notyf.prototype.registerTypes = function(opts) {
-        var incomingTypes = (opts && opts.types || []).slice();
-        var finalDefaultTypes = DEFAULT_OPTIONS.types.map(function(defaultType) {
-            // find if there's a default type within the user input's types, if so, it means the user
-            // wants to change some of the default settings
-            var userTypeIdx = -1;
-            incomingTypes.forEach(function(t, idx) {
-                if (t.type === defaultType.type) userTypeIdx = idx;
-            });
-            var userType = userTypeIdx !== -1 ? incomingTypes.splice(userTypeIdx, 1)[0] : {};
-            return __assign(__assign({}, defaultType), userType);
-        });
-        return finalDefaultTypes.concat(incomingTypes);
-    };
-    return Notyf;
-}();
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"bituW":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
-parcelHelpers.export(exports, "maincart_item", ()=>maincart_item);
-const sidecart_item = (item, index)=>{
-    return /*html*/ `
-        <div class="sidecart-draw-items__item" data-line="${index + 1}">
-            <div class="sidecart-draw-items__item__image">
-                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
-            </div>
-            <div class="sidecart-draw-items__item__details">
-                
-                <a href="#" class="sidecart-draw-items__item__details__remove" onclick="changeSideCartQuantity(event, 0)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
-                </a>
-
-                <p><b>${item.product_title}</b></p>
-                
-                <p class="small">
-                    ${item.product_title}
-                    ${item.variant_title ? `<br>${item.variant_title}` : ``}
-                </p>
-
-                <div class="quantity">
-                  <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
-                  <div class="quantity-input">
-                    <input type="text" value="${item.quantity}">
-                  </div>
-                  <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
-                </div>
-
-                <p class="sidecart-draw-items__item__details__price">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</p>
-            </div>
-        </div>
-    `;
-};
-const maincart_item = (item, index)=>{
-    return /*html*/ `
-    <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
-    <td class="cart__wrap__form__table__body__row__cell">
-      <a href="${item.link}" class="cart__wrap__form__table__body__row__cell__image">
-        <img src="${item.image}" alt="${item.product_title}" width="400" height="400">
-      </a>
-    </td>
-    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--details">
-      <a class="colour--green" href="${item.link}">
-        <h5 class="no-margin"><b>${item.product_title}</b></h5>
-      </a>
-    </td>
-    <td class="cart__wrap__form__table__body__row__cell">
-      <div class="quantity quantity--cart">
-        <div class="quantity-remove" onclick="changeMainCartQuantity(event,-1)">-</div>
-        <div class="quantity-input">
-          <input type="text" value="${item.quantity}">
-        </div>
-        <div class="quantity-add" onclick="changeMainCartQuantity(event,1)">+</div>
-      </div>
-    </td>
-    <td class="cart__wrap__form__table__body__row__cell cart__wrap__form__table__body__row__cell--total">
-        <h5 class="no-margin">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</h5>
-    </td>
-    <td class="cart__wrap__form__table__body__row__cell">
-      <a href="/cart/change?line=${index + 1}&amp;quantity=0" data-cart-item-index="2" class="[ js-remove-from-cart ]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
-          <path fill-rule="evenodd" d="M5.488 0v3.628H.045v1.814H1.86v19.955h16.327V5.442H20V3.628h-5.442V0h-9.07Zm1.814 1.814h5.442v1.814H7.302V1.814ZM3.673 5.442h12.699v18.14H3.673V5.443Zm2.722 2.721v12.699h1.814V8.163H6.395Zm5.442 0v12.699h1.814V8.163h-1.814Z"></path>
-        </svg>
-      </a>
-    </td>
-  </tr>`;
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"lWUal":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Accordion", ()=>Accordion);
-class Accordion {
-    /**
-     * 
-     * Initialise the accordion item
-     * 
-     */ init() {
-        // Get the initial state of the accordion
-        this.getState();
-        // Add the click event handler to the accordion
-        this.addEventListeners();
-    }
-    /**
-     * 
-     * Get the current state of the accordion
-     * 
-     */ getState() {
-        this.is_open = this.accordion.classList.contains("active");
-    }
-    /**
-    * 
-    * Toggle the current state of the accordion
-    * 
-    */ toggle() {
-        this.is_open ? this.close() : this.open();
-    }
-    /**
-     * 
-     * Add the click event handler to the accordion
-     * 
-     */ addEventListeners() {
-        this.accordion.addEventListener("click", ()=>this.toggle());
-    }
-    /**
-     * 
-     * Add the click event handler to the accordion
-     * 
-     */ updateState(state) {
-        // Update the current state
-        this.is_open = state;
-        // Update the aria-expanded attribute
-        this.trigger.setAttribute("aria-expanded", state);
-    }
-    /**
-     * 
-     * Open the accordion
-     * 
-     */ open() {
-        // Add active class to the accordion
-        this.accordion.classList.add("active");
-        // Quickly get the height we want to animate to
-        this.content.style.height = "auto";
-        var height = this.content.clientHeight + "px";
-        // Revert the heioght back to nothing
-        this.content.style.height = 0;
-        // Animate the height once the calculations are done
-        setTimeout(()=>this.content.style.height = height, 0);
-        // Update the current state
-        this.updateState(true);
-    }
-    /**
-     * 
-     * Close the accordion
-     * 
-     */ close() {
-        // Revert the height back to nothing
-        this.content.style.height = 0;
-        // Remove the active class once animations are over
-        this.content.addEventListener("transitionend", ()=>{
-            this.accordion.classList.remove("active");
-        }, {
-            once: true
-        });
-        // Update the current state
-        this.updateState(false);
-    }
-    /**
-     * 
-     * Constructor
-     * 
-     * @param {element} element accordion parent
-     */ constructor(element){
-        this.accordion = element;
-        this.trigger = this.accordion.querySelector(".js-trigger");
-        this.content = this.accordion.querySelector(".js-content");
-        // Initialise the accordion
-        this.init();
-    }
-}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"7Oucv":[function(require,module,exports) {
 /*! choices.js v10.2.0 | © 2022 Josh Johnson | https://github.com/jshjohnson/Choices#readme */ (function webpackUniversalModuleDefinition(root, factory) {
@@ -11686,42 +11721,7 @@ class Accordion {
     /******/ }();
 });
 
-},{}],"9Us5D":[function(require,module,exports) {
-var _lib = require("./lib");
-document.addEventListener("DOMContentLoaded", function() {
-    let clientX = -100;
-    let clientY = -100;
-    const innerCursor = document.querySelector(".customCursor");
-    const initCursor = ()=>{
-        document.addEventListener("mousemove", (e)=>{
-            clientX = e.clientX;
-            clientY = e.clientY;
-        });
-        const render = ()=>{
-            innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
-            requestAnimationFrame(render);
-        };
-        requestAnimationFrame(render);
-    };
-    const animateCursor = (type, remove)=>(0, _lib.$)(".customCursor").classList.toggle(type, remove);
-    initCursor();
-    // Get the element with the class 'js-cursor-previous'
-    const $previous = (0, _lib.$)(".js-cursor-previous");
-    if ($previous) {
-        // Add event listeners for mouseenter and mouseleave
-        $previous.addEventListener("mouseenter", ()=>animateCursor("previous", true));
-        $previous.addEventListener("mouseleave", ()=>animateCursor("previous", false));
-    }
-    // Get the element with the class 'js-cursor-previous'
-    const $next = (0, _lib.$)(".js-cursor-next");
-    if ($next) {
-        // Add event listeners for mouseenter and mouseleave
-        $next.addEventListener("mouseenter", ()=>animateCursor("next", true));
-        $next.addEventListener("mouseleave", ()=>animateCursor("next", false));
-    }
-});
-
-},{"./lib":"acGTP"}],"119aE":[function(require,module,exports) {
+},{}],"119aE":[function(require,module,exports) {
 !function(e, t) {
     module.exports = t();
 }(this, function() {

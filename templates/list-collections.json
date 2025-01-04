@@ -1,24 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "e08464f5-a336-4692-bf0d-a419914b0cf5": {
       "type": "banner",
       "settings": {
-        "heading": "<h1><strong>Shop our range<\/strong><\/h1>",
-        "image": "shopify:\/\/shop_images\/collection_banner.jpg",
+        "heading": "<h1><strong>Shop our range</strong></h1>",
+        "image": "shopify://shop_images/collection_banner.jpg",
         "link_label": "",
         "link_link": ""
       }
     },
     "main": {
       "type": "main-list-collections",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

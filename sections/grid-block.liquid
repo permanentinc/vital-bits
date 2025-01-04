@@ -44,9 +44,9 @@
           <div class="grid__item__image">
             {%- if block.settings.article.image != blank -%}
               {% if count == 1 %}
-                {{ block.settings.article.image | image_url: width: 690, height: 690 | image_tag }}
+                {{ block.settings.article.image | image_url: width: 690 | image_url: height: 690 | image_tag }}
               {% else %}
-                {{ block.settings.article.image | image_url: width: 690, height: 340 | image_tag }}
+                {{ block.settings.article.image | image_url: width: 690 | image_url: height: 340 | image_tag }}
               {% endif %}
             {%- endif -%}
           </div>
@@ -67,9 +67,9 @@
           <div class="grid__item__image">
             {%- if block.settings.image != blank -%}
               {% if count == 1 %}
-                {{ block.settings.image | image_url: width: 690, height: 690 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 690 | image_tag }}
               {% else %}
-                {{ block.settings.image | image_url: width: 690, height: 340 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 340 | image_tag }}
               {% endif %}
             {%- endif -%}
           </div>

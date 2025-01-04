@@ -5112,6 +5112,39 @@ html [data-theme="Breast Feeding"] .notyf__message a {
   }
 }
 
+img.error, .text-block > img, .text-block .ss-htmleditorfield-file, .text-block__wrap > p > em > a > img, .text-block__wrap > p > a > img, .text-block__wrap > p > img {
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+  min-height: 50px;
+  display: block;
+  position: relative;
+}
+
+img.error:before {
+  content: " ";
+  background-color: #f5f4f2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+}
+
+img.error:after {
+  content: "🔗" " Missing Image " attr(alt);
+  color: #aca6a1;
+  text-align: center;
+  width: 100%;
+  padding: 0 2rem;
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
 .image-element {
   background: var(--blue-light);
   width: 100%;

@@ -1,7 +1,7 @@
 <div class="banner banner--{{ section.settings.height }}">
   <div class="banner-image">
     {%- if section.settings.image != blank -%}
-      {{ section.settings.image | image_url: width: 1640, height: 760 | image_tag }}
+      {{ section.settings.image | image_url: width: 1640 | image_url: height: 760 | image_tag }}
     {%- endif -%}
   </div>
 
