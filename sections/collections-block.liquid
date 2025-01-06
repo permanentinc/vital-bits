@@ -53,6 +53,20 @@
           Item
         {% endcomment %}
         <a href="{{ product.url }}" class="collections__slider__item collections__slider__item--product">
+          <div
+            class="collections__slider__item__quickview [ js-show-quickview ]"
+            data-tooltip
+            data-id="{{ product.handle }}"
+            data-collection="{{ block.settings.Collection.title | upcase }}"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="19.707" height="19.708">
+              <path fill="#FFF" fill-rule="nonzero" d="M7.899 0c4.361 0 7.898 3.531 7.898 7.888 0 1.825-.62 3.505-1.663 4.841l5.573 5.563-1.414 1.416-5.577-5.569a7.87 7.87 0 0 1-4.817 1.637C3.537 15.776 0 12.245 0 7.888 0 3.53 3.537 0 7.899 0Zm0 2A5.893 5.893 0 0 0 2 7.888a5.893 5.893 0 0 0 5.899 5.888 5.893 5.893 0 0 0 5.898-5.888A5.893 5.893 0 0 0 7.899 2Z"></path>
+            </svg>
+            <div class="tooltip">
+              <div class="tooltip__wrap">Quick view</div>
+            </div>
+          </div>
+
           <div class="collections__slider__item__image">
             {% if product.featured_media %}
               {{ product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
@@ -81,6 +95,19 @@
       {%- endfor -%}
     </div>
   {%- endfor -%}
+
+  <div class="collections__slider__navigation">
+    <div class="collections__slider__navigation__prev [ js-collection-slider-prev ]">
+      <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+        <path d="M.217 27.968L28.18 0l7.523 7.524L20.049 23.18H80v10.64H20.049l15.653 15.656L28.179 57 .217 29.032a.76.76 0 010-1.064z" fill="#000" fill-rule="nonzero" />
+      </svg>
+    </div>
+    <div class="collections__slider__navigation__next [ js-collection-slider-next ]">
+      <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+        <path d="M79.783 27.968L51.82 0l-7.523 7.524L59.951 23.18H0v10.64h59.951L44.298 49.476 51.821 57l27.962-27.968a.76.76 0 000-1.064z" fill="#000" fill-rule="nonzero" />
+      </svg>
+    </div>
+  </div>
 
   {% comment %}
     Marquee

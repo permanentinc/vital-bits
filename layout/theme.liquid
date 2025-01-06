@@ -160,6 +160,11 @@
   >
     {{ content_for_header }}
 
+    {% comment %}
+      Header
+    {% endcomment %}
+
+    {% render 'announcement-bar' %}
     {%- liquid
       section 'custom-cursors'
       section 'header'
@@ -170,10 +175,17 @@
     {% section 'instagram-block' %}
 
     {% comment %}
+      Quick view
+    {% endcomment %}
+    {% section 'quick-view' %}
+
+    {% comment %}
       Side cart
     {% endcomment %}
     {% section 'sidecart' %}
 
     {% section 'footer' %}
+
+    <script src="https://js.afterpay.com/afterpay-1.x.js" async></script>
   </body>
 </html>

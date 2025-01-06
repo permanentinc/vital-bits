@@ -1,4 +1,4 @@
-[data-page-type='list-collections'] {
+[data-page-type="list-collections"] {
     .banner-image {
         aspect-ratio: 16 / 4;
         min-height: 34rem;
@@ -8,6 +8,7 @@
         margin-top: 4rem;
     }
 }
+
 .collections {
     position: relative;
     background: #e1edf9;
@@ -95,6 +96,13 @@
         &__item {
             flex-wrap: wrap;
 
+            &:hover {
+                .collections__slider__item__quickview {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
             &--text {
                 width: 30%;
                 padding: 4rem;
@@ -148,13 +156,39 @@
                 }
             }
 
+            &__quickview {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 5rem;
+                height: 5rem;
+                border: 3px solid var(--green-light);
+                background: transparent;
+                color: var(--white);
+                border-radius: 100rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: all $fast;
+                z-index: 2;
+
+                svg {
+                    pointer-events: none;
+                }
+
+                path {
+                    fill: var(--green);
+                }
+            }
+
             &__image {
                 width: 100%;
                 position: relative;
                 margin-bottom: 2rem;
 
                 &:after {
-                    content: '';
+                    content: "";
                     position: relative;
                     display: block;
                     padding-bottom: 100%;
@@ -188,6 +222,27 @@
 
             &__description {
                 width: 100%;
+            }
+        }
+
+        &__navigation {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            height: 8rem;
+            justify-content: flex-end;
+            justify-content: center;
+
+            &__prev,
+            &__next {
+                width: 6rem;
+                fill: transparent;
+                margin: 1rem 3rem;
+                cursor: pointer;
+
+                path {
+                    fill: var(--green);
+                }
             }
         }
     }
@@ -230,17 +285,40 @@
         // transition: all $faster;
     }
 
-
-    &[data-theme='post-partum'],
-    &[data-theme='c-section-delivery'],
-    &[data-theme='v-delivery'] {
+    &[data-theme="post-partum"],
+    &[data-theme="c-section-delivery"],
+    &[data-theme="v-delivery"] {
         background: var(--purple-light) !important;
+
+        .collections__slider__item__quickview path {
+            fill: var(--orange);
+        }
+
+        .tooltip,
+        .tooltip:before,
+        .collections__slider__item__quickview {
+            border-color: var(--orange);
+        }
+
+        .quickview-draw {
+            background: var(--purple-light);
+        }
+
+        .quickview-draw .product-details * {
+            color: var(--orange);
+        }
+
+        .quickview-draw {
+            background: var(--purple-light);
+        }
+
+        .collections__slider__navigation path {
+            fill: var(--orange);
+        }
 
         .collections__slider * {
             color: var(--orange);
         }
-
-
 
         .button {
             background: var(--orange) !important;
@@ -256,8 +334,12 @@
         }
     }
 
-    &[data-theme='breast-feeding'] {
+    &[data-theme="breast-feeding"] {
         background: var(--pink-light) !important;
+
+        .collections__slider__navigation path {
+            fill: var(--pink);
+        }
 
         .collections__slider * {
             color: var(--pink);
@@ -277,7 +359,7 @@
         }
     }
 
-    &[data-theme='pregnancy'] {
+    &[data-theme="pregnancy"] {
         background: var(--blue-light) !important;
 
         .collections__slider * {

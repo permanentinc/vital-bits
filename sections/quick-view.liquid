@@ -2,15 +2,18 @@
   Sidecart
 {% endcomment %}
 
-<div class="sidecart">
+<div class="quickview">
   {% comment %}
     Background
   {% endcomment %}
-  <div class="sidecart-background" onclick="event.preventDefault();document.body.classList.remove('sidecart-visible');">
+  <div
+    class="quickview-background"
+    onclick="event.preventDefault();document.body.classList.remove('quickview-visible');"
+  >
     {% comment %}
       Wave top left
     {% endcomment %}
-    <div class="sidecart-background-wave1 [ js-wave ]">
+    <div class="quickview-background-wave1 [ js-wave ]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
         <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
       </svg>
@@ -19,7 +22,7 @@
     {% comment %}
       Wave top left
     {% endcomment %}
-    <div class="sidecart-background-wave2 [ js-wave ]">
+    <div class="quickview-background-wave2 [ js-wave ]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
         <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
       </svg>
@@ -29,32 +32,20 @@
   {% comment %}
     Draw
   {% endcomment %}
-  <div class="sidecart-draw">
-    <div class="sidecart-draw-head">
-      <p><span>Your Cart</span></p>
-      <button onclick="document.body.classList.remove('sidecart-visible');">
+  <div class="quickview-draw">
+    <div class="quickview-draw-head">
+      <p><span>Quick View</span></p>
+      <button onclick="document.body.classList.remove('quickview-visible');">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewbox="0 0 30 30">
           <path fill-rule="evenodd" d="M29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553l10.373 10.374L0 25.3l4.553 4.554L14.928 19.48 25.3 29.854z"/>
         </svg>
       </button>
     </div>
-    <div class="sidecart-draw-items"></div>
-    <div class="sidecart-draw-actions">
-      <div class="sidecart-draw-actions-lineitem">
-        <h5><span>Subtotal</span><span class="[ js-sidecart-total ]">$49.99</span></h5>
-      </div>
-      <div class="sidecart-draw-actions-afterpay">
-        <span>
-          Pay in 4 instalments of
-          <span class="[ js-afterpay-payments ]" data-alternate-payment-price="" data-currency="" data-money="0"
-            >$12.49</span
-          >
-          with</span
-        ><img src="{{ 'afterpay.svg' | asset_url }}" width="77" height="16" loading="lazy">
-      </div>
 
-      <a href="/checkout" class="button full">Checkout</a>
-      <a href="/cart" class="link static">View my cart</a>
+    <div class="quickview-draw-content [ js-quickview-content ]"></div>
+
+    <div class="quickview-draw-actions">
+      <a href="#" class="button full [ js-quickview-link ]">View full details</a>
     </div>
   </div>
 </div>

@@ -584,6 +584,7 @@ var _search = require("./search");
 var _shop = require("./shop");
 var _cursor = require("./cursor");
 var _accordion = require("./accordion");
+var _templates = require("./templates");
 var _flickity = require("flickity");
 var _flickityDefault = parcelHelpers.interopDefault(_flickity);
 var _inView = require("in-view");
@@ -600,6 +601,164 @@ var _core = require("typewriter-effect/dist/core");
 var _coreDefault = parcelHelpers.interopDefault(_core);
 console.log("Vital Bits v1.0.0");
 document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("click", (e)=>{
+        if (e.target && e.target.classList.contains("js-show-quickview")) {
+            e.preventDefault();
+            // Show the quickview flyout
+            document.body.classList.add("quickview-visible");
+            // Get the product handle
+            let product_handle = e.target.dataset.id;
+            let product_collection = e.target.dataset.collection;
+            let $quickviewContent = (0, _lib.$)(".js-quickview-content");
+            fetch(`/products/${product_handle}.json`).then((response)=>response.json()).then((data)=>{
+                let product = data.product;
+                let html = /*html*/ `
+                            <div class="product-gallery">
+                                <div class="product-slider [ js-quickview-imagery-slider ]">
+                                  ${product.images.map((media)=>{
+                    return /*html*/ `
+                                    <div class="product-slider-item">
+                                      <img
+                                        class="[ js-product-slider-item-image ]"
+                                        src="${media.src}"
+                                        alt="${media.alt}"
+                                        data-lightbox-image="${media.src}"
+                                        width="1080"
+                                        height="1080"
+                                        loading="lazy">
+                                    </div>`;
+                }).join("")}
+                                </div>
+                            </div>
+                                
+                            <div class="product-details">
+                                ${product_collection ? `<h6 class="product-details__category no-margin">
+                                        <b>${product_collection}</b>
+                                    </h6>` : null}
+                                <h4>
+                                  <b>${product.title}</b>
+                                </h4>
+                            </div>
+                                
+                            <div class="product-details-price">
+                              <p class="h4">
+                                <b class="[ js-variation-price ]">
+                                    $${product.variants[0].price}
+                                </b>
+                              </p>
+                            </div>
+
+                            <div class="product-details-form">
+                                <form method="post" action="/cart/add" id="product_form_${product.id}" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data" novalidate="novalidate" data-product-form="">
+                                <input type="hidden" name="form_type" value="product" />
+                                <input type="hidden" name="utf8" value="✓" />
+
+                                  <div class="product-actions">
+                                    <div class="quantity">
+                                      <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
+                                      <div class="quantity-input">
+                                        <input type="text" value="1">
+                                      </div>
+                                      <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
+                                    </div>
+                                    <a href="#" class="button [ js-add-to-cart ]">Add to Cart <span class="loader"></span></a>
+                                  </div>
+
+                                  
+                                  <select ${product.variants.length > 1 ? `  class="[ js-variant ][ js-choices ]"` : ` style="display:none;" class="[ js-variant ]"`} name="id" id="ProductSelect-template--23800677400894__main">
+                                    ${product.variants.map((variant)=>`<option value="${variant.id}">${variant.title}</option>`).join("")}
+                                  </select>
+
+                                  <input type="hidden" name="product-id" value="${product.id}" /><input type="hidden" name="section-id" value="template--23800677400894__main" />
+                                </form>
+                            </div>
+
+                            <div class="product-details-description">
+                                ${product.body_html}
+                            </div>                           
+                            `;
+                $quickviewContent.innerHTML = html;
+                (0, _lib.$)(".js-quickview-link").setAttribute("href", `/products/${product_handle}`);
+                let quickview_slider = new (0, _flickityDefault.default)(".js-quickview-imagery-slider", {
+                    wrapAround: true,
+                    pageDots: false,
+                    prevNextButtons: false
+                });
+                // $('.js-cursor-previous').addEventListener('click', (e) => {
+                //     e.preventDefault();
+                //     quickview_slider.previous();
+                // });
+                // $('.js-cursor-next').addEventListener('click', (e) => {
+                //     e.preventDefault();
+                //     quickview_slider.next();
+                // });
+                Afterpay.createPlacements({
+                    targetSelector: ".product-details-price",
+                    attributes: {
+                        locale: Afterpay.locale.EN_NZ,
+                        currency: Afterpay.currency.NZD,
+                        amount: product.variants[0].price,
+                        size: Afterpay.size.XS,
+                        logoType: Afterpay.logoType.BADGE,
+                        badgeTheme: Afterpay.theme.badge.BLACK_ON_WHITE,
+                        modalLinkStyle: Afterpay.modalLinkStyle.CIRCLED_QUESTION_ICON
+                    }
+                });
+                // Declare our choices options
+                const options = {
+                    searchEnabled: false,
+                    itemSelectText: "",
+                    shouldSort: false,
+                    placeholder: true,
+                    allowHTML: true
+                };
+                if ((0, _lib.$)(".js-choices")) {
+                    new (0, _choicesJsDefault.default)((0, _lib.$)(".js-choices"), options);
+                    (0, _lib.$)(".js-variant").addEventListener("change", (event)=>{
+                        let variant = event.detail.value;
+                        let variantData = window.inventories[variant];
+                        (0, _lib.$)(".js-variation-price").innerHTML = variantData.price;
+                    });
+                }
+                (0, _lib.$$)(".product-details-description h4").forEach((element)=>{
+                    let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    //wrap html in span
+                    let html = element.outerHTML;
+                    // strip all html tags
+                    html = html.replace(/(<([^>]+)>)/gi, "");
+                    // get all the html until the next h4
+                    let content = "";
+                    let next = element.nextElementSibling;
+                    while(next && next.tagName !== "H4"){
+                        content += next.outerHTML;
+                        nextNext = next.nextElementSibling;
+                        next.outerHTML = "";
+                        next = nextNext;
+                    }
+                    element.outerHTML = /*html*/ `
+                                <section class="accordion-element accordion-element-dynamic [ element ]">
+                                    <div class="accordion-element__wrap">
+                                        <div class="accordion-element__item [ js-accordion-element ][ js-accordion-element-dynamic ]" id="accordion_${uuid}">
+                                            <button class="accordion-element__trigger [ js-trigger ]" aria-expanded="false" aria-controls="accordion_section_${uuid}">
+                                                <h6 class="no-margin">
+                                                    <b>${html}</b>
+                                                </h6>
+                                            </button>
+                                            <div class="accordion-element__content [ js-content ]" role="region" aria-labelledby="accordion_section_${uuid}">
+                                                <div class="accordion-element__inner">
+                                                  ${content}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>`;
+                });
+                setTimeout(()=>{
+                    (0, _lib.$$)(".js-accordion-element-dynamic").forEach((element)=>new (0, _accordion.Accordion)(element));
+                }, 400);
+            });
+        }
+    });
     (0, _splittingDefault.default)();
     //We care for your bits. Your private bits. Your life bits.
     var typewriter1 = new (0, _coreDefault.default)((0, _lib.$)(".js-typed-1"), {
@@ -806,15 +965,23 @@ Banner slider block - Flickity
     prevNextButtons: false,
     initialIndex: window.innerWidth > 768 ? 1 : 0
 });
+let $slidePrevious = (0, _lib.$)(".js-collection-slider-prev");
+if ($slidePrevious) $slidePrevious.addEventListener("click", (e)=>{
+    e.preventDefault();
+    window.flkty.previous();
+});
+let $slideNext = (0, _lib.$)(".js-collection-slider-next");
+if ($slideNext) $slideNext.addEventListener("click", (e)=>{
+    e.preventDefault();
+    window.flkty.next();
+});
 let $collection_triggers = (0, _lib.$$)(".js-collection-slider-trigger");
 if ($collection_triggers) $collection_triggers.forEach((element)=>{
     element.addEventListener("click", (e)=>{
         e.preventDefault();
         let handle = element.getAttribute("data-handle");
-        console.log(handle);
         // Send the request to Shopify
         fetch(`/collections/${handle}/products.json`).then((response)=>response.json()).then((data)=>{
-            console.log(data.products);
             let items = (0, _lib.$$)(".collections__slider__item--product");
             items.forEach((item)=>{
                 window.flkty.remove(item);
@@ -830,6 +997,20 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
                 newElement.classList.add("collections__slider__item--product");
                 newElement.setAttribute("href", "/products/" + product.handle);
                 newElement.innerHTML = `
+                            <div
+                              class="collections__slider__item__quickview [ js-show-quickview ]"
+                              data-tooltip
+                              data-id="${product.handle}"
+                              data-collection="${handle}"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="19.707" height="19.708">
+                                <path fill="#FFF" fill-rule="nonzero" d="M7.899 0c4.361 0 7.898 3.531 7.898 7.888 0 1.825-.62 3.505-1.663 4.841l5.573 5.563-1.414 1.416-5.577-5.569a7.87 7.87 0 0 1-4.817 1.637C3.537 15.776 0 12.245 0 7.888 0 3.53 3.537 0 7.899 0Zm0 2A5.893 5.893 0 0 0 2 7.888a5.893 5.893 0 0 0 5.899 5.888 5.893 5.893 0 0 0 5.898-5.888A5.893 5.893 0 0 0 7.899 2Z"></path>
+                              </svg>
+                              <div class="tooltip">
+                                <div class="tooltip__wrap">Quick view</div>
+                              </div>
+                            </div>
+
                             <div class="collections__slider__item__image">
                                 <img src="${product.images[0].src}" alt="${product.images[0].alt}">
                             </div>
@@ -846,6 +1027,10 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
             flkty.append(newItems);
             // got to the first slide
             flkty.select(window.innerWidth > 768 ? 1 : 0);
+            // Scroll to the top of the .collections__slider
+            (0, _lib.$)(".collections__slider").scrollIntoView({
+                behavior: "smooth"
+            });
         }).catch((data)=>{
             // Show an error message in the console
             console.log(data);
@@ -889,10 +1074,10 @@ Product gallery slider
         /**
          * Start the progress bar animating 
          */ const startProgressbar = ()=>{
-            resetProgressbar();
-            hovered = false;
-            percent = 0;
-            tick = setInterval(interval, 10);
+        // resetProgressbar();
+        // hovered = false;
+        // percent = 0;
+        // tick = setInterval(interval, 10);
         };
         /**
          * Set our animation speed for the progress bar
@@ -904,8 +1089,7 @@ Product gallery slider
         let product_slider = new (0, _flickityDefault.default)(".js-product-imagery-slider", {
             wrapAround: true,
             pageDots: false,
-            prevNextButtons: false,
-            autoPlay: 5250
+            prevNextButtons: false
         });
         startProgressbar();
         product_slider.on("change", ()=>startProgressbar());
@@ -1015,7 +1199,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }, false);
 
-},{"./lib":"acGTP","./search":"4fKJc","./shop":"1fHDu","./cursor":"9Us5D","./accordion":"lWUal","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","choices.js":"7Oucv","glightbox":"119aE","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"acGTP":[function(require,module,exports) {
+},{"./lib":"acGTP","./search":"4fKJc","./shop":"1fHDu","./cursor":"9Us5D","./accordion":"lWUal","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","choices.js":"7Oucv","glightbox":"119aE","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","./templates":"bituW"}],"acGTP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "$", ()=>$);
@@ -1339,40 +1523,46 @@ window.changeSideCartQuantity = (event, amount)=>{
  * 
  * Add to cart interactions
  * 
- */ if ((0, _lib.$)(".js-add-to-cart")) (0, _lib.$)(".js-add-to-cart").addEventListener("click", (e)=>{
-    e.preventDefault();
-    // Declare our variables
-    let button = e.target;
-    let form = button.closest("form");
-    // Add a loading animation to the button
-    button.classList.add("busy");
-    let data = {
-        id: form.querySelector(".js-variant").value,
-        quantity: parseInt(form.querySelector(".quantity-input input").value)
-    };
-    // Send the request to Shopify
-    fetch("/cart/add.js", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }).then((response)=>response.json()).then((data)=>{
-        // Update the cart sitewide
-        fetchCart();
-        // Remove the loading animation from the button
-        button.classList.remove("busy");
-        // Show a success message
-        notyf.success({
-            message: "Your cart has been updated",
-            icon: false
+ */ document.body.addEventListener("click", (e)=>{
+    if (e.target && e.target.classList.contains("js-add-to-cart")) {
+        e.preventDefault();
+        // Declare our variables
+        let button = e.target;
+        let form = button.closest("form");
+        // Add a loading animation to the button
+        button.classList.add("busy");
+        let data = {
+            id: form.querySelector(".js-variant").value,
+            quantity: parseInt(form.querySelector(".quantity-input input").value)
+        };
+        // Send the request to Shopify
+        fetch("/cart/add.js", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }).then((response)=>response.json()).then((data)=>{
+            // Hide the quickview flyout
+            document.body.classList.remove("quickview-visible");
+            // Update the cart sitewide
+            fetchCart();
+            // Remove the loading animation from the button
+            button.classList.remove("busy");
+            // Show a success message
+            notyf.success({
+                message: "Your cart has been updated",
+                icon: false
+            });
+        }).catch((data)=>{
+            // Hide the quickview flyout
+            document.body.classList.remove("quickview-visible");
+            // Remove the loading animation from the button
+            button.classList.remove("busy");
+            // Show an error message in the console
+            console.log(data);
         });
-    }).catch((data)=>{
-        // Remove the loading animation from the button
-        button.classList.remove("busy");
-        // Show an error message in the console
-        console.log(data);
-    });
+    }
 });
 window.changeMainCartQuantity = (event, amount)=>{
     let quantity, input = event.target.parentElement.querySelector("input");
@@ -1867,40 +2057,8 @@ var NotyfView = /** @class */ function() {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"bituW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
 parcelHelpers.export(exports, "maincart_item", ()=>maincart_item);
-const sidecart_item = (item, index)=>{
-    return /*html*/ `
-        <div class="sidecart-draw-items__item" data-line="${index + 1}">
-            <div class="sidecart-draw-items__item__image">
-                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
-            </div>
-            <div class="sidecart-draw-items__item__details">
-                
-                <a href="#" class="sidecart-draw-items__item__details__remove" onclick="changeSideCartQuantity(event, 0)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
-                </a>
-
-                <p><b>${item.product_title}</b></p>
-                
-                <p class="small">
-                    ${item.product_title}
-                    ${item.variant_title ? `<br>${item.variant_title}` : ``}
-                </p>
-
-                <div class="quantity">
-                  <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
-                  <div class="quantity-input">
-                    <input type="text" value="${item.quantity}">
-                  </div>
-                  <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
-                </div>
-
-                <p class="sidecart-draw-items__item__details__price">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</p>
-            </div>
-        </div>
-    `;
-};
+parcelHelpers.export(exports, "sidecart_item", ()=>sidecart_item);
 const maincart_item = (item, index)=>{
     return /*html*/ `
     <tr class="cart__wrap__form__table__body__row" data-line="${index + 1}">
@@ -1934,6 +2092,38 @@ const maincart_item = (item, index)=>{
       </a>
     </td>
   </tr>`;
+};
+const sidecart_item = (item, index)=>{
+    return /*html*/ `
+        <div class="sidecart-draw-items__item" data-line="${index + 1}">
+            <div class="sidecart-draw-items__item__image">
+                <img src="${item.image || `//vital-bits.myshopify.com/cdn/shop/t/3/assets/placeholder.jpeg?v=49819949536947215331702494934`}" loading="lazy" alt="${item.product_title}">
+            </div>
+            <div class="sidecart-draw-items__item__details">
+                
+                <a href="#" class="sidecart-draw-items__item__details__remove" onclick="changeSideCartQuantity(event, 0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="#000" fill-rule="nonzero" d="M12 10.169 7.831 6 12 1.83 10.169 0 6 4.17 1.831 0 .001 1.83 4.17 6 0 10.169 1.83 12 6 7.83 10.169 12z"/></svg>
+                </a>
+
+                <p><b>${item.product_title}</b></p>
+                
+                <p class="small">
+                    ${item.product_title}
+                    ${item.variant_title ? `<br>${item.variant_title}` : ``}
+                </p>
+
+                <div class="quantity">
+                  <div class="quantity-remove" onclick="changeSideCartQuantity(event,-1)">-</div>
+                  <div class="quantity-input">
+                    <input type="text" value="${item.quantity}">
+                  </div>
+                  <div class="quantity-add" onclick="changeSideCartQuantity(event,1)">+</div>
+                </div>
+
+                <p class="sidecart-draw-items__item__details__price">$${parseFloat(item.quantity * item.price / 100).toFixed(2)}</p>
+            </div>
+        </div>
+    `;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS"}],"9Us5D":[function(require,module,exports) {

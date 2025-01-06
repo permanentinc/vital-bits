@@ -4,44 +4,17 @@
     overflow: hidden;
     background: var(--blue-light);
 
-    &__wrap {
-        max-width: var(--content-width);
-        margin: 0 auto;
-        padding: 6rem;
-        position: relative;
-        z-index: 4;
-
-        @include media($md, max) {
-            padding: 4rem 2rem;
-        }
-    }
-
     &__intro {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
+        max-width: var(--content-width);
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        color: var(--green);
+    }
 
-        &__left {
-            width: 50%;
-        }
-
-        &__right {
-            width: 50%;
-            text-align: right;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: flex-end;
-
-            &__link {
-                margin-left: 1rem;
-                
-                img {
-                    width: 4rem;
-                    height: 4rem;
-                }
-            }
-        }
+    .eapps-instagram-feed-posts-slider-prev,
+    .eapps-instagram-feed-posts-slider-next {
+        display: none !important;
     }
 }

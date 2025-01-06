@@ -1,0 +1,203 @@
+.quickview {
+    @include full;
+    position: fixed;
+    z-index: 999;
+    perspective: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all $fast;
+    overflow: hidden;
+
+    &-background {
+        @include full;
+        background: var(--off-white);
+        opacity: 0.9;
+        transition: all $medium;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+
+        &:before {
+            @include pseudo;
+            @include full;
+            background-image: radial-gradient(var(--green) 0.5px, transparent 0.5px),
+                radial-gradient(var(--green) 0.5px, var(--off-white) 0.5px);
+            background-size: 20px 20px;
+            background-position:
+                0 0,
+                10px 10px;
+            opacity: 0.4;
+        }
+
+        &-wave2,
+        &-wave1 {
+            @include svg(1366, 768);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transform: translateY(0%) translateX(-30%) rotate(-40deg);
+
+            path {
+                stroke: var(--green);
+            }
+        }
+
+        &-wave2 {
+            transform: translateY(-50%) translateX(-20%) rotate(-220deg);
+        }
+    }
+
+    &-draw {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 40rem;
+        background: var(--blue-light);
+        box-shadow: 0 10px 30px rgba(#000, 0.05);
+        opacity: 0;
+        transition: all $fast;
+        transform: rotateY(-15deg);
+        transform: rotateY(-25deg);
+        transform-origin: 100% 100%;
+
+        &-head {
+            padding: 1rem 2rem 2rem;
+
+            p {
+                margin: 0;
+                position: relative;
+                color: var(--green);
+
+                &:before {
+                    @include pseudo;
+                    height: 1px;
+                    background: var(--green-light);
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                }
+
+                span {
+                    position: relative;
+                    background: var(--blue-light);
+                    padding-right: 2rem;
+                    z-index: 2;
+                }
+            }
+
+            button {
+                background: var(--blue-light);
+                border: 0;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+                cursor: pointer;
+                z-index: 4;
+                padding-left: 2rem;
+
+                svg {
+                    width: 2.4rem;
+                    height: 2.4rem;
+
+                    path {
+                        fill: var(--green);
+                    }
+                }
+            }
+        }
+
+        &-actions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            transition: all $fast;
+            transform: translateY(0%);
+            text-align: center;
+            background: var(--blue-light);
+            border-top: 1px solid var(--green-light);
+
+            .link {
+                margin-top: 1rem;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+
+        &-content {
+            overflow-y: auto;
+            height: calc(100% - 5rem);
+            padding-bottom: 10rem;
+
+            .product-details {
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+
+            .product-gallery {
+                padding: 0 2rem;
+                width: 100%;
+            }
+
+            .product-details-price {
+                padding: 0 2rem;
+                width: 100%;
+
+                p {
+                    color: var(--green);
+                }
+            }
+
+            .product-actions .quantity {
+                margin-right: 1.5rem;
+            }
+
+            afterpay-placement {
+                width: calc(100% - 5rem);
+                margin: 0 auto;
+            }
+
+            .product-details-form {
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+
+            .product-details-description {
+                padding: 1rem 2rem;
+                width: 100%;
+
+                p,
+                li,
+                h6 {
+                    color: var(--green);
+                }
+            }
+        }
+    }
+}
+
+.quickview-visible {
+    .quickview {
+        opacity: 1;
+        visibility: visible;
+
+        &-background {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        &-draw {
+            opacity: 1;
+            transform: rotateY(0);
+        }
+
+        .quickview-draw-items__item {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+    }
+}

@@ -1,16 +1,12 @@
-{% comment %}
-  Header
-{% endcomment %}
+
 
 <div class="header">
-  {% render 'announcement-bar' %}
-
   <div class="header-wrap">
     {% comment %}
       Main navigation
     {% endcomment %}
     <div class="header-nav">
-      {% for link in linklists.main-menu.links -%}
+      {% for link in linklists['main-menu'].links -%}
         <div class="header-nav__item">
           <a
             href="{{ link.url }}"
@@ -74,10 +70,8 @@
   </div>
 </div>
 
-
-
 {% comment %}
-MegaMenu
+  MegaMenu
 {% endcomment %}
 
 {% render 'mega' %}
@@ -142,15 +136,18 @@ MegaMenu
 <div class="mobile-navigation">
   <div class="mobile-navigation-background"></div>
   <div class="mobile-navigation-menu">
-    <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">Shop vitals</a>
-    </div>
-    <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">Important bits</a>
-    </div>
-    <div class="mobile-navigation-menu__item">
-      <a href="/collections/all" class="mobile-navigation-menu__item__link animate-white-to-green">About us</a>
-    </div>
+
+    {% for link in linklists['main-menu'].links -%}
+      <div class="mobile-navigation-menu__item">
+        <a
+          href="{{ link.url }}"
+          data-id="{{ link.title }}"
+          class="mobile-navigation-menu__item__link animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"
+        >
+          {{ link.title }}
+        </a>
+      </div>
+    {%- endfor %}
 
     <div class="mobile-navigation-menu__item mobile-navigation-menu__item--social">
       <p class="white">Connect with us</p>

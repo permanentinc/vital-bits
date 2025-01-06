@@ -171,11 +171,12 @@ window.changeSideCartQuantity = (event, amount) => {
  * Add to cart interactions
  * 
  */
-if ($('.js-add-to-cart')) {
 
-    $('.js-add-to-cart').addEventListener('click', (e) => {
+document.body.addEventListener('click', (e) => {
+    if (e.target && e.target.classList.contains('js-add-to-cart')) {
 
         e.preventDefault();
+
 
         // Declare our variables
         let button = e.target;
@@ -199,6 +200,9 @@ if ($('.js-add-to-cart')) {
             .then((response) => response.json())
             .then((data) => {
 
+                // Hide the quickview flyout
+                document.body.classList.remove('quickview-visible');
+
                 // Update the cart sitewide
                 fetchCart();
 
@@ -211,6 +215,9 @@ if ($('.js-add-to-cart')) {
             })
             .catch((data) => {
 
+                // Hide the quickview flyout
+                document.body.classList.remove('quickview-visible');
+
                 // Remove the loading animation from the button
                 button.classList.remove('busy');
 
@@ -219,10 +226,8 @@ if ($('.js-add-to-cart')) {
 
             });
 
-
-    });
-
-}
+    }
+});
 
 
 window.changeMainCartQuantity = (event, amount) => {

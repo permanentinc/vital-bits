@@ -87,7 +87,7 @@
             z-index: 33;
             cursor: pointer;
             position: absolute;
-            width: 4rem;
+            width: 5rem;
 
             svg {
                 path {
@@ -233,26 +233,45 @@
     }
 }
 
-[data-theme='Pregnancy'] {
-    .header-nav__item__link {
-        color: var(--green) !important;
-        -webkit-text-fill-color: initial;
-    }
-
+[data-theme="Pregnancy"] {
     .header-logo path {
         fill: var(--green);
     }
 }
 
 html {
-    [data-theme='Post Partum'],
-    [data-theme='C-Section Delivery'],
-    [data-theme='V-Delivery'] {
+    [data-theme="Post Partum"],
+    [data-theme="C-Section Delivery"],
+    [data-theme="V-Delivery"] {
         background: var(--purple-light);
 
-        .header-nav__item__link {
+        a.link:not(.static),
+        a:not([class]) {
+            box-shadow:
+                inset 0 -1px 0 var(--orange),
+                0 1px 0 var(--orange);
+
+            &:hover {
+                box-shadow:
+                    inset 0 -30px 0 var(--orange),
+                    0 1px 0 var(--orange);
+                color: white !important;
+            }
+        }
+
+        .mega .button,
+        .mega__wrap__column--bordered:after {
+            background: var(--orange) !important;
+        }
+
+        .header.nav-up,
+        .mega {
+            background: var(--purple-light) !important;
+        }
+
+        .tooltip,
+        .mega__wrap__column__sublink a {
             color: var(--orange) !important;
-            -webkit-text-fill-color: initial;
         }
 
         .header-logo path {
@@ -274,6 +293,10 @@ html {
             background-image: linear-gradient(90deg, var(--orange) 50%, white 50%);
         }
 
+        .tooltip,
+        .tooltip:before {
+            border-color: var(--orange);
+        }
         .choices__inner {
             border-color: var(--orange);
 
@@ -324,7 +347,7 @@ html {
             }
         }
 
-        .js-wave path,
+        .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path,
         .previous path,
         .next path {
             stroke: var(--orange) !important;
@@ -369,12 +392,36 @@ html {
 }
 
 html {
-    [data-theme='Breast Feeding'] {
+    [data-theme="Breast Feeding"] {
         background: var(--pink-light);
 
-        .header-nav__item__link {
+        a.link:not(.static),
+        a:not([class]) {
+            box-shadow:
+                inset 0 -1px 0 var(--pink),
+                0 1px 0 var(--pink);
+
+            &:hover {
+                box-shadow:
+                    inset 0 -30px 0 var(--pink),
+                    0 1px 0 var(--pink);
+                color: white !important;
+            }
+        }
+
+        .mega .button,
+        .mega__wrap__column--bordered:after {
+            background: var(--pink) !important;
+        }
+
+        .header.nav-up,
+        .mega {
+            background: var(--pink-light) !important;
+        }
+
+        .tooltip,
+        .mega__wrap__column__sublink a {
             color: var(--pink) !important;
-            -webkit-text-fill-color: initial;
         }
 
         .header-logo path {
@@ -395,8 +442,13 @@ html {
         .animate-white-to-green {
             background-image: linear-gradient(90deg, var(--pink) 50%, white 50%);
         }
-        .choices__inner {
+        .tooltip,
+        .tooltip:before {
             border-color: var(--pink);
+        }
+
+        .choices__inner {
+            border-color: var(--);
 
             &:hover .choices__inner {
                 border-color: var(--pink);
@@ -445,7 +497,7 @@ html {
             }
         }
 
-        .js-wave path,
+        .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path,
         .previous path,
         .next path {
             stroke: var(--pink) !important;
@@ -501,7 +553,7 @@ html {
     }
 
     * {
-        font-family: 'sofia-pro', sans-serif !important;
+        font-family: "sofia-pro", sans-serif !important;
     }
 
     .form-element {
@@ -554,5 +606,76 @@ html {
         color: white !important;
         text-transform: none !important;
         font-size: 1.6rem;
+    }
+}
+
+[data-tooltip] {
+    perspective: 400px;
+
+    &:hover {
+        .tooltip {
+            transform: translateX(-50%) rotateX(0);
+            opacity: 1;
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        color: var(--green);
+        border: 1px solid var(--green);
+        border-radius: 0.3rem;
+        text-align: center;
+        transform: translateX(-50%) rotateX(30deg);
+        left: 50%;
+        top: 100%;
+        margin-top: 1rem;
+        line-height: 1.1;
+        transition: all $fast;
+        transform-origin: center top;
+        opacity: 0;
+        will-change: transform, opacity;
+
+        &__wrap {
+            background: white;
+            font-size: 1.1rem;
+            padding: 0.8rem 0.6rem;
+            width: 10rem;
+            display: block;
+            border-radius: 0.2rem;
+            box-shadow:
+                0.3px 0.3px 0.8px rgba(0, 0, 0, 0.028),
+                1.1px 1.1px 2.7px rgba(0, 0, 0, 0.042),
+                5px 5px 12px rgba(0, 0, 0, 0.07);
+            white-space: wrap;
+        }
+
+        &:before {
+            @include pseudo;
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid var(--green);
+            top: 0;
+            border-radius: 0.2rem;
+            left: 50%;
+            z-index: -1;
+            margin-top: 1px;
+            box-shadow:
+                0.3px 0.3px 0.8px rgba(0, 0, 0, 0.028),
+                1.1px 1.1px 2.7px rgba(0, 0, 0, 0.042),
+                5px 5px 12px rgba(0, 0, 0, 0.07);
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        }
+
+        &:after {
+            @include pseudo;
+            width: 0.8rem;
+            height: 0.8rem;
+            top: 0;
+            border-radius: 0.1rem;
+            left: 50%;
+            margin-top: 2px;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            background: white;
+        }
     }
 }

@@ -39,6 +39,10 @@
         width: calc(33.33333333%);
         padding: 0 2rem;
         margin-bottom: 4rem;
+
+        @include media($md, max) {
+            width: 100%;
+        }
     }
 
     &__image {
