@@ -11,14 +11,15 @@
     z-index: 9999;
     right: 0;
     transition: all $fast;
-    margin-bottom: -7.45rem;
+    margin-bottom: -7.55rem;
+    border-bottom: 1px solid transparent;
 
     @include media($lg, max) {
-        margin-bottom: -7.85rem;
+        margin-bottom: -7.95rem;
     }
 
     @include media($md, max) {
-        margin-bottom: -11.85rem;
+        margin-bottom: -11.95rem;
     }
 
     &:after {
@@ -29,8 +30,10 @@
         transition: all $fast;
     }
 
+    &.nav-down,
     &.nav-up {
         background: #a6d3d8;
+        border-bottom: 1px solid var(--green);
         .header-logo svg {
             transform: scale(0.8);
         }

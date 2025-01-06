@@ -73,8 +73,8 @@
             }
 
             @include media($sm, max) {
-                width: 100%;
-                margin-bottom: 4rem;
+                // width: 100%;
+                // margin-bottom: 4rem;
             }
         }
 
@@ -91,8 +91,10 @@
             }
 
             @include media($sm, max) {
-                width: 100%;
-                margin-bottom: 4rem;
+                order:6;
+                
+                // width: 100%;
+                // margin-bottom: 4rem;
             }
         }
 
@@ -110,8 +112,8 @@
             }
 
             @include media($sm, max) {
-                width: 100%;
-                margin-bottom: 4rem;
+                // width: 100%;
+                // margin-bottom: 4rem;
             }
         }
     }

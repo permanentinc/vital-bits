@@ -300,18 +300,6 @@
             border-color: var(--orange);
         }
 
-        .quickview-draw {
-            background: var(--purple-light);
-        }
-
-        .quickview-draw .product-details * {
-            color: var(--orange);
-        }
-
-        .quickview-draw {
-            background: var(--purple-light);
-        }
-
         .collections__slider__navigation path {
             fill: var(--orange);
         }
@@ -336,6 +324,16 @@
 
     &[data-theme="breast-feeding"] {
         background: var(--pink-light) !important;
+
+        .collections__slider__item__quickview path {
+            fill: var(--pink);
+        }
+
+        .tooltip,
+        .tooltip:before,
+        .collections__slider__item__quickview {
+            border-color: var(--pink);
+        }
 
         .collections__slider__navigation path {
             fill: var(--pink);

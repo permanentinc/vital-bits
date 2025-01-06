@@ -264,6 +264,13 @@ html {
             background: var(--orange) !important;
         }
 
+        
+        .header.nav-up,
+        .header.nav-down {
+            border-bottom: 1px solid var(--orange);
+        }
+
+        .header.nav-down,
         .header.nav-up,
         .mega {
             background: var(--purple-light) !important;
@@ -409,11 +416,17 @@ html {
             }
         }
 
+        .header.nav-up,
+        .header.nav-down {
+            border-bottom: 1px solid var(--pink);
+        }
+
         .mega .button,
         .mega__wrap__column--bordered:after {
             background: var(--pink) !important;
         }
 
+        .header.nav-down,
         .header.nav-up,
         .mega {
             background: var(--pink-light) !important;

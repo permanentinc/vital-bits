@@ -132,6 +132,10 @@
             height: calc(100% - 5rem);
             padding-bottom: 10rem;
 
+            .product-details__category {
+                text-transform: uppercase;
+            }
+
             .product-details {
                 padding: 1rem 2rem;
                 width: 100%;
@@ -198,6 +202,110 @@
         .quickview-draw-items__item {
             opacity: 1;
             transform: translateX(0) translateY(0);
+        }
+    }
+}
+
+html .quickview {
+    &[data-theme="post-partum"],
+    &[data-theme="c-section-delivery"],
+    &[data-theme="v-delivery"] {
+        .quickview-draw-actions,
+        .quickview-draw-head p span,
+        .quickview-draw-head button,
+        .quickview-draw {
+            background: var(--purple-light) !important;
+        }
+        .quickview-draw-head p:before,
+        .accordion-element__trigger:before,
+        .accordion-element__trigger:after {
+            background: var(--orange) !important;
+        }
+
+        .quickview-background-wave2 path,
+        .quickview-background-wave1 path {
+            stroke: var(--orange) !important;
+        }
+
+        .quickview-draw-head button svg path {
+            fill: var(--orange) !important;
+        }
+
+        .quickview-draw-actions,
+        .accordion-element-dynamic .accordion-element__item,
+        .product-actions {
+            border-color: var(--orange);
+        }
+
+        .quickview-draw-content .product-details-description p,
+        .quickview-draw-content .product-details-description li,
+        .quickview-draw-content .product-details-description h6,
+        .quantity-add,
+        .quantity-remove,
+        .quantity-input input,
+        .quickview-draw-content .product-details-price p,
+        .quickview-draw-head p,
+        .product-details * {
+            color: var(--orange);
+        }
+
+        .button {
+            background: var(--orange) !important;
+            color: var(--purple-light) !important;
+
+            &.busy {
+                color: var(--orange) !important;
+            }
+        }
+    }
+    &[data-theme="breast-feeding"] {
+        .quickview-draw-actions,
+        .quickview-draw-head p span,
+        .quickview-draw-head button,
+        .quickview-draw {
+            background: var(--pink-light) !important;
+        }
+
+        .quickview-draw-head p:before,
+        .accordion-element__trigger:before,
+        .accordion-element__trigger:after {
+            background: var(--pink) !important;
+        }
+
+        .quickview-background-wave2 path,
+        .quickview-background-wave1 path {
+            stroke: var(--pink) !important;
+        }
+
+        .quickview-draw-head button svg path {
+            fill: var(--pink) !important;
+        }
+
+        .quickview-draw-actions,
+        .accordion-element-dynamic .accordion-element__item,
+        .product-actions {
+            border-color: var(--pink);
+        }
+
+        .quickview-draw-content .product-details-description p,
+        .quickview-draw-content .product-details-description li,
+        .quickview-draw-content .product-details-description h6,
+        .quantity-add,
+        .quantity-remove,
+        .quantity-input input,
+        .quickview-draw-content .product-details-price p,
+        .quickview-draw-head p,
+        .product-details * {
+            color: var(--pink);
+        }
+
+        .button {
+            background: var(--pink) !important;
+            color: var(--pink-light) !important;
+
+            &.busy {
+                color: var(--pink) !important;
+            }
         }
     }
 }

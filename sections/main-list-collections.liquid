@@ -18,47 +18,47 @@
   {% endcomment %}
   <div class="collection-grid__list">
     {% for collection in collections %}
-      <div
-        class="collection-grid__list__title [ js-in-view ]"
-      >
-        <h2 class="h1">
-          <b>{{ collection.title }}</b>
-        </h2>
-      </div>
+      {% if collection.products.size > 0 %}
+        <div class="collection-grid__list__title [ js-in-view ]">
+          <h2 class="h1">
+            <b>{{ collection.title }}</b>
+          </h2>
+        </div>
 
-      <div class="[ js-gradient ]" data-collection="{{ collection.title }}"></div>
+        <div class="[ js-gradient ]" data-collection="{{ collection.title }}"></div>
 
-      {% for product in collection.products %}
-        {% comment %}
-          Item
-        {% endcomment %}
-        <a href="{{ product.url }}" class="collection-grid__list__item collection-grid__list__item--product">
-          <div class="collection-grid__list__item__image">
-            {% if product.featured_image %}
-              {{ product.featured_image | image_url: width: 400 | image_url: height: 400 | image_tag }}
-            {% else %}
-              <img
-                src="{{ 'placeholder.jpeg' | asset_url }}"
-                alt="placeholder image"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-            {% endif %}
-          </div>
-          <div class="collection-grid__list__item__title">
-            <h6>
-              <b>{{ product.title }}</b>
-            </h6>
-            <h6>
-              <b>{{ product.price | money }}</b>
-            </h6>
-          </div>
-          <div class="collection-grid__list__item__description">
-            <p>{{ product.metafields.custom.short_description }}</p>
-          </div>
-        </a>
-      {% endfor %}
+        {% for product in collection.products %}
+          {% comment %}
+            Item
+          {% endcomment %}
+          <a href="{{ product.url }}" class="collection-grid__list__item collection-grid__list__item--product">
+            <div class="collection-grid__list__item__image">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 400 | image_url: height: 400 | image_tag }}
+              {% else %}
+                <img
+                  src="{{ 'placeholder.jpeg' | asset_url }}"
+                  alt="placeholder image"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="collection-grid__list__item__title">
+              <h6>
+                <b>{{ product.title }}</b>
+              </h6>
+              <h6>
+                <b>{{ product.price | money }}</b>
+              </h6>
+            </div>
+            <div class="collection-grid__list__item__description">
+              <p>{{ product.metafields.custom.short_description }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
     {% endfor %}
   </div>
 

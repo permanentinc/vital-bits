@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Get the product handle
             let product_handle = e.target.dataset.id;
             let product_collection = e.target.dataset.collection;
+            if (product_collection) $('.quickview').setAttribute('data-theme', product_collection);
+
             let $quickviewContent = $('.js-quickview-content');
             fetch(`/products/${product_handle}.json`)
                 .then((response) => response.json())
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
 
                             <div class="product-details-description">
-                                ${product.body_html}
+                                ${product.body_html.match(/<p>(.*?)<\/p>/)[0]}
                             </div>                           
                             `;
 
@@ -513,6 +515,9 @@ if ($collection_triggers) {
         element.addEventListener('click', (e) => {
             e.preventDefault();
             let handle = element.getAttribute('data-handle');
+            let title = element.getAttribute('data-title');
+            let url = element.getAttribute('data-url');
+            let copy = element.getAttribute('data-copy');
 
             // Send the request to Shopify
             fetch(`/collections/${handle}/products.json`)
@@ -520,6 +525,19 @@ if ($collection_triggers) {
                 .then((data) => {
 
                     let items = $$('.collections__slider__item--product');
+
+
+                    $('.collections__slider__item--text').innerHTML = `
+                        <h2>
+                          <b>${title}</b>
+                        </h2>
+                        <p>
+                          <b>${copy}</b>
+                        </p>
+                        <p>
+                          <a href="${url}" class="button">Shop all</a>
+                        </p>
+                    `;
 
                     items.forEach((item) => {
                         window.flkty.remove(item);

@@ -20,7 +20,8 @@
         &:before {
             @include pseudo;
             @include full;
-            background-image: radial-gradient(var(--green) 0.5px, transparent 0.5px), radial-gradient(var(--green) 0.5px, var(--off-white) 0.5px);
+            background-image: radial-gradient(var(--green) 0.5px, transparent 0.5px),
+                radial-gradient(var(--green) 0.5px, var(--off-white) 0.5px);
             background-size: 20px 20px;
             background-position:
                 0 0,
