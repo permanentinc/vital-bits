@@ -597,8 +597,10 @@ if ($collection_triggers) {
                     // got to the first slide
                     flkty.select((window.innerWidth > 768) ? 1 : 0);
 
+                    setTimeout(() => {
                     // Scroll to the top of the .collections__slider
                     $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
 
                 })
                 .catch((data) => {
