@@ -105,6 +105,7 @@
         "9687f40b-23de-4822-92d1-60e24896dc6b",
         "ce645685-9d39-443f-8afc-08a301f0ddf3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Our mission",
         "text": "<p><strong>Providing all the vital things for all the vital bits, during all those vital times.</strong></p>"
