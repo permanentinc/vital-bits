@@ -16,6 +16,7 @@
     },
     "e08464f5-a336-4692-bf0d-a419914b0cf5": {
       "type": "banner",
+      "disabled": true,
       "custom_css": [
         "h1 {color: white;}"
       ],
