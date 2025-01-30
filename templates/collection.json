@@ -11,6 +11,7 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {}
     },
     "03b62737-0d59-41b2-a53d-4092c2c042d8": {
@@ -20,7 +21,8 @@
         "heading": "<h1><strong>Our <br/>range</strong></h1>",
         "image": "shopify://shop_images/collection_banner.jpg",
         "link_label": "",
-        "link_link": ""
+        "link_link": "",
+        "height": "normal"
       }
     },
     "product-grid": {
