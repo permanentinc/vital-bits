@@ -20,8 +20,24 @@
         flex-wrap: wrap;
 
         &--3 {
-            .collections__item {
-                width: 33.3333%;
+            @include media($md) {
+                .collections__item {
+                    width: 33.3333%;
+                    @include aspect(1, 0.9);
+                }
+            }
+
+            @include media($xmd) {
+                .collections__item {
+                    @include aspect(1, 0.6);
+                }
+            }
+
+            @include media($md, max) {
+                .collections__item {
+                    @include aspect(3, 1);
+                    width: 100%;
+                }
             }
         }
     }
