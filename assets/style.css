@@ -1936,6 +1936,12 @@ body .choices .choices__list--dropdown .choices__item {
   position: relative;
 }
 
+.banner--text {
+  aspect-ratio: 16 / 5;
+  min-height: 30rem;
+  max-height: 72rem;
+}
+
 @media only screen and (min-width: 768px) {
   .banner--slim .banner-image {
     aspect-ratio: 16 / 5;

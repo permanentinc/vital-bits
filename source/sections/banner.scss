@@ -1,6 +1,12 @@
 .banner {
     position: relative;
 
+    &--text {
+        aspect-ratio: 16/5;
+        max-height: 72rem;
+        min-height: 30rem;
+    }
+
     &--slim {
         .banner-image {
             @include media($md) {
