@@ -1,10 +1,48 @@
+[data-theme="Post Partum"],
+[data-theme="C-Section Delivery"],
+[data-theme="V-Delivery"] {
+    .banner--text .banner-text h1 {
+        -webkit-text-stroke-color: var(--orange);
+    }
+}
+
 .banner {
     position: relative;
 
     &--text {
-        aspect-ratio: 16/5;
-        max-height: 72rem;
-        min-height: 30rem;
+        .banner-text {
+            position: relative;
+            margin: 6rem auto -8rem;
+            top: 0;
+            transform: translateY(0);
+            text-align: center;
+
+            @media (max-width: 768px) {
+                margin: 0rem auto -4rem;
+                padding: 16rem 2rem 0rem;
+
+                h1{
+                    line-height: 6vw !important;
+                    font-size: 5rem !important;
+                }
+            }
+
+            .banner-constraint {
+                max-width: 100%;
+            }
+
+            h1 {
+                line-height: 8vw;
+                font-weight: 700;
+                white-space: nowrap;
+                font-size: 6rem;
+                padding: 4rem 1rem 2rem;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: var(--green);
+            }
+        }
     }
 
     &--slim {

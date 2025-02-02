@@ -1932,14 +1932,48 @@ body .choices .choices__list--dropdown .choices__item {
   display: inline-block;
 }
 
+[data-theme="Post Partum"] .banner--text .banner-text h1, [data-theme="C-Section Delivery"] .banner--text .banner-text h1, [data-theme="V-Delivery"] .banner--text .banner-text h1 {
+  -webkit-text-stroke-color: var(--orange);
+}
+
 .banner {
   position: relative;
 }
 
-.banner--text {
-  aspect-ratio: 16 / 5;
-  min-height: 30rem;
-  max-height: 72rem;
+.banner--text .banner-text {
+  text-align: center;
+  margin: 6rem auto -8rem;
+  position: relative;
+  top: 0;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .banner--text .banner-text {
+    margin: 0 auto -4rem;
+    padding: 16rem 2rem 0;
+  }
+
+  .banner--text .banner-text h1 {
+    font-size: 5rem !important;
+    line-height: 6vw !important;
+  }
+}
+
+.banner--text .banner-text .banner-constraint {
+  max-width: 100%;
+}
+
+.banner--text .banner-text h1 {
+  white-space: nowrap;
+  color: #0000;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--green);
+  padding: 4rem 1rem 2rem;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 8vw;
 }
 
 @media only screen and (min-width: 768px) {
