@@ -9,8 +9,15 @@
  */
 {
   "sections": {
+    "text_banner_83MwDc": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "PREGNANCY"
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {}
     },
     "product-grid": {
@@ -19,6 +26,7 @@
     }
   },
   "order": [
+    "text_banner_83MwDc",
     "banner",
     "product-grid"
   ]
