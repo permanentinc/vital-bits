@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "text_banner_qaUYcK": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "V-DELIVERY"
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -20,6 +26,7 @@
     }
   },
   "order": [
+    "text_banner_qaUYcK",
     "banner",
     "product-grid"
   ]
