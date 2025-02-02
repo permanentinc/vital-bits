@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "text_banner_bEpkxV": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "BREAST FEEDING",
+        "height": "normal"
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -20,6 +27,7 @@
     }
   },
   "order": [
+    "text_banner_bEpkxV",
     "banner",
     "product-grid"
   ]
