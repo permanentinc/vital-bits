@@ -9,13 +9,6 @@
  */
 {
   "sections": {
-    "text_banner_bEpkxV": {
-      "type": "text-banner",
-      "settings": {
-        "heading": "BREAST FEEDING",
-        "height": "normal"
-      }
-    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -24,11 +17,17 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {}
+    },
+    "text_banner_J3Yrak": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "BREAST FEEDING"
+      }
     }
   },
   "order": [
-    "text_banner_bEpkxV",
     "banner",
-    "product-grid"
+    "product-grid",
+    "text_banner_J3Yrak"
   ]
 }
