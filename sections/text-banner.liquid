@@ -1,0 +1,55 @@
+<div class="banner banner--text banner--{{ section.settings.height }}">
+  <div class="banner-text">
+    <div class="banner-constraint">
+      <h1 class="black">
+        <b>
+          {{ section.settings.heading }}
+        </b>
+      </h1>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "text-banner-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Through lifes most <br>vital moments<\/p>",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Banner height",
+      "options": [
+        {
+          "value": "slim",
+          "label": "Slim"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "tall",
+          "label": "Tall"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Banner"
+    }
+  ]
+}
+{% endschema %}
