@@ -18,6 +18,12 @@
     &__grid {
         display: flex;
         flex-wrap: wrap;
+
+        &--3 {
+            .collections__item {
+                width: 33.3333%;
+            }
+        }
     }
 
     &__item {

@@ -2,7 +2,7 @@
   {% comment %}
     Grid
   {% endcomment %}
-  <div class="collections__grid">
+  <div class="collections__grid collections__grid--{{ section.blocks.size }}">
     {%- for block in section.blocks -%}
       {% assign count = count | plus: 1 %}
       <div
