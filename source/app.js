@@ -23,6 +23,8 @@ import GLightbox from 'glightbox';
 import Splitting from "splitting";
 import Typewriter from 'typewriter-effect/dist/core';
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     document.body.addEventListener('click', (e) => {
@@ -30,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
 
             console.log('show quickview');
-
 
             // Show the quickview flyout
             document.body.classList.add('quickview-visible');
@@ -715,6 +716,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const productSliderItemImages = $$('.js-product-slider-item-image');
         productSliderItemImages.forEach((el) => {
             images.push({ 'href': el.getAttribute('data-lightbox-image'), 'type': 'image' });
+
+            // preload images
+            var img = new Image();
+            img.src = el.getAttribute('data-lightbox-image');
+
         });
 
         const myGallery = GLightbox({
@@ -727,10 +733,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('js-product-lightbox')) {
                 e.preventDefault();
-                myGallery.open();
+
+                // get index to stat at
+
+                myGallery.openAt(product_slider.selectedIndex);
             }
         });
-
 
 
         if ($('.eye-roll')) {

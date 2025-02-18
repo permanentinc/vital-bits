@@ -121,3 +121,7 @@
         padding: 0 2rem;
     }
 }
+
+[id*="text_banner"] ~ [id*="text_banner"] {
+    margin-top: -20rem !important;
+}

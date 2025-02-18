@@ -16,18 +16,19 @@
     "build": "parcel build"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.9.3",
-    "parcel": "^2.9.3",
+    "@parcel/transformer-sass": "^2.13.3",
+    "parcel": "^2.13.3",
     "process": "^0.11.10"
   },
   "dependencies": {
-    "animejs": "^3.2.1",
-    "choices.js": "^10.2.0",
+    "animejs": "^3.2.2",
+    "choices.js": "^11.0.3",
     "flickity": "2.2",
-    "glightbox": "^3.2.0",
+    "glightbox": "^3.3.1",
     "in-view": "^0.6.1",
-    "node-sass": "^9.0.0",
     "notyf": "^3.10.0",
+    "photoswipe": "^5.4.4",
+    "sass": "^1.85.0",
     "splitting": "^1.1.0",
     "typewriter-effect": "^2.21.0",
     "vanilla-js-match-height": "^1.0.6"
