@@ -729,6 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lazyload: false,
             elements: images
         });
+        
 
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('js-product-lightbox')) {
