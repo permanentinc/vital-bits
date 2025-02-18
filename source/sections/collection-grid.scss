@@ -59,7 +59,8 @@
 
         &__item {
             flex-wrap: wrap;
-
+            position: relative;
+            
             &--product {
                 padding: 2rem;
                 width: 33.33333333%;

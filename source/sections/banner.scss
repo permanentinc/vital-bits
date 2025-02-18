@@ -1,8 +1,14 @@
-[data-theme="Post Partum"],
-[data-theme="C-Section Delivery"],
-[data-theme="V-Delivery"] {
+[data-theme="post-partum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
     .banner--text .banner-text h1 {
         -webkit-text-stroke-color: var(--orange);
+    }
+}
+
+[data-theme="breast-feeding"] {
+    .banner--text .banner-text h1 {
+        -webkit-text-stroke-color: var(--pink);
     }
 }
 
@@ -21,7 +27,7 @@
                 margin: 0rem auto -4rem;
                 padding: 16rem 2rem 0rem;
 
-                h1{
+                h1 {
                     line-height: 6vw !important;
                     font-size: 5rem !important;
                 }

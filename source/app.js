@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.body.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('js-show-quickview')) {
-
-
             e.preventDefault();
+
+            console.log('show quickview');
+
 
             // Show the quickview flyout
             document.body.classList.add('quickview-visible');
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Get the product handle
             let product_handle = e.target.dataset.id;
             let product_collection = e.target.dataset.collection;
-            if (product_collection) $('.quickview').setAttribute('data-theme', product_collection);
+            if (product_collection) $('.quickview').setAttribute('data-theme', product_collection.toLowerCase().replace(/ /g, '-'));
 
             let $quickviewContent = $('.js-quickview-content');
             fetch(`/products/${product_handle}.json`)
@@ -278,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 inView('.js-gradient').on('enter', el => {
     el.classList.add('inview');
-    $('body').setAttribute('data-theme', el.dataset.collection);
+    $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));
 });
 
 
@@ -543,7 +544,7 @@ if ($collection_triggers) {
                         window.flkty.remove(item);
                     });
 
-                    $('.collections').setAttribute('data-theme', handle);
+                    $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
 
                     var newItems = [];
 
@@ -598,8 +599,8 @@ if ($collection_triggers) {
                     flkty.select((window.innerWidth > 768) ? 1 : 0);
 
                     setTimeout(() => {
-                    // Scroll to the top of the .collections__slider
-                    $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+                        // Scroll to the top of the .collections__slider
+                        $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
                     }, 500);
 
                 })
@@ -719,6 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const myGallery = GLightbox({
             height: '90%',
             touchNavigation: true,
+            lazyload: false,
             elements: images
         });
 

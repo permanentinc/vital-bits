@@ -604,12 +604,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.addEventListener("click", (e)=>{
         if (e.target && e.target.classList.contains("js-show-quickview")) {
             e.preventDefault();
+            console.log("show quickview");
             // Show the quickview flyout
             document.body.classList.add("quickview-visible");
             // Get the product handle
             let product_handle = e.target.dataset.id;
             let product_collection = e.target.dataset.collection;
-            if (product_collection) (0, _lib.$)(".quickview").setAttribute("data-theme", product_collection);
+            if (product_collection) (0, _lib.$)(".quickview").setAttribute("data-theme", product_collection.toLowerCase().replace(/ /g, "-"));
             let $quickviewContent = (0, _lib.$)(".js-quickview-content");
             fetch(`/products/${product_handle}.json`).then((response)=>response.json()).then((data)=>{
                 let product = data.product;
@@ -806,7 +807,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 (0, _inViewDefault.default)(".js-gradient").on("enter", (el)=>{
     el.classList.add("inview");
-    (0, _lib.$)("body").setAttribute("data-theme", el.dataset.collection);
+    (0, _lib.$)("body").setAttribute("data-theme", el.dataset.collection.toLowerCase().replace(/ /g, "-"));
 });
 if ((0, _lib.$)(".js-accordion-element")) (0, _lib.$$)(".js-accordion-element").forEach((element)=>new (0, _accordion.Accordion)(element));
 if ((0, _lib.$)(".product-details")) {
@@ -1001,7 +1002,7 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
             items.forEach((item)=>{
                 window.flkty.remove(item);
             });
-            (0, _lib.$)(".collections").setAttribute("data-theme", handle);
+            (0, _lib.$)(".collections").setAttribute("data-theme", handle.toLowerCase().replace(/ /g, "-"));
             var newItems = [];
             data.products.forEach((product)=>{
                 let full_description = product.body_html;
@@ -1129,6 +1130,7 @@ Product gallery slider
         const myGallery = (0, _glightboxDefault.default)({
             height: "90%",
             touchNavigation: true,
+            lazyload: false,
             elements: images
         });
         document.body.addEventListener("click", (e)=>{

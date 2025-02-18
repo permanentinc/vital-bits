@@ -161,10 +161,10 @@
   <body
     data-page-type="{{ request.page_type }}"
     {%- if request.page_type == 'product' -%}
-      data-theme="{{ product.collections[0].title }}"
+      data-theme="{{ product.collections[0].title | downcase }}"
     {%- endif -%}
     {%- if request.page_type == 'collection' -%}
-      data-theme="{{ collection.title }}"
+      data-theme="{{ collection.title | downcase }}"
     {%- endif -%}
   >
     {{ content_for_header }}

@@ -1932,8 +1932,12 @@ body .choices .choices__list--dropdown .choices__item {
   display: inline-block;
 }
 
-[data-theme="Post Partum"] .banner--text .banner-text h1, [data-theme="C-Section Delivery"] .banner--text .banner-text h1, [data-theme="V-Delivery"] .banner--text .banner-text h1 {
+[data-theme="post-partum"] .banner--text .banner-text h1, [data-theme="c-section-delivery"] .banner--text .banner-text h1, [data-theme="v-delivery"] .banner--text .banner-text h1 {
   -webkit-text-stroke-color: var(--orange);
+}
+
+[data-theme="breast-feeding"] .banner--text .banner-text h1 {
+  -webkit-text-stroke-color: var(--pink);
 }
 
 .banner {
@@ -3305,7 +3309,7 @@ body .choices .choices__list--dropdown .choices__item {
   color: var(--white);
   cursor: pointer;
   z-index: 2;
-  background: none;
+  background: #fff;
   border-radius: 100rem;
   justify-content: center;
   align-items: center;
@@ -3414,6 +3418,22 @@ body .choices .choices__list--dropdown .choices__item {
   font-size: 7vw;
   font-weight: 700;
   line-height: 8vw;
+}
+
+[data-page-type="list-collections"][data-theme="post-partum"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview path {
+  fill: var(--orange);
+}
+
+[data-page-type="list-collections"][data-theme="post-partum"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview {
+  border-color: var(--orange);
+}
+
+[data-page-type="list-collections"][data-theme="breast-feeding"] .collections__slider__item__quickview path {
+  fill: var(--pink);
+}
+
+[data-page-type="list-collections"][data-theme="breast-feeding"] .collections__slider__item__quickview {
+  border-color: var(--pink);
 }
 
 .collections[data-theme="post-partum"], .collections[data-theme="c-section-delivery"], .collections[data-theme="v-delivery"] {
@@ -4421,259 +4441,259 @@ ol > li li:before {
   line-height: 1.4;
 }
 
-[data-theme="Pregnancy"] .header-logo path {
+[data-theme="pregnancy"] .header-logo path {
   fill: var(--green);
 }
 
-html [data-theme="Post Partum"], html [data-theme="C-Section Delivery"], html [data-theme="V-Delivery"] {
+html [data-theme="post-partum"], html [data-theme="c-section-delivery"], html [data-theme="v-delivery"] {
   background: var(--purple-light);
 }
 
-html [data-theme="Post Partum"] a.link:not(.static), html [data-theme="Post Partum"] a:not([class]), html [data-theme="C-Section Delivery"] a.link:not(.static), html [data-theme="C-Section Delivery"] a:not([class]), html [data-theme="V-Delivery"] a.link:not(.static), html [data-theme="V-Delivery"] a:not([class]) {
+html [data-theme="post-partum"] a.link:not(.static), html [data-theme="post-partum"] a:not([class]), html [data-theme="c-section-delivery"] a.link:not(.static), html [data-theme="c-section-delivery"] a:not([class]), html [data-theme="v-delivery"] a.link:not(.static), html [data-theme="v-delivery"] a:not([class]) {
   box-shadow: inset 0 -1px 0 var(--orange), 0 1px 0 var(--orange);
 }
 
-html [data-theme="Post Partum"] a.link:not(.static):hover, html [data-theme="Post Partum"] a:not([class]):hover, html [data-theme="C-Section Delivery"] a.link:not(.static):hover, html [data-theme="C-Section Delivery"] a:not([class]):hover, html [data-theme="V-Delivery"] a.link:not(.static):hover, html [data-theme="V-Delivery"] a:not([class]):hover {
+html [data-theme="post-partum"] a.link:not(.static):hover, html [data-theme="post-partum"] a:not([class]):hover, html [data-theme="c-section-delivery"] a.link:not(.static):hover, html [data-theme="c-section-delivery"] a:not([class]):hover, html [data-theme="v-delivery"] a.link:not(.static):hover, html [data-theme="v-delivery"] a:not([class]):hover {
   box-shadow: inset 0 -30px 0 var(--orange), 0 1px 0 var(--orange);
   color: #fff !important;
 }
 
-html [data-theme="Post Partum"] .mega .button, html [data-theme="Post Partum"] .mega__wrap__column--bordered:after, html [data-theme="C-Section Delivery"] .mega .button, html [data-theme="C-Section Delivery"] .mega__wrap__column--bordered:after, html [data-theme="V-Delivery"] .mega .button, html [data-theme="V-Delivery"] .mega__wrap__column--bordered:after {
+html [data-theme="post-partum"] .mega .button, html [data-theme="post-partum"] .mega__wrap__column--bordered:after, html [data-theme="c-section-delivery"] .mega .button, html [data-theme="c-section-delivery"] .mega__wrap__column--bordered:after, html [data-theme="v-delivery"] .mega .button, html [data-theme="v-delivery"] .mega__wrap__column--bordered:after {
   background: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .header.nav-up, html [data-theme="Post Partum"] .header.nav-down, html [data-theme="C-Section Delivery"] .header.nav-up, html [data-theme="C-Section Delivery"] .header.nav-down, html [data-theme="V-Delivery"] .header.nav-up, html [data-theme="V-Delivery"] .header.nav-down {
+html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .header.nav-down {
   border-bottom: 1px solid var(--orange);
 }
 
-html [data-theme="Post Partum"] .header.nav-down, html [data-theme="Post Partum"] .header.nav-up, html [data-theme="Post Partum"] .mega, html [data-theme="C-Section Delivery"] .header.nav-down, html [data-theme="C-Section Delivery"] .header.nav-up, html [data-theme="C-Section Delivery"] .mega, html [data-theme="V-Delivery"] .header.nav-down, html [data-theme="V-Delivery"] .header.nav-up, html [data-theme="V-Delivery"] .mega {
+html [data-theme="post-partum"] .header.nav-down, html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .mega, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .mega, html [data-theme="v-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .mega {
   background: var(--purple-light) !important;
 }
 
-html [data-theme="Post Partum"] .tooltip, html [data-theme="Post Partum"] .mega__wrap__column__sublink a, html [data-theme="C-Section Delivery"] .tooltip, html [data-theme="C-Section Delivery"] .mega__wrap__column__sublink a, html [data-theme="V-Delivery"] .tooltip, html [data-theme="V-Delivery"] .mega__wrap__column__sublink a {
+html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .mega__wrap__column__sublink a, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .mega__wrap__column__sublink a, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .mega__wrap__column__sublink a {
   color: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .header-logo path, html [data-theme="C-Section Delivery"] .header-logo path, html [data-theme="V-Delivery"] .header-logo path {
+html [data-theme="post-partum"] .header-logo path, html [data-theme="c-section-delivery"] .header-logo path, html [data-theme="v-delivery"] .header-logo path {
   fill: var(--orange);
 }
 
-html [data-theme="Post Partum"] .js-gradient-background, html [data-theme="C-Section Delivery"] .js-gradient-background, html [data-theme="V-Delivery"] .js-gradient-background {
+html [data-theme="post-partum"] .js-gradient-background, html [data-theme="c-section-delivery"] .js-gradient-background, html [data-theme="v-delivery"] .js-gradient-background {
   background: var(--purple-light) !important;
 }
 
-html [data-theme="Post Partum"] .announcement, html [data-theme="Post Partum"] .related-products, html [data-theme="Post Partum"] .header-nav.coloured:after, html [data-theme="Post Partum"] .header-actions:after, html [data-theme="C-Section Delivery"] .announcement, html [data-theme="C-Section Delivery"] .related-products, html [data-theme="C-Section Delivery"] .header-nav.coloured:after, html [data-theme="C-Section Delivery"] .header-actions:after, html [data-theme="V-Delivery"] .announcement, html [data-theme="V-Delivery"] .related-products, html [data-theme="V-Delivery"] .header-nav.coloured:after, html [data-theme="V-Delivery"] .header-actions:after {
+html [data-theme="post-partum"] .announcement, html [data-theme="post-partum"] .related-products, html [data-theme="post-partum"] .header-nav.coloured:after, html [data-theme="post-partum"] .header-actions:after, html [data-theme="c-section-delivery"] .announcement, html [data-theme="c-section-delivery"] .related-products, html [data-theme="c-section-delivery"] .header-nav.coloured:after, html [data-theme="c-section-delivery"] .header-actions:after, html [data-theme="v-delivery"] .announcement, html [data-theme="v-delivery"] .related-products, html [data-theme="v-delivery"] .header-nav.coloured:after, html [data-theme="v-delivery"] .header-actions:after {
   background: var(--orange);
 }
 
-html [data-theme="Post Partum"] .animate-white-to-green, html [data-theme="C-Section Delivery"] .animate-white-to-green, html [data-theme="V-Delivery"] .animate-white-to-green {
+html [data-theme="post-partum"] .animate-white-to-green, html [data-theme="c-section-delivery"] .animate-white-to-green, html [data-theme="v-delivery"] .animate-white-to-green {
   background-image: linear-gradient(90deg, var(--orange) 50%, white 50%);
 }
 
-html [data-theme="Post Partum"] .tooltip, html [data-theme="Post Partum"] .tooltip:before, html [data-theme="C-Section Delivery"] .tooltip, html [data-theme="C-Section Delivery"] .tooltip:before, html [data-theme="V-Delivery"] .tooltip, html [data-theme="V-Delivery"] .tooltip:before, html [data-theme="Post Partum"] .choices__inner, html [data-theme="C-Section Delivery"] .choices__inner, html [data-theme="V-Delivery"] .choices__inner, html [data-theme="Post Partum"] .choices__inner:hover .choices__inner, html [data-theme="C-Section Delivery"] .choices__inner:hover .choices__inner, html [data-theme="V-Delivery"] .choices__inner:hover .choices__inner {
+html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .tooltip:before, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .tooltip:before, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .tooltip:before, html [data-theme="post-partum"] .choices__inner, html [data-theme="c-section-delivery"] .choices__inner, html [data-theme="v-delivery"] .choices__inner, html [data-theme="post-partum"] .choices__inner:hover .choices__inner, html [data-theme="c-section-delivery"] .choices__inner:hover .choices__inner, html [data-theme="v-delivery"] .choices__inner:hover .choices__inner {
   border-color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .collection-grid__list__title h2, html [data-theme="C-Section Delivery"] .collection-grid__list__title h2, html [data-theme="V-Delivery"] .collection-grid__list__title h2 {
+html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .collection-grid__list__title h2 {
   -webkit-text-stroke-color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .collection-grid__list__item__title h6, html [data-theme="Post Partum"] .collection-grid__list__item__description p, html [data-theme="Post Partum"] .collection-grid__list__title h2, html [data-theme="Post Partum"] .header-actions__cart__count, html [data-theme="C-Section Delivery"] .collection-grid__list__item__title h6, html [data-theme="C-Section Delivery"] .collection-grid__list__item__description p, html [data-theme="C-Section Delivery"] .collection-grid__list__title h2, html [data-theme="C-Section Delivery"] .header-actions__cart__count, html [data-theme="V-Delivery"] .collection-grid__list__item__title h6, html [data-theme="V-Delivery"] .collection-grid__list__item__description p, html [data-theme="V-Delivery"] .collection-grid__list__title h2, html [data-theme="V-Delivery"] .header-actions__cart__count {
+html [data-theme="post-partum"] .collection-grid__list__item__title h6, html [data-theme="post-partum"] .collection-grid__list__item__description p, html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="post-partum"] .header-actions__cart__count, html [data-theme="c-section-delivery"] .collection-grid__list__item__title h6, html [data-theme="c-section-delivery"] .collection-grid__list__item__description p, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .header-actions__cart__count, html [data-theme="v-delivery"] .collection-grid__list__item__title h6, html [data-theme="v-delivery"] .collection-grid__list__item__description p, html [data-theme="v-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .header-actions__cart__count {
   color: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .product, html [data-theme="C-Section Delivery"] .product, html [data-theme="V-Delivery"] .product {
+html [data-theme="post-partum"] .product, html [data-theme="c-section-delivery"] .product, html [data-theme="v-delivery"] .product {
   background: var(--purple-light);
 }
 
-html [data-theme="Post Partum"] .product-details *, html [data-theme="C-Section Delivery"] .product-details *, html [data-theme="V-Delivery"] .product-details * {
+html [data-theme="post-partum"] .product-details *, html [data-theme="c-section-delivery"] .product-details *, html [data-theme="v-delivery"] .product-details * {
   color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-details .button, html [data-theme="C-Section Delivery"] .product-details .button, html [data-theme="V-Delivery"] .product-details .button {
+html [data-theme="post-partum"] .product-details .button, html [data-theme="c-section-delivery"] .product-details .button, html [data-theme="v-delivery"] .product-details .button {
   background: var(--orange);
   color: var(--purple-light);
 }
 
-html [data-theme="Post Partum"] .product-details .button.busy, html [data-theme="C-Section Delivery"] .product-details .button.busy, html [data-theme="V-Delivery"] .product-details .button.busy {
+html [data-theme="post-partum"] .product-details .button.busy, html [data-theme="c-section-delivery"] .product-details .button.busy, html [data-theme="v-delivery"] .product-details .button.busy {
   color: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .product-details .accordion-element__trigger:before, html [data-theme="Post Partum"] .product-details .accordion-element__trigger:after, html [data-theme="C-Section Delivery"] .product-details .accordion-element__trigger:before, html [data-theme="C-Section Delivery"] .product-details .accordion-element__trigger:after, html [data-theme="V-Delivery"] .product-details .accordion-element__trigger:before, html [data-theme="V-Delivery"] .product-details .accordion-element__trigger:after {
+html [data-theme="post-partum"] .product-details .accordion-element__trigger:before, html [data-theme="post-partum"] .product-details .accordion-element__trigger:after, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:after, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:after {
   background: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-details .accordion-element__item, html [data-theme="C-Section Delivery"] .product-details .accordion-element__item, html [data-theme="V-Delivery"] .product-details .accordion-element__item {
+html [data-theme="post-partum"] .product-details .accordion-element__item, html [data-theme="c-section-delivery"] .product-details .accordion-element__item, html [data-theme="v-delivery"] .product-details .accordion-element__item {
   border-color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-gallery-lightbox path, html [data-theme="C-Section Delivery"] .product-gallery-lightbox path, html [data-theme="V-Delivery"] .product-gallery-lightbox path {
+html [data-theme="post-partum"] .product-gallery-lightbox path, html [data-theme="c-section-delivery"] .product-gallery-lightbox path, html [data-theme="v-delivery"] .product-gallery-lightbox path {
   fill: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="Post Partum"] .previous path, html [data-theme="Post Partum"] .next path, html [data-theme="C-Section Delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="C-Section Delivery"] .previous path, html [data-theme="C-Section Delivery"] .next path, html [data-theme="V-Delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="V-Delivery"] .previous path, html [data-theme="V-Delivery"] .next path {
+html [data-theme="post-partum"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="post-partum"] .previous path, html [data-theme="post-partum"] .next path, html [data-theme="c-section-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="c-section-delivery"] .previous path, html [data-theme="c-section-delivery"] .next path, html [data-theme="v-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="v-delivery"] .previous path, html [data-theme="v-delivery"] .next path {
   stroke: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .product-gallery-progresscircle circle, html [data-theme="C-Section Delivery"] .product-gallery-progresscircle circle, html [data-theme="V-Delivery"] .product-gallery-progresscircle circle {
+html [data-theme="post-partum"] .product-gallery-progresscircle circle, html [data-theme="c-section-delivery"] .product-gallery-progresscircle circle, html [data-theme="v-delivery"] .product-gallery-progresscircle circle {
   stroke: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-actions, html [data-theme="C-Section Delivery"] .product-actions, html [data-theme="V-Delivery"] .product-actions {
+html [data-theme="post-partum"] .product-actions, html [data-theme="c-section-delivery"] .product-actions, html [data-theme="v-delivery"] .product-actions {
   border-color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .goverlay, html [data-theme="C-Section Delivery"] .goverlay, html [data-theme="V-Delivery"] .goverlay {
+html [data-theme="post-partum"] .goverlay, html [data-theme="c-section-delivery"] .goverlay, html [data-theme="v-delivery"] .goverlay {
   background: var(--purple-light);
 }
 
-html [data-theme="Post Partum"] .gbtn path, html [data-theme="C-Section Delivery"] .gbtn path, html [data-theme="V-Delivery"] .gbtn path {
+html [data-theme="post-partum"] .gbtn path, html [data-theme="c-section-delivery"] .gbtn path, html [data-theme="v-delivery"] .gbtn path {
   fill: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-details-old-price:after, html [data-theme="Post Partum"] li:before, html [data-theme="C-Section Delivery"] .product-details-old-price:after, html [data-theme="C-Section Delivery"] li:before, html [data-theme="V-Delivery"] .product-details-old-price:after, html [data-theme="V-Delivery"] li:before {
+html [data-theme="post-partum"] .product-details-old-price:after, html [data-theme="post-partum"] li:before, html [data-theme="c-section-delivery"] .product-details-old-price:after, html [data-theme="c-section-delivery"] li:before, html [data-theme="v-delivery"] .product-details-old-price:after, html [data-theme="v-delivery"] li:before {
   background: var(--orange);
 }
 
-html [data-theme="Post Partum"] .product-gallery-sale, html [data-theme="Post Partum"] .collection-grid__marquee__animation span, html [data-theme="C-Section Delivery"] .product-gallery-sale, html [data-theme="C-Section Delivery"] .collection-grid__marquee__animation span, html [data-theme="V-Delivery"] .product-gallery-sale, html [data-theme="V-Delivery"] .collection-grid__marquee__animation span {
+html [data-theme="post-partum"] .product-gallery-sale, html [data-theme="post-partum"] .collection-grid__marquee__animation span, html [data-theme="c-section-delivery"] .product-gallery-sale, html [data-theme="c-section-delivery"] .collection-grid__marquee__animation span, html [data-theme="v-delivery"] .product-gallery-sale, html [data-theme="v-delivery"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--orange);
 }
 
-html [data-theme="Post Partum"] .notyf__ripple, html [data-theme="C-Section Delivery"] .notyf__ripple, html [data-theme="V-Delivery"] .notyf__ripple {
+html [data-theme="post-partum"] .notyf__ripple, html [data-theme="c-section-delivery"] .notyf__ripple, html [data-theme="v-delivery"] .notyf__ripple {
   background: var(--orange) !important;
 }
 
-html [data-theme="Post Partum"] .notyf__message a, html [data-theme="C-Section Delivery"] .notyf__message a, html [data-theme="V-Delivery"] .notyf__message a {
+html [data-theme="post-partum"] .notyf__message a, html [data-theme="c-section-delivery"] .notyf__message a, html [data-theme="v-delivery"] .notyf__message a {
   color: var(--orange) !important;
 }
 
-html [data-theme="Breast Feeding"] {
+html [data-theme="breast-feeding"] {
   background: var(--pink-light);
 }
 
-html [data-theme="Breast Feeding"] a.link:not(.static), html [data-theme="Breast Feeding"] a:not([class]) {
+html [data-theme="breast-feeding"] a.link:not(.static), html [data-theme="breast-feeding"] a:not([class]) {
   box-shadow: inset 0 -1px 0 var(--pink), 0 1px 0 var(--pink);
 }
 
-html [data-theme="Breast Feeding"] a.link:not(.static):hover, html [data-theme="Breast Feeding"] a:not([class]):hover {
+html [data-theme="breast-feeding"] a.link:not(.static):hover, html [data-theme="breast-feeding"] a:not([class]):hover {
   box-shadow: inset 0 -30px 0 var(--pink), 0 1px 0 var(--pink);
   color: #fff !important;
 }
 
-html [data-theme="Breast Feeding"] .header.nav-up, html [data-theme="Breast Feeding"] .header.nav-down {
+html [data-theme="breast-feeding"] .header.nav-up, html [data-theme="breast-feeding"] .header.nav-down {
   border-bottom: 1px solid var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .mega .button, html [data-theme="Breast Feeding"] .mega__wrap__column--bordered:after {
+html [data-theme="breast-feeding"] .mega .button, html [data-theme="breast-feeding"] .mega__wrap__column--bordered:after {
   background: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .header.nav-down, html [data-theme="Breast Feeding"] .header.nav-up, html [data-theme="Breast Feeding"] .mega {
+html [data-theme="breast-feeding"] .header.nav-down, html [data-theme="breast-feeding"] .header.nav-up, html [data-theme="breast-feeding"] .mega {
   background: var(--pink-light) !important;
 }
 
-html [data-theme="Breast Feeding"] .tooltip, html [data-theme="Breast Feeding"] .mega__wrap__column__sublink a {
+html [data-theme="breast-feeding"] .tooltip, html [data-theme="breast-feeding"] .mega__wrap__column__sublink a {
   color: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .header-logo path {
+html [data-theme="breast-feeding"] .header-logo path {
   fill: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .js-gradient-background {
+html [data-theme="breast-feeding"] .js-gradient-background {
   background: var(--pink-light) !important;
 }
 
-html [data-theme="Breast Feeding"] .announcement, html [data-theme="Breast Feeding"] .related-products, html [data-theme="Breast Feeding"] .header-nav.coloured:after, html [data-theme="Breast Feeding"] .header-actions:after {
+html [data-theme="breast-feeding"] .announcement, html [data-theme="breast-feeding"] .related-products, html [data-theme="breast-feeding"] .header-nav.coloured:after, html [data-theme="breast-feeding"] .header-actions:after {
   background: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .animate-white-to-green {
+html [data-theme="breast-feeding"] .animate-white-to-green {
   background-image: linear-gradient(90deg, var(--pink) 50%, white 50%);
 }
 
-html [data-theme="Breast Feeding"] .tooltip, html [data-theme="Breast Feeding"] .tooltip:before {
+html [data-theme="breast-feeding"] .tooltip, html [data-theme="breast-feeding"] .tooltip:before {
   border-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .choices__inner {
+html [data-theme="breast-feeding"] .choices__inner {
   border-color: var(--);
 }
 
-html [data-theme="Breast Feeding"] .choices__inner:hover .choices__inner {
+html [data-theme="breast-feeding"] .choices__inner:hover .choices__inner {
   border-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .collection-grid__list__title h2 {
+html [data-theme="breast-feeding"] .collection-grid__list__title h2 {
   -webkit-text-stroke-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .collection-grid__list__item__title h6, html [data-theme="Breast Feeding"] .collection-grid__list__item__description p, html [data-theme="Breast Feeding"] .collection-grid__list__title h2, html [data-theme="Breast Feeding"] .header-actions__cart__count {
+html [data-theme="breast-feeding"] .collection-grid__list__item__title h6, html [data-theme="breast-feeding"] .collection-grid__list__item__description p, html [data-theme="breast-feeding"] .collection-grid__list__title h2, html [data-theme="breast-feeding"] .header-actions__cart__count {
   color: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .product {
+html [data-theme="breast-feeding"] .product {
   background: var(--pink-light);
 }
 
-html [data-theme="Breast Feeding"] .product-details * {
+html [data-theme="breast-feeding"] .product-details * {
   color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-details .button {
+html [data-theme="breast-feeding"] .product-details .button {
   background: var(--pink);
   color: var(--pink-light);
 }
 
-html [data-theme="Breast Feeding"] .product-details .button.busy {
+html [data-theme="breast-feeding"] .product-details .button.busy {
   color: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .product-details .accordion-element__trigger:before, html [data-theme="Breast Feeding"] .product-details .accordion-element__trigger:after {
+html [data-theme="breast-feeding"] .product-details .accordion-element__trigger:before, html [data-theme="breast-feeding"] .product-details .accordion-element__trigger:after {
   background: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-details .accordion-element__item {
+html [data-theme="breast-feeding"] .product-details .accordion-element__item {
   border-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-gallery-lightbox path {
+html [data-theme="breast-feeding"] .product-gallery-lightbox path {
   fill: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="Breast Feeding"] .previous path, html [data-theme="Breast Feeding"] .next path {
+html [data-theme="breast-feeding"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="breast-feeding"] .previous path, html [data-theme="breast-feeding"] .next path {
   stroke: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .product-gallery-progresscircle circle {
+html [data-theme="breast-feeding"] .product-gallery-progresscircle circle {
   stroke: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-actions {
+html [data-theme="breast-feeding"] .product-actions {
   border-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .goverlay {
+html [data-theme="breast-feeding"] .goverlay {
   background: var(--pink-light);
 }
 
-html [data-theme="Breast Feeding"] .gbtn path {
+html [data-theme="breast-feeding"] .gbtn path {
   fill: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-details-old-price:after, html [data-theme="Breast Feeding"] li:before {
+html [data-theme="breast-feeding"] .product-details-old-price:after, html [data-theme="breast-feeding"] li:before {
   background: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .product-gallery-sale, html [data-theme="Breast Feeding"] .collection-grid__marquee__animation span {
+html [data-theme="breast-feeding"] .product-gallery-sale, html [data-theme="breast-feeding"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--pink);
 }
 
-html [data-theme="Breast Feeding"] .notyf__ripple {
+html [data-theme="breast-feeding"] .notyf__ripple {
   background: var(--pink) !important;
 }
 
-html [data-theme="Breast Feeding"] .notyf__message a {
+html [data-theme="breast-feeding"] .notyf__message a {
   color: var(--pink) !important;
 }
 
@@ -4881,6 +4901,7 @@ html [data-theme="Breast Feeding"] .notyf__message a {
 
 .collection-grid__list__item {
   flex-wrap: wrap;
+  position: relative;
 }
 
 .collection-grid__list__item--product {

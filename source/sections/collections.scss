@@ -194,6 +194,7 @@
                 cursor: pointer;
                 transition: all $fast;
                 z-index: 2;
+                background: white;
 
                 svg {
                     pointer-events: none;
@@ -296,6 +297,28 @@
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: #64bfb4;
             }
+        }
+    }
+}
+
+[data-page-type="list-collections"] {
+    &[data-theme="post-partum"],
+    &[data-theme="c-section-delivery"],
+    &[data-theme="v-delivery"]{
+        .collections__slider__item__quickview path {
+            fill: var(--orange);
+        }
+        .collections__slider__item__quickview {
+            border-color: var(--orange);
+        }
+    }
+
+    &[data-theme="breast-feeding"] {
+        .collections__slider__item__quickview path {
+            fill: var(--pink);
+        }
+        .collections__slider__item__quickview {
+            border-color: var(--pink);
         }
     }
 }
