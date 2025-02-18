@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "text_banner_J3Yrak": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "BREAST FEEDING"
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -18,16 +24,17 @@
       "type": "main-collection-product-grid",
       "settings": {}
     },
-    "text_banner_J3Yrak": {
+    "text_banner_BYfjwD": {
       "type": "text-banner",
       "settings": {
-        "heading": "breast-feeding"
+        "heading": "COMING SOON"
       }
     }
   },
   "order": [
+    "text_banner_J3Yrak",
+    "text_banner_BYfjwD",
     "banner",
-    "product-grid",
-    "text_banner_J3Yrak"
+    "product-grid"
   ]
 }
