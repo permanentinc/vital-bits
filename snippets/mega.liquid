@@ -7,50 +7,9 @@
           <div class="megaImage__image"></div>
         </div>
         <div class="mega__wrap__column mega__wrap__column--bordered animated">
-          {% comment %}
-            V-DELIVERY
-          {% endcomment %}
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.frontpage.url }}"><b>Pregnancy</b></a>
-          </h6>
-          {% for product in collections.frontpage.products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
-          <p class="mega__wrap__column__sublink"><a href="{{ collections.frontpage.url }}">View more</a></p>
 
-          {% comment %}
-            V-DELIVERY
-          {% endcomment %}
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.c-section-delivery.url }}"><b>c-section-delivery</b></a>
-          </h6>
-          {% for product in collections['c-section-delivery'].products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
-          <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.c-section-delivery.url }}">View more</a>
-          </p>
-        </div>
 
-        <div class="mega__wrap__column mega__wrap__column--bordered animated">
+
           {% comment %}
             V-DELIVERY
           {% endcomment %}
@@ -73,11 +32,60 @@
             <a href="{{ collections.v-delivery.url }}">View more</a>
           </p>
 
+
+          {% comment %}
+            C-Section
+          {% endcomment %}
+          <h6 class="mega__wrap__column__link">
+            <a class="" href="{{ collections.c-section-delivery.url }}"><b>C-Section Delivery</b></a>
+          </h6>
+          {% for product in collections['c-section-delivery'].products limit: 2 %}
+            <p class="mega__wrap__column__sublink">
+              <a
+                href="{{ product.url }}"
+                class="[ js-mega-image ]"
+                data-id="{{ product.title }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+              >
+                {{- product.title -}}
+              </a>
+            </p>
+          {% endfor %}
+          <p class="mega__wrap__column__sublink">
+            <a href="{{ collections.c-section-delivery.url }}">View more</a>
+          </p>
+
+        </div>
+
+        <div class="mega__wrap__column mega__wrap__column--bordered animated">
+
+          {% comment %}
+            Pregnancy
+          {% endcomment %}
+          <h6 class="mega__wrap__column__link">
+            <a class="" href="{{ collections.frontpage.url }}"><b>Pregnancy</b></a>
+          </h6>
+          {% for product in collections.frontpage.products limit: 2 %}
+            <p class="mega__wrap__column__sublink">
+              <a
+                href="{{ product.url }}"
+                class="[ js-mega-image ]"
+                data-id="{{ product.title }}"
+                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+              >
+                {{- product.title -}}
+              </a>
+            </p>
+          {% endfor %}
+          <p class="mega__wrap__column__sublink"><a href="{{ collections.frontpage.url }}">View more</a></p>
+
+          
+
           {% comment %}
             post-partum
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.post-partum.url }}"><b>post-partum</b></a>
+            <a class="" href="{{ collections.post-partum.url }}"><b>Post Partum</b></a>
           </h6>
           {% for product in collections['post-partum'].products limit: 2 %}
             <p class="mega__wrap__column__sublink">
@@ -99,6 +107,7 @@
           {% comment %}
             breast-feeding
           {% endcomment %}
+             {% comment %}   
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.breast-feeding.url }}"><b>breast-feeding</b></a>
           </h6>
@@ -127,6 +136,8 @@
           <p class="mega__wrap__column__sublink">
             <a href="{{ collections.breast-feeding.url }}">View more</a>
           </p>
+
+          {% endcomment %}
 
         </div>
 
