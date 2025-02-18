@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "text_banner_hQmUw3": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "C-Section Delivery"
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -31,6 +37,7 @@
     }
   },
   "order": [
+    "text_banner_hQmUw3",
     "banner",
     "03b62737-0d59-41b2-a53d-4092c2c042d8",
     "product-grid"
