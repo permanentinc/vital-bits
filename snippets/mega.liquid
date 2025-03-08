@@ -7,9 +7,6 @@
           <div class="megaImage__image"></div>
         </div>
         <div class="mega__wrap__column mega__wrap__column--bordered animated">
-
-
-
           {% comment %}
             V-DELIVERY
           {% endcomment %}
@@ -32,7 +29,6 @@
             <a href="{{ collections.v-delivery.url }}">View more</a>
           </p>
 
-
           {% comment %}
             C-Section
           {% endcomment %}
@@ -54,11 +50,9 @@
           <p class="mega__wrap__column__sublink">
             <a href="{{ collections.c-section-delivery.url }}">View more</a>
           </p>
-
         </div>
 
         <div class="mega__wrap__column mega__wrap__column--bordered animated">
-
           {% comment %}
             Pregnancy
           {% endcomment %}
@@ -78,8 +72,6 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink"><a href="{{ collections.frontpage.url }}">View more</a></p>
-
-          
 
           {% comment %}
             post-partum
@@ -103,25 +95,13 @@
             <a href="{{ collections.post-partum.url }}">View more</a>
           </p>
 
-
           {% comment %}
             breast-feeding
           {% endcomment %}
-             {% comment %}   
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.breast-feeding.url }}"><b>breast-feeding</b></a>
-          </h6>
-          <p class="mega__wrap__column__sublink">
-            <a
-              href="{{ product.url }}"
-              class="[ js-mega-image ]"
-              data-id="{{ product.title }}"
-              data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-            >
-              Coming Soon
-            </a>
-          </p>
-          {% for product in collections['breast-feeding'].products limit: 2 %}
+          {% comment %}
+            <h6 class="mega__wrap__column__link">
+              <a class="" href="{{ collections.breast-feeding.url }}"><b>breast-feeding</b></a>
+            </h6>
             <p class="mega__wrap__column__sublink">
               <a
                 href="{{ product.url }}"
@@ -129,26 +109,35 @@
                 data-id="{{ product.title }}"
                 data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
               >
-                {{- product.title -}}
+                Coming Soon
               </a>
             </p>
-          {% endfor %}
-          <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.breast-feeding.url }}">View more</a>
-          </p>
-
+            {% for product in collections['breast-feeding'].products limit: 2 %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ product.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ product.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{- product.title -}}
+                </a>
+              </p>
+            {% endfor %}
+            <p class="mega__wrap__column__sublink">
+              <a href="{{ collections.breast-feeding.url }}">View more</a>
+            </p>
           {% endcomment %}
-
         </div>
 
-          <div class="mega__wrap__column mega__wrap__column--blocked animated [ js-in-view ]">
-            <a href="/collections/kits-gifts" class="mega__wrap__column__block [ js-cursor-sale ]">
-              {{ collections['kits-gifts'].image | image_url: width: 250 | image_url: height: 450 | image_tag }}
-              <p>
-                <span class="button"><b>Kits & Gifts</b></span>
-              </p>
-            </a>
-          </div>
+        <div class="mega__wrap__column mega__wrap__column--blocked animated [ js-in-view ]">
+          <a href="/collections/kits-gifts" class="mega__wrap__column__block [ js-cursor-sale ]">
+            {{ collections['kits-gifts'].image | image_url: width: 250 | image_url: height: 450 | image_tag }}
+            <p>
+              <span class="button"><b>Kits & Gifts</b></span>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
   {% endif %}

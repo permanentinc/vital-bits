@@ -511,6 +511,28 @@ if ($slideNext) {
 
 
 let $collection_triggers = $$('.js-collection-slider-trigger');
+let $indicator = $('.js-indicator');
+
+function updateIndicator(element) {
+    var rect = element.getBoundingClientRect();
+    $indicator.style.width = `${rect.width}px`;
+    $indicator.style.left = `${rect.left}px`;
+}
+
+
+
+
+updateIndicator($('.js-collection-slider-trigger.active'));
+
+
+// debounce window resize 
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        updateIndicator($('.js-collection-slider-trigger.active'));
+    }, 250);
+});
 
 if ($collection_triggers) {
     $collection_triggers.forEach(element => {
@@ -521,15 +543,22 @@ if ($collection_triggers) {
             let url = element.getAttribute('data-url');
             let copy = element.getAttribute('data-copy');
 
+            $collection_triggers.forEach(element => element.classList.remove('active'));
+
+            element.classList.add('active');
+
+            updateIndicator(element);
+
+            $('.collections').classList.add('loading');
+
             // Send the request to Shopify
             fetch(`/collections/${handle}/products.json`)
                 .then((response) => response.json())
                 .then((data) => {
 
-                    let items = $$('.collections__slider__item--product');
-
-
-                    $('.collections__slider__item--text').innerHTML = `
+                    setTimeout(() => {
+                        let items = $$('.collections__slider__item--product');
+                        $('.collections__slider__item--text').innerHTML = `
                         <h2>
                           <b>${title}</b>
                         </h2>
@@ -540,29 +569,20 @@ if ($collection_triggers) {
                           <a href="${url}" class="button">Shop all</a>
                         </p>
                     `;
-
-                    items.forEach((item) => {
-                        window.flkty.remove(item);
-                    });
-
-                    $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
-
-                    var newItems = [];
-
-                    data.products.forEach((product) => {
-
-                        let full_description = product.body_html;
-
-                        // extract the first paragraph from the description
-                        let description = full_description.match(/<p>(.*?)<\/p>/)[0];
-
-                        let newElement = document.createElement('a');
-                        newElement.classList.add('collections__slider__item');
-                        newElement.classList.add('collections__slider__item--product');
-
-                        newElement.setAttribute('href', '/products/' + product.handle);
-
-                        newElement.innerHTML = `
+                        items.forEach((item) => {
+                            window.flkty.remove(item);
+                        });
+                        $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
+                        var newItems = [];
+                        data.products.forEach((product) => {
+                            let full_description = product.body_html;
+                            // extract the first paragraph from the description
+                            let description = full_description.match(/<p>(.*?)<\/p>/)[0];
+                            let newElement = document.createElement('a');
+                            newElement.classList.add('collections__slider__item');
+                            newElement.classList.add('collections__slider__item--product');
+                            newElement.setAttribute('href', '/products/' + product.handle);
+                            newElement.innerHTML = `
                             <div
                               class="collections__slider__item__quickview [ js-show-quickview ]"
                               data-tooltip
@@ -589,20 +609,26 @@ if ($collection_triggers) {
                             </div>
                             `;
 
-                        newItems.push(newElement);
+                            newItems.push(newElement);
 
-                    });
+                        });
 
 
-                    flkty.append(newItems);
+                        flkty.append(newItems);
 
-                    // got to the first slide
-                    flkty.select((window.innerWidth > 768) ? 1 : 0);
+                        // got to the first slide
+                        flkty.select((window.innerWidth > 768) ? 1 : 0);
 
-                    setTimeout(() => {
-                        // Scroll to the top of the .collections__slider
-                        $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
+                        setTimeout(() => {
+                            $('.collections').classList.remove('loading');
+                        }, 800);
+
+
+                    }, 300);
+
+
+                    // Scroll to the top of the .collections__slider
+                    $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
 
                 })
                 .catch((data) => {
@@ -729,7 +755,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lazyload: false,
             elements: images
         });
-        
+
 
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('js-product-lightbox')) {

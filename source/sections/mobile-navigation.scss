@@ -65,7 +65,7 @@
             transition: all $fast;
             display: block;
 
-            @for $i from 1 through 5 {
+            @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
                     transition-delay: $i * 100ms;
                 }
@@ -81,6 +81,11 @@
                 @include media($md, max) {
                     font-size: 4rem;
                     text-align: center;
+                }
+
+                &--small {
+                    padding: 0.5rem 0;
+                    font-size: 2rem;
                 }
             }
 

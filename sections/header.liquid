@@ -1,5 +1,3 @@
-
-
 <div class="header">
   <div class="header-wrap">
     {% comment %}
@@ -136,7 +134,6 @@
 <div class="mobile-navigation">
   <div class="mobile-navigation-background"></div>
   <div class="mobile-navigation-menu">
-
     {% for link in linklists['main-menu'].links -%}
       <div class="mobile-navigation-menu__item">
         <a
@@ -147,6 +144,37 @@
           {{ link.title }}
         </a>
       </div>
+      {% if link.title == 'Shop vitals' %}
+        {% if link.title == 'Shop vitals' %}
+          <div class="mobile-navigation-menu__item">
+            <a
+              href="{{ collections.v-delivery.url }}"
+              data-id="V-Delivery"
+              class="mobile-navigation-menu__item__link mobile-navigation-menu__item__link--small animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"
+            >
+              V-Delivery
+            </a>
+          </div>
+          <div class="mobile-navigation-menu__item">
+            <a
+              href="{{ collections.c-section-delivery.url }}"
+              data-id="C-section-delivery"
+              class="mobile-navigation-menu__item__link mobile-navigation-menu__item__link--small animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"
+            >
+              C-Section Delivery
+            </a>
+          </div>
+          <div class="mobile-navigation-menu__item">
+            <a
+              href="{{ collections.frontpage.url }}"
+              data-id="Pregnancy"
+              class="mobile-navigation-menu__item__link mobile-navigation-menu__item__link--small animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"
+            >
+              Pregnancy
+            </a>
+          </div>
+        {% endif %}
+      {% endif %}
     {%- endfor %}
 
     <div class="mobile-navigation-menu__item mobile-navigation-menu__item--social">

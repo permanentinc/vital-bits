@@ -22,15 +22,15 @@
   },
   "dependencies": {
     "animejs": "^3.2.2",
-    "choices.js": "^11.0.3",
+    "choices.js": "^11.0.6",
     "flickity": "2.2",
     "glightbox": "^3.3.1",
     "in-view": "^0.6.1",
     "notyf": "^3.10.0",
     "photoswipe": "^5.4.4",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
     "splitting": "^1.1.0",
     "typewriter-effect": "^2.21.0",
-    "vanilla-js-match-height": "^1.0.6"
+    "vanilla-js-match-height": "^1.0.7"
   }
 }
