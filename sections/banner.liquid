@@ -2,25 +2,43 @@
   <div class="banner-image">
     <picture>
       <!-- Larger screen image -->
-      <source srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}" media="(min-width: 1280px)">
-
+      <source
+        srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}"
+        media="(min-width: 1280px)"
+      >
 
       <!-- Large screen image -->
-      <source srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}" media="(min-width: 1280px)">
+      <source
+        srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}"
+        media="(min-width: 1280px)"
+      >
 
       <!-- Large screen image -->
-      <source srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}" media="(min-width: 1024px)">
-      
+      <source
+        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        media="(min-width: 1024px)"
+      >
+
       <!-- Medium screen image -->
-      <source srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}" media="(min-width: 768px)">
-      
-      <!-- Small screen image -->
-      <source srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}" media="(max-width: 767px)">
-      
-      <!-- Fallback image -->
-      <img src="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}" width="1640" height="760" alt="Responsive Image">
-    </picture>
+      <source
+        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        media="(min-width: 768px)"
+      >
 
+      <!-- Small screen image -->
+      <source
+        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        media="(max-width: 767px)"
+      >
+
+      <!-- Fallback image -->
+      <img
+        src="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        width="1640"
+        height="760"
+        alt="Responsive Image"
+      >
+    </picture>
   </div>
 
   <div class="banner-text">
@@ -88,6 +106,31 @@
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": false
     }
   ],
   "presets": [
