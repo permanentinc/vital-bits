@@ -38,7 +38,7 @@
 
           <div class="collection-grid__list__item__image">
             {% if product.featured_media %}
-              {{ product.featured_media | image_url: width: 400, height: 400 | image_tag }}
+              {{ product.featured_image | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"

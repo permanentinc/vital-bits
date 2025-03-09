@@ -173,7 +173,8 @@
         <a href="#" class="related-products__list__item related-products__list__item--product">
           <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
+              {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"
@@ -210,7 +211,7 @@
         <a href="#" class="related-products__list__item related-products__list__item--product">
           <div class="related-products__list__item__image">
             {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 400 | image_url: height: 400 | image_tag }}
+              {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
             {% else %}
               <img
                 src="{{ 'placeholder.jpeg' | asset_url }}"

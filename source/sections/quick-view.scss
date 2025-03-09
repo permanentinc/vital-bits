@@ -210,6 +210,10 @@ html .quickview {
     &[data-theme="post-partum"],
     &[data-theme="c-section-delivery"],
     &[data-theme="v-delivery"] {
+        .choices {
+            color: var(--orange) !important;
+        }
+
         .quickview-draw-actions,
         .quickview-draw-head p span,
         .quickview-draw-head button,
@@ -264,6 +268,10 @@ html .quickview {
         .quickview-draw-head button,
         .quickview-draw {
             background: var(--pink-light) !important;
+        }
+
+        .choices {
+            color: var(--pink) !important;
         }
 
         .quickview-draw-head p:before,

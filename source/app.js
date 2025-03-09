@@ -514,15 +514,14 @@ let $collection_triggers = $$('.js-collection-slider-trigger');
 let $indicator = $('.js-indicator');
 
 function updateIndicator(element) {
+    if(!element) return;
     var rect = element.getBoundingClientRect();
     $indicator.style.width = `${rect.width}px`;
     $indicator.style.left = `${rect.left}px`;
 }
 
 
-
-
-updateIndicator($('.js-collection-slider-trigger.active'));
+ updateIndicator($('.js-collection-slider-trigger.active'));
 
 
 // debounce window resize 

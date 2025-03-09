@@ -47,20 +47,25 @@
             h2 {
                 line-height: 8vw;
                 font-weight: 700;
-                white-space: nowrap;
+                // white-space: nowrap;
                 font-size: 6rem;
                 padding: 4rem 1rem;
                 color: transparent;
                 -webkit-text-fill-color: transparent;
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: var(--green);
+                line-height: 1.2;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 4rem;
+                }
             }
         }
 
         &__item {
             flex-wrap: wrap;
             position: relative;
-            
+
             &--product {
                 padding: 2rem;
                 width: 33.33333333%;
@@ -141,6 +146,14 @@
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: var(--green);
             }
+        }
+    }
+}
+
+[data-page-type="list-collections"] {
+    .collection-grid__list__item--product {
+        @include media($xmd, max) {
+            width: 50% !important;
         }
     }
 }
