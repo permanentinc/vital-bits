@@ -19,7 +19,10 @@
         "image": "shopify://shop_images/vitalbits_hero_web_darkened_extended.jpg",
         "link_label": "Shop now",
         "link_link": "shopify://collections",
-        "height": "normal"
+        "height": "normal",
+        "overlay_color": "#f5d6dc",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "2e7b8157-5d21-422b-80a8-300911cfa1b4": {
