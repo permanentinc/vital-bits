@@ -47,7 +47,6 @@
             h2 {
                 line-height: 8vw;
                 font-weight: 700;
-                // white-space: nowrap;
                 font-size: 6rem;
                 padding: 4rem 1rem;
                 color: transparent;
@@ -115,6 +114,13 @@
 
             &__description {
                 width: 100%;
+            }
+
+            &__previous {
+                position: absolute;
+                top: 50%;
+                left: 1rem;
+                transform: translateY(-50%);
             }
         }
     }

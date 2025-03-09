@@ -115,18 +115,31 @@
             left: 0;
             display: block;
             transition: all $fast;
+            position: relative;
+            margin-right: -1rem;
 
+            svg,
             img {
-                width: 10rem;
-                height: 10rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 6rem;
+                height: 6rem;
                 display: block;
                 transition: all $fast;
+
+                path {
+                    fill: var(--green);
+                }
             }
 
             @include media($md, max) {
                 width: 8rem;
                 height: 8rem;
+                margin-top: 2rem;
 
+                svg,
                 img {
                     width: 8rem;
                     height: 8rem;
@@ -323,6 +336,8 @@
             justify-content: flex-end;
             justify-content: center;
 
+            display: none;
+            
             &__prev,
             &__next {
                 width: 6rem;
@@ -402,6 +417,10 @@
     &[data-theme="v-delivery"] {
         background: var(--purple-light) !important;
 
+        .collections__item__image svg path {
+            fill: var(--orange);
+        }
+
         .collections__indicator {
             background: var(--orange);
         }
@@ -455,6 +474,10 @@
     &[data-theme="breast-feeding"] {
         background: var(--pink-light) !important;
 
+        .collections__item__image svg path {
+            fill: var(--green);
+        }
+
         .collections__indicator {
             background: var(--green);
         }
@@ -507,6 +530,10 @@
 
     &[data-theme="pregnancy"] {
         background: var(--blue-light) !important;
+
+        .collections__item__image svg path {
+            fill: var(--green);
+        }
 
         .collections__indicator {
             background: var(--green);

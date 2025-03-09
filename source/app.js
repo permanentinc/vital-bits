@@ -514,14 +514,14 @@ let $collection_triggers = $$('.js-collection-slider-trigger');
 let $indicator = $('.js-indicator');
 
 function updateIndicator(element) {
-    if(!element) return;
+    if (!element) return;
     var rect = element.getBoundingClientRect();
     $indicator.style.width = `${rect.width}px`;
     $indicator.style.left = `${rect.left}px`;
 }
 
 
- updateIndicator($('.js-collection-slider-trigger.active'));
+updateIndicator($('.js-collection-slider-trigger.active'));
 
 
 // debounce window resize 
@@ -627,7 +627,15 @@ if ($collection_triggers) {
 
 
                     // Scroll to the top of the .collections__slider
-                    $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+                    // $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+
+                    const element = document.querySelector('.collections__slider');
+                    if (element) {
+                        const yOffset = -175; // Adjust by -200px
+                        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
 
                 })
                 .catch((data) => {

@@ -1091,9 +1091,16 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
                 }, 800);
             }, 300);
             // Scroll to the top of the .collections__slider
-            (0, _lib.$)('.collections__slider').scrollIntoView({
-                behavior: 'smooth'
-            });
+            // $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+            const element = document.querySelector('.collections__slider');
+            if (element) {
+                const yOffset = -175; // Adjust by -200px
+                const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
         }).catch((data)=>{
             // Show an error message in the console
             console.log(data);
