@@ -237,13 +237,30 @@
     .header-logo path {
         fill: var(--green);
     }
+
+    .flickity-button path {
+        fill: var(--green);
+    }
+
+    .dot {
+        background: var(--green);
+    }
 }
 
 html {
+    [data-theme="postpartum"],
     [data-theme="post-partum"],
     [data-theme="c-section-delivery"],
     [data-theme="v-delivery"] {
         background: var(--purple-light);
+
+        .flickity-button path {
+            fill: var(--orange);
+        }
+
+        .dot {
+            background: var(--orange);
+        }
 
         a.link:not(.static),
         a:not([class]) {
@@ -400,6 +417,14 @@ html {
 html {
     [data-theme="breast-feeding"] {
         background: var(--pink-light);
+
+        .flickity-button path {
+            fill: var(--pink);
+        }
+
+        .dot {
+            background: var(--pink);
+        }
 
         a.link:not(.static),
         a:not([class]) {

@@ -104,6 +104,12 @@ h1, .h1 {
   line-height: 1.1;
 }
 
+@media screen and (width <= 768px) {
+  h1, .h1 {
+    font-size: 3.6rem;
+  }
+}
+
 h2, .h2 {
   font-size: var(--h2-size);
   letter-spacing: .5px;
@@ -1944,6 +1950,25 @@ body .choices .choices__list--dropdown .choices__item {
   position: relative;
 }
 
+@media screen and (width <= 768px) {
+  .banner--no-button .banner-button {
+    display: none;
+  }
+}
+
+.banner-overlay {
+  display: none;
+}
+
+@media screen and (width <= 768px) {
+  .banner-overlay {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+}
+
 .banner--text .banner-text {
   text-align: center;
   margin: 6rem auto -8rem;
@@ -1955,7 +1980,7 @@ body .choices .choices__list--dropdown .choices__item {
 @media (width <= 768px) {
   .banner--text .banner-text {
     margin: 0 auto -4rem;
-    padding: 16rem 2rem 0;
+    padding: 26rem 2rem 2rem;
   }
 
   .banner--text .banner-text h1 {
@@ -2034,6 +2059,7 @@ body .choices .choices__list--dropdown .choices__item {
 
 .banner-text {
   max-width: var(--content-width);
+  z-index: 5;
   margin: 0 auto;
   padding: 6rem;
   position: absolute;
@@ -2045,7 +2071,7 @@ body .choices .choices__list--dropdown .choices__item {
 
 @media only screen and (width <= 767px) {
   .banner-text {
-    padding: 20rem 2rem 6rem;
+    padding: 25rem 1rem 6rem;
     position: relative;
     top: 0;
     transform: translateY(0);
@@ -4500,134 +4526,154 @@ ol > li li:before {
   line-height: 1.4;
 }
 
-[data-theme="pregnancy"] .header-logo path {
+[data-theme="pregnancy"] .header-logo path, [data-theme="pregnancy"] .flickity-button path {
   fill: var(--green);
 }
 
-html [data-theme="post-partum"], html [data-theme="c-section-delivery"], html [data-theme="v-delivery"] {
+[data-theme="pregnancy"] .dot {
+  background: var(--green);
+}
+
+html [data-theme="postpartum"], html [data-theme="post-partum"], html [data-theme="c-section-delivery"], html [data-theme="v-delivery"] {
   background: var(--purple-light);
 }
 
-html [data-theme="post-partum"] a.link:not(.static), html [data-theme="post-partum"] a:not([class]), html [data-theme="c-section-delivery"] a.link:not(.static), html [data-theme="c-section-delivery"] a:not([class]), html [data-theme="v-delivery"] a.link:not(.static), html [data-theme="v-delivery"] a:not([class]) {
+html [data-theme="postpartum"] .flickity-button path, html [data-theme="post-partum"] .flickity-button path, html [data-theme="c-section-delivery"] .flickity-button path, html [data-theme="v-delivery"] .flickity-button path {
+  fill: var(--orange);
+}
+
+html [data-theme="postpartum"] .dot, html [data-theme="post-partum"] .dot, html [data-theme="c-section-delivery"] .dot, html [data-theme="v-delivery"] .dot {
+  background: var(--orange);
+}
+
+html [data-theme="postpartum"] a.link:not(.static), html [data-theme="postpartum"] a:not([class]), html [data-theme="post-partum"] a.link:not(.static), html [data-theme="post-partum"] a:not([class]), html [data-theme="c-section-delivery"] a.link:not(.static), html [data-theme="c-section-delivery"] a:not([class]), html [data-theme="v-delivery"] a.link:not(.static), html [data-theme="v-delivery"] a:not([class]) {
   box-shadow: inset 0 -1px 0 var(--orange), 0 1px 0 var(--orange);
 }
 
-html [data-theme="post-partum"] a.link:not(.static):hover, html [data-theme="post-partum"] a:not([class]):hover, html [data-theme="c-section-delivery"] a.link:not(.static):hover, html [data-theme="c-section-delivery"] a:not([class]):hover, html [data-theme="v-delivery"] a.link:not(.static):hover, html [data-theme="v-delivery"] a:not([class]):hover {
+html [data-theme="postpartum"] a.link:not(.static):hover, html [data-theme="postpartum"] a:not([class]):hover, html [data-theme="post-partum"] a.link:not(.static):hover, html [data-theme="post-partum"] a:not([class]):hover, html [data-theme="c-section-delivery"] a.link:not(.static):hover, html [data-theme="c-section-delivery"] a:not([class]):hover, html [data-theme="v-delivery"] a.link:not(.static):hover, html [data-theme="v-delivery"] a:not([class]):hover {
   box-shadow: inset 0 -30px 0 var(--orange), 0 1px 0 var(--orange);
   color: #fff !important;
 }
 
-html [data-theme="post-partum"] .mega .button, html [data-theme="post-partum"] .mega__wrap__column--bordered:after, html [data-theme="c-section-delivery"] .mega .button, html [data-theme="c-section-delivery"] .mega__wrap__column--bordered:after, html [data-theme="v-delivery"] .mega .button, html [data-theme="v-delivery"] .mega__wrap__column--bordered:after {
+html [data-theme="postpartum"] .mega .button, html [data-theme="postpartum"] .mega__wrap__column--bordered:after, html [data-theme="post-partum"] .mega .button, html [data-theme="post-partum"] .mega__wrap__column--bordered:after, html [data-theme="c-section-delivery"] .mega .button, html [data-theme="c-section-delivery"] .mega__wrap__column--bordered:after, html [data-theme="v-delivery"] .mega .button, html [data-theme="v-delivery"] .mega__wrap__column--bordered:after {
   background: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .header.nav-down {
+html [data-theme="postpartum"] .header.nav-up, html [data-theme="postpartum"] .header.nav-down, html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .header.nav-down {
   border-bottom: 1px solid var(--orange);
 }
 
-html [data-theme="post-partum"] .header.nav-down, html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .mega, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .mega, html [data-theme="v-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .mega {
+html [data-theme="postpartum"] .header.nav-down, html [data-theme="postpartum"] .header.nav-up, html [data-theme="postpartum"] .mega, html [data-theme="post-partum"] .header.nav-down, html [data-theme="post-partum"] .header.nav-up, html [data-theme="post-partum"] .mega, html [data-theme="c-section-delivery"] .header.nav-down, html [data-theme="c-section-delivery"] .header.nav-up, html [data-theme="c-section-delivery"] .mega, html [data-theme="v-delivery"] .header.nav-down, html [data-theme="v-delivery"] .header.nav-up, html [data-theme="v-delivery"] .mega {
   background: var(--purple-light) !important;
 }
 
-html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .mega__wrap__column__sublink a, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .mega__wrap__column__sublink a, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .mega__wrap__column__sublink a {
+html [data-theme="postpartum"] .tooltip, html [data-theme="postpartum"] .mega__wrap__column__sublink a, html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .mega__wrap__column__sublink a, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .mega__wrap__column__sublink a, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .mega__wrap__column__sublink a {
   color: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .header-logo path, html [data-theme="c-section-delivery"] .header-logo path, html [data-theme="v-delivery"] .header-logo path {
+html [data-theme="postpartum"] .header-logo path, html [data-theme="post-partum"] .header-logo path, html [data-theme="c-section-delivery"] .header-logo path, html [data-theme="v-delivery"] .header-logo path {
   fill: var(--orange);
 }
 
-html [data-theme="post-partum"] .js-gradient-background, html [data-theme="c-section-delivery"] .js-gradient-background, html [data-theme="v-delivery"] .js-gradient-background {
+html [data-theme="postpartum"] .js-gradient-background, html [data-theme="post-partum"] .js-gradient-background, html [data-theme="c-section-delivery"] .js-gradient-background, html [data-theme="v-delivery"] .js-gradient-background {
   background: var(--purple-light) !important;
 }
 
-html [data-theme="post-partum"] .announcement, html [data-theme="post-partum"] .related-products, html [data-theme="post-partum"] .header-nav.coloured:after, html [data-theme="post-partum"] .header-actions:after, html [data-theme="c-section-delivery"] .announcement, html [data-theme="c-section-delivery"] .related-products, html [data-theme="c-section-delivery"] .header-nav.coloured:after, html [data-theme="c-section-delivery"] .header-actions:after, html [data-theme="v-delivery"] .announcement, html [data-theme="v-delivery"] .related-products, html [data-theme="v-delivery"] .header-nav.coloured:after, html [data-theme="v-delivery"] .header-actions:after {
+html [data-theme="postpartum"] .announcement, html [data-theme="postpartum"] .related-products, html [data-theme="postpartum"] .header-nav.coloured:after, html [data-theme="postpartum"] .header-actions:after, html [data-theme="post-partum"] .announcement, html [data-theme="post-partum"] .related-products, html [data-theme="post-partum"] .header-nav.coloured:after, html [data-theme="post-partum"] .header-actions:after, html [data-theme="c-section-delivery"] .announcement, html [data-theme="c-section-delivery"] .related-products, html [data-theme="c-section-delivery"] .header-nav.coloured:after, html [data-theme="c-section-delivery"] .header-actions:after, html [data-theme="v-delivery"] .announcement, html [data-theme="v-delivery"] .related-products, html [data-theme="v-delivery"] .header-nav.coloured:after, html [data-theme="v-delivery"] .header-actions:after {
   background: var(--orange);
 }
 
-html [data-theme="post-partum"] .animate-white-to-green, html [data-theme="c-section-delivery"] .animate-white-to-green, html [data-theme="v-delivery"] .animate-white-to-green {
+html [data-theme="postpartum"] .animate-white-to-green, html [data-theme="post-partum"] .animate-white-to-green, html [data-theme="c-section-delivery"] .animate-white-to-green, html [data-theme="v-delivery"] .animate-white-to-green {
   background-image: linear-gradient(90deg, var(--orange) 50%, white 50%);
 }
 
-html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .tooltip:before, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .tooltip:before, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .tooltip:before, html [data-theme="post-partum"] .choices__inner, html [data-theme="c-section-delivery"] .choices__inner, html [data-theme="v-delivery"] .choices__inner, html [data-theme="post-partum"] .choices__inner:hover .choices__inner, html [data-theme="c-section-delivery"] .choices__inner:hover .choices__inner, html [data-theme="v-delivery"] .choices__inner:hover .choices__inner {
+html [data-theme="postpartum"] .tooltip, html [data-theme="postpartum"] .tooltip:before, html [data-theme="post-partum"] .tooltip, html [data-theme="post-partum"] .tooltip:before, html [data-theme="c-section-delivery"] .tooltip, html [data-theme="c-section-delivery"] .tooltip:before, html [data-theme="v-delivery"] .tooltip, html [data-theme="v-delivery"] .tooltip:before, html [data-theme="postpartum"] .choices__inner, html [data-theme="post-partum"] .choices__inner, html [data-theme="c-section-delivery"] .choices__inner, html [data-theme="v-delivery"] .choices__inner, html [data-theme="postpartum"] .choices__inner:hover .choices__inner, html [data-theme="post-partum"] .choices__inner:hover .choices__inner, html [data-theme="c-section-delivery"] .choices__inner:hover .choices__inner, html [data-theme="v-delivery"] .choices__inner:hover .choices__inner {
   border-color: var(--orange);
 }
 
-html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .collection-grid__list__title h2 {
+html [data-theme="postpartum"] .collection-grid__list__title h2, html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .collection-grid__list__title h2 {
   -webkit-text-stroke-color: var(--orange);
 }
 
-html [data-theme="post-partum"] .collection-grid__list__item__title h6, html [data-theme="post-partum"] .collection-grid__list__item__description p, html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="post-partum"] .header-actions__cart__count, html [data-theme="c-section-delivery"] .collection-grid__list__item__title h6, html [data-theme="c-section-delivery"] .collection-grid__list__item__description p, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .header-actions__cart__count, html [data-theme="v-delivery"] .collection-grid__list__item__title h6, html [data-theme="v-delivery"] .collection-grid__list__item__description p, html [data-theme="v-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .header-actions__cart__count {
+html [data-theme="postpartum"] .collection-grid__list__item__title h6, html [data-theme="postpartum"] .collection-grid__list__item__description p, html [data-theme="postpartum"] .collection-grid__list__title h2, html [data-theme="postpartum"] .header-actions__cart__count, html [data-theme="post-partum"] .collection-grid__list__item__title h6, html [data-theme="post-partum"] .collection-grid__list__item__description p, html [data-theme="post-partum"] .collection-grid__list__title h2, html [data-theme="post-partum"] .header-actions__cart__count, html [data-theme="c-section-delivery"] .collection-grid__list__item__title h6, html [data-theme="c-section-delivery"] .collection-grid__list__item__description p, html [data-theme="c-section-delivery"] .collection-grid__list__title h2, html [data-theme="c-section-delivery"] .header-actions__cart__count, html [data-theme="v-delivery"] .collection-grid__list__item__title h6, html [data-theme="v-delivery"] .collection-grid__list__item__description p, html [data-theme="v-delivery"] .collection-grid__list__title h2, html [data-theme="v-delivery"] .header-actions__cart__count {
   color: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .product, html [data-theme="c-section-delivery"] .product, html [data-theme="v-delivery"] .product {
+html [data-theme="postpartum"] .product, html [data-theme="post-partum"] .product, html [data-theme="c-section-delivery"] .product, html [data-theme="v-delivery"] .product {
   background: var(--purple-light);
 }
 
-html [data-theme="post-partum"] .product-details *, html [data-theme="c-section-delivery"] .product-details *, html [data-theme="v-delivery"] .product-details * {
+html [data-theme="postpartum"] .product-details *, html [data-theme="post-partum"] .product-details *, html [data-theme="c-section-delivery"] .product-details *, html [data-theme="v-delivery"] .product-details * {
   color: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-details .button, html [data-theme="c-section-delivery"] .product-details .button, html [data-theme="v-delivery"] .product-details .button {
+html [data-theme="postpartum"] .product-details .button, html [data-theme="post-partum"] .product-details .button, html [data-theme="c-section-delivery"] .product-details .button, html [data-theme="v-delivery"] .product-details .button {
   background: var(--orange);
   color: var(--purple-light);
 }
 
-html [data-theme="post-partum"] .product-details .button.busy, html [data-theme="c-section-delivery"] .product-details .button.busy, html [data-theme="v-delivery"] .product-details .button.busy {
+html [data-theme="postpartum"] .product-details .button.busy, html [data-theme="post-partum"] .product-details .button.busy, html [data-theme="c-section-delivery"] .product-details .button.busy, html [data-theme="v-delivery"] .product-details .button.busy {
   color: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .product-details .accordion-element__trigger:before, html [data-theme="post-partum"] .product-details .accordion-element__trigger:after, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:after, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:after {
+html [data-theme="postpartum"] .product-details .accordion-element__trigger:before, html [data-theme="postpartum"] .product-details .accordion-element__trigger:after, html [data-theme="post-partum"] .product-details .accordion-element__trigger:before, html [data-theme="post-partum"] .product-details .accordion-element__trigger:after, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="c-section-delivery"] .product-details .accordion-element__trigger:after, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:before, html [data-theme="v-delivery"] .product-details .accordion-element__trigger:after {
   background: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-details .accordion-element__item, html [data-theme="c-section-delivery"] .product-details .accordion-element__item, html [data-theme="v-delivery"] .product-details .accordion-element__item {
+html [data-theme="postpartum"] .product-details .accordion-element__item, html [data-theme="post-partum"] .product-details .accordion-element__item, html [data-theme="c-section-delivery"] .product-details .accordion-element__item, html [data-theme="v-delivery"] .product-details .accordion-element__item {
   border-color: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-gallery-lightbox path, html [data-theme="c-section-delivery"] .product-gallery-lightbox path, html [data-theme="v-delivery"] .product-gallery-lightbox path {
+html [data-theme="postpartum"] .product-gallery-lightbox path, html [data-theme="post-partum"] .product-gallery-lightbox path, html [data-theme="c-section-delivery"] .product-gallery-lightbox path, html [data-theme="v-delivery"] .product-gallery-lightbox path {
   fill: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="post-partum"] .previous path, html [data-theme="post-partum"] .next path, html [data-theme="c-section-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="c-section-delivery"] .previous path, html [data-theme="c-section-delivery"] .next path, html [data-theme="v-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="v-delivery"] .previous path, html [data-theme="v-delivery"] .next path {
+html [data-theme="postpartum"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="postpartum"] .previous path, html [data-theme="postpartum"] .next path, html [data-theme="post-partum"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="post-partum"] .previous path, html [data-theme="post-partum"] .next path, html [data-theme="c-section-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="c-section-delivery"] .previous path, html [data-theme="c-section-delivery"] .next path, html [data-theme="v-delivery"] .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path, html [data-theme="v-delivery"] .previous path, html [data-theme="v-delivery"] .next path {
   stroke: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .product-gallery-progresscircle circle, html [data-theme="c-section-delivery"] .product-gallery-progresscircle circle, html [data-theme="v-delivery"] .product-gallery-progresscircle circle {
+html [data-theme="postpartum"] .product-gallery-progresscircle circle, html [data-theme="post-partum"] .product-gallery-progresscircle circle, html [data-theme="c-section-delivery"] .product-gallery-progresscircle circle, html [data-theme="v-delivery"] .product-gallery-progresscircle circle {
   stroke: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-actions, html [data-theme="c-section-delivery"] .product-actions, html [data-theme="v-delivery"] .product-actions {
+html [data-theme="postpartum"] .product-actions, html [data-theme="post-partum"] .product-actions, html [data-theme="c-section-delivery"] .product-actions, html [data-theme="v-delivery"] .product-actions {
   border-color: var(--orange);
 }
 
-html [data-theme="post-partum"] .goverlay, html [data-theme="c-section-delivery"] .goverlay, html [data-theme="v-delivery"] .goverlay {
+html [data-theme="postpartum"] .goverlay, html [data-theme="post-partum"] .goverlay, html [data-theme="c-section-delivery"] .goverlay, html [data-theme="v-delivery"] .goverlay {
   background: var(--purple-light);
 }
 
-html [data-theme="post-partum"] .gbtn path, html [data-theme="c-section-delivery"] .gbtn path, html [data-theme="v-delivery"] .gbtn path {
+html [data-theme="postpartum"] .gbtn path, html [data-theme="post-partum"] .gbtn path, html [data-theme="c-section-delivery"] .gbtn path, html [data-theme="v-delivery"] .gbtn path {
   fill: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-details-old-price:after, html [data-theme="post-partum"] li:before, html [data-theme="c-section-delivery"] .product-details-old-price:after, html [data-theme="c-section-delivery"] li:before, html [data-theme="v-delivery"] .product-details-old-price:after, html [data-theme="v-delivery"] li:before {
+html [data-theme="postpartum"] .product-details-old-price:after, html [data-theme="postpartum"] li:before, html [data-theme="post-partum"] .product-details-old-price:after, html [data-theme="post-partum"] li:before, html [data-theme="c-section-delivery"] .product-details-old-price:after, html [data-theme="c-section-delivery"] li:before, html [data-theme="v-delivery"] .product-details-old-price:after, html [data-theme="v-delivery"] li:before {
   background: var(--orange);
 }
 
-html [data-theme="post-partum"] .product-gallery-sale, html [data-theme="post-partum"] .collection-grid__marquee__animation span, html [data-theme="c-section-delivery"] .product-gallery-sale, html [data-theme="c-section-delivery"] .collection-grid__marquee__animation span, html [data-theme="v-delivery"] .product-gallery-sale, html [data-theme="v-delivery"] .collection-grid__marquee__animation span {
+html [data-theme="postpartum"] .product-gallery-sale, html [data-theme="postpartum"] .collection-grid__marquee__animation span, html [data-theme="post-partum"] .product-gallery-sale, html [data-theme="post-partum"] .collection-grid__marquee__animation span, html [data-theme="c-section-delivery"] .product-gallery-sale, html [data-theme="c-section-delivery"] .collection-grid__marquee__animation span, html [data-theme="v-delivery"] .product-gallery-sale, html [data-theme="v-delivery"] .collection-grid__marquee__animation span {
   -webkit-text-stroke-color: var(--orange);
 }
 
-html [data-theme="post-partum"] .notyf__ripple, html [data-theme="c-section-delivery"] .notyf__ripple, html [data-theme="v-delivery"] .notyf__ripple {
+html [data-theme="postpartum"] .notyf__ripple, html [data-theme="post-partum"] .notyf__ripple, html [data-theme="c-section-delivery"] .notyf__ripple, html [data-theme="v-delivery"] .notyf__ripple {
   background: var(--orange) !important;
 }
 
-html [data-theme="post-partum"] .notyf__message a, html [data-theme="c-section-delivery"] .notyf__message a, html [data-theme="v-delivery"] .notyf__message a {
+html [data-theme="postpartum"] .notyf__message a, html [data-theme="post-partum"] .notyf__message a, html [data-theme="c-section-delivery"] .notyf__message a, html [data-theme="v-delivery"] .notyf__message a {
   color: var(--orange) !important;
 }
 
 html [data-theme="breast-feeding"] {
   background: var(--pink-light);
+}
+
+html [data-theme="breast-feeding"] .flickity-button path {
+  fill: var(--pink);
+}
+
+html [data-theme="breast-feeding"] .dot {
+  background: var(--pink);
 }
 
 html [data-theme="breast-feeding"] a.link:not(.static), html [data-theme="breast-feeding"] a:not([class]) {
@@ -4891,6 +4937,57 @@ html [data-theme="breast-feeding"] .notyf__message a {
   overflow: hidden;
 }
 
+.collection-grid .flickity-button {
+  background: #ffffff4d;
+}
+
+.collection-grid .flickity-button[disabled] {
+  opacity: .1;
+}
+
+.collection-grid .next {
+  opacity: 0;
+  transition: all .333s;
+  transform: translateX(1rem);
+}
+
+.collection-grid .previous {
+  opacity: 0;
+  transition: all .333s;
+  transform: translateX(-1rem);
+}
+
+.collection-grid .flickity-page-dots {
+  backdrop-filter: blur(.3rem);
+  opacity: 0;
+  background: #ffffff4d;
+  border-radius: 22rem;
+  width: auto;
+  margin: 0 auto;
+  padding: .2rem 1rem .5rem;
+  transition: all .333s;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%)translateY(1rem);
+}
+
+.collection-grid .flickity-page-dots .dot {
+  width: .8rem;
+  height: .8rem;
+  margin: 0 .1rem;
+  padding: 0;
+  transition: all .333s;
+  transform: scale(.6);
+}
+
+.collection-grid .flickity-page-dots .dot.is-selected {
+  transform: scale(1);
+}
+
+.collection-grid .flickity-page-dots .dot:before {
+  display: none;
+}
+
 .collection-grid-wave2, .collection-grid-wave1 {
   pointer-events: none;
   z-index: 1;
@@ -4968,6 +5065,29 @@ html [data-theme="breast-feeding"] .notyf__message a {
   position: relative;
 }
 
+.collection-grid__list__item:hover .next {
+  opacity: 1;
+  transform: none;
+}
+
+.collection-grid__list__item:hover .next[disabled] {
+  opacity: .3;
+}
+
+.collection-grid__list__item:hover .previous {
+  opacity: 1;
+  transform: none;
+}
+
+.collection-grid__list__item:hover .previous[disabled] {
+  opacity: .3;
+}
+
+.collection-grid__list__item:hover .flickity-page-dots {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
 .collection-grid__list__item--product {
   width: 33.3333%;
   max-width: 50rem;
@@ -5004,9 +5124,26 @@ html [data-theme="breast-feeding"] .notyf__message a {
   color: var(--green) !important;
 }
 
+.collection-grid__list__item__images {
+  position: relative;
+}
+
+.collection-grid__list__item__images .flickity-slider .collection-grid__list__item__image {
+  display: block;
+}
+
+.collection-grid__list__item__images .flickity-button:disabled {
+  pointer-events: all;
+}
+
 .collection-grid__list__item__image {
   width: 100%;
   margin-bottom: 2rem;
+  display: none;
+}
+
+.collection-grid__list__item__image[data-index="1"] {
+  display: block;
 }
 
 .collection-grid__list__item__image img {

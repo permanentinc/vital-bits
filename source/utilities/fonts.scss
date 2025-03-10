@@ -3,33 +3,32 @@ Font face
 ------------------------------------------------------------------*/
 
 @mixin light {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 400;
 }
 
 @mixin regular {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 400;
 }
 
-
 @mixin medium {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 500;
 }
 
 @mixin semi {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 600;
 }
 
 @mixin bold {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 700;
 }
 
 @mixin black {
-  font-family: 'sofia-pro', sans-serif;
+  font-family: "sofia-pro", sans-serif;
   font-weight: 700;
 }
 
@@ -57,6 +56,10 @@ h1,
   margin-bottom: 2rem;
   line-height: 1.1;
   letter-spacing: 0.5px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3.6rem;
+  }
 }
 
 h2,
@@ -193,7 +196,7 @@ a:not([class]) {
   font-size: 1.8rem;
 
   &:after {
-    content: '';
+    content: "";
     position: relative;
     display: inline-block;
     background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="40.05" height="24.042"><path fill="%23367b7f" fill-rule="nonzero" d="m28.029 0 12.02 12.02-12.02 12.022-1.414-1.415 9.623-9.624L0 12.707l.016-2 36.187.295-9.588-9.588L28.029 0Z"/></svg>');

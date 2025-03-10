@@ -1273,6 +1273,15 @@ document.addEventListener('DOMContentLoaded', function() {
         element.addEventListener('mouseleave', (e)=>switchImage(e.currentTarget, false));
     });
 }, false);
+let $collectionGridSliders = (0, _lib.$$)('.js-collection-grid-slider');
+if ($collectionGridSliders) $collectionGridSliders.forEach(($collectionGridSlider)=>{
+    new (0, _flickityDefault.default)($collectionGridSlider, {
+        wrapAround: false,
+        pageDots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+});
 
 },{"./lib":"acGTP","./search":"4fKJc","./shop":"1fHDu","./cursor":"9Us5D","./accordion":"lWUal","./templates":"bituW","flickity":"lGlvh","in-view":"70hii","animejs/lib/anime.es.js":"hQAdq","choices.js":"lqRij","splitting":"bzYwE","typewriter-effect/dist/core":"2Xppi","@parcel/transformer-js/src/esmodule-helpers.js":"5ITdS","glightbox":"119aE"}],"acGTP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

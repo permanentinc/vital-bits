@@ -896,3 +896,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+let $collectionGridSliders = $$('.js-collection-grid-slider');
+
+if ($collectionGridSliders) {
+    $collectionGridSliders.forEach($collectionGridSlider => {
+        new Flickity($collectionGridSlider, {
+            wrapAround: false,
+            pageDots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
+    })
+
+}

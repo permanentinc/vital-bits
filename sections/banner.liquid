@@ -1,4 +1,4 @@
-<div class="banner banner--{{ section.settings.height }}">
+<div class="banner banner--{{ section.settings.height }} {% if section.settings.show_button == false %}banner--no-button{% endif %}">
   <div class="banner-image">
     <picture>
       <!-- Larger screen image -->
@@ -41,6 +41,8 @@
     </picture>
   </div>
 
+  <div class="banner-overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }}"></div>
+
   <div class="banner-text">
     <div class="banner-constraint">
       <h1 class="black">
@@ -49,7 +51,7 @@
         </b>
       </h1>
       {% if section.settings.link_link != blank %}
-        <p>
+        <p class="banner-button">
           <a href="{{ section.settings.link_link }}" class="button">{{ section.settings.link_label }}</a>
         </p>
       {% endif %}
