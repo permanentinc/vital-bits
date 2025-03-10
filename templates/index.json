@@ -21,7 +21,7 @@
         "link_link": "shopify://collections",
         "height": "normal",
         "overlay_color": "#f5d6dc",
-        "overlay_opacity": 0.3,
+        "overlay_opacity": 0.7,
         "show_button": false
       }
     },
@@ -31,7 +31,6 @@
         "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
           "type": "collection_item",
           "settings": {
-            "thumbnail": "shopify://shop_images/icon_v-delivery_black_0e6e2c8e-6d07-41be-8695-799cf2dbd589.svg",
             "copy": "Tailored made to aide & comfort new mums through their postpartum recovery.",
             "Collection": "v-delivery"
           }
@@ -39,7 +38,6 @@
         "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
           "type": "collection_item",
           "settings": {
-            "thumbnail": "shopify://shop_images/icon_c-section_black_7e7ec216-63a2-4441-9c2f-e06ca1c35ede.svg",
             "copy": "Tailored made to aide & comfort new mums through their postpartum recovery.",
             "Collection": "c-section-delivery"
           }
@@ -47,7 +45,6 @@
         "d378cc3d-6a59-4d94-b5df-516c0967eff0": {
           "type": "collection_item",
           "settings": {
-            "thumbnail": "shopify://shop_images/icon_pregnancy_black_b07c4b74-9dca-4ba4-9276-ef634b621b99.svg",
             "copy": "Vital essentials to provide much-needed relief throughout each trimester.",
             "Collection": "frontpage"
           }
@@ -56,7 +53,6 @@
           "type": "collection_item",
           "disabled": true,
           "settings": {
-            "thumbnail": "shopify://shop_images/collections-4.jpg",
             "copy": "Breast care essentials to support new mums through their breastfeeding journey.",
             "Collection": "breast-feeding"
           }
