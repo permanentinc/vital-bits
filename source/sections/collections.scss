@@ -384,7 +384,7 @@
 }
 
 [data-page-type="list-collections"] {
-    &[data-theme="post-partum"],
+    &[data-theme="postpartum"],
     &[data-theme="c-section-delivery"],
     &[data-theme="v-delivery"] {
         .collections__slider__item__quickview path {
@@ -412,7 +412,7 @@
         // transition: all $faster;
     }
 
-    &[data-theme="post-partum"],
+    &[data-theme="postpartum"],
     &[data-theme="c-section-delivery"],
     &[data-theme="v-delivery"] {
         background: var(--purple-light) !important;
