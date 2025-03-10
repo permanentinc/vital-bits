@@ -31,7 +31,7 @@
           {% comment %}
             Item
           {% endcomment %}
-          <div class="collection-grid__list__item collection-grid__list__item--product">
+          <a href="{{ product.url }}" class="collection-grid__list__item collection-grid__list__item--product">
             <div
               class="collections__slider__item__quickview [ js-show-quickview ]"
               data-tooltip
@@ -46,36 +46,44 @@
               </div>
             </div>
 
-            <div class="collection-grid__list__item__images [ js-collection-grid-slider ]">
-              {% for media in product.media %}
-                <a href="{{ product.url }}" class="collection-grid__list__item__image" data-index="{{ forloop.index }}">
-                  {% if media.preview_image %}
-                    {{ media.preview_image | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
-                  {% else %}
-                    <img
-                      src="{{ 'placeholder.jpeg' | asset_url }}"
-                      alt="placeholder image"
-                      width="400"
-                      height="400"
-                      loading="lazy"
-                    >
-                  {% endif %}
-                </a>
-              {% endfor %}
+            {% comment %} <div class="collection-grid__list__item__previous [ js-previous-product-image ]">
+              <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+                <path d="M.217 27.968L28.18 0l7.523 7.524L20.049 23.18H80v10.64H20.049l15.653 15.656L28.179 57 .217 29.032a.76.76 0 010-1.064z" fill="#000" fill-rule="nonzero" />
+              </svg>
             </div>
 
-            <a href="{{ product.url }}" class="collection-grid__list__item__title">
+            <div class="collection-grid__list__item__next [ js-next-product-image ]">
+              <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+                <path d="M79.783 27.968L51.82 0l-7.523 7.524L59.951 23.18H0v10.64h59.951L44.298 49.476 51.821 57l27.962-27.968a.76.76 0 000-1.064z" fill="#000" fill-rule="nonzero" />
+              </svg>
+            </div> {% endcomment %}
+
+            <div class="collection-grid__list__item__image">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+              {% else %}
+                <img
+                  src="{{ 'placeholder.jpeg' | asset_url }}"
+                  alt="placeholder image"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+
+            <div class="collection-grid__list__item__title">
               <h6>
                 <b>{{ product.title }}</b>
               </h6>
               <h6>
                 <b>{{ product.price | money }}</b>
               </h6>
-            </a>
-            <a href="{{ product.url }}" class="collection-grid__list__item__description">
+            </div>
+            <div class="collection-grid__list__item__description">
               <p>{{ product.metafields.custom.short_description }}</p>
-            </a>
-          </div>
+            </div>
+          </a>
         {% endfor %}
       {% endif %}
     {% endfor %}
