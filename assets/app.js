@@ -1030,7 +1030,7 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
         // Send the request to Shopify
         fetch(`/collections/${handle}/products.json`).then((response)=>response.json()).then((data)=>{
             setTimeout(()=>{
-                let items = (0, _lib.$$)('.collections__slider__item--product');
+                let items = (0, _lib.$$)('.collections__slider__item--product,.collections__slider__item--empty');
                 (0, _lib.$)('.collections__slider__item--text').innerHTML = `
                         <h2>
                           <b>${title}</b>
@@ -1083,6 +1083,19 @@ if ($collection_triggers) $collection_triggers.forEach((element)=>{
                             `;
                     newItems.push(newElement);
                 });
+                if (data.products.length === 0) {
+                    let newElement = document.createElement('div');
+                    newElement.classList.add('collections__slider__item');
+                    newElement.classList.add('collections__slider__item--empty');
+                    newElement.innerHTML = `<div class="collections__slider__item collections__slider__item--empty">
+                            <div class="collections__slider__item__inner">
+                            <h1>
+                              <b>COMING <BR>SOON</b>
+                            </h1>
+                            </.div>
+                          </div>`;
+                    newItems.push(newElement);
+                }
                 flkty.append(newItems);
                 // got to the first slide
                 flkty.select(window.innerWidth > 768 ? 1 : 0);

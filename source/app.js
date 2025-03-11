@@ -556,7 +556,7 @@ if ($collection_triggers) {
                 .then((data) => {
 
                     setTimeout(() => {
-                        let items = $$('.collections__slider__item--product');
+                        let items = $$('.collections__slider__item--product,.collections__slider__item--empty');
                         $('.collections__slider__item--text').innerHTML = `
                         <h2>
                           <b>${title}</b>
@@ -571,7 +571,9 @@ if ($collection_triggers) {
                         items.forEach((item) => {
                             window.flkty.remove(item);
                         });
+
                         $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
+
                         var newItems = [];
                         data.products.forEach((product) => {
                             let full_description = product.body_html;
@@ -611,6 +613,22 @@ if ($collection_triggers) {
                             newItems.push(newElement);
 
                         });
+
+
+                        if (data.products.length === 0) {
+                            let newElement = document.createElement('div');
+                            newElement.classList.add('collections__slider__item');
+                            newElement.classList.add('collections__slider__item--empty');
+                            newElement.innerHTML = `<div class="collections__slider__item collections__slider__item--empty">
+                            <div class="collections__slider__item__inner">
+                            <h1>
+                              <b>COMING <BR>SOON</b>
+                            </h1>
+                            </.div>
+                          </div>`;
+
+                            newItems.push(newElement);
+                        }
 
 
                         flkty.append(newItems);

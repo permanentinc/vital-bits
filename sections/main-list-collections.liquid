@@ -13,11 +13,12 @@
     </svg>
   </div>
 
-  {% comment %}
-    Slider
-  {% endcomment %}
+
+  {% assign ordered_collections = 'postpartum,v-delivery,c-section-delivery,pregnancy,breast-care' | split: ',' %}
+
   <div class="collection-grid__list">
-    {% for collection in collections %}
+    {% for ordered_handle in ordered_collections %}
+      {% assign collection = collections[ordered_handle] %}
       {% if collection.products.size > 0 %}
         <div class="collection-grid__list__title [ js-in-view ]">
           <h2 class="h1">
