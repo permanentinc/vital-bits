@@ -49,8 +49,8 @@
             <div class="collection-grid__list__item__images [ js-collection-grid-slider ]">
               {% for media in product.media %}
                 <a href="{{ product.url }}" class="collection-grid__list__item__image" data-index="{{ forloop.index }}">
-                  {% if product.featured_image %}
-                    {{ product.featured_image | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+                  {% if media.preview_image %}
+                    {{ media.preview_image | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
                   {% else %}
                     <img
                       src="{{ 'placeholder.jpeg' | asset_url }}"

@@ -106,7 +106,10 @@
             margin: 10rem 0;
             backface-visibility: hidden;
             will-change: transform;
-            transition: all 22ms;
+            backface-visibility: hidden;
+            will-change: transform;
+            animation: marquee-move-text 26s linear infinite forwards;
+            animation-play-state: running;
 
             span {
                 line-height: 8vw;
@@ -120,5 +123,11 @@
                 -webkit-text-stroke-color: white;
             }
         }
+    }
+}
+
+@keyframes marquee-move-text {
+    to {
+        transform: translateX(-50%);
     }
 }

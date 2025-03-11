@@ -120,7 +120,7 @@
                 .next {
                     opacity: 1;
                     transform: none;
-                    
+
                     &[disabled] {
                         opacity: 0.3;
                     }
@@ -232,7 +232,11 @@
             margin: 10rem 0;
             backface-visibility: hidden;
             will-change: transform;
-            transition: all 22ms;
+            backface-visibility: hidden;
+            will-change: transform;
+            animation: marquee-move-text 26s linear infinite forwards;
+            animation-play-state: running;
+
 
             span {
                 line-height: 8vw;
@@ -254,5 +258,11 @@
         @include media($xmd, max) {
             width: 50% !important;
         }
+    }
+}
+
+@keyframes marquee-move-text {
+    to {
+        transform: translateX(-50%);
     }
 }

@@ -337,7 +337,7 @@
             justify-content: center;
 
             display: none;
-            
+
             &__prev,
             &__next {
                 width: 6rem;
@@ -366,7 +366,10 @@
             margin: 10rem 0;
             backface-visibility: hidden;
             will-change: transform;
-            transition: all 22ms;
+            backface-visibility: hidden;
+            will-change: transform;
+            animation: marquee-move-text 26s linear infinite forwards;
+            animation-play-state: running;
 
             span {
                 line-height: 8vw;
@@ -395,7 +398,7 @@
         }
     }
 
-    &[data-theme="breast-feeding"] {
+    &[data-theme="breast-care"] {
         .collections__slider__item__quickview path {
             fill: var(--pink);
         }
@@ -406,12 +409,6 @@
 }
 
 .collections {
-    // transition: all $faster;
-
-    .collections__slider * {
-        // transition: all $faster;
-    }
-
     &[data-theme="postpartum"],
     &[data-theme="c-section-delivery"],
     &[data-theme="v-delivery"] {
@@ -471,7 +468,7 @@
         }
     }
 
-    &[data-theme="breast-feeding"] {
+    &[data-theme="breast-care"] {
         background: var(--pink-light) !important;
 
         .collections__item__image svg path {
@@ -569,5 +566,11 @@
         .collections__marquee__animation span {
             -webkit-text-stroke-color: var(--green);
         }
+    }
+}
+
+@keyframes marquee-move-text {
+    to {
+        transform: translateX(-50%);
     }
 }

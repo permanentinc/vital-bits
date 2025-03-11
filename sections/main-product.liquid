@@ -5,7 +5,6 @@
   {%- assign on_sale = true -%}
 {% endif %}
 
-
 <div class="product">
   <div class="product-wrap">
     <div class="product-gallery">
@@ -43,17 +42,13 @@
         </svg>
 
         <div class="tooltip">
-          <div class="tooltip__wrap">
-            Click to view full image
-          </div>
+          <div class="tooltip__wrap">Click to view full image</div>
         </div>
-
       </div>
 
       <span class="product-gallery-progress">
         <span class="product-gallery-progress__bar [ js-gallery-progress ]"></span>
       </span>
-      
 
       {% comment %} <span class="product-gallery-progresscircle"> {% endcomment %}
       {% comment %} <svg width="100" height="100" viewBox="0 0 100 100"> {% endcomment %}
@@ -165,79 +160,74 @@
     </div>
 
     {% assign count = 0 %}
-    {% for related_product in product.collections.first.products %}
-      {% if count < 3 and related_product.id != product.id %}
-        {% comment %}
-          Item
-        {% endcomment %}
-        <a href="#" class="related-products__list__item related-products__list__item--product">
-          <div class="related-products__list__item__image">
-            {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+    {% assign shown_products = '' %}
 
-            {% else %}
-              <img
-                src="{{ 'placeholder.jpeg' | asset_url }}"
-                alt="placeholder image"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-            {% endif %}
-          </div>
-          <div class="related-products__list__item__title">
-            <h6>
-              <b>{{ related_product.title | escape }}</b>
-            </h6>
-            <h6>
-              <b>{{ related_product.price | money }}</b>
-            </h6>
-          </div>
-          <div class="related-products__list__item__description">
-            <p>
-              {{ related_product.metafields.custom.short_description }}
-            </p>
-          </div>
-        </a>
-        {% assign count = count | plus: 1 %}
-      {% endif %}
+    {% for related_product in product.collections.first.products %}
+      {% unless shown_products contains related_product.id or related_product.id == product.id %}
+        {% if count < 3 %}
+          {% comment %}
+            Item
+          {% endcomment %}
+          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+            <div class="related-products__list__item__image">
+              {% if related_product.featured_media %}
+                {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+              {% else %}
+                <img
+                  src="{{ 'placeholder.jpeg' | asset_url }}"
+                  alt="placeholder image"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="related-products__list__item__title">
+              <h6><b>{{ related_product.title | escape }}</b></h6>
+              <h6><b>{{ related_product.price | money }}</b></h6>
+            </div>
+            <div class="related-products__list__item__description">
+              <p>{{ related_product.metafields.custom.short_description }}</p>
+            </div>
+          </a>
+          {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endunless %}
     {% endfor %}
 
     {% for related_product in collections.all.products %}
-      {% if count < 3 and related_product.id != product.id %}
-        {% comment %}
-          Item
-        {% endcomment %}
-        <a href="#" class="related-products__list__item related-products__list__item--product">
-          <div class="related-products__list__item__image">
-            {% if related_product.featured_media %}
-              {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
-            {% else %}
-              <img
-                src="{{ 'placeholder.jpeg' | asset_url }}"
-                alt="placeholder image"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-            {% endif %}
-          </div>
-          <div class="related-products__list__item__title">
-            <h6>
-              <b>{{ related_product.title | escape }}</b>
-            </h6>
-            <h6>
-              <b>{{ related_product.price | money }}</b>
-            </h6>
-          </div>
-          <div class="related-products__list__item__description">
-            <p>
-              {{ related_product.metafields.custom.short_description }}
-            </p>
-          </div>
-        </a>
-        {% assign count = count | plus: 1 %}
-      {% endif %}
+      {% unless shown_products contains related_product.id or related_product.id == product.id %}
+        {% if count < 3 %}
+          {% comment %}
+            Item
+          {% endcomment %}
+          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+            <div class="related-products__list__item__image">
+              {% if related_product.featured_media %}
+                {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
+              {% else %}
+                <img
+                  src="{{ 'placeholder.jpeg' | asset_url }}"
+                  alt="placeholder image"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="related-products__list__item__title">
+              <h6><b>{{ related_product.title | escape }}</b></h6>
+              <h6><b>{{ related_product.price | money }}</b></h6>
+            </div>
+            <div class="related-products__list__item__description">
+              <p>{{ related_product.metafields.custom.short_description }}</p>
+            </div>
+          </a>
+          {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endunless %}
     {% endfor %}
 
     {% comment %}
@@ -317,8 +307,6 @@
 
     {% endfor %}
   </script>
-
-  
 </div>
 
 <div class="reviews">
