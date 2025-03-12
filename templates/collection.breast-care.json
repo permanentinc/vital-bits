@@ -12,7 +12,13 @@
     "text_banner_J3Yrak": {
       "type": "text-banner",
       "settings": {
-        "heading": "BREASTFEEDING"
+        "heading": "BREAST CARE"
+      }
+    },
+    "text_banner_BYfjwD": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "COMING SOON"
       }
     },
     "banner": {
@@ -23,12 +29,6 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {}
-    },
-    "text_banner_BYfjwD": {
-      "type": "text-banner",
-      "settings": {
-        "heading": "COMING SOON"
-      }
     }
   },
   "order": [
