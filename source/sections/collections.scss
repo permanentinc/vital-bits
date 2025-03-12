@@ -72,27 +72,62 @@
         flex-wrap: wrap;
         justify-content: center;
         position: relative;
+        margin-top: 2rem;
+    }
+
+    &__slide {
+        position: relative;
+        display: block;
+        max-width: calc(100% - 0rem);
+        overflow: auto;
+        white-space: nowrap;
+        padding: 0 2rem;
+
+        * {
+            user-select: none;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: rgba(white, 0.2);
+            border-radius: 0.1rem;
+        }
+
+        &::-webkit-scrollbar {
+            height: 2px;
+            background-color: rgba(white, 0.2);
+            border-radius: 0.1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--green);
+            border-radius: 0.2rem;
+        }
     }
 
     &__indicator {
         position: absolute;
-        bottom: 0;
+        bottom: 2rem;
         width: 10%;
-        height: 2px;
-        background: var(--green);
+        top: 0rem;
+        background: white;
         transition: all $fast;
-        z-index: 3;
+        z-index: 1;
+        opacity: 0.1;
+        border-radius: 10px;
     }
 
     &__item {
         position: relative;
         width: auto;
         cursor: pointer;
-        display: flex;
+        display: inline-flex;
         flex-wrap: wrap;
         align-items: center;
-        border-bottom: 1px solid var(--green);
         transition: all $fast;
+        z-index: 6;
+        min-width: 25rem;
+        flex-shrink: 0;
+        padding-bottom: 2rem;
 
         @include media(1280px, max) {
             width: 20%;
@@ -214,6 +249,8 @@
                 color: white;
                 justify-content: center;
                 align-content: center;
+                padding: 4rem;
+                width: 100%;
 
                 .collections__slider__item__inner {
                     background: var(--pink);
@@ -442,6 +479,10 @@
     &[data-theme="v-delivery"] {
         background: var(--purple-light) !important;
 
+        .collections__slide::-webkit-scrollbar-thumb {
+            background-color: var(--orange);
+        }
+
         .collections__item__image svg path {
             fill: var(--orange);
         }
@@ -499,6 +540,10 @@
     &[data-theme="breast-care"] {
         background: var(--pink-light) !important;
 
+        .collections__slide::-webkit-scrollbar-thumb {
+            background-color: var(--pink);
+        }
+
         .collections__item__image svg path {
             fill: var(--pink);
         }
@@ -555,6 +600,10 @@
 
     &[data-theme="pregnancy"] {
         background: var(--blue-light) !important;
+
+        .collections__slide::-webkit-scrollbar-thumb {
+            background-color: var(--green);
+        }
 
         .collections__item__image svg path {
             fill: var(--green);

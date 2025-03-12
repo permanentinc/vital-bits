@@ -513,14 +513,22 @@ if ($slideNext) {
 let $collection_triggers = $$('.js-collection-slider-trigger');
 let $indicator = $('.js-indicator');
 
+
 function updateIndicator(element) {
     if (!element) return;
+
+    var parent = element.parentElement; // Get the scrollable parent
+    if (!parent) return;
+
     var rect = element.getBoundingClientRect();
+    var parentRect = parent.getBoundingClientRect(); // Get parent's position
+
+    // Calculate position relative to the scrollable parent
+    var relativeLeft = rect.left - parentRect.left + parent.scrollLeft;
+
     $indicator.style.width = `${rect.width}px`;
-    $indicator.style.left = `${rect.left}px`;
+    $indicator.style.left = `${relativeLeft}px`; // Adjust for scrolling
 }
-
-
 updateIndicator($('.js-collection-slider-trigger.active'));
 
 
@@ -533,137 +541,147 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 
-if ($collection_triggers) {
-    $collection_triggers.forEach(element => {
-        element.addEventListener('click', (e) => {
-            e.preventDefault();
-            let handle = element.getAttribute('data-handle');
-            let title = element.getAttribute('data-title');
-            let url = element.getAttribute('data-url');
-            let copy = element.getAttribute('data-copy');
+const updateSlider = (e) => {
+    console.log(e)
 
-            $collection_triggers.forEach(element => element.classList.remove('active'));
+    // get closest '.js-collection-slider-trigger' or if it is the trigger itself
+    let element = e.target.closest('.js-collection-slider-trigger') || e.target;
 
-            element.classList.add('active');
+    // only continue if the elemetn has a class of 'js-collection-slider-trigger'
+    if (!element.classList.contains('js-collection-slider-trigger')) return;
 
-            updateIndicator(element);
-
-            $('.collections').classList.add('loading');
-
-            // Send the request to Shopify
-            fetch(`/collections/${handle}/products.json`)
-                .then((response) => response.json())
-                .then((data) => {
-
-                    setTimeout(() => {
-                        let items = $$('.collections__slider__item--product,.collections__slider__item--empty');
-                        $('.collections__slider__item--text').innerHTML = `
-                        <h2>
-                          <b>${title}</b>
-                        </h2>
-                        <p>
-                          <b>${copy}</b>
-                        </p>
-                        <p>
-                          <a href="${url}" class="button">Shop all</a>
-                        </p>
-                    `;
-                        items.forEach((item) => {
-                            window.flkty.remove(item);
-                        });
-
-                        $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
-
-                        var newItems = [];
-                        data.products.forEach((product) => {
-                            let full_description = product.body_html;
-                            // extract the first paragraph from the description
-                            let description = full_description.match(/<p>(.*?)<\/p>/)[0];
-                            let newElement = document.createElement('a');
-                            newElement.classList.add('collections__slider__item');
-                            newElement.classList.add('collections__slider__item--product');
-                            newElement.setAttribute('href', '/products/' + product.handle);
-                            newElement.innerHTML = `
-                            <div
-                              class="collections__slider__item__quickview [ js-show-quickview ]"
-                              data-tooltip
-                              data-id="${product.handle}"
-                              data-collection="${handle}"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" width="19.707" height="19.708">
-                                <path fill="#FFF" fill-rule="nonzero" d="M7.899 0c4.361 0 7.898 3.531 7.898 7.888 0 1.825-.62 3.505-1.663 4.841l5.573 5.563-1.414 1.416-5.577-5.569a7.87 7.87 0 0 1-4.817 1.637C3.537 15.776 0 12.245 0 7.888 0 3.53 3.537 0 7.899 0Zm0 2A5.893 5.893 0 0 0 2 7.888a5.893 5.893 0 0 0 5.899 5.888 5.893 5.893 0 0 0 5.898-5.888A5.893 5.893 0 0 0 7.899 2Z"></path>
-                              </svg>
-                              <div class="tooltip">
-                                <div class="tooltip__wrap">Quick view</div>
-                              </div>
-                            </div>
-
-                            <div class="collections__slider__item__image">
-                                <img src="${product.images[0].src}" alt="${product.images[0].alt}">
-                            </div>
-                            <div class="collections__slider__item__title">
-                                <h6><b>${product.title}</b></h6>
-                                <h6><b>${product.variants[0].price}</b></h6>
-                            </div>
-                            <div class="collections__slider__item__title">
-                                ${description}
-                            </div>
-                            `;
-
-                            newItems.push(newElement);
-
-                        });
+    e.preventDefault();
 
 
-                        if (data.products.length === 0) {
-                            let newElement = document.createElement('div');
-                            newElement.classList.add('collections__slider__item');
-                            newElement.classList.add('collections__slider__item--empty');
-                            newElement.innerHTML = `<div class="collections__slider__item collections__slider__item--empty">
-                            <div class="collections__slider__item__inner">
-                            <h1>
-                              <b>COMING <BR>SOON</b>
-                            </h1>
-                            </.div>
-                          </div>`;
+    e.preventDefault();
+    let handle = element.getAttribute('data-handle');
+    let title = element.getAttribute('data-title');
+    let url = element.getAttribute('data-url');
+    let copy = element.getAttribute('data-copy');
 
-                            newItems.push(newElement);
-                        }
+    $collection_triggers.forEach(element => element.classList.remove('active'));
 
+    element.classList.add('active');
 
-                        flkty.append(newItems);
+    updateIndicator(element);
 
-                        // got to the first slide
-                        flkty.select((window.innerWidth > 768) ? 1 : 0);
+    $('.collections').classList.add('loading');
 
-                        setTimeout(() => {
-                            $('.collections').classList.remove('loading');
-                        }, 800);
+    // Send the request to Shopify
+    fetch(`/collections/${handle}/products.json`)
+        .then((response) => response.json())
+        .then((data) => {
 
-
-                    }, 300);
-
-
-                    // Scroll to the top of the .collections__slider
-                    // $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
-
-                    const element = document.querySelector('.collections__slider');
-                    if (element) {
-                        const yOffset = -175; // Adjust by -200px
-                        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-
-                        window.scrollTo({ top: y, behavior: 'smooth' });
-                    }
-
-                })
-                .catch((data) => {
-                    // Show an error message in the console
-                    console.log(data);
+            setTimeout(() => {
+                let items = $$('.collections__slider__item--product,.collections__slider__item--empty');
+                $('.collections__slider__item--text').innerHTML = `
+                <h2>
+                  <b>${title}</b>
+                </h2>
+                <p>
+                  <b>${copy}</b>
+                </p>
+                <p>
+                  <a href="${url}" class="button">Shop all</a>
+                </p>
+            `;
+                items.forEach((item) => {
+                    window.flkty.remove(item);
                 });
-        })
 
-    });
+                $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
+
+                var newItems = [];
+                data.products.forEach((product) => {
+                    let full_description = product.body_html;
+                    // extract the first paragraph from the description
+                    let description = full_description.match(/<p>(.*?)<\/p>/)[0];
+                    let newElement = document.createElement('a');
+                    newElement.classList.add('collections__slider__item');
+                    newElement.classList.add('collections__slider__item--product');
+                    newElement.setAttribute('href', '/products/' + product.handle);
+                    newElement.innerHTML = `
+                    <div
+                      class="collections__slider__item__quickview [ js-show-quickview ]"
+                      data-tooltip
+                      data-id="${product.handle}"
+                      data-collection="${handle}"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="19.707" height="19.708">
+                        <path fill="#FFF" fill-rule="nonzero" d="M7.899 0c4.361 0 7.898 3.531 7.898 7.888 0 1.825-.62 3.505-1.663 4.841l5.573 5.563-1.414 1.416-5.577-5.569a7.87 7.87 0 0 1-4.817 1.637C3.537 15.776 0 12.245 0 7.888 0 3.53 3.537 0 7.899 0Zm0 2A5.893 5.893 0 0 0 2 7.888a5.893 5.893 0 0 0 5.899 5.888 5.893 5.893 0 0 0 5.898-5.888A5.893 5.893 0 0 0 7.899 2Z"></path>
+                      </svg>
+                      <div class="tooltip">
+                        <div class="tooltip__wrap">Quick view</div>
+                      </div>
+                    </div>
+
+                    <div class="collections__slider__item__image">
+                        <img src="${product.images[0].src}" alt="${product.images[0].alt}">
+                    </div>
+                    <div class="collections__slider__item__title">
+                        <h6><b>${product.title}</b></h6>
+                        <h6><b>${product.variants[0].price}</b></h6>
+                    </div>
+                    <div class="collections__slider__item__title">
+                        ${description}
+                    </div>
+                    `;
+
+                    newItems.push(newElement);
+
+                });
+
+
+                if (data.products.length === 0) {
+                    let newElement = document.createElement('div');
+                    newElement.classList.add('collections__slider__item');
+                    newElement.classList.add('collections__slider__item--empty');
+                    newElement.innerHTML = `<div class="collections__slider__item collections__slider__item--empty">
+                    <div class="collections__slider__item__inner">
+                    <h1>
+                      <b>COMING <BR>SOON</b>
+                    </h1>
+                    </.div>
+                  </div>`;
+
+                    newItems.push(newElement);
+                }
+
+
+                flkty.append(newItems);
+
+                // got to the first slide
+                flkty.select((window.innerWidth > 768) ? 1 : 0);
+
+                setTimeout(() => {
+                    $('.collections').classList.remove('loading');
+                }, 800);
+
+
+            }, 300);
+
+
+            // Scroll to the top of the .collections__slider
+            // $('.collections__slider').scrollIntoView({ behavior: 'smooth' });
+
+            const element = document.querySelector('.collections__slider');
+            if (element) {
+                const yOffset = -210; // Adjust by -200px
+                const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+
+        })
+        .catch((data) => {
+            // Show an error message in the console
+            console.log(data);
+        });
+
+
 }
+
+
 
 /*------------------------------------------------------------------
 In view elements
@@ -927,4 +945,52 @@ if ($collectionGridSliders) {
         });
     })
 
+}
+
+
+
+// Select the slide container
+if ($('.collections__slide')) {
+    // if ($('.collections__slide')) $$('.collections__slide').forEach(element => new Gallery(element));
+
+    let $sliders = $$('.collections__slide');
+
+    if ($sliders) {
+
+        $sliders.forEach(slider => {
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            console.log(slider)
+
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mouseup', (e) => {
+                isDown = false;
+                slider.classList.remove('active');
+                if (startX === e.pageX - slider.offsetLeft) updateSlider(e);
+
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX) * 1;
+            });
+
+        });
+
+    }
 }
