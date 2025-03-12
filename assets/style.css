@@ -3288,7 +3288,7 @@ body .choices .choices__list--dropdown .choices__item {
 }
 
 .collections__slider__item--empty .collections__slider__item__inner {
-  background: var(--green);
+  background: var(--pink);
   place-content: center;
   width: 100%;
   height: 100%;
@@ -3296,6 +3296,10 @@ body .choices .choices__list--dropdown .choices__item {
 
 .collections__slider__item--empty .collections__slider__item__inner h1 {
   text-align: center;
+}
+
+.collections__slider__item--empty .collections__slider__item__inner h1 b {
+  color: var(--pink-light) !important;
 }
 
 .collections__slider__item--text {
@@ -3477,19 +3481,19 @@ body .choices .choices__list--dropdown .choices__item {
   line-height: 8vw;
 }
 
-[data-page-type="list-collections"][data-theme="postpartum"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview path {
+[data-page-type="collection"][data-theme="postpartum"] .collections__slider__item__quickview path, [data-page-type="collection"][data-theme="c-section-delivery"] .collections__slider__item__quickview path, [data-page-type="collection"][data-theme="v-delivery"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="postpartum"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview path {
   fill: var(--orange);
 }
 
-[data-page-type="list-collections"][data-theme="postpartum"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview {
+[data-page-type="collection"][data-theme="postpartum"] .collections__slider__item__quickview, [data-page-type="collection"][data-theme="c-section-delivery"] .collections__slider__item__quickview, [data-page-type="collection"][data-theme="v-delivery"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="postpartum"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="c-section-delivery"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="v-delivery"] .collections__slider__item__quickview {
   border-color: var(--orange);
 }
 
-[data-page-type="list-collections"][data-theme="breast-care"] .collections__slider__item__quickview path {
+[data-page-type="collection"][data-theme="breast-care"] .collections__slider__item__quickview path, [data-page-type="list-collections"][data-theme="breast-care"] .collections__slider__item__quickview path {
   fill: var(--pink);
 }
 
-[data-page-type="list-collections"][data-theme="breast-care"] .collections__slider__item__quickview {
+[data-page-type="collection"][data-theme="breast-care"] .collections__slider__item__quickview, [data-page-type="list-collections"][data-theme="breast-care"] .collections__slider__item__quickview {
   border-color: var(--pink);
 }
 
@@ -3551,15 +3555,15 @@ body .choices .choices__list--dropdown .choices__item {
 }
 
 .collections[data-theme="breast-care"] .collections__item__image svg path {
-  fill: var(--green);
+  fill: var(--pink);
 }
 
 .collections[data-theme="breast-care"] .collections__indicator {
-  background: var(--green);
+  background: var(--pink);
 }
 
 .collections[data-theme="breast-care"] .collections__item {
-  border-color: var(--green);
+  border-color: var(--pink);
 }
 
 .collections[data-theme="breast-care"] .infinity-loader svg {
@@ -4677,8 +4681,12 @@ html [data-theme="postpartum"] .gbtn path, html [data-theme="postpartum"] .gbtn 
   fill: var(--orange);
 }
 
-html [data-theme="postpartum"] .product-details-old-price:after, html [data-theme="postpartum"] li:before, html [data-theme="postpartum"] .product-details-old-price:after, html [data-theme="postpartum"] li:before, html [data-theme="c-section-delivery"] .product-details-old-price:after, html [data-theme="c-section-delivery"] li:before, html [data-theme="v-delivery"] .product-details-old-price:after, html [data-theme="v-delivery"] li:before {
+html [data-theme="postpartum"] .product-details-old-price:after, html [data-theme="postpartum"] ul li:before, html [data-theme="postpartum"] .product-details-old-price:after, html [data-theme="postpartum"] ul li:before, html [data-theme="c-section-delivery"] .product-details-old-price:after, html [data-theme="c-section-delivery"] ul li:before, html [data-theme="v-delivery"] .product-details-old-price:after, html [data-theme="v-delivery"] ul li:before {
   background: var(--orange);
+}
+
+html [data-theme="postpartum"] ol li:before, html [data-theme="postpartum"] ol li:before, html [data-theme="c-section-delivery"] ol li:before, html [data-theme="v-delivery"] ol li:before {
+  color: var(--orange);
 }
 
 html [data-theme="postpartum"] .product-gallery-sale, html [data-theme="postpartum"] .collection-grid__marquee__animation span, html [data-theme="postpartum"] .product-gallery-sale, html [data-theme="postpartum"] .collection-grid__marquee__animation span, html [data-theme="c-section-delivery"] .product-gallery-sale, html [data-theme="c-section-delivery"] .collection-grid__marquee__animation span, html [data-theme="v-delivery"] .product-gallery-sale, html [data-theme="v-delivery"] .collection-grid__marquee__animation span {
@@ -4815,8 +4823,12 @@ html [data-theme="breast-care"] .gbtn path {
   fill: var(--pink);
 }
 
-html [data-theme="breast-care"] .product-details-old-price:after, html [data-theme="breast-care"] li:before {
+html [data-theme="breast-care"] .product-details-old-price:after, html [data-theme="breast-care"] ul li:before {
   background: var(--pink);
+}
+
+html [data-theme="breast-care"] ol li:before {
+  color: var(--pink);
 }
 
 html [data-theme="breast-care"] .product-gallery-sale, html [data-theme="breast-care"] .collection-grid__marquee__animation span {
@@ -4959,6 +4971,17 @@ html [data-theme="breast-care"] .notyf__message a {
   transform: translateX(-50%)translateY(-50%)rotate(45deg);
 }
 
+.collection-grid-waves {
+  z-index: -1;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+
 .collection-grid {
   background: var(--blue-light);
   padding-bottom: 4rem;
@@ -5023,7 +5046,7 @@ html [data-theme="breast-care"] .notyf__message a {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 90%;
+  left: 85%;
   transform: translateY(0%)translateX(-50%)rotate(40deg);
 }
 

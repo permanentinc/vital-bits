@@ -1,3 +1,14 @@
+.collection-grid-waves {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .collection-grid {
     position: relative;
     background: var(--blue-light);
@@ -59,7 +70,7 @@
     &-wave1 {
         @include svg(1366, 768);
         position: absolute;
-        left: 90%;
+        left: 85%;
         top: 0;
         width: 100%;
         transform: translateY(0%) translateX(-50%) rotate(40deg);
@@ -236,7 +247,6 @@
             will-change: transform;
             animation: marquee-move-text 26s linear infinite forwards;
             animation-play-state: running;
-
 
             span {
                 line-height: 8vw;

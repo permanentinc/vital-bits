@@ -216,7 +216,7 @@
                 align-content: center;
 
                 .collections__slider__item__inner {
-                    background: var(--green);
+                    background: var(--pink);
                     justify-content: center;
                     align-content: center;
                     width: 100%;
@@ -224,6 +224,10 @@
 
                     h1 {
                         text-align: center;
+
+                        b {
+                            color: var(--pink-light) !important;
+                        }
                     }
                 }
             }
@@ -409,6 +413,7 @@
     }
 }
 
+[data-page-type="collection"],
 [data-page-type="list-collections"] {
     &[data-theme="postpartum"],
     &[data-theme="c-section-delivery"],
@@ -495,15 +500,15 @@
         background: var(--pink-light) !important;
 
         .collections__item__image svg path {
-            fill: var(--green);
+            fill: var(--pink);
         }
 
         .collections__indicator {
-            background: var(--green);
+            background: var(--pink);
         }
 
         .collections__item {
-            border-color: var(--green);
+            border-color: var(--pink);
         }
 
         .infinity-loader {

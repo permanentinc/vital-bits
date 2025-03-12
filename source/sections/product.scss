@@ -395,8 +395,11 @@ html {
             }
         }
         .product-details-old-price:after,
-        li:before {
+        ul li:before {
             background: var(--orange);
+        }
+        ol li:before {
+            color: var(--orange);
         }
 
         .product-gallery-sale,
@@ -560,8 +563,11 @@ html {
         }
 
         .product-details-old-price:after,
-        li:before {
+        ul li:before {
             background: var(--pink);
+        }
+        ol li:before {
+            color: var(--pink);
         }
 
         .product-gallery-sale,
