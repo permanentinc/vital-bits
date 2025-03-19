@@ -387,23 +387,23 @@ const stickyHeader = () => {
 window.addEventListener('scroll', stickyHeader);
 
 let wave_text = $('.js-wave-text');
+if (wave_text) {
+    wave_text.innerHTML = wave_text.textContent.replace(/\S/g, '<span class="letter">$&</span>');
 
-wave_text.innerHTML = wave_text.textContent.replace(/\S/g, '<span class="letter">$&</span>');
-
-let wave = anime
-    .timeline({ autoplay: false })
-    .add({
-        targets: '.js-wave-text .letter',
-        translateY: [0, -2, 0],
-        easing: 'easeOutExpo',
-        duration: 500,
-        autoplay: false,
-        delay: (el, i) => 10 * i
-    });
+    let wave = anime
+        .timeline({ autoplay: false })
+        .add({
+            targets: '.js-wave-text .letter',
+            translateY: [0, -2, 0],
+            easing: 'easeOutExpo',
+            duration: 500,
+            autoplay: false,
+            delay: (el, i) => 10 * i
+        });
 
 
-setInterval(() => wave.play(), 20000);
-
+    setInterval(() => wave.play(), 20000);
+}
 
 anime({
     targets: '.js-wave path',
