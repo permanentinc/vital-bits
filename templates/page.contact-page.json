@@ -9,29 +9,10 @@
  */
 {
   "sections": {
-    "787878e1-8b58-4773-9ef8-4ac108efc294": {
-      "type": "banner",
-      "settings": {
-        "heading": "<h1><strong>About us</strong></h1><h6>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. </h6>",
-        "link_label": "",
-        "link_link": "",
-        "height": "normal",
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 0.3,
-        "show_button": false
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
       "settings": {}
-    },
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
-      "type": "hero-block",
-      "settings": {
-        "heading": "tgargeae",
-        "image": "shopify://shop_images/hero.jpg"
-      }
     },
     "contact_block_MmEbYY": {
       "type": "contact-block",
@@ -41,9 +22,7 @@
     }
   },
   "order": [
-    "787878e1-8b58-4773-9ef8-4ac108efc294",
-    "main",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a",
-    "contact_block_MmEbYY"
+    "contact_block_MmEbYY",
+    "main"
   ]
 }

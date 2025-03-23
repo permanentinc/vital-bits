@@ -9,16 +9,16 @@
  */
 {
   "sections": {
+    "contact_block_MmEbYY": {
+      "type": "contact-block",
+      "settings": {
+        "text": "<h1><strong>Partner Enquiry</strong></h1><p>Interested in working together? We'd love to chat. Fill out the form below and we'll get back to you as soon as possible.</p>"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
       "settings": {}
-    },
-    "contact_block_MmEbYY": {
-      "type": "contact-block",
-      "settings": {
-        "text": "<h1><strong>We would love to hear from you</strong></h1><p>If you have an enquiry, please get in touch via this form and one of our team will be in touch shortly.</p>"
-      }
     }
   },
   "order": [
