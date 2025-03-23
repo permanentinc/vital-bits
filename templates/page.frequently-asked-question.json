@@ -11,16 +11,18 @@
   "sections": {
     "787878e1-8b58-4773-9ef8-4ac108efc294": {
       "type": "banner",
-      "disabled": true,
       "custom_css": [
         "h1 {color: white;}"
       ],
       "settings": {
-        "heading": "<h1><strong>About us</strong></h1>",
+        "heading": "<h1><strong>Frequently Asked Questions</strong></h1>",
         "image": "shopify://shop_images/about_banner.png",
         "link_label": "",
         "link_link": "",
-        "height": "slim"
+        "height": "slim",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "main": {
@@ -28,96 +30,8 @@
       "disabled": true,
       "settings": {}
     },
-    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
-      "type": "image-text-block",
-      "settings": {
-        "image": "shopify://shop_images/hero.jpg",
-        "text": "<h2><strong>We get it…</strong></h2><p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy. </p><p></p>",
-        "reverse_layout": true
-      }
-    },
-    "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
-      "type": "grid-block-with-text",
-      "blocks": {
-        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf": {
-          "type": "grid_with_text_item",
-          "settings": {
-            "title": "",
-            "copy": "",
-            "link_link": "",
-            "image": "shopify://shop_images/collections-4.jpg"
-          }
-        },
-        "49f803c2-827b-41fb-bbbe-3314fa77f00a": {
-          "type": "grid_with_text_item",
-          "settings": {
-            "title": "",
-            "copy": "",
-            "link_link": "",
-            "image": "shopify://shop_images/collections-1.jpg"
-          }
-        },
-        "c42618ef-12f3-4d7a-a057-3f0267568abb": {
-          "type": "grid_with_text_item",
-          "settings": {
-            "title": "",
-            "copy": "",
-            "link_link": "",
-            "image": "shopify://shop_images/collections-2.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf",
-        "49f803c2-827b-41fb-bbbe-3314fa77f00a",
-        "c42618ef-12f3-4d7a-a057-3f0267568abb"
-      ],
-      "settings": {
-        "copy": "<h5><strong>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions -</strong> from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. </h5>"
-      }
-    },
-    "e20d9126-0b7b-4882-a4af-dadfed53b225": {
-      "type": "icons-block",
-      "blocks": {
-        "16cdbefb-a59c-46ad-8533-f0c54bb1fec0": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/icon-molecule_8f6ee8c5-2748-465d-b204-68ee819dbd75.png",
-            "title": "One-stop shop",
-            "copy": "<p><strong>Provide a one-stop shop for new and expectant mothers to buy with confidence.</strong></p>"
-          }
-        },
-        "9687f40b-23de-4822-92d1-60e24896dc6b": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/icon-magic_fddcff99-f571-4a13-8745-01e6c6403613.png",
-            "title": "Make motherhood easier",
-            "copy": "<p><strong>Provide all the necessary information to make motherhood easier, more comfortable and more accessible.</strong></p>"
-          }
-        },
-        "ce645685-9d39-443f-8afc-08a301f0ddf3": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/icon-hands.png",
-            "title": "Bring back the independence",
-            "copy": "<p><strong>Bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.</strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "16cdbefb-a59c-46ad-8533-f0c54bb1fec0",
-        "9687f40b-23de-4822-92d1-60e24896dc6b",
-        "ce645685-9d39-443f-8afc-08a301f0ddf3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Our mission",
-        "text": "<p><strong>Providing all the vital things for all the vital bits, during all those vital times.</strong></p>"
-      }
-    },
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff": {
       "type": "text-block",
-      "disabled": true,
       "settings": {
         "text": "<p>We know that the journey to motherhood is a special and transformative experience that comes with a raft of feelings & emotions - from the excitement of that 12-week scan to the exhaustion of carrying that little human in the third trimester. We get it, we’ve been there, and we understand the emotional rollercoaster that it is. We believe that every mother deserves to feel supported, confident, and secure in their own body during and after pregnancy, and we want to bring back the independence and fun spirit in mothers who are emotionally and physically exhausted.</p>"
       }
@@ -128,49 +42,101 @@
         "a66280b5-1018-4338-a0bc-3039113b908e": {
           "type": "accordion_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+            "title": "Can I track my order?",
+            "copy": "<p>Sure can - we’ll send you an email with a tracking link as soon as your order has been packed!</p>"
           }
         },
         "aa7d303a-0cf7-4e4e-ad4d-d1bd55b9f9f2": {
           "type": "accordion_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+            "title": "How long does shipping take?",
+            "copy": "<p>Auckland: 1-2 business days<br/>Rest of North Island: 2-5 business days<br/>South Island: 2-5 business days<br/>Rural Delivery: 3-5 business days</p>"
           }
         },
         "a7a4b5db-45a8-4fd3-ac87-52d5e6434034": {
           "type": "accordion_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+            "title": "Do you ship outside of New Zealand?",
+            "copy": "<p>Not at present, but get in touch and we’ll see what we can do :) - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
+          }
+        },
+        "accordion_item_FCNig6": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Do you accept returns?",
+            "copy": "<p>We do, but only for certain products due to hygiene reasons. See our returns policy <a href=\"/policies/refund-policy\" title=\"Refund Policy\">here</a>.</p>"
+          }
+        },
+        "accordion_item_7XzX6m": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Can I cancel or change an existing order?",
+            "copy": "<p>Get in touch and we’ll see what we can do :) - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
+          }
+        },
+        "accordion_item_iBjgfB": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "I have sensitive skin. Are there any products I should avoid?",
+            "copy": "<p>Our Belly Belt uses natural latex in its elastic band, which may cause a reaction for those with sensitive skin. </p>"
+          }
+        },
+        "accordion_item_znNgVq": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Are your products cruelty free?",
+            "copy": "<p>Yes! None of our products are tested on animals.</p>"
+          }
+        },
+        "accordion_item_c4icWe": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Are your products vegan friendly?",
+            "copy": "<p>Yes! Our products don’t contain any animal by-products.</p>"
+          }
+        },
+        "accordion_item_eGG7Rm": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "I’d like to discuss a collab or partnership with you, who can I contact?",
+            "copy": "<p>Sounds great, we’d love to hear from you! Send us an email to <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
+          }
+        },
+        "accordion_item_fC99UN": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "I’d like to stock your products, who can I contact?",
+            "copy": "<p>Great! Send us an email - <a href=\"mailto:hello@vitalbits.co.nz\"><span style=\"text-decoration:underline\">hello@vitalbits.co.nz</span></a></p>"
+          }
+        },
+        "accordion_item_U4pdyw": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "How can I contact you?",
+            "copy": "<p>Use our contact form, or send us an email :) - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
           }
         }
       },
       "block_order": [
         "a66280b5-1018-4338-a0bc-3039113b908e",
         "aa7d303a-0cf7-4e4e-ad4d-d1bd55b9f9f2",
-        "a7a4b5db-45a8-4fd3-ac87-52d5e6434034"
+        "a7a4b5db-45a8-4fd3-ac87-52d5e6434034",
+        "accordion_item_FCNig6",
+        "accordion_item_7XzX6m",
+        "accordion_item_iBjgfB",
+        "accordion_item_znNgVq",
+        "accordion_item_c4icWe",
+        "accordion_item_eGG7Rm",
+        "accordion_item_fC99UN",
+        "accordion_item_U4pdyw"
       ],
-      "disabled": true,
       "settings": {}
-    },
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a": {
-      "type": "hero-block",
-      "settings": {
-        "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
-        "image": "shopify://shop_images/hero.jpg"
-      }
     }
   },
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
     "main",
-    "2693bc49-c25c-4937-9007-efae0c7ba27c",
-    "390d78e5-ef2c-4dae-b4ed-12b122745bf4",
-    "e20d9126-0b7b-4882-a4af-dadfed53b225",
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
-    "0390973f-ee87-43c3-b19e-3ba202d8d755",
-    "961064c4-8d0d-4b2e-afc1-d34ce5611d3a"
+    "0390973f-ee87-43c3-b19e-3ba202d8d755"
   ]
 }
