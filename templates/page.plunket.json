@@ -11,16 +11,18 @@
   "sections": {
     "787878e1-8b58-4773-9ef8-4ac108efc294": {
       "type": "banner",
-      "disabled": true,
       "custom_css": [
         "h1 {color: white;}"
       ],
       "settings": {
-        "heading": "<h1><strong>About us</strong></h1>",
+        "heading": "<h5><strong>Proud to be a Pick Me Help</strong></h5><h1><strong>Plunket Brand.</strong></h1>",
         "image": "shopify://shop_images/about_banner.png",
         "link_label": "",
         "link_link": "",
-        "height": "slim"
+        "height": "slim",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "main": {
