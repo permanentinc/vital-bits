@@ -32,7 +32,7 @@
       "type": "image-text-block",
       "settings": {
         "image": "shopify://shop_images/hero.jpg",
-        "text": "<h2><strong>We Care for Your Bits.</strong></h2><p>Motherhood is full of bits — the ‘this is amazing’ bits, the ‘has anyone else gone through this before?’ bits, and the ‘am I doing this right?’ bits. Some are exciting, some are overwhelming, and some leave you feeling like a completely different person. We get it. And we’re here for all of it. At Vital Bits, we exist to make the hard bits easier. Whether it’s preparing for birth, breastfeeding struggles, or the emotional rollercoaster of postpartum, we provide trusted, no-fuss essentials that help you heal, recover, and feel like you again. Because even when everything changes, you are still you.</p><p></p>",
+        "text": "<h2><strong>We Care for Your Bits.</strong></h2><p>Motherhood is full of bits — the ‘this is amazing’ bits, the ‘has anyone else gone through this before?’ bits, and the ‘am I doing this right?’ bits. Some are exciting, some are overwhelming, and some leave you feeling like a completely different person. We get it. And we’re here for all of it.</p> <p>At Vital Bits, we exist to make the hard bits easier. Whether it’s preparing for birth, breastfeeding struggles, or the emotional rollercoaster of postpartum, we provide trusted, no-fuss essentials that help you heal, recover, and feel like you again. Because even when everything changes, you are still you.</p><p></p>",
         "reverse_layout": true
       }
     },
