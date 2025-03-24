@@ -47,7 +47,7 @@
   display: block;
   left: 0;
   right: 0;
-  top: 18rem;
+  top: 7.45rem;
   background: var(--blue-light);
   z-index: 99;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
@@ -157,9 +157,10 @@
         a {
           transition: all $fast;
           font-size: 2.2rem;
+          color: var(--green);
 
           &:hover {
-            color: var(--blue-dark);
+            color: var(--green);
           }
         }
       }

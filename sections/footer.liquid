@@ -87,7 +87,19 @@
     <div class="footer-column footer-column--2">
       <h6 class="white">Shop vitals</h6>
       <p>
-        {% for link in linklists['footer'].links -%}
+        {% for link in linklists.footer.links -%}
+          <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+        {%- endfor %}
+      </p>
+    </div>
+
+        {% comment %}
+      Column
+    {% endcomment %}
+    <div class="footer-column footer-column--2.5">
+      <h6 class="white">Partnerships</h6>
+      <p>
+        {% for link in linklists['footer-middle-left'].links -%}
           <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
         {%- endfor %}
       </p>

@@ -27,6 +27,32 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    let $scrollTriggers = $$('.js-collection-slider-scroll');
+
+    $scrollTriggers.forEach($item => {
+        console.log($item)
+
+        $item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let element = e.target.closest('.js-collection-slider-scroll') || e.target;
+
+            let handle = element.dataset.handle;
+
+            // scroll down to .collection-grid__list__title[data-handle="${handle}"]
+
+            const $item = document.querySelector(`.collection-grid__list__title[data-handle="${handle}"]`);
+            if ($item) {
+                const yOffset = -100; // Adjust by -200px
+                const y = $item.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+
+
+
+        });
+    });
 
 
 
@@ -847,6 +873,7 @@ const $megaTarget = $$('.mega');
 let hoverTimeout;
 
 const showMenu = (element) => {
+    $('.header').classList.add('mega-visible');
     clearTimeout(hoverTimeout);
     $megaHover.forEach(item => item.classList.remove('hovered'));
     $megaTarget.forEach(item => item.classList.remove('active'));
@@ -855,6 +882,7 @@ const showMenu = (element) => {
 };
 
 const hideMenu = () => {
+    $('.header').classList.remove('mega-visible');
     $megaTarget.forEach(item => item.classList.remove('active'));
     $megaHover.forEach(item => item.classList.remove('hovered'));
 };
@@ -912,8 +940,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const switchImage = (element, show) => {
-        console.log('switchImage')
-
         const megaImage = $('.megaImage');
         const megaImageImage = $('.megaImage__image');
         if (show) {

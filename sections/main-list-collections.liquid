@@ -1,5 +1,6 @@
 <div class="[ js-gradient-background ]"></div>
 
+
 <div class="collection-grid">
   <div class="collection-grid-wave1 [ js-wave ]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
@@ -13,6 +14,8 @@
     </svg>
   </div>
 
+{% render 'grid-slide' %}
+
 
   {% assign ordered_collections = 'postpartum,v-delivery,c-section-delivery,pregnancy,breast-care' | split: ',' %}
 
@@ -20,7 +23,7 @@
     {% for ordered_handle in ordered_collections %}
       {% assign collection = collections[ordered_handle] %}
       {% if collection.products.size > 0 %}
-        <div class="collection-grid__list__title [ js-in-view ]">
+        <div class="collection-grid__list__title [ js-in-view ]" data-handle="{{ collection.handle | downcase | replace: ' ', '-' }}">
           <h2 class="h1">
             <b>{{ collection.title }}</b>
           </h2>

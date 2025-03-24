@@ -11,12 +11,11 @@
             V-DELIVERY
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.v-delivery.url }}"><b style="color:var(--orange);">V-Delivery</b></a>
+            <a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a>
           </h6>
           {% for product in collections['v-delivery'].products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
-                data-isolated-theme="v-delivery"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -28,7 +27,6 @@
           {% endfor %}
           <p class="mega__wrap__column__sublink">
             <a
-              data-isolated-theme="v-delivery"
               href="{{ collections.v-delivery.url }}"
               >View more</a
             >
@@ -38,14 +36,11 @@
             C-Section
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.c-section-delivery.url }}"
-              ><b style="color:var(--orange);">C-Section Delivery</b></a
-            >
+            <a class="" href="{{ collections.c-section-delivery.url }}"><b>C-Section Delivery</b></a>
           </h6>
           {% for product in collections['c-section-delivery'].products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
-                data-isolated-theme="c-section-delivery"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -57,7 +52,6 @@
           {% endfor %}
           <p class="mega__wrap__column__sublink">
             <a
-              data-isolated-theme="c-section-delivery"
               href="{{ collections.c-section-delivery.url }}"
               >View more</a
             >
@@ -69,12 +63,11 @@
             Pregnancy
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.pregnancy.url }}"><b style="color:var(--green);">Pregnancy</b></a>
+            <a class="" href="{{ collections.pregnancy.url }}"><b>Pregnancy</b></a>
           </h6>
           {% for product in collections.pregnancy.products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
-                data-isolated-theme="pregnancy"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -85,17 +78,17 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink">
-            <a data-isolated-theme="pregnancy" href="{{ collections.pregnancy.url }}">View more</a>
+            <a href="{{ collections.pregnancy.url }}">View more</a>
           </p>
 
           {% comment %}
             postpartum
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.postpartum.url }}"><b style="color:var(--orange);">Postpartum</b></a>
+            <a class="" href="{{ collections.postpartum.url }}"><b>Postpartum</b></a>
           </h6>
           {% for product in collections.postpartum.products limit: 2 %}
-            <p class="mega__wrap__column__sublink" data-isolated-theme="postpartum">
+            <p class="mega__wrap__column__sublink">
               <a
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
@@ -107,7 +100,10 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink">
-            <a data-isolated-theme="postpartum" href="{{ collections.postpartum.url }}">View more</a>
+            <a
+              href="{{ collections.postpartum.url }}"
+              >View more</a
+            >
           </p>
 
           {% comment %}
@@ -157,8 +153,3 @@
     </div>
   {% endif %}
 {% endfor %}
-
-{%- comment -%}
-  <div class="mega__wrap__column__block__background" style="background-image:url({{ 'pot_blush.png' | asset_url }});">
-  </div>
-{%- endcomment -%}

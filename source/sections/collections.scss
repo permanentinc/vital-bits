@@ -474,7 +474,7 @@
         }
     }
 }
-
+.collections__grid,
 .collections {
     &[data-theme="postpartum"],
     &[data-theme="c-section-delivery"],
@@ -653,4 +653,16 @@
     to {
         transform: translateX(-50%);
     }
+}
+
+
+
+.collections__grid__alt{
+    width: calc(100% - 0rem);
+    margin: 12rem auto -12rem;
+
+    @media screen and (max-width: 768px) {
+        margin: 16rem auto -12rem;
+    }
+    
 }

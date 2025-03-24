@@ -30,6 +30,11 @@
         transition: all $fast;
     }
 
+    &.mega-visible {
+        background: #a6d3d8;
+        border-bottom: 1px solid var(--green);
+    }
+    
     &.nav-down,
     &.nav-up {
         background: #a6d3d8;
