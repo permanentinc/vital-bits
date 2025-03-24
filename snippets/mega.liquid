@@ -16,6 +16,7 @@
           {% for product in collections['v-delivery'].products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
+                data-isolated-theme="v-delivery"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -26,18 +27,25 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.v-delivery.url }}">View more</a>
+            <a
+              data-isolated-theme="v-delivery"
+              href="{{ collections.v-delivery.url }}"
+              >View more</a
+            >
           </p>
 
           {% comment %}
             C-Section
           {% endcomment %}
           <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.c-section-delivery.url }}"><b style="color:var(--orange);">C-Section Delivery</b></a>
+            <a class="" href="{{ collections.c-section-delivery.url }}"
+              ><b style="color:var(--orange);">C-Section Delivery</b></a
+            >
           </h6>
           {% for product in collections['c-section-delivery'].products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
+                data-isolated-theme="c-section-delivery"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -48,7 +56,11 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.c-section-delivery.url }}">View more</a>
+            <a
+              data-isolated-theme="c-section-delivery"
+              href="{{ collections.c-section-delivery.url }}"
+              >View more</a
+            >
           </p>
         </div>
 
@@ -62,6 +74,7 @@
           {% for product in collections.pregnancy.products limit: 2 %}
             <p class="mega__wrap__column__sublink">
               <a
+                data-isolated-theme="pregnancy"
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
                 data-id="{{ product.title }}"
@@ -71,7 +84,9 @@
               </a>
             </p>
           {% endfor %}
-          <p class="mega__wrap__column__sublink"><a href="{{ collections.pregnancy.url }}">View more</a></p>
+          <p class="mega__wrap__column__sublink">
+            <a data-isolated-theme="pregnancy" href="{{ collections.pregnancy.url }}">View more</a>
+          </p>
 
           {% comment %}
             postpartum
@@ -79,8 +94,8 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.postpartum.url }}"><b style="color:var(--orange);">Postpartum</b></a>
           </h6>
-          {% for product in collections['postpartum'].products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
+          {% for product in collections.postpartum.products limit: 2 %}
+            <p class="mega__wrap__column__sublink" data-isolated-theme="postpartum">
               <a
                 href="{{ product.url }}"
                 class="[ js-mega-image ]"
@@ -92,7 +107,7 @@
             </p>
           {% endfor %}
           <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.postpartum.url }}">View more</a>
+            <a data-isolated-theme="postpartum" href="{{ collections.postpartum.url }}">View more</a>
           </p>
 
           {% comment %}

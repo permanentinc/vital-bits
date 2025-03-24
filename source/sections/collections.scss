@@ -83,7 +83,7 @@
         white-space: nowrap;
         padding: 0 2rem;
         // -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
-        // scrollbar-width: thin; 
+        // scrollbar-width: thin;
 
         * {
             user-select: none;
@@ -602,6 +602,7 @@
 
     &[data-theme="pregnancy"] {
         background: var(--blue-light) !important;
+
 
         .collections__slide::-webkit-scrollbar-thumb {
             background-color: var(--green);

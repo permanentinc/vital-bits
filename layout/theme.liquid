@@ -61,7 +61,7 @@
 
     {% style %}
       :root {
-      
+
 
         /* Widths */
         --thin-content-width: 580px;
@@ -143,18 +143,24 @@
         predictive_search_url: '{{ routes.predictive_search_url }}',
       };
     </script>
-
-   
   </head>
 
   <body
     data-page-type="{{ request.page_type }}"
-    {%- if request.page_type == 'product' -%}
-      data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
+    data-page-id="{{ request.page_id }}"
+    data-page-title="{{ page_title }}"
+    data-collection="{{ collection.title | downcase | replace: " ", "-" }}"
+    {%- if page_title == 'Contact' -%}
+      data-theme="postpartum"
     {%- endif -%}
     {%- if request.page_type == 'collection' -%}
       data-theme="{{ collection.title | downcase | replace: " ", "-" }}"
     {%- endif -%}
+    
+    {%- if request.page_type == 'product' -%}
+      data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
+    {%- endif -%}
+   
   >
     {{ content_for_header }}
 

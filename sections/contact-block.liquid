@@ -1,12 +1,73 @@
 <div class="element contact-element {% if block.settings.reverse_layout %}contact-element--reversed{%- endif -%}">
   <div class="contact-element__wrap contact-element__wrap--{$Width}">
     <div class="contact-element__wrap__text">
-      {{ section.settings.text }}
+      <div class="contact-element__wrap__text__constraint">
+        {{ section.settings.text }}
+
+        <div class="contact-element__wrap__form">
+          {% form 'contact' %}
+            <div class="contact-form">
+              <div class="field">
+                <label for="contact_name">Name</label>
+                <input
+                  type="text"
+                  id="contact_name"
+                  name="contact[name]"
+                  placeholder="Name{% if page_title == 'Partner with us' %} / Company name{% endif %}"
+                  required
+                >
+              </div>
+              <div class="field">
+                <label for="contact_email">Email</label>
+                <input type="email" id="contact_email" name="contact[email]" placeholder="Email" required>
+              </div>
+
+              {% if page_title == 'Partner with us' %}
+                <div class="field">
+                  <label for="contact_website">Website</label>
+                  <input type="text" id="contact_website" name="contact[website]" placeholder="Website" required>
+                </div>
+
+                <div class="field">
+                  <label for="contact_socials">Social's Handle</label>
+                  <input
+                    type="text"
+                    id="contact_socials"
+                    name="contact[socials]"
+                    placeholder="Social's Handle"
+                    required
+                  >
+                </div>
+              {% endif %}
+
+              <div class="field">
+                <label for="contact_message">Message</label>
+                <textarea id="contact_message" name="contact[body]" placeholder="Message"></textarea>
+              </div>
+              <div class="field">
+                <button type="submit">Send</button>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+      </div>
     </div>
 
-    <div class="contact-element__wrap__form">
-      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-      <div class="elfsight-app-5d5a66fb-e3fc-4407-abe5-704355cb81f6" data-elfsight-app-lazy></div>
+    <div class="contact-element__wrap__image">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 690 | image_url: height: 690 | image_tag }}
+      {% else %}
+        <img
+          src="{{ 'placeholder.jpg' | asset_url }}"
+          alt="placeholder image"
+          width="400"
+          height="400"
+          loading="lazy"
+        >
+      {% endif %}
+
+      {% comment %} <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script> {% endcomment %}
+      {% comment %} <div class="elfsight-app-5d5a66fb-e3fc-4407-abe5-704355cb81f6" data-elfsight-app-lazy></div> {% endcomment %}
     </div>
   </div>
 </div>
@@ -25,6 +86,11 @@
       "id": "text",
       "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
       "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
     }
   ],
   "presets": [

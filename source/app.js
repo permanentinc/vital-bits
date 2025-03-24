@@ -27,6 +27,9 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 document.addEventListener('DOMContentLoaded', function () {
 
+
+
+
     document.body.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('js-show-quickview')) {
             e.preventDefault();
@@ -370,11 +373,11 @@ const stickyHeader = () => {
     if (st <= 10) {
         header.classList.remove('nav-down');
         header.classList.remove('nav-up');
-        nav.classList.remove('coloured');
+        // nav.classList.remove('coloured');
     } else if (st > previousScrollPosition && st > headerHeight) {
         header.classList.remove('nav-down');
         header.classList.add('nav-up');
-        nav.classList.add('coloured');
+        // nav.classList.add('coloured');
     } else {
         if (st + window.innerHeight < document.body.clientHeight) {
             header.classList.add('nav-down');
@@ -645,6 +648,7 @@ const updateSlider = (e) => {
                   </div>`;
 
                     newItems.push(newElement);
+
                 }
 
 

@@ -6,7 +6,7 @@ Image and text blocka
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 8rem  2rem;
+  padding: 8rem 2rem;
   background: var(--blue-light);
 
   &__wrap {
@@ -66,5 +66,28 @@ Image and text blocka
 
   .image-element__wrap__text {
     order: 1;
+  }
+}
+
+.image-element--smaller-image {
+  .image-element__wrap__image {
+    width: 30%;
+
+    @include media($lg, max) {
+      width: 100%;
+    }
+
+    img {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+  }
+
+  .image-element__wrap__text {
+    width: 70%;
+
+    @include media($lg, max) {
+      width: 100%;
+    }
   }
 }
