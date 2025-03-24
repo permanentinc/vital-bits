@@ -120,7 +120,7 @@
     "hero-block": {
       "type": "hero-block",
       "settings": {
-        "heading": "Because we care for your bits. The important bits. The life-changing bits. Vital Bits — Supporting you through life’s vital moments.",
+        "heading": "Because we care for your bits. The important bits. The life-changing bits. <p></p> Vital Bits — Supporting you through life’s vital moments.",
         "image": "shopify://shop_images/hero.jpg"
       }
     }
