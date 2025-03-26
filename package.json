@@ -1,5 +1,6 @@
 {
   "name": "vital-bits",
+  "license": "MIT",
   "version": "1.0.0",
   "source": [
     "source/app.js",

@@ -161,7 +161,17 @@
                 border: 0;
                 background: transparent;
                 color: white;
+                background: var(--green) !important;
             }
         }
+    }
+}
+
+html body #shopify-section-footer .footer-newsletter__field__button {
+    background: var(--green) !important;
+    padding: 0;
+
+    &:before {
+        display: none;
     }
 }
