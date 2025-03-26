@@ -5,6 +5,15 @@
     padding-top: 6rem;
     padding-bottom: 12rem;
 
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
     &-wave2,
     &-wave1 {
         @include svg(1366, 768);
@@ -15,6 +24,7 @@
         transform: translateY(0%) translateX(-50%) rotate(-40deg);
         pointer-events: none;
         z-index: -1;
+        z-index: 1;
 
         path {
             stroke: var(--green);
@@ -30,11 +40,16 @@
         @include svg(1366, 768);
         position: absolute;
         left: 60%;
-        top: 60%;
+        top: 120%;
         width: 100%;
-        transform: translateY(0%) translateX(-20%) rotate(-40deg);
+        transform: translateY(0%) translateX(-10%) rotate(-60deg);
         pointer-events: none;
         z-index: -1;
+        z-index: 1;
+
+        @media screen and (max-width: 1280px) {
+            display: none;
+        }
 
         path {
             stroke: var(--green);
@@ -51,6 +66,8 @@
         padding: 6rem;
         display: flex;
         flex-wrap: wrap;
+        z-index: 3;
+        position: relative;
 
         @include media($md, max) {
             padding: 4rem 2rem;
@@ -80,7 +97,6 @@
             width: 100%;
             padding-right: 0;
         }
-
     }
 
     &__item {

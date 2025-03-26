@@ -3723,6 +3723,7 @@ html body #shopify-section-footer .footer-newsletter__field__button:before {
 }
 
 .hero {
+  z-index: 3;
   width: 100%;
   padding-top: 6rem;
   padding-bottom: 12rem;
@@ -5740,21 +5741,31 @@ img.error:after {
 }
 
 .image-element {
-  background: var(--blue-light);
   width: 100%;
   padding: 8rem 2rem;
   position: relative;
   overflow: hidden;
 }
 
+.image-element__background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .image-element__wrap {
   width: 100%;
   max-width: var(--content-width);
+  z-index: 3;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   display: flex;
+  position: relative;
 }
 
 .image-element__wrap__image {
@@ -5841,9 +5852,19 @@ img.error:after {
   overflow: hidden;
 }
 
+.grid-with-text__background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .grid-with-text-wave2, .grid-with-text-wave1 {
   pointer-events: none;
   z-index: -1;
+  z-index: 1;
   width: 100%;
   position: absolute;
   top: 0;
@@ -5877,11 +5898,12 @@ img.error:after {
 .grid-with-text-wave3, .grid-with-text-wave4 {
   pointer-events: none;
   z-index: -1;
+  z-index: 1;
   width: 100%;
   position: absolute;
-  top: 60%;
+  top: 120%;
   left: 60%;
-  transform: translateY(0%)translateX(-20%)rotate(-40deg);
+  transform: translateY(0%)translateX(-10%)rotate(-60deg);
 }
 
 .grid-with-text-wave3:after, .grid-with-text-wave4:after {
@@ -5899,6 +5921,12 @@ img.error:after {
   left: 0;
 }
 
+@media screen and (width <= 1280px) {
+  .grid-with-text-wave3, .grid-with-text-wave4 {
+    display: none;
+  }
+}
+
 .grid-with-text-wave3 path, .grid-with-text-wave4 path {
   stroke: var(--green);
 }
@@ -5909,10 +5937,12 @@ img.error:after {
 
 .grid-with-text__wrap {
   max-width: var(--content-width);
+  z-index: 3;
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 6rem;
   display: flex;
+  position: relative;
 }
 
 @media only screen and (width <= 767px) {

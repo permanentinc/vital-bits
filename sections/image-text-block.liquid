@@ -1,4 +1,5 @@
-<div class="element image-element {% if block.settings.reverse_layout %}image-element--reversed{%- endif -%} {% if block.settings.smaller_image %}image-element--smaller-image{%- endif -%}">
+<div class="element image-element {% if section.settings.reverse_layout %}image-element--reversed{%- endif -%} {% if block.settings.smaller_image %}image-element--smaller-image{%- endif -%}">
+  <div class="image-element__background" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="image-element__wrap image-element__wrap--{$Width}">
     <div class="image-element__wrap__image">
       {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
