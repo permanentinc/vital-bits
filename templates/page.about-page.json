@@ -20,21 +20,16 @@
         "image": "shopify://shop_images/about_banner.png",
         "link_label": "",
         "link_link": "",
-        "height": "slim"
+        "height": "slim",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "main": {
       "type": "main-page",
       "disabled": true,
       "settings": {}
-    },
-    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
-      "type": "image-text-block",
-      "settings": {
-        "image": "shopify://shop_images/hero.jpg",
-        "text": "<h2><strong>We Care for Your Bits.</strong></h2><p>Motherhood is full of bits — the ‘this is amazing’ bits, the ‘has anyone else gone through this before?’ bits, and the ‘am I doing this right?’ bits. Some are exciting, some are overwhelming, and some leave you feeling like a completely different person. We get it. And we’re here for all of it.</p> <p>At Vital Bits, we exist to make the hard bits easier. Whether it’s preparing for birth, breastfeeding struggles, or the emotional rollercoaster of postpartum, we provide trusted, no-fuss essentials that help you heal, recover, and feel like you again. Because even when everything changes, you are still you.</p><p></p>",
-        "reverse_layout": true
-      }
     },
     "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
       "type": "grid-block-with-text",
@@ -73,7 +68,19 @@
         "c42618ef-12f3-4d7a-a057-3f0267568abb"
       ],
       "settings": {
-        "copy": "<h2><strong>We Get It — Because We've Been There.</strong></h2> <p>We started Vital Bits to create the kind of support we felt was missing — genuine, no-fuss care that helps mothers feel like themselves again during pregnancy and postpartum.</p><p>From our own experiences, we know how overwhelming it can be to find reliable products and honest advice that support both physical recovery and the emotional shifts that come with becoming a mum. Most brands either promote an idealised version of motherhood or push a message that you should just get on with it. The truth is, yes — we’re strong, capable, and resilient. But modern motherhood comes with very real pressures and sacrifices.</p><p>We created Vital Bits to recognise those sacrifices, without expecting you to lose yourself in them. Because being a mum shouldn’t mean giving up who you are.</p><p>This is about looking after you — so you can heal, feel like yourself again, and actually enjoy this vital stage of life.</p> "
+        "copy": "<h2><strong>We Get It — Because We've Been There.</strong></h2><p>We started Vital Bits to create the kind of support we felt was missing — genuine, no-fuss care that helps mothers feel like themselves again during pregnancy and postpartum.</p><p>From our own experiences, we know how overwhelming it can be to find reliable products and honest advice that support both physical recovery and the emotional shifts that come with becoming a mum. Most brands either promote an idealised version of motherhood or push a message that you should just get on with it. The truth is, yes — we’re strong, capable, and resilient. But modern motherhood comes with very real pressures and sacrifices.</p><p>We created Vital Bits to recognise those sacrifices, without expecting you to lose yourself in them. Because being a mum shouldn’t mean giving up who you are.</p><p>This is about looking after you — so you can heal, feel like yourself again, and actually enjoy this vital stage of life.</p>",
+        "background_color": "#E1EDF9",
+        "reverse_layout": true
+      }
+    },
+    "2693bc49-c25c-4937-9007-efae0c7ba27c": {
+      "type": "image-text-block",
+      "settings": {
+        "image": "shopify://shop_images/hero.jpg",
+        "text": "<h2><strong>We Care for Your Bits.</strong></h2><p>Motherhood is full of bits — the ‘this is amazing’ bits, the ‘has anyone else gone through this before?’ bits, and the ‘am I doing this right?’ bits. Some are exciting, some are overwhelming, and some leave you feeling like a completely different person. We get it. And we’re here for all of it.</p><p>At Vital Bits, we exist to make the hard bits easier. Whether it’s preparing for birth, breastfeeding struggles, or the emotional rollercoaster of postpartum, we provide trusted, no-fuss essentials that help you heal, recover, and feel like you again. Because even when everything changes, you are still you.</p><p></p>",
+        "reverse_layout": true,
+        "smaller_image": false,
+        "background_color": "#fff"
       }
     },
     "e20d9126-0b7b-4882-a4af-dadfed53b225": {
@@ -166,8 +173,8 @@
   "order": [
     "787878e1-8b58-4773-9ef8-4ac108efc294",
     "main",
-    "2693bc49-c25c-4937-9007-efae0c7ba27c",
     "390d78e5-ef2c-4dae-b4ed-12b122745bf4",
+    "2693bc49-c25c-4937-9007-efae0c7ba27c",
     "e20d9126-0b7b-4882-a4af-dadfed53b225",
     "25e10ff1-f7f6-4f58-a679-4fbb74d6e0ff",
     "0390973f-ee87-43c3-b19e-3ba202d8d755",
