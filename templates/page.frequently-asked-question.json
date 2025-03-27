@@ -61,11 +61,32 @@
             "copy": "<p>We do, but only for certain products due to hygiene reasons. See our returns policy <a href=\"/policies/refund-policy\" title=\"Refund Policy\">here</a>.</p>"
           }
         },
+        "accordion_item_7j4cgG": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What if my order arrives damaged or something’s missing?",
+            "copy": "<p>Oh no - we’re sorry about that. Send us an email at hello@vitalbits.co.nz with your order number and a photo if you can, and we’ll sort it quickly.</p>"
+          }
+        },
         "accordion_item_7XzX6m": {
           "type": "accordion_item",
           "settings": {
             "title": "Can I cancel or change an existing order?",
             "copy": "<p>Get in touch and we’ll see what we can do :) - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
+          }
+        },
+        "accordion_item_pqEdeT": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Do you offer advice or support beyond products?",
+            "copy": "<p>We do. Head to our blog, <a href=\"https://vitalbits.co.nz/blogs/news\" target=\"_blank\" title=\"https://vitalbits.co.nz/blogs/news\">Important Bits</a>, for expert-backed tips, real mum stories, and helpful reads that make the hard bits feel a little easier.</p>"
+          }
+        },
+        "accordion_item_iFbDtB": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Is Vital Bits backed by health professionals?",
+            "copy": "<p>Yes - we’re the only postpartum care brand endorsed by Plunket, New Zealand’s most trusted provider of child and family services.</p>"
           }
         },
         "accordion_item_iBjgfB": {
@@ -116,7 +137,10 @@
         "aa7d303a-0cf7-4e4e-ad4d-d1bd55b9f9f2",
         "a7a4b5db-45a8-4fd3-ac87-52d5e6434034",
         "accordion_item_FCNig6",
+        "accordion_item_7j4cgG",
         "accordion_item_7XzX6m",
+        "accordion_item_pqEdeT",
+        "accordion_item_iFbDtB",
         "accordion_item_iBjgfB",
         "accordion_item_znNgVq",
         "accordion_item_c4icWe",
