@@ -19,7 +19,7 @@
         "image": "shopify://shop_images/Vital_Bits-358-SD202416.jpg",
         "link_label": "",
         "link_link": "",
-        "height": "slim",
+        "height": "normal",
         "overlay_color": "#ffffff",
         "overlay_opacity": 0.4,
         "show_button": false
