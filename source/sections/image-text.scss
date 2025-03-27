@@ -8,6 +8,12 @@ Image and text blocka
   overflow: hidden;
   padding: 8rem 2rem;
 
+  [data-color="#fefcf8"] {
+    * {
+      color: #783e6f;
+    }
+  }
+
   &__background {
     position: absolute;
     left: 0;

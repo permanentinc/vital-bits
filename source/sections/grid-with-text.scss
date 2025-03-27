@@ -52,7 +52,7 @@
         }
 
         path {
-            stroke: var(--green);
+            stroke: var(--pink);
         }
     }
 
@@ -121,16 +121,16 @@
         }
 
         &--large {
-            @include aspect(1380, 1380);
+            @include aspect(1380, 1780);
         }
 
         &--small {
-            @include aspect(1380, 690);
+            @include aspect(1380, 880);
         }
 
         @include media($xmd, max) {
             width: 100%;
-            @include aspect(1380, 690);
+            @include aspect(1380, 880);
         }
 
         &__image {
@@ -180,6 +180,20 @@
                     opacity: 1;
                 }
             }
+        }
+    }
+}
+
+@include media($xmd) {
+    .grid-with-text--reversed {
+        .grid-with-text__grid {
+            order: 1;
+        }
+
+        .grid-with-text__copy {
+            order: 2;
+            padding-right: 8rem;
+            padding-left: 8rem;
         }
     }
 }

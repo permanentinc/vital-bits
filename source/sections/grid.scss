@@ -11,7 +11,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
+        width: 100%; 
         transform: translateY(0%) translateX(-50%) rotate(-40deg);
         pointer-events: none;
         z-index: -1;
@@ -87,16 +87,16 @@
         }
 
         &--large {
-            @include aspect(1380, 1380);
+            @include aspect(1380, 1780);
         }
 
         &--small {
-            @include aspect(1380, 690);
+            @include aspect(1380, 880);
         }
 
         @include media($xmd, max) {
             width: 100%;
-            @include aspect(1380, 690);
+            @include aspect(1380, 880);
         }
 
         &__image {

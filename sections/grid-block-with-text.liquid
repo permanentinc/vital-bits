@@ -1,7 +1,7 @@
-<div class="grid-with-text {% if section.settings.reverse_layout %}image-element--reversed{%- endif -%}">
+<div class="grid-with-text {% if section.settings.reverse_layout %}grid-with-text--reversed{%- endif -%} grid-with-text--reversed ">
   <div class="image-element__background" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="grid-with-text__wrap">
-    <div class="grid-with-text__copy">
+    <div class="grid-with-text__copy ">
       {{ section.settings.copy }}
     </div>
     <div class="grid-with-text__grid">
@@ -14,9 +14,9 @@
           <div class="grid-with-text__item__image">
             {%- if block.settings.image != blank -%}
               {% if count == 1 %}
-                {{ block.settings.image | image_url: width: 690 | image_url: height: 690 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 890 | image_tag }}
               {% else %}
-                {{ block.settings.image | image_url: width: 690 | image_url: height: 340 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 440 | image_tag }}
               {% endif %}
             {%- endif -%}
           </div>

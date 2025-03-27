@@ -5,7 +5,7 @@
       {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
     </div>
 
-    <div class="image-element__wrap__text">
+    <div class="image-element__wrap__text" data-color="{{ section.settings.background_color }}">
       {{ section.settings.text }}
     </div>
   </div>
