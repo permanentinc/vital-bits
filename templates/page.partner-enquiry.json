@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "text_banner_nGpTGY": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "Partner with us"
+      }
+    },
     "contact_block_MmEbYY": {
       "type": "contact-block",
       "settings": {
@@ -22,6 +28,7 @@
     }
   },
   "order": [
+    "text_banner_nGpTGY",
     "contact_block_MmEbYY",
     "main"
   ]
