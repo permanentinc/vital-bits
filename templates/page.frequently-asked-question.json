@@ -89,6 +89,13 @@
             "copy": "<p>Yes - we’re the only postpartum care brand endorsed by Plunket, New Zealand’s most trusted provider of child and family services.</p>"
           }
         },
+        "accordion_item_AkMKCN": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Are your products safe to use during pregnancy and postpartum?",
+            "copy": "<p>Yes - everything we stock is carefully chosen with safety in mind. We work with experts and only select products we’d use ourselves.</p>"
+          }
+        },
         "accordion_item_iBjgfB": {
           "type": "accordion_item",
           "settings": {
@@ -141,6 +148,7 @@
         "accordion_item_7XzX6m",
         "accordion_item_pqEdeT",
         "accordion_item_iFbDtB",
+        "accordion_item_AkMKCN",
         "accordion_item_iBjgfB",
         "accordion_item_znNgVq",
         "accordion_item_c4icWe",
