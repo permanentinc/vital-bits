@@ -151,7 +151,10 @@
     data-page-title="{{ page_title }}"
     data-collection="{{ collection.title | downcase | replace: " ", "-" }}"
     {%- if page_title == 'Contact' -%}
-      data-theme="postpartum"
+      data-theme="pregnancy"
+    {%- endif -%}
+    {%- if page_title == 'Partner with us' -%}
+      data-theme="pregnancy"
     {%- endif -%}
     {%- if request.page_type == 'collection' -%}
       data-theme="{{ collection.title | downcase | replace: " ", "-" }}"
