@@ -135,7 +135,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "How can I contact you?",
-            "copy": "<p>Use our contact form, or send us an email :) - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
+            "copy": "<p>Use our contact form, or send us an email - <a href=\"mailto:hello@vitalbits.co.nz\" title=\"mailto:hello@vitalbits.co.nz\">hello@vitalbits.co.nz</a></p>"
           }
         }
       },
