@@ -122,6 +122,7 @@ Image and text blocka
         width: 100%;
         transform: none !important;
         order: 2 !important;
+ 
       }
 
       .contact-element__wrap__text__constraint {
@@ -129,6 +130,7 @@ Image and text blocka
 
         @include media($lg, max) {
           max-width: 100%;
+          padding: 0 4rem;
         }
       }
 

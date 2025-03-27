@@ -5,6 +5,11 @@
     padding-top: 6rem;
     padding-bottom: 12rem;
 
+    @media screen and (max-width: 768px) {
+        padding-top: 10rem;
+        padding-bottom: 2rem;
+    }
+
     &__background {
         position: absolute;
         left: 0;
@@ -129,8 +134,8 @@
         }
 
         @include media($xmd, max) {
-            width: 100%;
-            @include aspect(1380, 880);
+            // width: 100%;
+            // @include aspect(1380, 880);
         }
 
         &__image {
@@ -198,8 +203,7 @@
     }
 }
 
-
-.image-element{
+.image-element {
     &-wave3,
     &-wave4 {
         @include svg(1366, 768);

@@ -2,9 +2,9 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-top: 12rem;
+    padding-top: 14rem;
     z-index: 3;
-    padding-bottom: 18rem;
+    padding-bottom: 20rem;
 
     &__background {
         @include full;
@@ -15,6 +15,7 @@
             left: 0;
             height: 100%;
             object-fit: cover;
+            object-position: 44% 36% !important;
         }
 
         &:after {
@@ -30,6 +31,7 @@
         padding: 6rem;
         position: relative;
         z-index: 4;
+        padding: 14rem 6rem;
 
         @include media($md, max) {
             padding: 4rem 2rem;

@@ -159,6 +159,9 @@
     {%- if request.page_type == 'collection' -%}
       data-theme="{{ collection.title | downcase | replace: " ", "-" }}"
     {%- endif -%}
+    {%- if request.page_type == 'list-collections' -%}
+      data-theme="postpartum"
+    {%- endif -%}
     
     {%- if request.page_type == 'product' -%}
       data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
