@@ -150,3 +150,37 @@
     }
   </script>
 </div>
+{% comment %}
+  Add a schema for heading content and image
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Main Blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Smaller sub heading text",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Main heading text",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "default": "<p>In exercitation tempor excepteur voluptate sit on exercitation tempor excepteur voluptate sit.</p>",
+      "label": "content"
+    },
+    {
+      "type": "image_picker",
+      "id": "thumbnail",
+      "label": "thumbnail"
+    }
+  ]
+}
+{% endschema %}
