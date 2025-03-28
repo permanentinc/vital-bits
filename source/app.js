@@ -27,11 +27,15 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    inView('.js-gradient').on('enter', el => {
+        el.classList.add('inview');
+        $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));
+    });
+
 
     let $scrollTriggers = $$('.js-collection-slider-scroll');
 
     $scrollTriggers.forEach($item => {
-        console.log($item)
 
         $item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -201,10 +205,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     }
 
+                    let index = 0;
+
                     $$('.product-details-description h4').forEach(element => {
                         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
                         //wrap html in span
                         let html = element.outerHTML;
+
 
                         // strip all html tags
                         html = html.replace(/(<([^>]+)>)/gi, "");
@@ -238,9 +245,16 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </section>`;
                     });
 
+
+
                     setTimeout(() => {
                         $$('.js-accordion-element-dynamic').forEach(element => new Accordion(element));
                     }, 400);
+
+
+
+                    index++;
+
 
                 });
 
@@ -308,10 +322,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 }, false);
 
-inView('.js-gradient').on('enter', el => {
-    el.classList.add('inview');
-    $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));
-});
 
 
 if ($('.js-accordion-element')) {
@@ -340,7 +350,8 @@ if ($('.product-details')) {
         });
     }
 
-    $$('.product-details h4').forEach(element => {
+
+    $$('.product-details h4').forEach((element, index) => {
         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         //wrap html in span
         let html = element.outerHTML;
@@ -378,8 +389,9 @@ if ($('.product-details')) {
     });
 
     setTimeout(() => {
-        $$('.js-accordion-element-dynamic').forEach(element => new Accordion(element));
+        $$('.js-accordion-element-dynamic').forEach((element, index) => new Accordion(element, (index === 0) ? true : false));
     }, 400);
+
 
 }
 
@@ -572,7 +584,6 @@ window.addEventListener('resize', () => {
 });
 
 const updateSlider = (e) => {
-    console.log(e)
 
     // get closest '.js-collection-slider-trigger' or if it is the trigger itself
     let element = e.target.closest('.js-collection-slider-trigger') || e.target;
@@ -967,8 +978,6 @@ if ($('.collections__slide')) {
             let isDown = false;
             let startX;
             let scrollLeft;
-            console.log(slider)
-
 
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
