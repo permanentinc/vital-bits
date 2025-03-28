@@ -16,6 +16,7 @@ import './cursor';
 import { Accordion } from './accordion';
 import { quickview_item } from './templates';
 import Flickity from 'flickity';
+import 'flickity-as-nav-for';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 import Choices from 'choices.js';
@@ -758,35 +759,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if ($productSlider) {
 
-        /**
-         * Reset the progress bars' animation to zero 
-         */
-        const resetProgressbar = () => {
-            $productSliderProgress.style.width = `${0}%`;
-            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (0));
-            clearInterval(tick);
-        };
-
-
-        /**
-         * Start the progress bar animating 
-         */
-        const startProgressbar = () => {
-            // resetProgressbar();
-            // hovered = false;
-            // percent = 0;
-            // tick = setInterval(interval, 10);
-        };
-
-
-        /**
-         * Set our animation speed for the progress bar
-         */
-        const interval = () => {
-            if (!hovered) percent += .19;
-            $productSliderProgress.style.width = `${percent}%`;
-            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (percent * Math.PI));
-        };
 
         let product_slider = new Flickity('.js-product-imagery-slider', {
             wrapAround: true,
@@ -794,9 +766,12 @@ document.addEventListener('DOMContentLoaded', () => {
             prevNextButtons: false,
         });
 
-        startProgressbar()
-
-        product_slider.on('change', () => startProgressbar());
+        let product_nav = new Flickity('.js-product-nav-imagery-slider', {
+            asNavFor: '.js-product-imagery-slider',
+            contain: true,
+            pageDots: false,
+            prevNextButtons: false,
+        });
 
         $('.js-cursor-previous').addEventListener('click', (e) => {
             e.preventDefault();

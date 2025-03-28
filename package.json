@@ -25,6 +25,7 @@
     "animejs": "^3.2.2",
     "choices.js": "^11.0.6",
     "flickity": "2.2",
+    "flickity-as-nav-for": "^2.0.1",
     "glightbox": "^3.3.1",
     "in-view": "^0.6.1",
     "notyf": "^3.10.0",

@@ -58,6 +58,22 @@
       {% if on_sale %}
         <span class="product-gallery-sale">SALE</span>
       {% endif %}
+
+      <div class="product-nav">
+        <div class="product-nav-slider [ js-product-nav-imagery-slider ]">
+          {% for media in product.media %}
+            <div class="product-nav-slider-item">
+              <img
+                class="[ js-product-nav-slider-item-image ]"
+                src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"                alt="{{ media.preview_image.alt | escape }}"
+                width="80"
+                height="80"
+                loading="lazy"
+              >
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
     <div class="product-details">
@@ -168,7 +184,10 @@
           {% comment %}
             Item
           {% endcomment %}
-          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+          <a
+            href="{{ related_product.url }}"
+            class="related-products__list__item related-products__list__item--product"
+          >
             <div class="related-products__list__item__image">
               {% if related_product.featured_media %}
                 {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
@@ -183,8 +202,12 @@
               {% endif %}
             </div>
             <div class="related-products__list__item__title">
-              <h6><b>{{ related_product.title | escape }}</b></h6>
-              <h6><b>{{ related_product.price | money }}</b></h6>
+              <h6>
+                <b>{{ related_product.title | escape }}</b>
+              </h6>
+              <h6>
+                <b>{{ related_product.price | money }}</b>
+              </h6>
             </div>
             <div class="related-products__list__item__description">
               <p>{{ related_product.metafields.custom.short_description }}</p>
@@ -202,7 +225,10 @@
           {% comment %}
             Item
           {% endcomment %}
-          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+          <a
+            href="{{ related_product.url }}"
+            class="related-products__list__item related-products__list__item--product"
+          >
             <div class="related-products__list__item__image">
               {% if related_product.featured_media %}
                 {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
@@ -217,8 +243,12 @@
               {% endif %}
             </div>
             <div class="related-products__list__item__title">
-              <h6><b>{{ related_product.title | escape }}</b></h6>
-              <h6><b>{{ related_product.price | money }}</b></h6>
+              <h6>
+                <b>{{ related_product.title | escape }}</b>
+              </h6>
+              <h6>
+                <b>{{ related_product.price | money }}</b>
+              </h6>
             </div>
             <div class="related-products__list__item__description">
               <p>{{ related_product.metafields.custom.short_description }}</p>
