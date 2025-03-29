@@ -11,7 +11,12 @@
   "sections": {
     "main": {
       "type": "main-blog",
-      "settings": {}
+      "settings": {
+        "subheading": "Smaller sub heading text",
+        "heading": "Main heading text",
+        "content": "<p>In exercitation tempor excepteur voluptate sit on exercitation tempor excepteur voluptate sit.</p>",
+        "thumbnail": "shopify://shop_images/Paid-Parental-Leave-In-New-Zealand.jpg"
+      }
     }
   },
   "order": [
