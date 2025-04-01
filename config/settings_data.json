@@ -1,8 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "favicon": "shopify:\/\/shop_images\/Favicon.png",
-    "checkout_header_image": "shopify:\/\/shop_images\/collection_banner.jpg",
-    "checkout_logo_image": "shopify:\/\/shop_images\/logo_white.svg",
+    "favicon": "shopify://shop_images/Favicon.png",
+    "checkout_header_image": "shopify://shop_images/collection_banner.jpg",
+    "checkout_logo_image": "shopify://shop_images/logo_white.svg",
     "checkout_logo_size": "medium",
     "checkout_input_background_color_mode": "transparent",
     "checkout_sidebar_background_color": "#ffffff",
@@ -11,32 +20,36 @@
     "sections": {
       "header": {
         "type": "header",
-        "settings": {
-        }
+        "settings": {}
       },
       "sidecart": {
         "type": "sidecart",
-        "settings": {
-        }
+        "settings": {}
       },
       "footer": {
         "type": "footer",
-        "settings": {
-        }
+        "settings": {}
       },
       "instagram-block": {
         "type": "instagram-block",
-        "settings": {
-        }
+        "settings": {}
       },
       "custom-cursors": {
         "type": "custom-cursors",
-        "settings": {
-        }
+        "settings": {}
+      },
+      "quick-view": {
+        "type": "quick-view",
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   }
 }
