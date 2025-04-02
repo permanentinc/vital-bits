@@ -18,7 +18,8 @@
     "contact_block_MmEbYY": {
       "type": "contact-block",
       "settings": {
-        "text": "<h1><strong>Partner with us</strong></h1><p>Interested in working together? We'd love to chat. Fill out the form below and we'll get back to you as soon as possible.</p>"
+        "text": "<h1><strong>Partner with us</strong></h1><p>Interested in working together? We'd love to chat. Fill out the form below and we'll get back to you as soon as possible.</p>",
+        "image": "shopify://shop_images/Partner_1.jpg"
       }
     },
     "main": {
