@@ -70,6 +70,7 @@
         float: left;
         width: calc(50%);
 
+        
         &:before {
             @include pseudo;
             position: absolute;
@@ -91,8 +92,14 @@
         }
 
         &--small {
-            @include aspect(1380, 880);
+            @include aspect(1380, 890);
         }
+
+        @media screen and (max-width: 768px) {
+            width: calc(100%);
+            @include aspect(1380, 890);
+        }
+
 
         @include media($xmd, max) {
             // width: 100%;

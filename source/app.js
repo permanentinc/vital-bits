@@ -27,6 +27,22 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+
+    // find an em tag inside an A tag a inside grid-with-text__copy and make the a tag have a button class
+    const gridWithText = $$('.grid-with-text__copy a em');
+    gridWithText.forEach((element) => {
+        let parent = element.parentElement;
+        let grandParent = parent.parentElement;
+        let greatGrandParent = grandParent.parentElement;
+        if (greatGrandParent.classList.contains('grid-with-text__copy')) {
+            parent.classList.add('button');
+            parent.setAttribute('href', parent.getAttribute('href'));
+            parent.setAttribute('target', '_blank');
+        }
+    });
+
+
     inView('.js-gradient').on('enter', el => {
         el.classList.add('inview');
         $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));

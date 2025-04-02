@@ -148,6 +148,15 @@
         {% if link.title == 'Shop vitals' %}
           <div class="mobile-navigation-menu__item">
             <a
+              href="{{ collections.postpartum.url }}"
+              data-id="Postpartum"
+              class="mobile-navigation-menu__item__link mobile-navigation-menu__item__link--small animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"
+            >
+              Post Partum
+            </a>
+          </div>
+          <div class="mobile-navigation-menu__item">
+            <a
               href="{{ collections.v-delivery.url }}"
               data-id="V-Delivery"
               class="mobile-navigation-menu__item__link mobile-navigation-menu__item__link--small animate-white-to-green {% if link.active %}mobile-navigation-menu__item__link--current{% endif %}"

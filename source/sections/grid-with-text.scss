@@ -130,7 +130,7 @@
         }
 
         &--small {
-            @include aspect(1380, 880);
+            @include aspect(1380, 890);
         }
 
         @include media($xmd, max) {
@@ -200,6 +200,13 @@
             padding-right: 8rem;
             padding-left: 8rem;
         }
+    }
+}
+
+.grid-with-text__copy {
+    a em {
+        color: var(--white);
+        font-style: normal !important;
     }
 }
 

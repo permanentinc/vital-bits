@@ -65,7 +65,8 @@
             <div class="product-nav-slider-item">
               <img
                 class="[ js-product-nav-slider-item-image ]"
-                src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"                alt="{{ media.preview_image.alt | escape }}"
+                src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"
+                alt="{{ media.preview_image.alt | escape }}"
                 width="80"
                 height="80"
                 loading="lazy"
@@ -94,7 +95,13 @@
           </b>
         </p>
 
-        <div class="yotpo-widget-instance" data-yotpo-instance-id="570671" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+        <div
+          class="yotpo-widget-instance"
+          data-yotpo-instance-id="570671"
+          data-yotpo-product-id="{{product.id}}"
+          data-yotpo-cart-product-id="{{item.product.id}}"
+          data-yotpo-section-id="{{template.name}}"
+        ></div>
       </div>
 
       <afterpay-placement
@@ -265,11 +272,22 @@
     {% comment %}
       Marquee
     {% endcomment %}
-    <div class="related-products__marquee">
-      <div class="related-products__marquee__animation">
-        <span>Through lifes most vital moments</span>
-        <span>Through lifes most vital moments</span>
-        <span>Through lifes most vital moments</span>
+    {% comment %}
+      <div class="related-products__marquee">
+        <div class="related-products__marquee__animation">
+          <span>Through lifes most vital moments</span>
+          <span>Through lifes most vital moments</span>
+          <span>Through lifes most vital moments</span>
+        </div>
+      </div>
+    {% endcomment %}
+
+    <div class="marquee-element">
+      <div class="marquee-element__track">
+        <span><b>Through lifes most vital moments</b></span>
+        <span><b>Through lifes most vital moments</b></span>
+        <span aria-hidden="true"><b>Through lifes most vital moments</b></span>
+        <span aria-hidden="true"><b>Through lifes most vital moments</b></span>
       </div>
     </div>
   </div>

@@ -64,11 +64,16 @@
                 font-weight: 700;
                 white-space: nowrap;
                 font-size: 6rem;
-                padding: 4rem 1rem 2rem;
+                padding: 4rem 0rem 2rem;
                 color: transparent;
                 -webkit-text-fill-color: transparent;
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: var(--green);
+
+                @media screen and (max-width: 768px) {
+                    font-size: 4rem !important;
+                    line-height: 5vw !important;
+                }
             }
         }
     }
@@ -141,10 +146,17 @@
 
     &-constraint {
         max-width: var(--thin-content-width);
-        padding: 0 2rem;
+        padding: 0 0rem;
     }
 }
 
 [id*="text_banner"] ~ [id*="text_banner"] {
     margin-top: -20rem !important;
+}
+
+
+[data-page-type="list-collections"]{
+    .banner-text{
+        padding-top: 0;
+    }
 }
