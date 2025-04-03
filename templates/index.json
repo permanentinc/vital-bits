@@ -83,7 +83,7 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/whats-this-peri-bottle-all-about",
+            "link_link": "shopify://blogs/important-bits/whats-this-peri-bottle-all-about",
             "article": "news/understanding-paid-parental-leave-in-new-zealand"
           }
         },
@@ -92,7 +92,7 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/understanding-paid-parental-leave-in-new-zealand",
+            "link_link": "shopify://blogs/important-bits/understanding-paid-parental-leave-in-new-zealand",
             "article": "news/baby-cues-cries"
           }
         },
@@ -101,7 +101,7 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/morning-sickness",
+            "link_link": "shopify://blogs/important-bits/morning-sickness",
             "article": "news/the-4th-trimester"
           }
         }
@@ -114,7 +114,7 @@
       "settings": {
         "heading": "Important bits",
         "link_label": "",
-        "link_link": "shopify://blogs/news"
+        "link_link": "shopify://blogs/important-bits"
       }
     },
     "hero-block": {
