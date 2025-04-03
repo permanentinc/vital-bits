@@ -21,7 +21,7 @@
         "link_link": "shopify://collections",
         "height": "normal",
         "overlay_color": "#f5d6dc",
-        "overlay_opacity": 0.7,
+        "overlay_opacity": 0.3,
         "show_button": false
       }
     },
