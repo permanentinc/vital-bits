@@ -34,7 +34,7 @@
         background: #a6d3d8;
         border-bottom: 1px solid var(--green);
     }
-    
+
     &.nav-down,
     &.nav-up {
         background: #a6d3d8;
@@ -292,7 +292,36 @@
         fill: var(--green);
     }
 }
+
 .shopify-policy__container {
-    padding-top: 20rem;
+    background: white;
     padding-bottom: 10rem;
+    width: 100%;
+    max-width: 100% !important;
+
+    .shopify-policy__title {
+        display: none !important;
+    }
+
+    .shopify-policy__body {
+        padding: 0 4rem;
+        margin: 0 auto;
+        max-width: var(--inner-content-width);
+        width: 100%;
+    }
+}
+
+[data-page-title="Partner with us"],
+[data-page-title="Privacy policy"],
+[data-page-title="Terms of service"],
+[data-page-title="Refund policy"],
+[data-page-title="Shipping policy"],
+[data-page-title="Contact"],
+[data-page-title="Pregnancy"] {
+    .nav-up,
+    .nav-down {
+        .header-logo path {
+            fill: var(--white) !important;
+        }
+    }
 }

@@ -156,17 +156,21 @@
     {%- if page_title == 'Partner with us' -%}
       data-theme="pregnancy"
     {%- endif -%}
+
+    {%- if request.page_type == 'policy' -%}
+      data-theme="pregnancy"
+    {%- endif -%}
+
     {%- if request.page_type == 'collection' -%}
       data-theme="{{ collection.title | downcase | replace: " ", "-" }}"
     {%- endif -%}
     {%- if request.page_type == 'list-collections' -%}
       data-theme="postpartum"
     {%- endif -%}
-    
+
     {%- if request.page_type == 'product' -%}
       data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
     {%- endif -%}
-   
   >
     {{ content_for_header }}
 
@@ -179,6 +183,18 @@
       section 'custom-cursors'
       section 'header'
     -%}
+
+    {%- if request.page_type == 'policy'  -%}
+      <div class="banner banner--text banner--">
+        <div class="banner-text" style="margin-bottom:0rem">
+          <div class="banner-constraint">
+            <h1 class="black">
+              <b> {{ page_title | upcase}} </b>
+            </h1>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
 
     {{ content_for_layout }}
 

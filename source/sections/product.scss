@@ -150,6 +150,12 @@
 
         &-price {
             position: relative;
+
+            .jdgm-widget {
+                position: absolute;
+                left:12rem;
+                top: 1.2rem;
+            }
         }
 
         &-old-price {
@@ -745,11 +751,11 @@ html {
         padding: 0.5rem;
     }
 
-    img{
+    img {
         transition: all 0.2s ease-in-out;
     }
 
-    .is-selected img{
+    .is-selected img {
         outline: 2px solid #ec5b44;
     }
 }
