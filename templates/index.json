@@ -84,7 +84,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/whats-this-peri-bottle-all-about",
-            "article": "news/understanding-paid-parental-leave-in-new-zealand"
+            "article": "important-bits/understanding-paid-parental-leave-in-new-zealand"
           }
         },
         "325f533f-69ab-4121-9411-7e4d3783bad6": {
@@ -93,7 +93,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/understanding-paid-parental-leave-in-new-zealand",
-            "article": "news/baby-cues-cries"
+            "article": "important-bits/baby-cues-cries"
           }
         },
         "627e16b6-df21-46fd-8b33-e12ae818a945": {
@@ -102,7 +102,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/morning-sickness",
-            "article": "news/the-4th-trimester"
+            "article": "important-bits/the-4th-trimester"
           }
         }
       },
@@ -112,7 +112,7 @@
         "627e16b6-df21-46fd-8b33-e12ae818a945"
       ],
       "settings": {
-        "heading": "Important bits",
+        "heading": "IMPORTANT BITS",
         "link_label": "",
         "link_link": "shopify://blogs/important-bits"
       }
