@@ -145,14 +145,27 @@
   {% comment %}
     Marquee
   {% endcomment %}
-  <div class="collections__marquee">
+  {% comment %} <div class="collections__marquee">
     <div class="collections__marquee__animation">
       <span>{{ section.settings.marquee }}</span>
       <span>{{ section.settings.marquee }}</span>
       <span>{{ section.settings.marquee }}</span>
     </div>
+  </div> {% endcomment %}
+  
+
+  <div class="marquee-element">
+    <div class="marquee-element__track">
+      <span><b>{{ section.settings.marquee }}</b></span>
+      <span><b>{{ section.settings.marquee }}</b></span>
+      <span aria-hidden="true"><b>{{ section.settings.marquee }}</b></span>
+      <span aria-hidden="true"><b>{{ section.settings.marquee }}</b></span>
+    </div>
   </div>
+>
 </div>
+
+
 
 {% schema %}
 {

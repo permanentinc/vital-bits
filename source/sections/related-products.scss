@@ -133,20 +133,16 @@
 }
 
 .marquee-element {
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: wrap;
-    white-space: nowrap;
     overflow: clip;
     margin: 10rem 0;
+    // width: calc(100% + 4rem);
+    width: 100vw;
 
     &__track {
         display: flex;
         width: max-content;
-        backface-visibility: hidden;
-        will-change: transform;
+        width: max-content;
         animation: marquee-move-text 26s linear infinite forwards;
-        animation-play-state: running;
 
         span {
             white-space: nowrap;
