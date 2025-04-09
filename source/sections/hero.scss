@@ -6,6 +6,10 @@
     z-index: 3;
     padding-bottom: 20rem;
 
+    @include media($md, max) {
+        padding: 4rem 0;
+    }
+
     &__background {
         @include full;
 
@@ -51,6 +55,10 @@
 
         h3 {
             line-height: 1.4;
+
+            @include media($md, max) {
+                line-height: 1.2;
+            }
         }
     }
 }

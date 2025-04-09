@@ -36,6 +36,10 @@
         max-width: var(--content-width);
         margin: 0 auto;
 
+        @include media($md, max) {
+            padding: 6rem 0 0;
+        }
+
         &.inview {
             transform: translateX(0%);
         }
@@ -63,7 +67,7 @@
                 }
 
                 @include media($md, max) {
-                    width: 80%;
+                    width: 100%;
                 }
 
                 h6,
@@ -135,8 +139,11 @@
 .marquee-element {
     overflow: clip;
     margin: 10rem 0;
-    // width: calc(100% + 4rem);
     width: 100vw;
+
+    @media screen and (max-width: 768px) {
+        margin: 0 0 4rem; 
+    }
 
     &__track {
         display: flex;
@@ -160,6 +167,11 @@
                 -webkit-text-fill-color: transparent;
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: white;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 6rem;
+                    padding: 2rem 1rem;
+                }
             }
         }
     }

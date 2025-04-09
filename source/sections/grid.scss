@@ -70,7 +70,6 @@
         float: left;
         width: calc(50%);
 
-        
         &:before {
             @include pseudo;
             position: absolute;
@@ -96,14 +95,9 @@
         }
 
         @media screen and (max-width: 768px) {
-            width: calc(100%);
+            width: calc(100% + 1rem);
+            margin-left: -0.5rem;
             @include aspect(1380, 890);
-        }
-
-
-        @include media($xmd, max) {
-            // width: 100%;
-            // @include aspect(1380, 880);
         }
 
         &__image {

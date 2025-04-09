@@ -7,6 +7,10 @@
     padding-bottom: 20rem;
     background: var(--blue-light);
 
+    @include media($md, max) {
+        padding-bottom: 10rem;
+    }
+
     &-wrap {
         margin: 0 auto;
         display: flex;
@@ -153,7 +157,7 @@
 
             .jdgm-widget {
                 position: absolute;
-                left:12rem;
+                left: 12rem;
                 top: 1.2rem;
             }
         }
@@ -758,4 +762,8 @@ html {
     .is-selected img {
         outline: 2px solid #ec5b44;
     }
+}
+
+.jdgm-rev-widg__title {
+    font-weight: 700;
 }

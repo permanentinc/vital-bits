@@ -89,6 +89,10 @@
             padding-right: 0;
         }
 
+        @include media($md, max) {
+            order: 2;
+        }
+
         * {
             color: var(--green);
         }
@@ -101,6 +105,12 @@
         @include media($xmd, max) {
             width: 100%;
             padding-right: 0;
+        }
+
+        @include media($md, max) {
+            width: calc(100% + 1rem);
+            margin-left: -0.5rem;
+            order: 1;
         }
     }
 
