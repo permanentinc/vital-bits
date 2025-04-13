@@ -716,7 +716,7 @@ const updateSlider = (e) => {
                 }, 800);
 
 
-            }, 300);
+            }, 30);
 
 
             // Scroll to the top of the .collections__slider

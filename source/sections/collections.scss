@@ -242,12 +242,12 @@
     &__slider {
         position: relative;
         width: 100%;
-        padding-top: 6rem;
+        padding-top: 4rem;
         transition: all $slow;
         transform: translateX(10%);
 
         @media screen and (max-width: 768px) {
-            padding-top: 4rem;
+            padding-top: 3rem;
             margin-bottom: -6rem;
         }
 
