@@ -45,8 +45,10 @@
         justify-content: center;
         align-items: center;
         z-index: 88;
-        backdrop-filter: blur(3px);
+        // backdrop-filter: blur(3px);
         transition: all $fast;
+        // background: rgba(white, 0.3);
+        z-index: 9999;
 
         svg {
             max-width: 30rem;
@@ -240,9 +242,14 @@
     &__slider {
         position: relative;
         width: 100%;
-        padding-top: 10rem;
+        padding-top: 6rem;
         transition: all $slow;
         transform: translateX(10%);
+
+        @media screen and (max-width: 768px) {
+            padding-top: 4rem;
+            margin-bottom: -6rem;
+        }
 
         &.inview {
             transform: translateX(0%);
