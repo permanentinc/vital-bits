@@ -14,8 +14,13 @@
         color: var(--green);
 
         @include media($md, max) {
-            h2{
-                font-size: 2.5rem;
+
+            h3 {
+                font-size: 2.4rem;
+            }
+
+            h2 {
+                font-size: 2rem;
                 line-height: 1.2;
             }
         }

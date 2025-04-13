@@ -5,6 +5,10 @@
     padding-top: 6rem;
     padding-bottom: 12rem;
 
+    @include media($md, max) {
+        padding-bottom: 6rem;
+    }
+
     &-wave2,
     &-wave1 {
         @include svg(1366, 768);
