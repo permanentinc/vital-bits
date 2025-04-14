@@ -79,7 +79,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Do you offer advice or support beyond products?",
-            "copy": "<p>We do. Head to our blog, <a href=\"https://vitalbits.co.nz/blogs/news\" target=\"_blank\" title=\"https://vitalbits.co.nz/blogs/news\">Important Bits</a>, for expert-backed tips, real mum stories, and helpful reads that make the hard bits feel a little easier.</p>"
+            "copy": "<p>We do. Head to our blog, <a href=\"/blogs/important-bits\" target=\"_blank\" title=\"Important Bits\">Important Bits</a>, for expert-backed tips, real mum stories, and helpful reads that make the hard bits feel a little easier.</p>"
           }
         },
         "accordion_item_iFbDtB": {
