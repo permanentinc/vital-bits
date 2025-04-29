@@ -80,7 +80,7 @@
       "name": "Text and Image",
       "settings": {
         "image": "shopify://shop_images/Plunket-Endorsed_c7e8c016-8ef1-40e1-8822-e2dc0c2a192f.png",
-        "text": "<h6>We’re a\u0003Pick Me, Help Plunket Partner.<br/><br/>We’re proud to be the only postpartum care\u0003brand endorsed by Plunket. Because when it comes to postpartum recovery, you deserve\u0003products that are safe, effective, and\u0003backed by experts.</h6>",
+        "text": "<h6>We're a Pick Me, Help Plunket Partner.</h6><h6>Vital Bits is proud to be the only postpartum care brand endorsed by Plunket. Because when it comes to postpartum recovery, you deserve products that are safe, effective and backed by experts.</h6>",
         "reverse_layout": false,
         "smaller_image": false,
         "background_color": "#f5d6dc"
