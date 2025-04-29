@@ -75,6 +75,17 @@
         "marquee": "Through life's most vital moments."
       }
     },
+    "image_text_block_FDaNEf": {
+      "type": "image-text-block",
+      "name": "Text and Image",
+      "settings": {
+        "image": "shopify://shop_images/Plunket-Endorsed_c7e8c016-8ef1-40e1-8822-e2dc0c2a192f.png",
+        "text": "<h6>We’re a\u0003Pick Me, Help Plunket Partner.<br/><br/>We’re proud to be the only postpartum care\u0003brand endorsed by Plunket. Because when it comes to postpartum recovery, you deserve\u0003products that are safe, effective, and\u0003backed by experts.</h6>",
+        "reverse_layout": false,
+        "smaller_image": false,
+        "background_color": "#f5d6dc"
+      }
+    },
     "grid-block": {
       "type": "grid-block",
       "blocks": {
@@ -115,17 +126,6 @@
         "heading": "Important Bits",
         "link_label": "",
         "link_link": "shopify://blogs/important-bits"
-      }
-    },
-    "image_text_block_FDaNEf": {
-      "type": "image-text-block",
-      "name": "Text and Image",
-      "settings": {
-        "image": "shopify://shop_images/Plunket-Endorsed_c7e8c016-8ef1-40e1-8822-e2dc0c2a192f.png",
-        "text": "<h6>We’re a\u0003Pick Me, Help Plunket Partner.<br/><br/>We’re proud to be the only postpartum care\u0003brand endorsed by Plunket. Because when it \u0003comes to postpartum recovery, you deserve\u0003products that are safe, effective, and\u0003backed by experts.</h6>",
-        "reverse_layout": false,
-        "smaller_image": false,
-        "background_color": "#f5d6dc"
       }
     },
     "hero-block": {
