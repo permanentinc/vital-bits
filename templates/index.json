@@ -117,13 +117,6 @@
         "link_link": "shopify://blogs/important-bits"
       }
     },
-    "hero-block": {
-      "type": "hero-block",
-      "settings": {
-        "heading": "Because we care for your bits. The important bits. The life-changing bits.",
-        "image": "shopify://shop_images/Vital_Bits-peri-bottle-postpartum.jpg"
-      }
-    },
     "image_text_block_FDaNEf": {
       "type": "image-text-block",
       "name": "Text and Image",
@@ -134,13 +127,20 @@
         "smaller_image": false,
         "background_color": "#f5d6dc"
       }
+    },
+    "hero-block": {
+      "type": "hero-block",
+      "settings": {
+        "heading": "Because we care for your bits. The important bits. The life-changing bits.",
+        "image": "shopify://shop_images/Vital_Bits-peri-bottle-postpartum.jpg"
+      }
     }
   },
   "order": [
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9",
     "2e7b8157-5d21-422b-80a8-300911cfa1b4",
+    "image_text_block_FDaNEf",
     "grid-block",
-    "hero-block",
-    "image_text_block_FDaNEf"
+    "hero-block"
   ]
 }
