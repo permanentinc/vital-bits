@@ -8,11 +8,11 @@ Image and text blocka
   overflow: hidden;
   padding: 2rem 2rem;
 
-  [data-color="#fefcf8"] {
-    * {
-      color: #783e6f;
-    }
-  }
+  // [data-color="#fefcf8"] {
+  //   * {
+  //     color: #783e6f;
+  //   }
+  // }
 
   &__background {
     position: absolute;
@@ -62,14 +62,18 @@ Image and text blocka
       flex-wrap: wrap;
       align-content: center;
 
-      * {
-        color: var(--green);
-      }
+      // * {
+      //   color: var(--green);
+      // }
 
       @include media($md, max) {
         width: 100%;
         order: 2;
         padding: 3rem 0 0;
+      }
+
+      .button{
+        color: white  !important;
       }
     }
   }

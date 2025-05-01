@@ -5,11 +5,11 @@
       {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
     </div>
 
-    <div class="image-element__wrap__text" data-color="{{ section.settings.background_color }}">
+    <div class="image-element__wrap__text"  style="color: {{ section.settings.text_color }};" data-color="{{ section.settings.background_color }}">
       
       {% if section.settings.heading != blank %}
         <h2 class="image-element__wrap__text__heading" style="color: {{ section.settings.text_color }};">
-          <b>{{ section.settings.heading }}</b>
+          <b style="color: {{ section.settings.text_color }};">{{ section.settings.heading }}</b>
         </h2>
       {% endif %}
 
