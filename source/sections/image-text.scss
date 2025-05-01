@@ -62,10 +62,6 @@ Image and text blocka
       flex-wrap: wrap;
       align-content: center;
 
-      // * {
-      //   color: var(--green);
-      // }
-
       @include media($md, max) {
         width: 100%;
         order: 2;
