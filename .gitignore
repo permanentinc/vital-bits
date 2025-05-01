@@ -14,3 +14,4 @@ Thumbs.db
 !assets    
 
 .shopify
+/node_modules

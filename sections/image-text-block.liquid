@@ -6,7 +6,20 @@
     </div>
 
     <div class="image-element__wrap__text" data-color="{{ section.settings.background_color }}">
+      
+      {% if section.settings.heading != blank %}
+        <h2 class="image-element__wrap__text__heading" style="color: {{ section.settings.text_color }};">
+          <b>{{ section.settings.heading }}</b>
+        </h2>
+      {% endif %}
+
       {{ section.settings.text }}
+
+      {% if section.settings.link_link != blank %}
+        <p class="">
+          <a href="{{ section.settings.link_link }}" class="button {{ section.settings.link_colour }}">{{ section.settings.link_label }}</a>
+        </p>
+      {% endif %}
     </div>
   </div>
 
@@ -15,13 +28,12 @@
       <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
     </svg>
   </div>
-  
+
   <div class="image-element-wave4 [ js-wave ]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
       <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
     </svg>
   </div>
-
 </div>
 
 {% schema %}
@@ -39,10 +51,25 @@
       "label": "Image"
     },
     {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (optional)"
+    },
+    {
       "type": "richtext",
       "id": "text",
       "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
       "label": "Text"
+    },
+    {
+      "id": "link_link",
+      "type": "url",
+      "label": "Link"
+    },
+    {
+      "id": "link_label",
+      "type": "text",
+      "label": "Button label"
     },
     {
       "type": "checkbox",
@@ -61,6 +88,32 @@
       "id": "background_color",
       "label": "Background color",
       "default": "#E1EDF9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "text color",
+      "default": "#367B7F"
+    },
+    {
+      "type": "select",
+      "id": "link_colour",
+      "label": "Link colour",
+      "options": [
+        {
+          "value": "green",
+          "label": "Green"
+        },
+        {
+          "value": "orange",
+          "label": "Orange"
+        },
+        {
+          "value": "purple",
+          "label": "Purple"
+        }
+      ],
+      "default": "green"
     }
   ],
   "presets": [
