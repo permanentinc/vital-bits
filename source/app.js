@@ -444,9 +444,18 @@ const stickyHeader = () => {
 
 window.addEventListener('scroll', stickyHeader);
 
-let wave_text = $('.js-wave-text');
+let wave_text = document.querySelector('.js-wave-text');
 if (wave_text) {
-    wave_text.innerHTML = wave_text.textContent.replace(/\S/g, '<span class="letter">$&</span>');
+    const words = wave_text.textContent.trim().split(/\s+/);
+    wave_text.innerHTML = words
+        .map(word => {
+            const letters = word
+                .split('')
+                .map(letter => `<span class="letter">${letter}</span>`)
+                .join('');
+            return `<span class="word">${letters}</span>`;
+        })
+        .join('<span class="space"> </span>');
 
     let wave = anime
         .timeline({ autoplay: false })
@@ -455,14 +464,11 @@ if (wave_text) {
             translateY: [0, -2, 0],
             easing: 'easeOutExpo',
             duration: 500,
-            autoplay: false,
             delay: (el, i) => 10 * i
         });
 
-
     setInterval(() => wave.play(), 20000);
 }
-
 anime({
     targets: '.js-wave path',
     d: ['M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,261.3C672,277,768,267,864,250.7C960,235,1056,213,1152,213.3C1248,213,1344,235,1392,245.3L1440,256L1440,320'],
