@@ -11,6 +11,12 @@
       <div class="product-slider [ js-product-imagery-slider ]">
         {% for media in product.media %}
           <div class="product-slider-item">
+            {% comment %} if first image {% endcomment %}
+            {% if forloop.first %}
+              <div class="product-slider-item-endorsement">
+                <img src="{{ 'plunket_logo.svg' | asset_url }}" loading="lazy" width="200" height="200">
+              </div>
+            {% endif %}
             <img
               class="[ js-product-slider-item-image ]"
               src="{{ media.preview_image | image_url: width: 1080 | image_url: height: 1080, crop: 'center' }}"

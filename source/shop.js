@@ -131,6 +131,11 @@ window.changeSideCartQuantity = (event, amount) => {
 
     let quantity, input = event.target.parentElement.querySelector('input');
 
+    if (amount === -1 && parseInt(input.value) === 1) {
+        window.changeSideCartQuantity(event, 0);
+        return;
+    }
+
     if (amount !== 0) {
         quantity = parseInt(input.value);
         quantity = (quantity + amount < 1) ? 1 : quantity + amount;
@@ -153,7 +158,6 @@ window.changeSideCartQuantity = (event, amount) => {
 
             // Update all of the carts
             updateCarts(data);
-
 
         })
         .catch((data) => {

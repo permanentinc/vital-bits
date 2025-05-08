@@ -32,7 +32,21 @@
     &-column {
         &-payment {
             margin-right: 2rem;
-            margin-top: 1rem;
+            margin-top: -2rem;
+            display: inline-block;
+        }
+        
+        &-plunket {
+            display: inline-block;
+            margin-right: 2rem;
+            margin-top: -2rem;
+
+            img {
+                width: 12rem;
+                height: auto;
+                position: relative;
+                top: 1.5rem;
+            }
         }
 
         h6 {
