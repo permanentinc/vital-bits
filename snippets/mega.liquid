@@ -14,7 +14,7 @@
             <a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a>
           </h6>
           {% comment %} {% for product in collections['v-delivery'].products limit: 2 %} {% endcomment %}
-             {% for link in linklists['mega-menu-v-delivery'].links -%}
+          {% for link in linklists['mega-menu-v-delivery'].links -%}
             {% if link.type == 'product_link' %}
               {% assign product = link.object %}
               <p class="mega__wrap__column__sublink">
@@ -52,7 +52,7 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.c-section-delivery.url }}"><b>C-Section Delivery</b></a>
           </h6>
-         {% for link in linklists['mega-menu-c-section-delivery'].links -%}
+          {% for link in linklists['mega-menu-c-section-delivery'].links -%}
             {% if link.type == 'product_link' %}
               {% assign product = link.object %}
               <p class="mega__wrap__column__sublink">
