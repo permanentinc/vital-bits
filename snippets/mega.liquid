@@ -13,18 +13,32 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a>
           </h6>
-          {% for product in collections['v-delivery'].products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
+          {% comment %} {% for product in collections['v-delivery'].products limit: 2 %} {% endcomment %}
+             {% for link in linklists['mega-menu-v-delivery'].links -%}
+            {% if link.type == 'product_link' %}
+              {% assign product = link.object %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% else %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% endif %}
+          {%- endfor %}
           <p class="mega__wrap__column__sublink">
             <a
               href="{{ collections.v-delivery.url }}"
@@ -38,18 +52,31 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.c-section-delivery.url }}"><b>C-Section Delivery</b></a>
           </h6>
-          {% for product in collections['c-section-delivery'].products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
+         {% for link in linklists['mega-menu-c-section-delivery'].links -%}
+            {% if link.type == 'product_link' %}
+              {% assign product = link.object %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% else %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% endif %}
+          {%- endfor %}
           <p class="mega__wrap__column__sublink">
             <a
               href="{{ collections.c-section-delivery.url }}"
@@ -65,18 +92,31 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.pregnancy.url }}"><b>Pregnancy</b></a>
           </h6>
-          {% for product in collections.pregnancy.products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
+          {% for link in linklists['mega-menu-pregnancy'].links -%}
+            {% if link.type == 'product_link' %}
+              {% assign product = link.object %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% else %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% endif %}
+          {%- endfor %}
           <p class="mega__wrap__column__sublink">
             <a href="{{ collections.pregnancy.url }}">View more</a>
           </p>
@@ -87,18 +127,31 @@
           <h6 class="mega__wrap__column__link">
             <a class="" href="{{ collections.postpartum.url }}"><b>Postpartum</b></a>
           </h6>
-          {% for product in collections.postpartum.products limit: 2 %}
-            <p class="mega__wrap__column__sublink">
-              <a
-                href="{{ product.url }}"
-                class="[ js-mega-image ]"
-                data-id="{{ product.title }}"
-                data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-              >
-                {{- product.title -}}
-              </a>
-            </p>
-          {% endfor %}
+          {% for link in linklists['mega-menu-postpartum'].links -%}
+            {% if link.type == 'product_link' %}
+              {% assign product = link.object %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% else %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% endif %}
+          {%- endfor %}
           <p class="mega__wrap__column__sublink">
             <a
               href="{{ collections.postpartum.url }}"
