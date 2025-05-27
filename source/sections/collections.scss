@@ -422,17 +422,32 @@
             display: flex;
             flex-wrap: wrap;
             height: 8rem;
+            padding-right: 2rem;
             justify-content: flex-end;
-            justify-content: center;
 
-            display: none;
-
+            @media screen and (max-width: 768px) {
+                justify-content: center;
+                margin-top: 4rem;
+            }
             &__prev,
             &__next {
                 width: 6rem;
                 fill: transparent;
-                margin: 1rem 3rem;
+                margin: 1rem 1rem;
                 cursor: pointer;
+                height: 6rem;
+                border: 2px solid var(--green);
+                border-radius: 100rem;
+                position: relative;
+
+                svg {
+                    width: 3rem;
+                    height: auto;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
 
                 path {
                     fill: var(--green);
@@ -535,6 +550,8 @@
 
         .tooltip,
         .tooltip:before,
+        .collections__slider__navigation__prev,
+        .collections__slider__navigation__next,
         .collections__slider__item__quickview {
             border-color: var(--orange);
         }
@@ -597,6 +614,8 @@
 
         .tooltip,
         .tooltip:before,
+        .collections__slider__navigation__prev,
+        .collections__slider__navigation__next,
         .collections__slider__item__quickview {
             border-color: var(--pink);
         }
