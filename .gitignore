@@ -12,5 +12,6 @@ Thumbs.db
 .parcel-cache
 .parcel-cache/data.mdb
 !assets    
+/node_modules
 
 .shopify
