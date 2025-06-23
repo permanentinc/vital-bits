@@ -1,5 +1,6 @@
-@use 'sass:math';
+@use "sass:math";
 
+[type="submit"],
 .yotpo-default-button,
 .shopify-challenge__button,
 .button {
@@ -46,6 +47,10 @@
 
     &.full {
         display: block;
+    }
+
+    &.purple{
+        background: var(--pink);
     }
 }
 
@@ -100,6 +105,6 @@ $size: 2.4rem;
     }
 }
 
-.h3.afterpay-modal-headline{
+.h3.afterpay-modal-headline {
     font-size: 2.4rem !important;
 }

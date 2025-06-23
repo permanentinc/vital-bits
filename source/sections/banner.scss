@@ -47,7 +47,7 @@
 
             @media (max-width: 768px) {
                 margin: 0rem auto -4rem;
-                padding: 26rem 2rem 2rem;
+                padding: 14rem 2rem 2rem;
 
                 h1 {
                     line-height: 6vw !important;
@@ -64,11 +64,16 @@
                 font-weight: 700;
                 white-space: nowrap;
                 font-size: 6rem;
-                padding: 4rem 1rem 2rem;
+                padding: 4rem 0rem 2rem;
                 color: transparent;
                 -webkit-text-fill-color: transparent;
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: var(--green);
+
+                @media screen and (max-width: 768px) {
+                    font-size: 4rem !important;
+                    line-height: 5vw !important;
+                }
             }
         }
     }
@@ -133,7 +138,7 @@
         @include media($md, max) {
             top: 0;
             transform: translateY(0);
-            padding: 6rem 1rem;
+            padding: 6rem 2rem;
             position: relative;
             padding-top: 25rem;
         }
@@ -141,10 +146,16 @@
 
     &-constraint {
         max-width: var(--thin-content-width);
-        padding: 0 2rem;
+        padding: 0 0rem;
     }
 }
 
 [id*="text_banner"] ~ [id*="text_banner"] {
     margin-top: -20rem !important;
+}
+
+[data-page-type="list-collections"] {
+    .banner-text {
+        padding-top: 0;
+    }
 }

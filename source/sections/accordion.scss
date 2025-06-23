@@ -58,6 +58,9 @@ Accordion Element
         }
 
         &.active {
+            .accordion-element__trigger{
+                padding-bottom: 1rem;
+            }
             .accordion-element__trigger:after {
                 transform: rotate(0) !important;
             }

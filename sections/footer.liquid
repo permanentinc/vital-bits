@@ -80,6 +80,9 @@
       <a href="https://www.afterpay.com/en-NZ" target="_blank" rel="noopener" class="footer-column-payment">
         <img src="{{ 'afterpay-logo.svg' | asset_url }}" loading="lazy" width="125" height="24">
       </a>
+      <a href="https://www.plunket.org.nz/" target="_blank" rel="noopener" class="footer-column-plunket">
+        <img src="{{ 'plunket_logo_reveresed.svg' | asset_url }}" loading="lazy" width="1511" height="755">
+      </a>
     </div>
     {% comment %}
       Column
@@ -93,6 +96,7 @@
       </p>
     </div>
 
+
     {% comment %}
       Column
     {% endcomment %}
@@ -100,6 +104,19 @@
       <h6 class="white">Important bits</h6>
       <p>
         {% for link in linklists['footer-middle'].links -%}
+          <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
+        {%- endfor %}
+      </p>
+    </div>
+
+
+    {% comment %}
+      Column
+    {% endcomment %}
+    <div class="footer-column footer-column--2-5">
+      <h6 class="white">Partnerships</h6>
+      <p>
+        {% for link in linklists['footer-middle-left'].links -%}
           <a href="{{ link.url }}" class="animate-white-to-transparent-white white">{{ link.title }}</a><br>
         {%- endfor %}
       </p>
@@ -120,10 +137,10 @@
         Social
       {% endcomment %}
       <div class="footer-social">
-        <a href="#" class="footer-social__link">
+        <a href="https://www.facebook.com/profile.php?id=100092964578944" class="footer-social__link">
           <img src="{{ 'facebook.svg' | asset_url }}" loading="lazy" width="32" height="32">
         </a>
-        <a href="#" class="footer-social__link">
+        <a href="https://www.instagram.com/vital.bits" class="footer-social__link">
           <img src="{{ 'instagram.svg' | asset_url }}" loading="lazy" width="32" height="32">
         </a>
       </div>

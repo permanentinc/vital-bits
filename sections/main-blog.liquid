@@ -1,35 +1,31 @@
-{% for article in blogs.news.articles %}
-  {% if forloop.last == true %}
-    <div class="banner-blog">
-      <div class="banner-blog-wrap">
-        <div class="banner-blog-text">
-          <div class="banner-blog-text__constraint">
-            <h6 class="white">
-              <b>{{ article.tags | join: ' | ' | upcase }}</b>
-            </h6>
-            <h1 class="white">
-              <b>
-                {{ article.title }}
-              </b>
-            </h1>
-            <p class="white">{{ article.excerpt }}</p>
-          </div>
-        </div>
-
-        <div class="banner-blog-image">
-          <img
-            src="{{ article.image | image_url: width: 640 | image_url: height: 480 }}"
-            alt="grid item image"
-            loading="lazy"
-            width="640"
-            height="480"
-          >
-          <div class="banner-blog-image__shadow"></div>
-        </div>
+<div class="banner-blog">
+  <div class="banner-blog-wrap">
+    <div class="banner-blog-text">
+      <div class="banner-blog-text__constraint">
+        <h6 class="white">
+          <b>{{ section.settings.subheading }}</b>
+        </h6>
+        <h1 class="white">
+          <b>
+            {{ section.settings.heading }}
+          </b>
+        </h1>
+        {{ section.settings.content }}
       </div>
     </div>
-  {% endif %}
-{% endfor %}
+
+    <div class="banner-blog-image">
+      <img
+        src="{{ section.settings.thumbnail | image_url: width: 640 | image_url: height: 480 }}"
+        alt="grid item image"
+        loading="lazy"
+        width="640"
+        height="480"
+      >
+      <div class="banner-blog-image__shadow"></div>
+    </div>
+  </div>
+</div>
 
 {% comment %}
   Related articles
@@ -150,3 +146,43 @@
     }
   </script>
 </div>
+{% comment %}
+  Add a schema for heading content and image
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Main Blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Smaller sub heading text",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Main heading text",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "default": "<p>In exercitation tempor excepteur voluptate sit on exercitation tempor excepteur voluptate sit.</p>",
+      "label": "content"
+    },
+    {
+      "type": "image_picker",
+      "id": "thumbnail",
+      "label": "thumbnail"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Blog",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}

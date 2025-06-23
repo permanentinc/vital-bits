@@ -13,6 +13,7 @@
     </svg>
   </div>
 
+  {% render 'grid-slide' %}
 
   {% assign ordered_collections = 'postpartum,v-delivery,c-section-delivery,pregnancy,breast-care' | split: ',' %}
 
@@ -20,7 +21,10 @@
     {% for ordered_handle in ordered_collections %}
       {% assign collection = collections[ordered_handle] %}
       {% if collection.products.size > 0 %}
-        <div class="collection-grid__list__title [ js-in-view ]">
+        <div
+          class="collection-grid__list__title [ js-in-view ]"
+          data-handle="{{ collection.handle | downcase | replace: ' ', '-' }}"
+        >
           <h2 class="h1">
             <b>{{ collection.title }}</b>
           </h2>
@@ -78,6 +82,25 @@
             </a>
           </div>
         {% endfor %}
+      {% else %}
+        <div
+          class="collection-grid__list__title [ js-in-view ]"
+          data-handle="{{ collection.handle | downcase | replace: ' ', '-' }}"
+        >
+          <h2 class="h1">
+            <b>{{ collection.title }}</b>
+          </h2>
+        </div>
+        <div class="[ js-gradient ]" data-collection="{{ collection.title }}"></div>
+        <div class="banner banner--text" style="margin-top : -15rem">
+          <div class="banner-text">
+            <div class="banner-constraint">
+              <h1 class="black">
+                <b> COMING SOON </b>
+              </h1>
+            </div>
+          </div>
+        </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -87,9 +110,9 @@
   {% endcomment %}
   <div class="collection-grid__marquee">
     <div class="collection-grid__marquee__animation">
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
-      <span>Through lifes most vital moments</span>
+      <span>Through life's most vital moments.</span>
+      <span>Through life's most vital moments.</span>
+      <span>Through life's most vital moments.</span>
     </div>
   </div>
 </div>

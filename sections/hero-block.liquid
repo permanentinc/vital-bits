@@ -1,7 +1,28 @@
 <div class="hero">
   <div class="hero__background">
     {%- if section.settings.image != blank -%}
-      {{ section.settings.image | image_url: width: 1500 | image_url: height: 800 | image_tag }}
+      <picture>
+        <!-- Larger screen image -->
+        <source
+          srcset="{{ section.settings.image | image_url: width: 2250 | image_url: height: 1200  }}"
+          media="(min-width: 1280px)"
+        >
+        <!-- Small screen image -->
+        <source
+          srcset="{{ section.settings.image | image_url: width: 960 | image_url: height: 600  }}"
+          media="(max-width: 767px)"
+        >
+
+        <!-- Fallback image -->
+        <img
+          src="{{ section.settings.image | image_url: width: 2250 | image_url: height: 1200  }}"
+          width="1640"
+          height="760"
+          alt="Responsive Image"
+        >
+      </picture>
+
+      {% comment %} {{ section.settings.image | image_url: width: 2250 | image_url: height: 1200 | image_tag }} {% endcomment %}
     {%- endif -%}
   </div>
 
@@ -9,7 +30,7 @@
     <div class="hero__text [ js-inview ]">
       <h3 class="colour--white">
         <b
-          >“<br>
+          ><br>
           {{ section.settings.heading -}}
         </b>
       </h3>

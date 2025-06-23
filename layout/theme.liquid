@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
+  
   <head>
     {% comment %}
       Meta data
@@ -51,9 +52,15 @@
       Favicon
     {% endcomment %}
 
-    {%- if settings.favicon != blank -%}
+    {% comment %} {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 | image_url: height: 32 }}">
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
+    <link rel="icon" type="image/png" href="{{ 'favicon-96x96.png' | asset_url }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}" />
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | asset_url }}" />
+    <meta name="apple-mobile-web-app-title" content="Vital Bits" />
+    <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}" />
 
     {% comment %}
       Global constants for site wide CSS styles
@@ -61,7 +68,7 @@
 
     {% style %}
       :root {
-      
+
 
         /* Widths */
         --thin-content-width: 580px;
@@ -144,16 +151,41 @@
       };
     </script>
 
-   
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T8CHCCN');</script>
+<!-- End Google Tag Manager -->
+    
   </head>
 
   <body
     data-page-type="{{ request.page_type }}"
-    {%- if request.page_type == 'product' -%}
-      data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
+    data-page-id="{{ request.page_id }}"
+    data-page-title="{{ page_title }}"
+    data-collection="{{ collection.title | downcase | replace: " ", "-" }}"
+    {%- if page_title == 'Contact' -%}
+      data-theme="pregnancy"
     {%- endif -%}
+    {%- if page_title == 'Partner with us' -%}
+      data-theme="pregnancy"
+    {%- endif -%}
+
+    {%- if request.page_type == 'policy' -%}
+      data-theme="pregnancy"
+    {%- endif -%}
+
     {%- if request.page_type == 'collection' -%}
       data-theme="{{ collection.title | downcase | replace: " ", "-" }}"
+    {%- endif -%}
+    {%- if request.page_type == 'list-collections' -%}
+      data-theme="postpartum"
+    {%- endif -%}
+
+    {%- if request.page_type == 'product' -%}
+      data-theme="{{ product.collections[0].title | downcase | replace: " ", "-"}}"
     {%- endif -%}
   >
     {{ content_for_header }}
@@ -167,6 +199,18 @@
       section 'custom-cursors'
       section 'header'
     -%}
+
+    {%- if request.page_type == 'policy' -%}
+      <div class="banner banner--text banner--">
+        <div class="banner-text" style="margin-bottom:0rem">
+          <div class="banner-constraint">
+            <h1 class="black">
+              <b> {{ page_title | upcase }} </b>
+            </h1>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
 
     {{ content_for_layout }}
 

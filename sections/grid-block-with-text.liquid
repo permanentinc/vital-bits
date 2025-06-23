@@ -1,32 +1,9 @@
-<div class="grid-with-text">
-  <div class="grid-with-text-wave1 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
-
-  <div class="grid-with-text-wave2 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
-
-  <div class="grid-with-text-wave3 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
-
-  <div class="grid-with-text-wave4 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
-
+<div class="grid-with-text {% if section.settings.reverse_layout %}grid-with-text--reversed{%- endif -%} grid-with-text--reversed ">
+  <div class="image-element__background" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="grid-with-text__wrap">
-    <div class="grid-with-text__copy">
+    <div class="grid-with-text__copy ">
       {{ section.settings.copy }}
-    </div> 
+    </div>
     <div class="grid-with-text__grid">
       {%- for block in section.blocks -%}
         {% assign count = count | plus: 1 %}
@@ -37,9 +14,9 @@
           <div class="grid-with-text__item__image">
             {%- if block.settings.image != blank -%}
               {% if count == 1 %}
-                {{ block.settings.image | image_url: width: 690 | image_url: height: 690 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 890 | image_tag }}
               {% else %}
-                {{ block.settings.image | image_url: width: 690 | image_url: height: 340 | image_tag }}
+                {{ block.settings.image | image_url: width: 690 | image_url: height: 440 | image_tag }}
               {% endif %}
             {%- endif -%}
           </div>
@@ -57,6 +34,20 @@
   </div>
 </div>
 
+<div class="grid-with-text-wave1 [ js-wave ]">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+    <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+  </svg>
+</div>
+
+<div class="grid-with-text-wave2 [ js-wave ]">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+    <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+  </svg>
+</div>
+
+
+
 {% schema %}
 {
   "name": "Grid-with-text",
@@ -66,6 +57,18 @@
       "id": "copy",
       "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>",
       "label": "Copy"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#E1EDF9"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse layout",
+      "default": false
     }
   ],
   "max_blocks": 3,

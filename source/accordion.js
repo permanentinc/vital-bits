@@ -6,9 +6,10 @@ export class Accordion {
      * 
      * @param {element} element accordion parent
      */
-    constructor(element) {
+    constructor(element, open_first_item_on_load = false) {
 
         this.accordion = element;
+        this.open_first_item_on_load = open_first_item_on_load;
         this.trigger = this.accordion.querySelector('.js-trigger');
         this.content = this.accordion.querySelector('.js-content');
 
@@ -29,6 +30,11 @@ export class Accordion {
 
         // Add the click event handler to the accordion
         this.addEventListeners();
+
+        if (this.open_first_item_on_load) {
+            this.open(true);
+        }
+
     }
 
 
@@ -82,7 +88,9 @@ export class Accordion {
      * Open the accordion
      * 
      */
-    open() {
+    open(instant = false) {
+
+        if (instant) this.content.style.transition = 'none';
 
         // Add active class to the accordion
         this.accordion.classList.add('active');
@@ -94,11 +102,16 @@ export class Accordion {
         // Revert the heioght back to nothing
         this.content.style.height = 0;
 
+
         // Animate the height once the calculations are done
         setTimeout(() => this.content.style.height = height, 0);
 
         // Update the current state
         this.updateState(true);
+
+        setTimeout(() => {
+            this.content.style.transition = '0.5s cubic-bezier(0.365, 0.04, 0.44, 1)';
+        }, 500);
 
     }
 

@@ -131,12 +131,12 @@
 
   <div class="collections__slider__navigation">
     <div class="collections__slider__navigation__prev [ js-collection-slider-prev ]">
-      <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+      <svg width="80" height="57" viewBox="0 0 80 57" xmlns="http://www.w3.org/2000/svg">
         <path d="M.217 27.968L28.18 0l7.523 7.524L20.049 23.18H80v10.64H20.049l15.653 15.656L28.179 57 .217 29.032a.76.76 0 010-1.064z" fill="#000" fill-rule="nonzero" />
       </svg>
     </div>
     <div class="collections__slider__navigation__next [ js-collection-slider-next ]">
-      <svg width="80" height="57" xmlns="http://www.w3.org/2000/svg">
+      <svg width="80" height="57" viewBox="0 0 80 57" xmlns="http://www.w3.org/2000/svg">
         <path d="M79.783 27.968L51.82 0l-7.523 7.524L59.951 23.18H0v10.64h59.951L44.298 49.476 51.821 57l27.962-27.968a.76.76 0 000-1.064z" fill="#000" fill-rule="nonzero" />
       </svg>
     </div>
@@ -145,14 +145,26 @@
   {% comment %}
     Marquee
   {% endcomment %}
-  <div class="collections__marquee">
+  {% comment %} <div class="collections__marquee">
     <div class="collections__marquee__animation">
       <span>{{ section.settings.marquee }}</span>
       <span>{{ section.settings.marquee }}</span>
       <span>{{ section.settings.marquee }}</span>
     </div>
+  </div> {% endcomment %}
+  
+
+  <div class="marquee-element">
+    <div class="marquee-element__track">
+      <span><b>{{ section.settings.marquee }}</b></span>
+      <span><b>{{ section.settings.marquee }}</b></span>
+      <span aria-hidden="true"><b>{{ section.settings.marquee }}</b></span>
+      <span aria-hidden="true"><b>{{ section.settings.marquee }}</b></span>
+    </div>
   </div>
 </div>
+
+
 
 {% schema %}
 {
@@ -161,7 +173,7 @@
     {
       "type": "text",
       "id": "marquee",
-      "default": "Through lifes most vital moments",
+      "default": "Through life's most vital moments.",
       "label": "Marquee"
     }
   ],

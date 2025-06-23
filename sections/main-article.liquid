@@ -81,29 +81,26 @@
   {% endcomment %}
   <div class="related-articles-intro">
     <h2 class="colour--green"><b>You may also like...</b></h2>
-    <a href="/blogs/news" class="arrow-link">Browse all</a>
+    <a href="/blogs/important-bits" class="arrow-link">Browse all</a>
   </div>
 
-  {% comment %}
-    Intro
-  {% endcomment %}
+  
+  
+  
+  
   <div class="related-articles-grid">
+    {% assign related_articles = '' %}
+    {% assign counter = 0 %}
+  
+    {% comment %}
+      Get articles with matching tags
+    {% endcomment %}
     {% for tag in article.tags %}
-      {% assign rendered_articles = '' | split: ',' %}
-      {% assign counter = 0 %}
-      {% assign skip_articles = article.handle | split: '.....' %}
       {% for related_article in blog.articles %}
-        {% if related_article.tags contains tag and counter < 3 %}
-          {% unless skip_articles contains related_article.handle %}
+        {% if related_article.tags contains tag and related_article.handle != article.handle and counter < 3 %}
+          {% unless related_articles contains related_article.id %}
             {% assign counter = counter | plus: 1 %}
-            {% assign temp = related_article.handle | split: '.....' %}
-            {% assign skip_articles = skip_articles | concat: temp %}
-
-            {% capture matching_articles %}
-              {{ rendered_articles | append: related_article.id | append: ',' }}
-            {% endcapture %}
-            {% assign rendered_articles = rendered_articles | split: ',' %}
-
+            {% assign related_articles = related_articles | append: ',' | append: related_article.id %}
             <a href="{{ related_article.url }}" class="related-articles-grid__item">
               <div class="related-articles-grid__item__image">
                 <img
@@ -113,14 +110,15 @@
                   width="640"
                   height="480"
                 >
-                <div class="animatedPanel [ js-inview ]">
-                  <div class="animatedPanel__colour"></div>
-                </div>
               </div>
-
+  
               <div class="related-articles-grid__item__content [ js-inview ]">
                 <h6>
-                  <b>{{ related_article.tags | join: ' | ' }}</b>
+                  <b>
+                    {% for tag in related_article.tags %}
+                      {{ tag }}{% unless forloop.last %} | {% endunless %}
+                    {% endfor %}
+                  </b>
                 </h6>
                 <h4 class="colour--green">
                   <b>{{ related_article.title }}</b>
@@ -132,48 +130,52 @@
           {% endunless %}
         {% endif %}
       {% endfor %}
-    {% endfor %}w
-
-    {% assign recent_articles = blog.articles | sort: 'published_at' | reverse %}
-
-    {% for recent_article in recent_articles %}
-      {% if counter < 3 %}
-        {% if matching_articles contains recent_article.id or matching_articles contains article.id %}
-        {% else %}
-          {% assign counter = counter | plus: 1 %}
-          <a href="{{ recent_article.url }}" class="related-articles-grid__item">
-            <div class="related-articles-grid__item__image">
-              <img
-                src="{{ recent_article.image | image_url: width: 640 | image_url: height: 480 }}"
-                alt="grid item image"
-                loading="lazy"
-                width="640"
-                height="480"
-              >
-            </div>
-
-            <div class="related-articles-grid__item__content [ js-inview ]">
-              <h6>
-                <b>
-                  {% for tag in recent_article.tags %}
-                    {{ tag }}
-                    {% unless forloop.last %} | {% endunless %}
-                  {% endfor -%}
-                </b>
-              </h6>
-              <h4 class="colour--green">
-                <b>
-                  {{ recent_article.title }}
-                </b>
-              </h4>
-              <p>{{ recent_article.excerpt }}</p>
-              <p>
-                <span class="arrow-link">Read now</span>
-              </p>
-            </div>
-          </a>
-        {% endif %}
-      {% endif %}
     {% endfor %}
+  
+    {% comment %}
+      Supplement with recent articles if fewer than 3 related articles
+    {% endcomment %}
+    {% if counter < 3 %}
+      {% assign recent_articles = blog.articles | sort: 'published_at' | reverse %}
+      {% for recent_article in recent_articles %}
+        {% if recent_article.handle != article.handle and counter < 3 %}
+          {% unless related_articles contains recent_article.id %}
+            {% assign counter = counter | plus: 1 %}
+            {% assign related_articles = related_articles | append: ',' | append: recent_article.id %}
+            <a href="{{ recent_article.url }}" class="related-articles-grid__item">
+              <div class="related-articles-grid__item__image">
+                <img
+                  src="{{ recent_article.image | image_url: width: 640 | image_url: height: 480 }}"
+                  alt="grid item image"
+                  loading="lazy"
+                  width="640"
+                  height="480"
+                >
+              </div>
+  
+              <div class="related-articles-grid__item__content [ js-inview ]">
+                <h6>
+                  <b>
+                    {% for tag in recent_article.tags %}
+                      {{ tag }}{% unless forloop.last %} | {% endunless %}
+                    {% endfor %}
+                  </b>
+                </h6>
+                <h4 class="colour--green">
+                  <b>{{ recent_article.title }}</b>
+                </h4>
+                <p>{{ recent_article.excerpt }}</p>
+                <p><span class="arrow-link">Read now</span></p>
+              </div>
+            </a>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </div>
+
+
+
+
+
 </div>

@@ -11,7 +11,12 @@
   "sections": {
     "main": {
       "type": "main-blog",
-      "settings": {}
+      "settings": {
+        "subheading": "The questions you didn’t know you’d have, answered - plus real talk on all things pregnancy and postpartum.",
+        "heading": "Important Bits",
+        "content": "<p>Motherhood comes with a lot of unknowns - some exciting, some overwhelming, and some you don’t see coming until you’re in the thick of it. Important Bits is here to help with expert-backed advice, real mum stories, and no-nonsense insights on pregnancy, birth, and postpartum recovery. Whether you’re looking for practical tips, reassurance, or just a reminder that you’re not alone, you’ll find it here.</p>",
+        "thumbnail": "shopify://shop_images/Vital_Bits-358-SD202416.jpg"
+      }
     }
   },
   "order": [

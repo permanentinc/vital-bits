@@ -5,6 +5,10 @@
     padding-top: 6rem;
     padding-bottom: 12rem;
 
+    @include media($md, max) {
+        padding-bottom: 6rem;
+    }
+
     &-wave2,
     &-wave1 {
         @include svg(1366, 768);
@@ -87,16 +91,17 @@
         }
 
         &--large {
-            @include aspect(1380, 1380);
+            @include aspect(1380, 1780);
         }
 
         &--small {
-            @include aspect(1380, 690);
+            @include aspect(1380, 890);
         }
 
-        @include media($xmd, max) {
-            width: 100%;
-            @include aspect(1380, 690);
+        @media screen and (max-width: 768px) {
+            width: calc(100% + 1rem);
+            margin-left: -0.5rem;
+            @include aspect(1380, 890);
         }
 
         &__image {

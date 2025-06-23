@@ -16,6 +16,7 @@ import './cursor';
 import { Accordion } from './accordion';
 import { quickview_item } from './templates';
 import Flickity from 'flickity';
+import 'flickity-as-nav-for';
 import inView from 'in-view';
 import anime from 'animejs/lib/anime.es.js';
 import Choices from 'choices.js';
@@ -26,6 +27,55 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+
+    // find an em tag inside an A tag a inside grid-with-text__copy and make the a tag have a button class
+    const gridWithText = $$('.grid-with-text__copy a em');
+    gridWithText.forEach((element) => {
+        let parent = element.parentElement;
+        let grandParent = parent.parentElement;
+        let greatGrandParent = grandParent.parentElement;
+        if (greatGrandParent.classList.contains('grid-with-text__copy')) {
+            parent.classList.add('button');
+            parent.setAttribute('href', parent.getAttribute('href'));
+            parent.setAttribute('target', '_blank');
+        }
+    });
+
+
+    inView('.js-gradient').on('enter', el => {
+        el.classList.add('inview');
+        $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));
+    });
+
+
+    let $scrollTriggers = $$('.js-collection-slider-scroll');
+
+    $scrollTriggers.forEach($item => {
+
+        $item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let element = e.target.closest('.js-collection-slider-scroll') || e.target;
+
+            let handle = element.dataset.handle;
+
+            // scroll down to .collection-grid__list__title[data-handle="${handle}"]
+
+            const $item = document.querySelector(`.collection-grid__list__title[data-handle="${handle}"]`);
+            if ($item) {
+                const yOffset = -100; // Adjust by -200px
+                const y = $item.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+
+
+
+        });
+    });
+
+
 
     document.body.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('js-show-quickview')) {
@@ -171,10 +221,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     }
 
+                    let index = 0;
+
                     $$('.product-details-description h4').forEach(element => {
                         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
                         //wrap html in span
                         let html = element.outerHTML;
+
 
                         // strip all html tags
                         html = html.replace(/(<([^>]+)>)/gi, "");
@@ -208,9 +261,16 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </section>`;
                     });
 
+
+
                     setTimeout(() => {
                         $$('.js-accordion-element-dynamic').forEach(element => new Accordion(element));
                     }, 400);
+
+
+
+                    index++;
+
 
                 });
 
@@ -278,10 +338,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 }, false);
 
-inView('.js-gradient').on('enter', el => {
-    el.classList.add('inview');
-    $('body').setAttribute('data-theme', el.dataset.collection.toLowerCase().replace(/ /g, '-'));
-});
 
 
 if ($('.js-accordion-element')) {
@@ -310,7 +366,8 @@ if ($('.product-details')) {
         });
     }
 
-    $$('.product-details h4').forEach(element => {
+
+    $$('.product-details h4').forEach((element, index) => {
         let uuid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         //wrap html in span
         let html = element.outerHTML;
@@ -348,8 +405,9 @@ if ($('.product-details')) {
     });
 
     setTimeout(() => {
-        $$('.js-accordion-element-dynamic').forEach(element => new Accordion(element));
+        $$('.js-accordion-element-dynamic').forEach((element, index) => new Accordion(element, (index === 0) ? true : false));
     }, 400);
+
 
 }
 
@@ -370,11 +428,11 @@ const stickyHeader = () => {
     if (st <= 10) {
         header.classList.remove('nav-down');
         header.classList.remove('nav-up');
-        nav.classList.remove('coloured');
+        // nav.classList.remove('coloured');
     } else if (st > previousScrollPosition && st > headerHeight) {
         header.classList.remove('nav-down');
         header.classList.add('nav-up');
-        nav.classList.add('coloured');
+        // nav.classList.add('coloured');
     } else {
         if (st + window.innerHeight < document.body.clientHeight) {
             header.classList.add('nav-down');
@@ -386,25 +444,31 @@ const stickyHeader = () => {
 
 window.addEventListener('scroll', stickyHeader);
 
-let wave_text = $('.js-wave-text');
+let wave_text = document.querySelector('.js-wave-text');
+if (wave_text) {
+    const words = wave_text.textContent.trim().split(/\s+/);
+    wave_text.innerHTML = words
+        .map(word => {
+            const letters = word
+                .split('')
+                .map(letter => `<span class="letter">${letter}</span>`)
+                .join('');
+            return `<span class="word">${letters}</span>`;
+        })
+        .join('<span class="space"> </span>');
 
-wave_text.innerHTML = wave_text.textContent.replace(/\S/g, '<span class="letter">$&</span>');
+    let wave = anime
+        .timeline({ autoplay: false })
+        .add({
+            targets: '.js-wave-text .letter',
+            translateY: [0, -2, 0],
+            easing: 'easeOutExpo',
+            duration: 500,
+            delay: (el, i) => 10 * i
+        });
 
-let wave = anime
-    .timeline({ autoplay: false })
-    .add({
-        targets: '.js-wave-text .letter',
-        translateY: [0, -2, 0],
-        easing: 'easeOutExpo',
-        duration: 500,
-        autoplay: false,
-        delay: (el, i) => 10 * i
-    });
-
-
-setInterval(() => wave.play(), 20000);
-
-
+    setInterval(() => wave.play(), 20000);
+}
 anime({
     targets: '.js-wave path',
     d: ['M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,261.3C672,277,768,267,864,250.7C960,235,1056,213,1152,213.3C1248,213,1344,235,1392,245.3L1440,256L1440,320'],
@@ -542,7 +606,6 @@ window.addEventListener('resize', () => {
 });
 
 const updateSlider = (e) => {
-    console.log(e)
 
     // get closest '.js-collection-slider-trigger' or if it is the trigger itself
     let element = e.target.closest('.js-collection-slider-trigger') || e.target;
@@ -645,6 +708,7 @@ const updateSlider = (e) => {
                   </div>`;
 
                     newItems.push(newElement);
+
                 }
 
 
@@ -658,7 +722,7 @@ const updateSlider = (e) => {
                 }, 800);
 
 
-            }, 300);
+            }, 30);
 
 
             // Scroll to the top of the .collections__slider
@@ -728,35 +792,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if ($productSlider) {
 
-        /**
-         * Reset the progress bars' animation to zero 
-         */
-        const resetProgressbar = () => {
-            $productSliderProgress.style.width = `${0}%`;
-            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (0));
-            clearInterval(tick);
-        };
-
-
-        /**
-         * Start the progress bar animating 
-         */
-        const startProgressbar = () => {
-            // resetProgressbar();
-            // hovered = false;
-            // percent = 0;
-            // tick = setInterval(interval, 10);
-        };
-
-
-        /**
-         * Set our animation speed for the progress bar
-         */
-        const interval = () => {
-            if (!hovered) percent += .19;
-            $productSliderProgress.style.width = `${percent}%`;
-            $productSliderProgressCircle.setAttribute('stroke-dashoffset', (percent * Math.PI));
-        };
 
         let product_slider = new Flickity('.js-product-imagery-slider', {
             wrapAround: true,
@@ -764,9 +799,12 @@ document.addEventListener('DOMContentLoaded', () => {
             prevNextButtons: false,
         });
 
-        startProgressbar()
-
-        product_slider.on('change', () => startProgressbar());
+        let product_nav = new Flickity('.js-product-nav-imagery-slider', {
+            asNavFor: '.js-product-imagery-slider',
+            contain: true,
+            pageDots: false,
+            prevNextButtons: false,
+        });
 
         $('.js-cursor-previous').addEventListener('click', (e) => {
             e.preventDefault();
@@ -843,6 +881,7 @@ const $megaTarget = $$('.mega');
 let hoverTimeout;
 
 const showMenu = (element) => {
+    $('.header').classList.add('mega-visible');
     clearTimeout(hoverTimeout);
     $megaHover.forEach(item => item.classList.remove('hovered'));
     $megaTarget.forEach(item => item.classList.remove('active'));
@@ -851,6 +890,7 @@ const showMenu = (element) => {
 };
 
 const hideMenu = () => {
+    $('.header').classList.remove('mega-visible');
     $megaTarget.forEach(item => item.classList.remove('active'));
     $megaHover.forEach(item => item.classList.remove('hovered'));
 };
@@ -908,8 +948,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const switchImage = (element, show) => {
-        console.log('switchImage')
-
         const megaImage = $('.megaImage');
         const megaImageImage = $('.megaImage__image');
         if (show) {
@@ -962,8 +1000,6 @@ if ($('.collections__slide')) {
             let isDown = false;
             let startX;
             let scrollLeft;
-            console.log(slider)
-
 
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;

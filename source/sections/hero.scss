@@ -2,8 +2,13 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-top: 6rem;
-    padding-bottom: 12rem;
+    padding-top: 14rem;
+    z-index: 3;
+    padding-bottom: 20rem;
+
+    @include media($md, max) {
+        padding: 4rem 0;
+    }
 
     &__background {
         @include full;
@@ -14,6 +19,7 @@
             left: 0;
             height: 100%;
             object-fit: cover;
+            object-position: 44% 36% !important;
         }
 
         &:after {
@@ -29,6 +35,7 @@
         padding: 6rem;
         position: relative;
         z-index: 4;
+        padding: 14rem 6rem;
 
         @include media($md, max) {
             padding: 4rem 2rem;
@@ -48,6 +55,10 @@
 
         h3 {
             line-height: 1.4;
+
+            @include media($md, max) {
+                line-height: 1.1;
+            }
         }
     }
 }

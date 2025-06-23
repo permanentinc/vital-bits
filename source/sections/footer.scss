@@ -32,7 +32,21 @@
     &-column {
         &-payment {
             margin-right: 2rem;
-            margin-top: 1rem;
+            margin-top: -2rem;
+            display: inline-block;
+        }
+        
+        &-plunket {
+            display: inline-block;
+            margin-right: 2rem;
+            margin-top: -2rem;
+
+            img {
+                width:14rem;
+                height: auto;
+                position: relative;
+                top: 2rem;
+            }
         }
 
         h6 {
@@ -41,7 +55,7 @@
         }
 
         &--1 {
-            width: 40%;
+            width: 34%;
             padding-right: 3rem;
 
             @include media($lg, max) {
@@ -49,71 +63,70 @@
                 width: 100%;
             }
 
-            @include media($md, max) {
+            @include media($lg, max) {
                 width: 50%;
                 margin-bottom: 4rem;
             }
 
-            @include media($sm, max) {
+            @include media($lg, max) {
                 width: 100%;
                 margin-bottom: 4rem;
             }
         }
-        
+
         &--2 {
-            width: 20%;
+            width: 16.5%;
 
             @include media($lg, max) {
                 width: 33.33333%;
             }
 
-            @include media($md, max) {
+            @include media($lg, max) {
                 width: 50%;
                 margin-bottom: 4rem;
             }
+        }
 
-            @include media($sm, max) {
-                // width: 100%;
-                // margin-bottom: 4rem;
+        &--2-5 {
+            width: 16.5%;
+
+            @include media($lg, max) {
+                width: 33.33333%;
+            }
+
+            @include media($lg, max) {
+                width: 50%;
+                margin-bottom: 4rem;
             }
         }
 
         &--3 {
-            width: 20%;
+            width: 16.5%;
 
             @include media($lg, max) {
                 width: 33.33333%;
             }
 
-            @include media($md, max) {
+            @include media($lg, max) {
                 width: 50%;
                 margin-bottom: 4rem;
             }
 
-            @include media($sm, max) {
-                order:6;
-                
-                // width: 100%;
-                // margin-bottom: 4rem;
+            @include media($lg, max) {
+                order: 6;
             }
         }
 
-
         &--4 {
-            width: 20%;
+            width: 16.5%;
 
             @include media($lg, max) {
                 width: 33.33333%;
             }
 
-            @include media($md, max) {
+            @include media($lg, max) {
                 width: 50%;
                 margin-bottom: 4rem;
-            }
-
-            @include media($sm, max) {
-                // width: 100%;
-                // margin-bottom: 4rem;
             }
         }
     }
@@ -162,7 +175,17 @@
                 border: 0;
                 background: transparent;
                 color: white;
+                background: var(--green) !important;
             }
         }
+    }
+}
+
+html body #shopify-section-footer .footer-newsletter__field__button {
+    background: var(--green) !important;
+    padding: 0;
+
+    &:before {
+        display: none;
     }
 }

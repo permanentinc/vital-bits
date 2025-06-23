@@ -3,7 +3,21 @@
     width: 100%;
     overflow: hidden;
     padding-top: 6rem;
-    padding-bottom: 12rem;
+    padding-bottom: 4rem;
+
+    @media screen and (max-width: 768px) {
+        padding-top: 10rem;
+        padding-bottom: 2rem;
+    }
+
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
 
     &-wave2,
     &-wave1 {
@@ -15,6 +29,7 @@
         transform: translateY(0%) translateX(-50%) rotate(-40deg);
         pointer-events: none;
         z-index: -1;
+        z-index: 1;
 
         path {
             stroke: var(--green);
@@ -30,14 +45,19 @@
         @include svg(1366, 768);
         position: absolute;
         left: 60%;
-        top: 60%;
+        top: 120%;
         width: 100%;
-        transform: translateY(0%) translateX(-20%) rotate(-40deg);
+        transform: translateY(0%) translateX(-10%) rotate(-60deg);
         pointer-events: none;
         z-index: -1;
+        z-index: 1;
+
+        @media screen and (max-width: 1280px) {
+            display: none;
+        }
 
         path {
-            stroke: var(--green);
+            stroke: var(--pink);
         }
     }
 
@@ -51,6 +71,8 @@
         padding: 6rem;
         display: flex;
         flex-wrap: wrap;
+        z-index: 3;
+        position: relative;
 
         @include media($md, max) {
             padding: 4rem 2rem;
@@ -67,6 +89,10 @@
             padding-right: 0;
         }
 
+        @include media($md, max) {
+            order: 2;
+        }
+
         * {
             color: var(--green);
         }
@@ -81,6 +107,11 @@
             padding-right: 0;
         }
 
+        @include media($md, max) {
+            width: calc(100% + 1rem);
+            margin-left: -0.5rem;
+            order: 1;
+        }
     }
 
     &__item {
@@ -105,16 +136,16 @@
         }
 
         &--large {
-            @include aspect(1380, 1380);
+            @include aspect(1380, 1780);
         }
 
         &--small {
-            @include aspect(1380, 690);
+            @include aspect(1380, 890);
         }
 
         @include media($xmd, max) {
-            width: 100%;
-            @include aspect(1380, 690);
+            // width: 100%;
+            // @include aspect(1380, 880);
         }
 
         &__image {
@@ -165,5 +196,53 @@
                 }
             }
         }
+    }
+}
+
+@include media($xmd) {
+    .grid-with-text--reversed {
+        .grid-with-text__grid {
+            order: 1;
+        }
+
+        .grid-with-text__copy {
+            order: 2;
+            padding-right: 8rem;
+            padding-left: 8rem;
+        }
+    }
+}
+
+.grid-with-text__copy {
+    a em {
+        color: var(--white);
+        font-style: normal !important;
+    }
+}
+
+.image-element {
+    &-wave3,
+    &-wave4 {
+        @include svg(1366, 768);
+        position: absolute;
+        left: 60%;
+        bottom: -50%;
+        width: 100%;
+        transform: translateY(0%) translateX(-10%) rotate(-60deg);
+        pointer-events: none;
+        z-index: -1;
+        z-index: 1;
+
+        @media screen and (max-width: 1280px) {
+            display: none;
+        }
+
+        path {
+            stroke: var(--pink);
+        }
+    }
+
+    &-wave3 {
+        transform: translateY(-50%) translateX(-10%) rotate(-220deg);
     }
 }

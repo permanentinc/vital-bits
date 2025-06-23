@@ -12,7 +12,7 @@
     "text_banner_hQmUw3": {
       "type": "text-banner",
       "settings": {
-        "heading": "C-Section Delivery"
+        "heading": "C-SECTION DELIVERY"
       }
     },
     "banner": {
@@ -28,7 +28,10 @@
         "image": "shopify://shop_images/collection_banner.jpg",
         "link_label": "",
         "link_link": "",
-        "height": "normal"
+        "height": "normal",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "product-grid": {

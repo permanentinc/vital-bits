@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "text_banner_nGpTGY": {
+      "type": "text-banner",
+      "settings": {
+        "heading": "PARTNER ENQUIRY"
+      }
+    },
+    "contact_block_MmEbYY": {
+      "type": "contact-block",
+      "settings": {
+        "text": "<h1><strong>Partner with us</strong></h1><p>Interested in working together? We'd love to chat. Fill out the form below and we'll get back to you as soon as possible.</p>",
+        "image": "shopify://shop_images/Partner_1.jpg"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "text_banner_nGpTGY",
+    "contact_block_MmEbYY",
+    "main"
+  ]
+}

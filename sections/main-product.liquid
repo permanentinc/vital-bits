@@ -11,6 +11,12 @@
       <div class="product-slider [ js-product-imagery-slider ]">
         {% for media in product.media %}
           <div class="product-slider-item">
+            {% comment %} if first image {% endcomment %}
+            {% if forloop.first %}
+              <div class="product-slider-item-endorsement">
+                <img src="{{ 'plunket_logo.svg' | asset_url }}" loading="lazy" width="200" height="200">
+              </div>
+            {% endif %}
             <img
               class="[ js-product-slider-item-image ]"
               src="{{ media.preview_image | image_url: width: 1080 | image_url: height: 1080, crop: 'center' }}"
@@ -58,6 +64,23 @@
       {% if on_sale %}
         <span class="product-gallery-sale">SALE</span>
       {% endif %}
+
+      <div class="product-nav">
+        <div class="product-nav-slider [ js-product-nav-imagery-slider ]">
+          {% for media in product.media %}
+            <div class="product-nav-slider-item">
+              <img
+                class="[ js-product-nav-slider-item-image ]"
+                src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"
+                alt="{{ media.preview_image.alt | escape }}"
+                width="80"
+                height="80"
+                loading="lazy"
+              >
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
     <div class="product-details">
@@ -77,6 +100,12 @@
             {{ product.price | money }}
           </b>
         </p>
+
+        <!-- Start of Judge.me code -->
+        <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+          {{ product.metafields.judgeme.badge }}
+        </div>
+        <!-- End of Judge.me code -->
       </div>
 
       <afterpay-placement
@@ -168,7 +197,10 @@
           {% comment %}
             Item
           {% endcomment %}
-          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+          <a
+            href="{{ related_product.url }}"
+            class="related-products__list__item related-products__list__item--product"
+          >
             <div class="related-products__list__item__image">
               {% if related_product.featured_media %}
                 {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
@@ -183,8 +215,12 @@
               {% endif %}
             </div>
             <div class="related-products__list__item__title">
-              <h6><b>{{ related_product.title | escape }}</b></h6>
-              <h6><b>{{ related_product.price | money }}</b></h6>
+              <h6>
+                <b>{{ related_product.title | escape }}</b>
+              </h6>
+              <h6>
+                <b>{{ related_product.price | money }}</b>
+              </h6>
             </div>
             <div class="related-products__list__item__description">
               <p>{{ related_product.metafields.custom.short_description }}</p>
@@ -202,7 +238,10 @@
           {% comment %}
             Item
           {% endcomment %}
-          <a href="{{ related_product.url }}" class="related-products__list__item related-products__list__item--product">
+          <a
+            href="{{ related_product.url }}"
+            class="related-products__list__item related-products__list__item--product"
+          >
             <div class="related-products__list__item__image">
               {% if related_product.featured_media %}
                 {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
@@ -217,8 +256,12 @@
               {% endif %}
             </div>
             <div class="related-products__list__item__title">
-              <h6><b>{{ related_product.title | escape }}</b></h6>
-              <h6><b>{{ related_product.price | money }}</b></h6>
+              <h6>
+                <b>{{ related_product.title | escape }}</b>
+              </h6>
+              <h6>
+                <b>{{ related_product.price | money }}</b>
+              </h6>
             </div>
             <div class="related-products__list__item__description">
               <p>{{ related_product.metafields.custom.short_description }}</p>
@@ -233,11 +276,22 @@
     {% comment %}
       Marquee
     {% endcomment %}
-    <div class="related-products__marquee">
-      <div class="related-products__marquee__animation">
-        <span>Through lifes most vital moments</span>
-        <span>Through lifes most vital moments</span>
-        <span>Through lifes most vital moments</span>
+    {% comment %}
+      <div class="related-products__marquee">
+        <div class="related-products__marquee__animation">
+          <span>Through life's most vital moments.</span>
+          <span>Through life's most vital moments.</span>
+          <span>Through life's most vital moments.</span>
+        </div>
+      </div>
+    {% endcomment %}
+
+    <div class="marquee-element">
+      <div class="marquee-element__track">
+        <span><b>Through life's most vital moments.</b></span>
+        <span><b>Through life's most vital moments.</b></span>
+        <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
+        <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
       </div>
     </div>
   </div>
@@ -288,7 +342,17 @@
             "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
             "price" : {{ variant.price | divided_by: 100.00 | json }},
             "priceCurrency" : {{ cart.currency.iso_code | json }},
-            "url" : {{ request.origin | append: variant.url | json }}
+            "url" : {{ request.origin | append: variant.url | json }},
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "NZ",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 14,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/CustomerPaysReturnShippingFees",
+              "itemCondition": "https://schema.org/NewCondition",
+              "inStoreReturnsOffered": false
+            }
           }{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       ]
@@ -311,26 +375,35 @@
 
 <div class="reviews">
   <div class="reviews__wrap">
-    <script type="text/javascript">
-      (function e() {
-        var e = document.createElement('script');
-        (e.type = 'text/javascript'),
-          (e.async = true),
-          (e.src = 'https://staticw2.yotpo.com/JxEyiC9n5SoKqDH4Fb95zCfSuBU0OmI5FIS55jG5/widget.js');
-        var t = document.getElementsByTagName('script')[0];
-        t.parentNode.insertBefore(e, t);
-      })();
-    </script>
+    <!-- Start of Judge.me code -->
+    <div style="clear:both"></div>
+    <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}">
+      {{ product.metafields.judgeme.widget }}
+    </div>
+    <!-- End of Judge.me code -->
 
-    <div
-      class="yotpo yotpo-main-widget"
-      data-product-id="{{ product.id }}"
-      data-name="{{ product.title | escape }}"
-      data-url="{{ shop.url }}{{ product.url }}"
-      data-image-url="{{ product.featured_image | image_url: 'large' | replace: '?', '%3F' | replace: '&', '%26' }}"
-      data-price="{{ variant.price | money_without_currency }}"
-      data-currency="{{ shop.currency }}"
-      data-description="{{ product.description | escape }}"
-    ></div>
+    {% comment %}
+      <script type="text/javascript">
+        (function e() {
+          var e = document.createElement('script');
+          (e.type = 'text/javascript'),
+            (e.async = true),
+            (e.src = 'https://staticw2.yotpo.com/JxEyiC9n5SoKqDH4Fb95zCfSuBU0OmI5FIS55jG5/widget.js');
+          var t = document.getElementsByTagName('script')[0];
+          t.parentNode.insertBefore(e, t);
+        })();
+      </script>
+
+      <div
+        class="yotpo yotpo-main-widget"
+        data-product-id="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | image_url: 'large' | replace: '?', '%3F' | replace: '&', '%26' }}"
+        data-price="{{ variant.price | money_without_currency }}"
+        data-currency="{{ shop.currency }}"
+        data-description="{{ product.description | escape }}"
+      ></div>
+    {% endcomment %}
   </div>
 </div>

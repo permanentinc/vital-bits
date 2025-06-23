@@ -1,0 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "787878e1-8b58-4773-9ef8-4ac108efc294": {
+      "type": "banner",
+      "custom_css": [
+        "h1 {color: white;}"
+      ],
+      "settings": {
+        "heading": "<h5><strong>Proud to be a </strong></h5><h1><strong>Pick Me Help Plunket brand</strong></h1>",
+        "image": "shopify://shop_images/plunket_banner_image.jpg",
+        "link_label": "",
+        "link_link": "",
+        "height": "slim",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_text_block_WbhU6N": {
+      "type": "image-text-block",
+      "settings": {
+        "image": "shopify://shop_images/pickme_clear.png",
+        "text": "<h5><strong>Postpartum isn’t one-size-fits-all. Every recovery is different, every journey is personal - but one thing should never change: access to real, trusted support.  </strong></h5><p>That’s why we’re proud to be a Pick Me, Help Plunket Partner! Partnering with Whānau Āwhina Plunket to support mums, babies, and families across Aotearoa. </p><p>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket. This helps their wraparound care for whānau,  including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits. <br/><br/>For over 100 years, Whānau Āwhina Plunket has been a trusted support for whānau and, as Aotearoa  New Zealand’s largest provider of services to children under five, seeing eight out of 10 new pēpi in their homes and communities. </p><p>When you choose Pick Me, Help Plunket Vital Bits products, you’re not just caring for yourself - you’re helping other parents through the hardest bits, too. <br/><br/>Pregnant or just had a baby? Click <a href=\"https://www.plunket.org.nz/plunket/what-we-offer/\" target=\"_blank\" title=\"https://www.plunket.org.nz/plunket/what-we-offer/\">here</a> to enrol pēpi with Plunket, and see the services available for you and your whānau. </p>",
+        "reverse_layout": false,
+        "smaller_image": true,
+        "background_color": "#e1edf9"
+      }
+    },
+    "390d78e5-ef2c-4dae-b4ed-12b122745bf4": {
+      "type": "grid-block-with-text",
+      "blocks": {
+        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf": {
+          "type": "grid_with_text_item",
+          "settings": {
+            "title": "",
+            "copy": "",
+            "link_link": "",
+            "image": "shopify://shop_images/pickme.png"
+          }
+        }
+      },
+      "block_order": [
+        "59ac16d3-61c7-4eb4-9db2-ae2a1db844cf"
+      ],
+      "disabled": true,
+      "settings": {
+        "copy": "<h5><strong>Postpartum isn’t one-size-fits-all. Every recovery is different, every journey is personal—but one thing should never change: access to real, trusted support. </strong></h5><p>That’s why we’re proud to be a Pick Me Help Plunket brand, working alongside Whānau Āwhina Plunket to support mums, babies, and families across Aotearoa. 5% of every Vital Bits sale goes directly to Plunket, funding free health checks, parenting guidance, and community programs that provide essential care when parents need it most.<br/>Because pregnancy - postpartum care isn’t just about products—it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.<br/>When you choose Vital Bits, you’re not just looking after yourself—you’re helping families across New Zealand get the care they deserve. <br/></p>",
+        "background_color": "#e1edf9",
+        "reverse_layout": false
+      }
+    }
+  },
+  "order": [
+    "787878e1-8b58-4773-9ef8-4ac108efc294",
+    "main",
+    "image_text_block_WbhU6N",
+    "390d78e5-ef2c-4dae-b4ed-12b122745bf4"
+  ]
+}

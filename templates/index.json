@@ -15,13 +15,13 @@
         "h1 {color: #367b7f;}"
       ],
       "settings": {
-        "heading": "<h1><strong>Through life’s most vital moments</strong></h1><h6>Supporting new & expectant mothers throughout their pregnancy and postpartum journeys. Providing all the vital things for all the vital bits, during all those vital times.<br/></h6>",
+        "heading": "<h1><strong>Through life’s most vital moments</strong></h1><h6>Supporting new & expectant mothers throughout their pregnancy and postpartum journeys. </h6><h6></h6><h6></h6><h6><br/></h6>",
         "image": "shopify://shop_images/vitalbits_hero_web_darkened_extended.jpg",
         "link_label": "Shop now",
         "link_link": "shopify://collections",
         "height": "normal",
         "overlay_color": "#f5d6dc",
-        "overlay_opacity": 0.7,
+        "overlay_opacity": 0.3,
         "show_button": false
       }
     },
@@ -31,35 +31,35 @@
         "collection_item_GBdkyR": {
           "type": "collection_item",
           "settings": {
-            "copy": "Incididunt dolore esse ea ut incididunt aliqua aliquip. Nisi non occaecat laboris sit minim do amet ipsum Lorem.",
+            "copy": "Support for the bits that just went through everything. Whether you had a vaginal or C-section birth, this is care that helps you heal, rest, and feel like you again—without the overwhelm. No fluff. Just what actually helps.",
             "Collection": "postpartum"
           }
         },
         "26b9ebd2-ff12-4d6f-b12a-0195c4812106": {
           "type": "collection_item",
           "settings": {
-            "copy": "Tailored made to aide & comfort new mums through their postpartum recovery.",
+            "copy": "Support that sees you. From perineal tears to first trips to the loo, these essentials are made to help you heal, rest, and feel like yourself again — one bit at a time.",
             "Collection": "v-delivery"
           }
         },
         "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
           "type": "collection_item",
           "settings": {
-            "copy": "Tailored made to aide & comfort new mums through their postpartum recovery.",
+            "copy": "Care for your core (and everything else). Gentle, supportive essentials to help with incision care, movement, and all the unexpected bits that follow major surgery.",
             "Collection": "c-section-delivery"
           }
         },
         "d378cc3d-6a59-4d94-b5df-516c0967eff0": {
           "type": "collection_item",
           "settings": {
-            "copy": "Vital essentials to provide much-needed relief throughout each trimester.",
+            "copy": "Comfort you didn’t know you’d need. From sore boobs to sleepless nights, these trimester-by-trimester essentials are here to make pregnancy feel a little more manageable.",
             "Collection": "pregnancy"
           }
         },
         "d683b406-8e0d-447b-ae6c-56ad44da3326": {
           "type": "collection_item",
           "settings": {
-            "copy": "Breast care essentials to support new mums through their breastfeeding journey.",
+            "copy": "For the bits that leak, ache, and need a break. Breastfeeding is tough - these essentials are designed to ease pain, support your supply, and help you feel more like you.",
             "Collection": "breast-care"
           }
         }
@@ -72,7 +72,23 @@
         "d683b406-8e0d-447b-ae6c-56ad44da3326"
       ],
       "settings": {
-        "marquee": "Through lifes most vital moments"
+        "marquee": "Through life's most vital moments."
+      }
+    },
+    "image_text_block_FDaNEf": {
+      "type": "image-text-block",
+      "name": "Text and Image",
+      "settings": {
+        "image": "shopify://shop_images/Plunket-Endorsed_c7e8c016-8ef1-40e1-8822-e2dc0c2a192f.png",
+        "heading": "We're a Pick Me, Help Plunket Partner.",
+        "text": "<h6>Motherhood comes with a lot of opinions, but one thing we know for sure, you deserve products that work, backed by experts you can trust. Vital Bits has teamed up with Whānau Āwhina Plunket as a proud Pick Me, Help Plunket partner, because supporting new māmā shouldn’t stop at great products.</h6>",
+        "link_link": "https://vitalbits.co.nz/pages/proud-to-be-a-pick-me-help-plunket-brand",
+        "link_label": "Read more",
+        "reverse_layout": false,
+        "smaller_image": false,
+        "background_color": "#f5d6dc",
+        "text_color": "#703f6c",
+        "link_colour": "purple"
       }
     },
     "grid-block": {
@@ -83,8 +99,8 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/whats-this-peri-bottle-all-about",
-            "article": "news/understanding-paid-parental-leave-in-new-zealand"
+            "link_link": "shopify://blogs/important-bits/whats-this-peri-bottle-all-about",
+            "article": "important-bits/understanding-paid-parental-leave-in-new-zealand"
           }
         },
         "325f533f-69ab-4121-9411-7e4d3783bad6": {
@@ -92,8 +108,8 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/understanding-paid-parental-leave-in-new-zealand",
-            "article": "news/baby-cues-cries"
+            "link_link": "shopify://blogs/important-bits/understanding-paid-parental-leave-in-new-zealand",
+            "article": "important-bits/baby-cues-cries"
           }
         },
         "627e16b6-df21-46fd-8b33-e12ae818a945": {
@@ -101,8 +117,8 @@
           "settings": {
             "title": "",
             "copy": "",
-            "link_link": "shopify://blogs/news/morning-sickness",
-            "article": "news/the-4th-trimester"
+            "link_link": "shopify://blogs/important-bits/morning-sickness",
+            "article": "important-bits/the-4th-trimester"
           }
         }
       },
@@ -112,22 +128,23 @@
         "627e16b6-df21-46fd-8b33-e12ae818a945"
       ],
       "settings": {
-        "heading": "Important bits",
+        "heading": "Important Bits",
         "link_label": "",
-        "link_link": ""
+        "link_link": "shopify://blogs/important-bits"
       }
     },
     "hero-block": {
       "type": "hero-block",
       "settings": {
-        "heading": "Sed ut perspiciatis unde omnis icto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.",
-        "image": "shopify://shop_images/hero.jpg"
+        "heading": "Because we care for your bits. The important bits. The life-changing bits.",
+        "image": "shopify://shop_images/Vital_Bits-peri-bottle-postpartum.jpg"
       }
     }
   },
   "order": [
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9",
     "2e7b8157-5d21-422b-80a8-300911cfa1b4",
+    "image_text_block_FDaNEf",
     "grid-block",
     "hero-block"
   ]
