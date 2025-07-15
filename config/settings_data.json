@@ -54,6 +54,11 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "10314455842701661981": {
+        "type": "shopify://apps/vizup-shoppable-video-carousel/blocks/floating-block/eaecaa7b-ab6b-40ae-8ddf-50daa867f3eb",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
