@@ -55,7 +55,8 @@
         "icon_item_8xNnJW": {
           "type": "icon_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet"
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-instant-cooling-vitalbits.png",
+            "title": "Instant cooling"
           }
         },
         "icon_item_Wg3qRQ": {
