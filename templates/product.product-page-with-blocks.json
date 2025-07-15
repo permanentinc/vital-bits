@@ -87,11 +87,30 @@
         "heading": "Key benifits",
         "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
       }
+    },
+    "steps_block_374MtM": {
+      "type": "steps-block",
+      "blocks": {
+        "steps_item_mGd4Wh": {
+          "type": "steps_item",
+          "settings": {
+            "title": "Snap to activate"
+          }
+        }
+      },
+      "block_order": [
+        "steps_item_mGd4Wh"
+      ],
+      "name": "Steps",
+      "settings": {
+        "heading": "Easy as 1.2.3."
+      }
     }
   },
   "order": [
     "main",
     "175254656927b951ba",
-    "benefits_block_aTb9y3"
+    "benefits_block_aTb9y3",
+    "steps_block_374MtM"
   ]
 }
