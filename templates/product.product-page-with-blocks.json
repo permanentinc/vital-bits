@@ -31,15 +31,51 @@
     "benefits_block_aTb9y3": {
       "type": "benefits-block",
       "blocks": {
-        "icon_item_h3LD9t": {
+        "icon_item_tEcPdY": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-relieves-_pain-vitalbits.png",
             "title": "Helps relieve pain"
+          }
+        },
+        "icon_item_iqnKdN": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "icon_item_hhYyY3": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "icon_item_8xNnJW": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "icon_item_Wg3qRQ": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "icon_item_UfJiEn": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet"
           }
         }
       },
       "block_order": [
-        "icon_item_h3LD9t"
+        "icon_item_tEcPdY",
+        "icon_item_iqnKdN",
+        "icon_item_hhYyY3",
+        "icon_item_8xNnJW",
+        "icon_item_Wg3qRQ",
+        "icon_item_UfJiEn"
       ],
       "name": "Benefits",
       "settings": {
