@@ -96,10 +96,24 @@
           "settings": {
             "title": "Snap to activate"
           }
+        },
+        "steps_item_4BLLwy": {
+          "type": "steps_item",
+          "settings": {
+            "title": "Remove the backing strip and attach to your briefs"
+          }
+        },
+        "steps_item_nC4kfB": {
+          "type": "steps_item",
+          "settings": {
+            "title": "40+ minutes of cool therapy"
+          }
         }
       },
       "block_order": [
-        "steps_item_mGd4Wh"
+        "steps_item_mGd4Wh",
+        "steps_item_4BLLwy",
+        "steps_item_nC4kfB"
       ],
       "name": "Steps",
       "settings": {
