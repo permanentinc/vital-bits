@@ -62,7 +62,8 @@
         "icon_item_Wg3qRQ": {
           "type": "icon_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet"
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-40-minutes-cooling-vitalbits.png",
+            "title": "40 minutes of cooling therapy"
           }
         },
         "icon_item_UfJiEn": {
