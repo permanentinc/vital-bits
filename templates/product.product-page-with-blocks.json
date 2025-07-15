@@ -27,10 +27,30 @@
         "vizup_shoppable_video_carousel_videos_block_nRp4pf"
       ],
       "settings": {}
+    },
+    "benefits_block_aTb9y3": {
+      "type": "benefits-block",
+      "blocks": {
+        "icon_item_h3LD9t": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Helps relieve pain"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_h3LD9t"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "Key benifits",
+        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+      }
     }
   },
   "order": [
     "main",
-    "175254656927b951ba"
+    "175254656927b951ba",
+    "benefits_block_aTb9y3"
   ]
 }
