@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  
   <head>
     {% comment %}
       Meta data
@@ -52,15 +51,17 @@
       Favicon
     {% endcomment %}
 
-    {% comment %} {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 | image_url: height: 32 }}">
-    {%- endif -%} {% endcomment %}
-    <link rel="icon" type="image/png" href="{{ 'favicon-96x96.png' | asset_url }}" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}" />
-    <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | asset_url }}" />
-    <meta name="apple-mobile-web-app-title" content="Vital Bits" />
-    <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}" />
+    {% comment %}
+      {%- if settings.favicon != blank -%}
+        <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 | image_url: height: 32 }}">
+      {%- endif -%}
+    {% endcomment %}
+    <link rel="icon" type="image/png" href="{{ 'favicon-96x96.png' | asset_url }}" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | asset_url }}">
+    <meta name="apple-mobile-web-app-title" content="Vital Bits">
+    <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}">
 
     {% comment %}
       Global constants for site wide CSS styles
@@ -152,13 +153,19 @@
     </script>
 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T8CHCCN');</script>
-<!-- End Google Tag Manager -->
-    
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-T8CHCCN');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body
@@ -213,6 +220,148 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- endif -%}
 
     {{ content_for_layout }}
+
+    {% comment %} if product page  {% endcomment %}
+    {% if request.page_type == 'product' %}
+      <div class="related-products">
+        <div class="related-products-wave1 [ js-wave ]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+            <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+          </svg>
+        </div>
+
+        <div class="related-products-wave2 [ js-wave ]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+            <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+          </svg>
+        </div>
+
+        {% comment %}
+          Slider
+        {% endcomment %}
+        <div class="related-products__list">
+          {% comment %}
+            Title
+          {% endcomment %}
+          <div class="related-products__list__title">
+            <h2 class="colour--white"><b>You may also like...</b></h2>
+          </div>
+
+          {% assign count = 0 %}
+          {% assign shown_products = '' %}
+
+          {% for related_product in product.collections.first.products %}
+            {% unless shown_products contains related_product.id or related_product.id == product.id %}
+              {% if count < 3 %}
+                {% comment %}
+                  Item
+                {% endcomment %}
+                <a
+                  href="{{ related_product.url }}"
+                  class="related-products__list__item related-products__list__item--product"
+                >
+                  <div class="related-products__list__item__image">
+                    {% if related_product.featured_media %}
+                      {{
+                        related_product.featured_media
+                        | image_url: width: 800, height: 800, crop: 'center'
+                        | image_tag
+                      }}
+                    {% else %}
+                      <img
+                        src="{{ 'placeholder.jpeg' | asset_url }}"
+                        alt="placeholder image"
+                        width="400"
+                        height="400"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="related-products__list__item__title">
+                    <h6>
+                      <b>{{ related_product.title | escape }}</b>
+                    </h6>
+                    <h6>
+                      <b>{{ related_product.price | money }}</b>
+                    </h6>
+                  </div>
+                  <div class="related-products__list__item__description">
+                    <p>{{ related_product.metafields.custom.short_description }}</p>
+                  </div>
+                </a>
+                {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+
+          {% for related_product in collections.all.products %}
+            {% unless shown_products contains related_product.id or related_product.id == product.id %}
+              {% if count < 3 %}
+                {% comment %}
+                  Item
+                {% endcomment %}
+                <a
+                  href="{{ related_product.url }}"
+                  class="related-products__list__item related-products__list__item--product"
+                >
+                  <div class="related-products__list__item__image">
+                    {% if related_product.featured_media %}
+                      {{
+                        related_product.featured_media
+                        | image_url: width: 800, height: 800, crop: 'center'
+                        | image_tag
+                      }}
+                    {% else %}
+                      <img
+                        src="{{ 'placeholder.jpeg' | asset_url }}"
+                        alt="placeholder image"
+                        width="400"
+                        height="400"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="related-products__list__item__title">
+                    <h6>
+                      <b>{{ related_product.title | escape }}</b>
+                    </h6>
+                    <h6>
+                      <b>{{ related_product.price | money }}</b>
+                    </h6>
+                  </div>
+                  <div class="related-products__list__item__description">
+                    <p>{{ related_product.metafields.custom.short_description }}</p>
+                  </div>
+                </a>
+                {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+
+          <div class="marquee-element">
+            <div class="marquee-element__track">
+              <span><b>Through life's most vital moments.</b></span>
+              <span><b>Through life's most vital moments.</b></span>
+              <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
+              <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews">
+        <div class="reviews__wrap">
+          <!-- Start of Judge.me code -->
+          <div style="clear:both"></div>
+          <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}">
+            {{ product.metafields.judgeme.widget }}
+          </div>
+          <!-- End of Judge.me code -->
+        </div>
+      </div>
+    {% endif %}
 
     {% section 'instagram-block' %}
 

@@ -41,6 +41,10 @@
         width: 50rem;
         color: white;
 
+        @include media($lg, max) {
+            width: 100%;
+        }
+
         p {
             color: #afcacc;
         }
@@ -50,10 +54,27 @@
         width: calc(100% - 50rem);
         display: flex;
         flex-wrap: wrap;
+
+        @include media($lg, max) {
+            width: 100%;
+        }
+        @include media($md, max) {
+            justify-content: space-between;
+        }
     }
 
     &__item {
         width: 33.333333%;
+        padding: 2rem;
+
+        @include media($xmd, max) {
+            width: 50%;
+        }
+
+        @include media($md, max) {
+            padding: 2rem 0;
+            width: calc(50% - 2rem);
+        }
 
         h6 {
             display: block;
@@ -65,9 +86,11 @@
             width: 100%;
             text-align: center;
 
+            img,
             svg {
-                max-width: 15rem;
+                max-width: 10rem;
                 height: auto;
+                margin-bottom: 2rem;
 
                 path {
                     fill: white;

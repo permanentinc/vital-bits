@@ -149,6 +149,21 @@
         <!-- End of Judge.me code -->
       </div>
 
+      <div
+        class="wizup-app sg-slider sg-floatingpop"
+        data-shopname="vital-bits.myshopify.com"
+        data-widgettype="reels"
+        data-templatename="index"
+      ></div>
+      <div
+        class="wizup-app sg-slider sg-floatingpop"
+        data-shopname="vital-bits.myshopify.com"
+        data-widgettype="reels"
+        data-productid="{{ product.id }}"
+        data-collectionid="{{ collection.id }}"
+        data-templatename="{{ template.name }}"
+      ></div>
+
       <afterpay-placement
         data-modal-link-style="circled-question-icon"
         data-size="xs"
@@ -205,222 +220,78 @@
   </div>
 </div>
 
-<div class="related-products">
-  <div class="related-products-wave1 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
+{%- liquid
+  if product.selected_or_first_available_variant.featured_media
+    assign seo_media = product.selected_or_first_available_variant.featured_media
+  else
+    assign seo_media = product.featured_media
+  endif
+-%}
 
-  <div class="related-products-wave2 [ js-wave ]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
-      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
-    </svg>
-  </div>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {% if seo_media -%}
+      "image": [
+        {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+      ],
+    {%- endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {%- endif %}
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 12 -%}
+            "gtin12": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 13 -%}
+            "gtin13": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 14 -%}
+            "gtin14": {{ variant.barcode }},
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "url" : {{ request.origin | append: variant.url | json }},
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "NZ",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/CustomerPaysReturnShippingFees",
+            "itemCondition": "https://schema.org/NewCondition",
+            "inStoreReturnsOffered": false
+          }
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
 
-  {% comment %}
-    Slider
-  {% endcomment %}
-  <div class="related-products__list">
-    {% comment %}
-      Title
-    {% endcomment %}
-    <div class="related-products__list__title">
-      <h2 class="colour--white"><b>You may also like...</b></h2>
-    </div>
+<script>
+  window.inventories = [];
+  {% for variant in product.variants %}
 
-    {% assign count = 0 %}
-    {% assign shown_products = '' %}
+  window.inventories[{{ variant.id }}] = {
+    'id': {{ variant.id }},
+    'quantity': '{{ variant.inventory_quantity | default: 0 }}',
+    'price': '{{ variant.price | money }}'
+  };
 
-    {% for related_product in product.collections.first.products %}
-      {% unless shown_products contains related_product.id or related_product.id == product.id %}
-        {% if count < 3 %}
-          {% comment %}
-            Item
-          {% endcomment %}
-          <a
-            href="{{ related_product.url }}"
-            class="related-products__list__item related-products__list__item--product"
-          >
-            <div class="related-products__list__item__image">
-              {% if related_product.featured_media %}
-                {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
-              {% else %}
-                <img
-                  src="{{ 'placeholder.jpeg' | asset_url }}"
-                  alt="placeholder image"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                >
-              {% endif %}
-            </div>
-            <div class="related-products__list__item__title">
-              <h6>
-                <b>{{ related_product.title | escape }}</b>
-              </h6>
-              <h6>
-                <b>{{ related_product.price | money }}</b>
-              </h6>
-            </div>
-            <div class="related-products__list__item__description">
-              <p>{{ related_product.metafields.custom.short_description }}</p>
-            </div>
-          </a>
-          {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
-          {% assign count = count | plus: 1 %}
-        {% endif %}
-      {% endunless %}
-    {% endfor %}
-
-    {% for related_product in collections.all.products %}
-      {% unless shown_products contains related_product.id or related_product.id == product.id %}
-        {% if count < 3 %}
-          {% comment %}
-            Item
-          {% endcomment %}
-          <a
-            href="{{ related_product.url }}"
-            class="related-products__list__item related-products__list__item--product"
-          >
-            <div class="related-products__list__item__image">
-              {% if related_product.featured_media %}
-                {{ related_product.featured_media | image_url: width: 800, height: 800, crop: 'center' | image_tag }}
-              {% else %}
-                <img
-                  src="{{ 'placeholder.jpeg' | asset_url }}"
-                  alt="placeholder image"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                >
-              {% endif %}
-            </div>
-            <div class="related-products__list__item__title">
-              <h6>
-                <b>{{ related_product.title | escape }}</b>
-              </h6>
-              <h6>
-                <b>{{ related_product.price | money }}</b>
-              </h6>
-            </div>
-            <div class="related-products__list__item__description">
-              <p>{{ related_product.metafields.custom.short_description }}</p>
-            </div>
-          </a>
-          {% assign shown_products = shown_products | append: related_product.id | append: ',' %}
-          {% assign count = count | plus: 1 %}
-        {% endif %}
-      {% endunless %}
-    {% endfor %}
-
-    {% comment %}
-      Marquee
-    {% endcomment %}
-    {% comment %}
-      <div class="related-products__marquee">
-        <div class="related-products__marquee__animation">
-          <span>Through life's most vital moments.</span>
-          <span>Through life's most vital moments.</span>
-          <span>Through life's most vital moments.</span>
-        </div>
-      </div>
-    {% endcomment %}
-
-    <div class="marquee-element">
-      <div class="marquee-element__track">
-        <span><b>Through life's most vital moments.</b></span>
-        <span><b>Through life's most vital moments.</b></span>
-        <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
-        <span aria-hidden="true"><b>Through life's most vital moments.</b></span>
-      </div>
-    </div>
-  </div>
-
-  {%- liquid
-    if product.selected_or_first_available_variant.featured_media
-      assign seo_media = product.selected_or_first_available_variant.featured_media
-    else
-      assign seo_media = product.featured_media
-    endif
-  -%}
-
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org/",
-      "@type": "Product",
-      "name": {{ product.title | json }},
-      "url": {{ request.origin | append: product.url | json }},
-      {% if seo_media -%}
-        "image": [
-          {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
-        ],
-      {%- endif %}
-      "description": {{ product.description | strip_html | json }},
-      {% if product.selected_or_first_available_variant.sku != blank -%}
-        "sku": {{ product.selected_or_first_available_variant.sku | json }},
-      {%- endif %}
-      "brand": {
-        "@type": "Brand",
-        "name": {{ product.vendor | json }}
-      },
-      "offers": [
-        {%- for variant in product.variants -%}
-          {
-            "@type" : "Offer",
-            {%- if variant.sku != blank -%}
-              "sku": {{ variant.sku | json }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 12 -%}
-              "gtin12": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 13 -%}
-              "gtin13": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 14 -%}
-              "gtin14": {{ variant.barcode }},
-            {%- endif -%}
-            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-            "price" : {{ variant.price | divided_by: 100.00 | json }},
-            "priceCurrency" : {{ cart.currency.iso_code | json }},
-            "url" : {{ request.origin | append: variant.url | json }},
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "NZ",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 14,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/CustomerPaysReturnShippingFees",
-              "itemCondition": "https://schema.org/NewCondition",
-              "inStoreReturnsOffered": false
-            }
-          }{% unless forloop.last %},{% endunless %}
-        {%- endfor -%}
-      ]
-    }
-  </script>
-
-  <script>
-    window.inventories = [];
-    {% for variant in product.variants %}
-
-    window.inventories[{{ variant.id }}] = {
-      'id': {{ variant.id }},
-      'quantity': '{{ variant.inventory_quantity | default: 0 }}',
-      'price': '{{ variant.price | money }}'
-    };
-
-    {% endfor %}
-  </script>
-</div>
-
-<div class="reviews">
-  <div class="reviews__wrap">
-    <!-- Start of Judge.me code -->
-    <div style="clear:both"></div>
-    <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}">
-      {{ product.metafields.judgeme.widget }}
-    </div>
-    <!-- End of Judge.me code -->
-  </div>
-</div>
+  {% endfor %}
+</script>

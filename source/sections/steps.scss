@@ -1,0 +1,54 @@
+.steps {
+    background: var(--blue-light);
+    position: relative;
+    overflow: hidden;
+
+    .marquee-element {
+        margin-bottom: 4rem;
+    }
+
+    .marquee-element__track span b {
+        -webkit-text-stroke-color: var(--green);
+    }
+
+    &__grid {
+        position: relative;
+        width: 100%;
+        transition: all $slow;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 2;
+        padding: 6rem 2rem;
+        max-width: var(--content-width);
+        margin: 0 auto;
+    }
+
+    &__item {
+        width: 33.333333%;
+        padding: 2rem;
+        text-align: center;
+        transition: all $slow;
+        transform: translateY(10%);
+        opacity: 0;
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                transition-delay: $i * 0.1s;
+            }
+        }
+
+        &.inview {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+
+        &__image {
+            margin-bottom: 2rem;
+        }
+
+        &__text {
+            color: var(--green);
+        }
+    }
+}
