@@ -15,17 +15,6 @@
     },
     "175254656927b951ba": {
       "type": "apps",
-      "blocks": {
-        "vizup_shoppable_video_carousel_videos_block_nRp4pf": {
-          "type": "shopify://apps/vizup-shoppable-video-carousel/blocks/videos-block/eaecaa7b-ab6b-40ae-8ddf-50daa867f3eb",
-          "settings": {
-            "videoc_widget_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "vizup_shoppable_video_carousel_videos_block_nRp4pf"
-      ],
       "settings": {}
     },
     "benefits_block_aTb9y3": {
