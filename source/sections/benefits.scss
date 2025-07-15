@@ -1,0 +1,78 @@
+.benefits {
+    background: var(--green);
+    position: relative;
+    overflow: hidden;
+
+    &-wave2,
+    &-wave1 {
+        @include svg(1366, 768);
+        position: absolute;
+        left: 95%;
+        top: 0;
+        width: 100%;
+        transform: translateY(0%) translateX(-50%) rotate(40deg);
+        pointer-events: none;
+        z-index: 1;
+
+        path {
+            stroke: var(--green);
+            stroke: #afcacc;
+        }
+    }
+
+    &-wave2 {
+        transform: translateY(-50%) translateX(-50%) rotate(-130deg);
+    }
+
+    &__wrap {
+        position: relative;
+        width: 100%;
+        transition: all $slow;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 2;
+        padding: 6rem 2rem;
+        max-width: var(--content-width);
+        margin: 0 auto;
+    }
+
+    &__left {
+        width: 50rem;
+        color: white;
+
+        p {
+            color: #afcacc;
+        }
+    }
+
+    &__right {
+        width: calc(100% - 50rem);
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 33.333333%;
+
+        h6 {
+            display: block;
+            text-align: center;
+            color: white;
+        }
+
+        &__image {
+            width: 100%;
+            text-align: center;
+
+            svg {
+                max-width: 15rem;
+                height: auto;
+
+                path {
+                    fill: white;
+                }
+            }
+        }
+    }
+}

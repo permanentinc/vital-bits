@@ -24,6 +24,9 @@ import GLightbox from 'glightbox';
 import Splitting from "splitting";
 import Typewriter from 'typewriter-effect/dist/core';
 
+import Splide from '@splidejs/splide';
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -783,40 +786,51 @@ Product gallery slider
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let tick;
-    let percent = 0;
-    let hovered = false;
-    let $productSlider = $('.js-product-imagery-slider');
-    let $productSliderProgress = $('.js-gallery-progress');
-    let $productSliderProgressCircle = $('.js-gallery-progress-circle');
+    let $productSlider = $('#main-slider');
 
     if ($productSlider) {
 
-
-        let product_slider = new Flickity('.js-product-imagery-slider', {
-            wrapAround: true,
-            pageDots: false,
-            prevNextButtons: false,
+        var main = new Splide('#main-slider', {
+            direction: 'ttb',
+            heightRatio: 1,
+            pagination: false,
+            wheel: true,
+            arrows: false,
+            breakpoints: {
+                768: {
+                    heightRatio: 1,
+                    direction: 'ltr',
+                    pagination: true,
+                    wheel: false,
+                },
+            }
         });
 
-        let product_nav = new Flickity('.js-product-nav-imagery-slider', {
-            asNavFor: '.js-product-imagery-slider',
-            contain: true,
-            pageDots: false,
-            prevNextButtons: false,
+        var thumbnails = new Splide('#thumbnail-slider', {
+            direction: 'ttb',
+            heightRatio: 1,
+            fixedWidth: 80,
+            fixedHeight: 80,
+            isNavigation: true,
+            perPage: 4,
+            pagination: false,
+            wheel: true,
+            arrows: false,
+            breakpoints: {
+                768: {
+                    destroy: true,
+                    direction: 'ltr',
+                    pagination: true,
+                    heightRatio: undefined,
+                }
+            }
         });
 
-        $('.js-cursor-previous').addEventListener('click', (e) => {
-            e.preventDefault();
-            product_slider.previous();
-        });
+        main.sync(thumbnails);
 
+        main.mount();
 
-        $('.js-cursor-next').addEventListener('click', (e) => {
-            e.preventDefault();
-            product_slider.next();
-        });
-
+        thumbnails.mount();
 
         let images = [];
 
@@ -841,10 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('js-product-lightbox')) {
                 e.preventDefault();
-
-                // get index to stat at
-
-                myGallery.openAt(product_slider.selectedIndex);
+                myGallery.openAt(main.index);
             }
         });
 

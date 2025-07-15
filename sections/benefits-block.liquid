@@ -1,0 +1,84 @@
+<div class="benefits">
+  <div class="benefits-wave1 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="1" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+
+  <div class="benefits-wave2 [ js-wave ]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+      <path d="M0,32L48,74.7C96,117,192,203,288,245.3C384,288,480,288,576,266.7C672,245,768,203,864,176C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224L1440,320" stroke-width="3" stroke="red" fill-opacity="0"/>
+    </svg>
+  </div>
+  <div class="benefits__wrap">
+    <div class="benefits__left">
+      <h2>
+        <b>{{ section.settings.heading }}</b>
+      </h2>
+      {{ section.settings.text }}
+    </div>
+    <div class="benefits__right">
+      {%- for block in section.blocks -%}
+        <div class="benefits__item">
+          <div class="benefits__item__image">
+            <img src="{{ block.settings.icon | image_url }}" loading="lazy'">
+          </div>
+          <div class="benefits__item__title">
+            <h6>
+              <b>{{ block.settings.title }}</b>
+            </h6>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "benefits-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "default": "Lorem ipsum dolor sit amet",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Icon Item",
+      "type": "icon_item",
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Icon"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "default": "Lorem ipsum dolor sit amet",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits"
+    }
+  ]
+}
+{% endschema %}

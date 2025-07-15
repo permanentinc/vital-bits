@@ -62,11 +62,9 @@
         transform: rotateY(-25deg);
         transform-origin: 100% 100%;
 
-        
         @media screen and (max-width: 768px) {
             width: 100%;
         }
-
 
         &-head {
             padding: 1rem 2rem 2rem;
@@ -155,6 +153,8 @@
             .product-details-price {
                 padding: 0 2rem;
                 width: 100%;
+
+              
 
                 p {
                     color: var(--green);
@@ -323,3 +323,5 @@ html .quickview {
         }
     }
 }
+
+

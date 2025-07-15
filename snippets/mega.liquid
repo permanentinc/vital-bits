@@ -7,6 +7,42 @@
           <div class="megaImage__image"></div>
         </div>
         <div class="mega__wrap__column mega__wrap__column--bordered animated">
+
+          {% comment %}
+            Pregnancy
+          {% endcomment %}
+          <h6 class="mega__wrap__column__link">
+            <a class="" href="{{ collections.pregnancy.url }}"><b>Pregnancy</b></a>
+          </h6>
+          {% for link in linklists['mega-menu-pregnancy'].links -%}
+            {% if link.type == 'product_link' %}
+              {% assign product = link.object %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% else %}
+              <p class="mega__wrap__column__sublink">
+                <a
+                  href="{{ link.url }}"
+                  class="[ js-mega-image ]"
+                  data-id="{{ link.title }}"
+                >
+                  {{ link.title }}
+                </a>
+              </p>
+            {% endif %}
+          {%- endfor %}
+          <p class="mega__wrap__column__sublink">
+            <a href="{{ collections.pregnancy.url }}">View more</a>
+          </p>
+          
           {% comment %}
             V-DELIVERY
           {% endcomment %}
@@ -46,6 +82,11 @@
             >
           </p>
 
+          
+          
+        </div>
+
+        <div class="mega__wrap__column mega__wrap__column--bordered animated">
           {% comment %}
             C-Section
           {% endcomment %}
@@ -82,43 +123,6 @@
               href="{{ collections.c-section-delivery.url }}"
               >View more</a
             >
-          </p>
-        </div>
-
-        <div class="mega__wrap__column mega__wrap__column--bordered animated">
-          {% comment %}
-            Pregnancy
-          {% endcomment %}
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.pregnancy.url }}"><b>Pregnancy</b></a>
-          </h6>
-          {% for link in linklists['mega-menu-pregnancy'].links -%}
-            {% if link.type == 'product_link' %}
-              {% assign product = link.object %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% else %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% endif %}
-          {%- endfor %}
-          <p class="mega__wrap__column__sublink">
-            <a href="{{ collections.pregnancy.url }}">View more</a>
           </p>
 
           {% comment %}

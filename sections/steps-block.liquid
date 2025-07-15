@@ -1,0 +1,72 @@
+<div class="steps">
+  <div class="steps__marquee">
+    <div class="marquee-element">
+      <div class="marquee-element__track">
+        <span
+          ><b>{{ section.settings.heading }}</b></span
+        >
+        <span
+          ><b>{{ section.settings.heading }}</b></span
+        >
+        <span aria-hidden="true"
+          ><b>{{ section.settings.heading }}</b></span
+        >
+        <span aria-hidden="true"
+          ><b>{{ section.settings.heading }}</b></span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="steps__grid">
+    {%- for block in section.blocks -%}
+      <div class="steps__item">
+        <div class="steps__item__image">
+          {{ block.settings.article.image | image_url: width: 760 | image_url: height: 900 | image_tag }}
+        </div>
+        <div class="steps__item__text">
+          <h6>
+            <b>{{ block.settings.article.title }}</b>
+          </h6>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Easy as 1.2.3.",
+      "label": "Heading"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "name": "Steps Item",
+      "type": "steps_item",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Steps"
+    }
+  ]
+}
+{% endschema %}
