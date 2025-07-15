@@ -69,7 +69,8 @@
         "icon_item_UfJiEn": {
           "type": "icon_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet"
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-mess-free-vitalbits.png",
+            "title": "Mess free"
           }
         }
       },
