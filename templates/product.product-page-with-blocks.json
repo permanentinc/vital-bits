@@ -48,7 +48,8 @@
         "icon_item_hhYyY3": {
           "type": "icon_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet"
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-super-absorbent-vitalbits.png",
+            "title": "Super absorbent"
           }
         },
         "icon_item_8xNnJW": {
