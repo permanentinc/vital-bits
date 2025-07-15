@@ -94,18 +94,21 @@
         "steps_item_mGd4Wh": {
           "type": "steps_item",
           "settings": {
+            "image": "shopify://shop_images/Vital_Bits-postpartum-ice-maxi-pads2.jpg",
             "title": "Snap to activate"
           }
         },
         "steps_item_4BLLwy": {
           "type": "steps_item",
           "settings": {
+            "image": "shopify://shop_images/Vital_Bits-postpartum-ice-maxi-pads2.jpg",
             "title": "Remove the backing strip and attach to your briefs"
           }
         },
         "steps_item_nC4kfB": {
           "type": "steps_item",
           "settings": {
+            "image": "shopify://shop_images/Vital_Bits-postpartum-ice-maxi-pads2.jpg",
             "title": "40+ minutes of cool therapy"
           }
         }
