@@ -19,7 +19,46 @@
         max-width: var(--content-width);
     }
 
+    &-features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        border: 1px solid var(--green);
+        border-radius: 4rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+
+        &__item {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem 2rem;
+            align-items: center;
+
+            p {
+                white-space: pre;
+                margin: 0;
+                line-height: 1.1;
+            }
+
+            img {
+                filter: brightness(0);
+                width: 3rem;
+                height: auto;
+                margin-right: 1rem;
+            }
+        }
+    }
+
     &-details {
+        display: flex;
+        flex-wrap: wrap;
+
+        form,
+        .product-actions,
+        .product-details-price,
+        h1 {
+            width: 100%;
+        }
         form {
             margin-bottom: 4rem;
         }
@@ -55,7 +94,7 @@
     }
 
     &-gallery {
-        width: 60%;
+        width: 58%;
         padding-right: 4rem;
         position: relative;
         display: flex;
@@ -235,7 +274,7 @@
     }
 
     &-details {
-        width: 40%;
+        width: 42%;
         padding-left: 4rem;
         padding-top: 6rem;
         position: relative;
@@ -243,6 +282,22 @@
         @include media($md, max) {
             width: 100%;
             padding-top: 0;
+        }
+
+        .wiz {
+            width: 100%;
+            display: block;
+            position: relative;
+            border-bottom: 1px solid var(--green);
+            margin-top: -4rem;
+
+            h2 {
+                font-weight: bold;
+            }
+
+            .vizup-card-wrapper {
+                justify-content: flex-start !important;
+            }
         }
 
         &-price {

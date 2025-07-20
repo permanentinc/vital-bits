@@ -813,6 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fixedHeight: 80,
             isNavigation: true,
             perPage: 4,
+            gap: 5,
             pagination: false,
             wheel: true,
             arrows: false,

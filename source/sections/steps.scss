@@ -52,3 +52,30 @@
         }
     }
 }
+
+[data-theme="postpartum"],
+[data-theme="postpartum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
+    .steps {
+        .marquee-element__track span b {
+            -webkit-text-stroke-color: var(--orange);
+        }
+
+        .steps__item__text {
+            color: var(--orange);
+        }
+    }
+}
+
+[data-theme="breast-care"] {
+    .steps {
+        .marquee-element__track span b {
+            -webkit-text-stroke-color: var(--pink);
+        }
+
+        .steps__item__text {
+            color: var(--pink);
+        }
+    }
+}

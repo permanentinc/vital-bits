@@ -99,3 +99,34 @@
         }
     }
 }
+
+[data-theme="postpartum"],
+[data-theme="postpartum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
+    .benefits .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path {
+        stroke: var(--purple-light) !important;
+    }
+
+    .benefits {
+        background: var(--orange);
+    }
+
+    .benefits__left p {
+        color: var(--purple-light);
+    }
+}
+
+[data-theme="breast-care"] {
+    .benefits .js-wave:not(.sidecart-background-wave1):not(.sidecart-background-wave2) path {
+        stroke: var(--pink-light) !important;
+    }
+
+    .benefits {
+        background: var(--pink);
+    }
+
+    .benefits__left p {
+        color: var(--pink-light);
+    }
+}
