@@ -4968,7 +4968,6 @@ ol > li li:before {
 }
 
 .product-features__item img {
-  filter: brightness(0);
   width: 3rem;
   height: auto;
   margin-right: 1rem;
@@ -5256,6 +5255,7 @@ ol > li li:before {
   border-bottom: 1px solid var(--green);
   width: 100%;
   margin-top: -4rem;
+  margin-bottom: -1px;
   display: block;
   position: relative;
 }
@@ -5361,11 +5361,19 @@ ol > li li:before {
   background: var(--blue-light);
 }
 
-[data-theme="pregnancy"] .header-logo path, [data-theme="pregnancy"] .flickity-button path {
+[data-theme="pregnancy"] .header-logo path {
   fill: var(--green);
 }
 
-[data-theme="pregnancy"] .dot {
+[data-theme="pregnancy"] .product-details .wiz, [data-theme="pregnancy"] .product-features {
+  border-color: var(--green);
+}
+
+[data-theme="pregnancy"] .flickity-button path {
+  fill: var(--green);
+}
+
+[data-theme="pregnancy"] .product-gallery .splide__pagination li button, [data-theme="pregnancy"] .dot {
   background: var(--green);
 }
 
@@ -5373,11 +5381,15 @@ html [data-theme="postpartum"], html [data-theme="postpartum"], html [data-theme
   background: var(--purple-light);
 }
 
+html [data-theme="postpartum"] .product-details .wiz, html [data-theme="postpartum"] .product-features, html [data-theme="postpartum"] .product-details .wiz, html [data-theme="postpartum"] .product-features, html [data-theme="c-section-delivery"] .product-details .wiz, html [data-theme="c-section-delivery"] .product-features, html [data-theme="v-delivery"] .product-details .wiz, html [data-theme="v-delivery"] .product-features {
+  border-color: var(--orange);
+}
+
 html [data-theme="postpartum"] .flickity-button path, html [data-theme="postpartum"] .flickity-button path, html [data-theme="c-section-delivery"] .flickity-button path, html [data-theme="v-delivery"] .flickity-button path {
   fill: var(--orange);
 }
 
-html [data-theme="postpartum"] .dot, html [data-theme="postpartum"] .dot, html [data-theme="c-section-delivery"] .dot, html [data-theme="v-delivery"] .dot {
+html [data-theme="postpartum"] .product-gallery .splide__pagination li button, html [data-theme="postpartum"] .dot, html [data-theme="postpartum"] .product-gallery .splide__pagination li button, html [data-theme="postpartum"] .dot, html [data-theme="c-section-delivery"] .product-gallery .splide__pagination li button, html [data-theme="c-section-delivery"] .dot, html [data-theme="v-delivery"] .product-gallery .splide__pagination li button, html [data-theme="v-delivery"] .dot {
   background: var(--orange);
 }
 
@@ -5507,11 +5519,15 @@ html [data-theme="breast-care"] {
   background: var(--pink-light);
 }
 
+html [data-theme="breast-care"] .product-details .wiz, html [data-theme="breast-care"] .product-features {
+  border-color: var(--pink);
+}
+
 html [data-theme="breast-care"] .flickity-button path {
   fill: var(--pink);
 }
 
-html [data-theme="breast-care"] .dot {
+html [data-theme="breast-care"] .product-gallery .splide__pagination li button, html [data-theme="breast-care"] .dot {
   background: var(--pink);
 }
 
@@ -6481,13 +6497,6 @@ img.error:after {
   transform: translateY(-50%);
 }
 
-.image-element {
-  width: 100%;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
 .image-element__background {
   z-index: -1;
   width: 100%;
@@ -6497,38 +6506,12 @@ img.error:after {
   left: 0;
 }
 
-.image-element__wrap {
-  width: 100%;
-  max-width: var(--content-width);
-  z-index: 3;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-}
-
-.image-element__wrap__image {
-  text-align: center;
-  flex-wrap: wrap;
-  align-content: center;
-  width: 50%;
-  display: flex;
-  position: relative;
-}
-
 @media only screen and (width <= 767px) {
   .image-element__wrap__image {
     width: 100%;
     order: 1 !important;
     transform: none !important;
   }
-}
-
-.image-element__wrap__image img {
-  width: 100%;
-  height: auto;
 }
 
 .image-element__wrap__text {
@@ -8880,13 +8863,12 @@ html .quickview[data-theme="breast-care"] .button.busy {
 
 @media only screen and (width <= 967px) {
   .benefits__item {
-    width: 50%;
+    width: 33.3333%;
   }
 }
 
 @media only screen and (width <= 767px) {
   .benefits__item {
-    width: calc(50% - 2rem);
     padding: 2rem 0;
   }
 }
@@ -8903,6 +8885,7 @@ html .quickview[data-theme="breast-care"] .button.busy {
 }
 
 .benefits__item__image img, .benefits__item__image svg {
+  width: 70%;
   max-width: 10rem;
   height: auto;
   margin-bottom: 2rem;
@@ -8963,6 +8946,12 @@ html .quickview[data-theme="breast-care"] .button.busy {
   position: relative;
 }
 
+@media only screen and (width <= 767px) {
+  .steps__grid {
+    padding-top: 0;
+  }
+}
+
 .steps__item {
   text-align: center;
   opacity: 0;
@@ -8970,6 +8959,12 @@ html .quickview[data-theme="breast-care"] .button.busy {
   padding: 2rem;
   transition: all 1s cubic-bezier(.365, .04, .44, 1);
   transform: translateY(10%);
+}
+
+@media only screen and (width <= 767px) {
+  .steps__item {
+    padding: 1rem;
+  }
 }
 
 .steps__item:first-child {
@@ -8997,6 +8992,12 @@ html .quickview[data-theme="breast-care"] .button.busy {
   color: var(--green);
 }
 
+@media only screen and (width <= 767px) {
+  .steps__item__text h5 {
+    font-size: 1.6rem;
+  }
+}
+
 [data-theme="postpartum"] .steps .marquee-element__track span b, [data-theme="postpartum"] .steps .marquee-element__track span b, [data-theme="c-section-delivery"] .steps .marquee-element__track span b, [data-theme="v-delivery"] .steps .marquee-element__track span b {
   -webkit-text-stroke-color: var(--orange);
 }
@@ -9011,5 +9012,55 @@ html .quickview[data-theme="breast-care"] .button.busy {
 
 [data-theme="breast-care"] .steps .steps__item__text {
   color: var(--pink);
+}
+
+.image-element {
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-element__wrap {
+  width: 100%;
+  max-width: var(--content-width);
+  z-index: 3;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+
+.image-element__wrap__image {
+  text-align: center;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 27%;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (width <= 767px) {
+  .image-element__wrap__image {
+    width: 100%;
+    order: 1 !important;
+    transform: none !important;
+  }
+}
+
+.image-element__wrap__image img {
+  width: 100%;
+  height: auto;
+}
+
+.image-element__wrap__text {
+  width: 27%;
+  padding: 3rem;
+}
+
+.image-element__wrap__text--right {
+  width: 46%;
 }
 /*# sourceMappingURL=style.css.map */

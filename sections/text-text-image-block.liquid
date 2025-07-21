@@ -1,0 +1,48 @@
+<div class="element text-text-image-element">
+  <div class="text-text-image-element__wrap">
+    <div class="text-text-image-element__wrap__text text-text-image-element__wrap__text--left">
+      {{ section.settings.text_left }}
+    </div>
+    <div class="text-text-image-element__wrap__text text-text-image-element__wrap__text--right">
+      {{ section.settings.text_right }}
+    </div>
+    <div class="text-text-image-element__wrap__image">
+      {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "text-text-image-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text_left",
+      "default": "<h3>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</h3>",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text_right",
+      "default": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
+      "label": "Text"
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Text and Image"
+    }
+  ]
+}
+{% endschema %}

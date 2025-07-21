@@ -1,0 +1,51 @@
+/*------------------------------------------------------------------
+Image and text blocka
+------------------------------------------------------------------*/
+
+.image-element {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 2rem;
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+
+    &__image {
+      width: 27%;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      text-align: center;
+
+      @include media($md, max) {
+        width: 100%;
+        transform: none !important;
+        order: 1 !important;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__text {
+      padding: 3rem;
+      width: 27%;
+
+      &--right {
+        width: 46%;
+      }
+    }
+  }
+}

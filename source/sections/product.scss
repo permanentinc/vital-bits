@@ -41,7 +41,7 @@
             }
 
             img {
-                filter: brightness(0);
+                // filter: brightness(0);
                 width: 3rem;
                 height: auto;
                 margin-right: 1rem;
@@ -290,6 +290,7 @@
             position: relative;
             border-bottom: 1px solid var(--green);
             margin-top: -4rem;
+            margin-bottom: -1px;
 
             h2 {
                 font-weight: bold;
@@ -397,10 +398,16 @@
         fill: var(--green);
     }
 
+    .product-details .wiz,
+    .product-features {
+        border-color: var(--green);
+    }
+
     .flickity-button path {
         fill: var(--green);
     }
 
+    .product-gallery .splide__pagination li button,
     .dot {
         background: var(--green);
     }
@@ -414,10 +421,16 @@ html {
     [data-theme="v-delivery"] {
         background: var(--purple-light);
 
+        .product-details .wiz,
+        .product-features {
+            border-color: var(--orange);
+        }
+
         .flickity-button path {
             fill: var(--orange);
         }
 
+        .product-gallery .splide__pagination li button,
         .dot {
             background: var(--orange);
         }
@@ -584,10 +597,16 @@ html {
     [data-theme="breast-care"] {
         background: var(--pink-light);
 
+        .product-details .wiz,
+        .product-features {
+            border-color: var(--pink);
+        }
+
         .flickity-button path {
             fill: var(--pink);
         }
 
+        .product-gallery .splide__pagination li button,
         .dot {
             background: var(--pink);
         }

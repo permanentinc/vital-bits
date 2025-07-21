@@ -22,6 +22,10 @@
         padding: 6rem 2rem;
         max-width: var(--content-width);
         margin: 0 auto;
+
+        @include media($md, max) {
+            padding-top: 0;
+        }
     }
 
     &__item {
@@ -31,6 +35,10 @@
         transition: all $slow;
         transform: translateY(10%);
         opacity: 0;
+
+        @include media($md, max) {
+            padding: 1rem;
+        }
 
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) {
@@ -49,6 +57,12 @@
 
         &__text {
             color: var(--green);
+
+            @include media($md, max) {
+                h5 {
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
 }

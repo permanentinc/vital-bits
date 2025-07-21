@@ -67,13 +67,15 @@
         width: 33.333333%;
         padding: 2rem;
 
+        
+
         @include media($xmd, max) {
-            width: 50%;
+           width: 33.333333%;
         }
 
         @include media($md, max) {
             padding: 2rem 0;
-            width: calc(50% - 2rem);
+        //     width: calc(50% - 2rem);
         }
 
         h6 {
@@ -88,9 +90,11 @@
 
             img,
             svg {
+                width: 70%;
                 max-width: 10rem;
                 height: auto;
                 margin-bottom: 2rem;
+                
 
                 path {
                     fill: white;
