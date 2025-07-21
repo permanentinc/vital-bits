@@ -111,12 +111,22 @@
       "settings": {
         "heading": "Easy as 1.2.3."
       }
+    },
+    "text_text_image_block_qmyMJf": {
+      "type": "text-text-image-block",
+      "name": "Text Text and Image",
+      "settings": {
+        "text_left": "<h3><strong>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket.</strong></h3>",
+        "text_right": "<h6><strong>This helps their wraparound care for whānau, including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.</strong></h6>",
+        "image": "shopify://shop_images/pickme_clear.png"
+      }
     }
   },
   "order": [
     "main",
     "175254656927b951ba",
     "benefits_block_aTb9y3",
-    "steps_block_374MtM"
+    "steps_block_374MtM",
+    "text_text_image_block_qmyMJf"
   ]
 }
