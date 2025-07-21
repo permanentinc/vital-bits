@@ -173,6 +173,8 @@
     data-page-id="{{ request.page_id }}"
     data-page-title="{{ page_title }}"
     data-collection="{{ collection.title | downcase | replace: " ", "-" }}"
+    data-templatename="{{ template.name }}"
+    data-templatesuffix="{{ template.suffix }}"
     {%- if page_title == 'Contact' -%}
       data-theme="pregnancy"
     {%- endif -%}
@@ -222,7 +224,7 @@
     {{ content_for_layout }}
 
     {% comment %} if product page  {% endcomment %}
-    {% if request.page_type == 'product' %}
+    {% if request.page_type == 'product' && template.name == 'product' && template.suffix == '' %}
       <div class="related-products">
         <div class="related-products-wave1 [ js-wave ]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
