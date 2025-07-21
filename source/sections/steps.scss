@@ -72,6 +72,8 @@
 [data-theme="c-section-delivery"],
 [data-theme="v-delivery"] {
     .steps {
+    background: var(--purple-light);
+
         .marquee-element__track span b {
             -webkit-text-stroke-color: var(--orange);
         }
@@ -84,6 +86,7 @@
 
 [data-theme="breast-care"] {
     .steps {
+        background: var(--pink-light);
         .marquee-element__track span b {
             -webkit-text-stroke-color: var(--pink);
         }

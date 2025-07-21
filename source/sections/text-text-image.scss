@@ -6,7 +6,8 @@ Image and text blocka
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 2rem 2rem;
+  padding: 8rem 2rem;
+  background-color: var(--green);
 
   &__wrap {
     width: 100%;
@@ -20,32 +21,84 @@ Image and text blocka
     z-index: 3;
 
     &__image {
-      width: 27%;
+      width: 20%;
       position: relative;
       display: flex;
       flex-wrap: wrap;
       align-content: center;
       text-align: center;
+      padding: 2rem 3rem;
 
-      @include media($md, max) {
+      @include media($xmd, max) {
+        width: 25rem;
+      }
+
+      @include media($sm, max) {
         width: 100%;
-        transform: none !important;
-        order: 1 !important;
+        order: 1;
       }
 
       img {
         width: 100%;
         height: auto;
+
+        @include media($sm, max) {
+          max-width: 24rem;
+          margin: 0 auto;
+        }
       }
     }
 
     &__text {
       padding: 3rem;
-      width: 27%;
+      width: 30%;
+      color: var(--white);
+
+      @include media($xmd, max) {
+        width: 100%;
+      }
+
+      @include media($sm, max) {
+        order: 2;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
 
       &--right {
-        width: 46%;
+        width: 50%;
+
+        @include media($xmd, max) {
+          width: calc(100% - 25rem);
+        }
+
+        @include media($sm, max) {
+          width: 100%;
+          order: 3;
+          padding-top: 0;
+        }
       }
+    }
+  }
+}
+
+[data-theme="postpartum"],
+[data-theme="postpartum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
+  .text-text-image-element {
+    background: var(--orange);
+
+    .text-text-image-element__wrap__text {
+      color: var(--purple-light);
+    }
+  }
+}
+
+[data-theme="breast-care"] {
+  .text-text-image-element {
+    background: var(--pink);
+    .text-text-image-element__wrap__text {
+      color: var(--pink-light);
     }
   }
 }
