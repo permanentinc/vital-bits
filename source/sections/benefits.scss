@@ -67,21 +67,35 @@
         width: 33.333333%;
         padding: 2rem;
 
-        
-
         @include media($xmd, max) {
-           width: 33.333333%;
+            width: 33.333333%;
         }
 
         @include media($md, max) {
-            padding: 2rem 0;
-        //     width: calc(50% - 2rem);
+            padding: 2rem;
+        }
+
+        @include media($xs, max) {
+            padding: 2rem 0rem;
         }
 
         h6 {
             display: block;
             text-align: center;
             color: white;
+
+            @include media($md, max) {
+                font-size: 1.6rem;
+            }
+
+            @include media($sm, max) {
+                font-size: 1.4rem;
+                padding: 0 1rem;
+              
+                b {
+                    font-weight: 500;
+                }
+            }
         }
 
         &__image {
@@ -94,7 +108,10 @@
                 max-width: 10rem;
                 height: auto;
                 margin-bottom: 2rem;
-                
+
+                @media screen and (max-width: 768px) {
+                    max-width: 6rem;
+                }
 
                 path {
                     fill: white;

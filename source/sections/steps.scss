@@ -63,6 +63,16 @@
                     font-size: 1.6rem;
                 }
             }
+
+            @include media($sm, max) {
+                h5 {
+                    font-size: 1.4rem;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+            }
         }
     }
 }
@@ -72,7 +82,7 @@
 [data-theme="c-section-delivery"],
 [data-theme="v-delivery"] {
     .steps {
-    background: var(--purple-light);
+        background: var(--purple-light);
 
         .marquee-element__track span b {
             -webkit-text-stroke-color: var(--orange);
