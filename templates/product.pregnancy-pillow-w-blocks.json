@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "175254656927b951ba": {
+      "type": "apps",
+      "settings": {}
+    },
+    "benefits_block_aTb9y3": {
+      "type": "benefits-block",
+      "blocks": {
+        "icon_item_tEcPdY": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-relieves-_pain-vitalbits.png",
+            "title": "Helps relieve pain"
+          }
+        },
+        "icon_item_iqnKdN": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-reduces-swelling-vitalbits.png",
+            "title": "Reduces swelling"
+          }
+        },
+        "icon_item_hhYyY3": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-super-absorbent-vitalbits.png",
+            "title": "Super absorbent"
+          }
+        },
+        "icon_item_8xNnJW": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-instant-cooling-vitalbits.png",
+            "title": "Instant cooling"
+          }
+        },
+        "icon_item_Wg3qRQ": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-40-minutes-cooling-vitalbits.png",
+            "title": "40 minutes of cooling therapy"
+          }
+        },
+        "icon_item_UfJiEn": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-mess-free-vitalbits.png",
+            "title": "Mess free"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_tEcPdY",
+        "icon_item_iqnKdN",
+        "icon_item_hhYyY3",
+        "icon_item_8xNnJW",
+        "icon_item_Wg3qRQ",
+        "icon_item_UfJiEn"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "Key benefits",
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>instant maxi ice pads.</p>"
+      }
+    },
+    "steps_block_374MtM": {
+      "type": "steps-block",
+      "blocks": {
+        "steps_item_mGd4Wh": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/instant-ice-maxi-pads-cool-vitalbits.png",
+            "title": "Snap to activate"
+          }
+        },
+        "steps_item_4BLLwy": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/madxipad_snap.png",
+            "title": "Remove the backing strip and attach to your briefs"
+          }
+        },
+        "steps_item_nC4kfB": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/maxipad_apply.png",
+            "title": "40+ minutes of cool therapy"
+          }
+        }
+      },
+      "block_order": [
+        "steps_item_mGd4Wh",
+        "steps_item_4BLLwy",
+        "steps_item_nC4kfB"
+      ],
+      "name": "Steps",
+      "settings": {
+        "heading": "Easy as 1.2.3."
+      }
+    },
+    "text_text_image_block_qmyMJf": {
+      "type": "text-text-image-block",
+      "name": "Text Text and Image",
+      "settings": {
+        "text_left": "<h3><strong>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket.</strong></h3>",
+        "text_right": "<h6><strong>This helps their wraparound care for whānau, including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.</strong></h6>",
+        "image": "shopify://shop_images/pickme_clear.png"
+      }
+    },
+    "reviews_block_Qf3ULn": {
+      "type": "reviews-block",
+      "name": "Reviews",
+      "settings": {}
+    },
+    "related_products_block_3YdKaU": {
+      "type": "related-products-block",
+      "name": "Related products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "175254656927b951ba",
+    "benefits_block_aTb9y3",
+    "steps_block_374MtM",
+    "text_text_image_block_qmyMJf",
+    "reviews_block_Qf3ULn",
+    "related_products_block_3YdKaU"
+  ]
+}
