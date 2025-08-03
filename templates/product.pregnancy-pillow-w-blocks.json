@@ -141,10 +141,34 @@
             "title": "I Shape",
             "copy": "<p>Simple, no-fuss body support<br/>Aligns belly, back and knees<br/>Great for couch or travel</p>"
           }
+        },
+        "icon_item_7WWbHb": {
+          "type": "icon_item",
+          "settings": {
+            "title": "L-Shape",
+            "copy": "<p>Great for hips and belly<br/>Takes the pressure off the knees<br/>Aids upper body alignment</p>"
+          }
+        },
+        "icon_item_4jBJ78": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet",
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+          }
+        },
+        "icon_item_AdpVat": {
+          "type": "icon_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet",
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+          }
         }
       },
       "block_order": [
-        "icon_item_P4M6WM"
+        "icon_item_P4M6WM",
+        "icon_item_7WWbHb",
+        "icon_item_4jBJ78",
+        "icon_item_AdpVat"
       ],
       "name": "Icon",
       "settings": {
