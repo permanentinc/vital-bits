@@ -131,6 +131,14 @@
       "type": "related-products-block",
       "name": "Related products",
       "settings": {}
+    },
+    "icons_block_MrUEHb": {
+      "type": "icons-block",
+      "name": "Icon",
+      "settings": {
+        "heading": "Adjust to your preference",
+        "text": ""
+      }
     }
   },
   "order": [
@@ -140,6 +148,7 @@
     "steps_block_374MtM",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
-    "related_products_block_3YdKaU"
+    "related_products_block_3YdKaU",
+    "icons_block_MrUEHb"
   ]
 }
