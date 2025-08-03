@@ -134,6 +134,18 @@
     },
     "icons_block_MrUEHb": {
       "type": "icons-block",
+      "blocks": {
+        "icon_item_P4M6WM": {
+          "type": "icon_item",
+          "settings": {
+            "title": "I Shape",
+            "copy": "<ul><li>Simple, no-fuss body support</li><li>Aligns belly, back and knees</li><li>Great for couch or travel</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_P4M6WM"
+      ],
       "name": "Icon",
       "settings": {
         "heading": "Adjust to your preference",
