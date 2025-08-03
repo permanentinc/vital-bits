@@ -15,6 +15,7 @@
     },
     "175254656927b951ba": {
       "type": "apps",
+      "disabled": true,
       "settings": {}
     },
     "benefits_block_aTb9y3": {
@@ -74,7 +75,7 @@
       "name": "Benefits",
       "settings": {
         "heading": "Key benefits",
-        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>instant maxi ice pads.</p>"
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>pregnancy pillow.</p>"
       }
     },
     "steps_block_374MtM": {
