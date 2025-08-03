@@ -139,7 +139,7 @@
           "type": "icon_item",
           "settings": {
             "title": "I Shape",
-            "copy": "<ul><li>Simple, no-fuss body support</li><li>Aligns belly, back and knees</li><li>Great for couch or travel</li></ul>"
+            "copy": "<p>Simple, no-fuss body support<br/>Aligns belly, back and knees<br/>Great for couch or travel</p>"
           }
         }
       },
