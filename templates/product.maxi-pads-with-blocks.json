@@ -87,25 +87,25 @@
             "title": "Snap to activate"
           }
         },
-        "steps_item_mGd4Wh": {
-          "type": "steps_item",
-          "settings": {
-            "image": "shopify://shop_images/instant-ice-maxi-pads-cool-vitalbits.png",
-            "title": "Remove the backing strip and attach to your briefs"
-          }
-        },
         "steps_item_nC4kfB": {
           "type": "steps_item",
           "settings": {
             "image": "shopify://shop_images/maxipad_apply.png",
             "title": "40+ minutes of cool therapy"
           }
+        },
+        "steps_item_mGd4Wh": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/instant-ice-maxi-pads-cool-vitalbits.png",
+            "title": "Remove the backing strip and attach to your briefs"
+          }
         }
       },
       "block_order": [
         "steps_item_4BLLwy",
-        "steps_item_mGd4Wh",
-        "steps_item_nC4kfB"
+        "steps_item_nC4kfB",
+        "steps_item_mGd4Wh"
       ],
       "name": "Steps",
       "settings": {
