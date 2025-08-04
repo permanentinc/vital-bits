@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "175254656927b951ba": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    },
+    "benefits_block_aTb9y3": {
+      "type": "benefits-block",
+      "blocks": {
+        "icon_item_tEcPdY": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-cooling-features-icon-blue-vitalbits.png",
+            "title": "Cooling features"
+          }
+        },
+        "icon_item_iqnKdN": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-promotes-better-sleep-icon-blue-vitalbits.png",
+            "title": "Promotes better sleep"
+          }
+        },
+        "icon_item_hhYyY3": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-full-body-support-icon-blue-vitalbits.png",
+            "title": "Full body support"
+          }
+        },
+        "icon_item_8xNnJW": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-adjustable-icon-blue-vitalbits.png",
+            "title": "Adjustable to your liking"
+          }
+        },
+        "icon_item_Wg3qRQ": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-premium-materials-icon-blue-vitalbits.png",
+            "title": "Premium materials"
+          }
+        },
+        "icon_item_UfJiEn": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-washable-cover-icon-blue-vitalbits.png",
+            "title": "Washable cover"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_tEcPdY",
+        "icon_item_iqnKdN",
+        "icon_item_hhYyY3",
+        "icon_item_8xNnJW",
+        "icon_item_Wg3qRQ",
+        "icon_item_UfJiEn"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "Key benefits",
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>pregnancy pillow.</p>"
+      }
+    },
+    "steps_block_374MtM": {
+      "type": "steps-block",
+      "blocks": {
+        "steps_item_mGd4Wh": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/instant-ice-maxi-pads-cool-vitalbits.png",
+            "title": "Snap to activate"
+          }
+        },
+        "steps_item_4BLLwy": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/madxipad_snap.png",
+            "title": "Remove the backing strip and attach to your briefs"
+          }
+        },
+        "steps_item_nC4kfB": {
+          "type": "steps_item",
+          "settings": {
+            "image": "shopify://shop_images/maxipad_apply.png",
+            "title": "40+ minutes of cool therapy"
+          }
+        }
+      },
+      "block_order": [
+        "steps_item_mGd4Wh",
+        "steps_item_4BLLwy",
+        "steps_item_nC4kfB"
+      ],
+      "disabled": true,
+      "name": "Steps",
+      "settings": {
+        "heading": "Easy as 1.2.3."
+      }
+    },
+    "text_text_image_block_qmyMJf": {
+      "type": "text-text-image-block",
+      "name": "Text Text and Image",
+      "settings": {
+        "text_left": "<h3><strong>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket.</strong></h3>",
+        "text_right": "<h6><strong>This helps their wraparound care for whānau, including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.</strong></h6>",
+        "image": "shopify://shop_images/pickme_clear.png"
+      }
+    },
+    "reviews_block_Qf3ULn": {
+      "type": "reviews-block",
+      "name": "Reviews",
+      "settings": {}
+    },
+    "related_products_block_3YdKaU": {
+      "type": "related-products-block",
+      "name": "Related products",
+      "settings": {}
+    },
+    "icons_block_MrUEHb": {
+      "type": "icons-block",
+      "blocks": {
+        "icon_item_P4M6WM": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-i-shape-icon-green-vitalbits.png",
+            "title": "I Shape",
+            "copy": "<ul><li>Simple, no-fuss body support</li><li>Aligns belly, back and knees</li><li>Great for couch or travel</li></ul>"
+          }
+        },
+        "icon_item_7WWbHb": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-l-shape-icon-green-vitalbits.png",
+            "title": "L Shape",
+            "copy": "<ul><li>Great for hips and belly</li><li>Takes the pressure off the knees</li><li>Aids upper body alignment</li></ul>"
+          }
+        },
+        "icon_item_4jBJ78": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-u-shape-icon-green-vitalbits.png",
+            "title": "U Shape",
+            "copy": "<ul><li>Dual-sided, wraparound comfort</li><li>Easy to roll between sides</li><li>Supports bump, back and knees</li></ul>"
+          }
+        },
+        "icon_item_AdpVat": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-c-shape-icon-green-vitalbits.png",
+            "title": "C Shape",
+            "copy": "<ul><li>Full-body, head-to-knee support</li><li>Promotes stable side sleeping</li><li>Reduces pressure on hips and back</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_P4M6WM",
+        "icon_item_7WWbHb",
+        "icon_item_4jBJ78",
+        "icon_item_AdpVat"
+      ],
+      "name": "Icon",
+      "settings": {
+        "heading": "Adjust to your preference",
+        "text": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "175254656927b951ba",
+    "benefits_block_aTb9y3",
+    "steps_block_374MtM",
+    "icons_block_MrUEHb",
+    "text_text_image_block_qmyMJf",
+    "reviews_block_Qf3ULn",
+    "related_products_block_3YdKaU"
+  ]
+}
