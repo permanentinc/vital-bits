@@ -59,7 +59,7 @@
         "icon_item_UfJiEn": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/instant-ice-maxi-pad-icon-mess-free-vitalbits.png",
+            "icon": "shopify://shop_images/pregnancy-pillow-washable-cover-icon-blue-vitalbits.png",
             "title": "Washable cover"
           }
         }
@@ -108,6 +108,7 @@
         "steps_item_4BLLwy",
         "steps_item_nC4kfB"
       ],
+      "disabled": true,
       "name": "Steps",
       "settings": {
         "heading": "Easy as 1.2.3."
@@ -186,9 +187,9 @@
     "175254656927b951ba",
     "benefits_block_aTb9y3",
     "steps_block_374MtM",
+    "icons_block_MrUEHb",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
-    "related_products_block_3YdKaU",
-    "icons_block_MrUEHb"
+    "related_products_block_3YdKaU"
   ]
 }
