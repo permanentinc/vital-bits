@@ -138,6 +138,7 @@
         "icon_item_P4M6WM": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-i-shape-icon-green-vitalbits.png",
             "title": "I Shape",
             "copy": "<ul><li>Simple, no-fuss body support</li><li>Aligns belly, back and knees</li><li>Great for couch or travel</li></ul>"
           }
@@ -145,6 +146,7 @@
         "icon_item_7WWbHb": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-l-shape-icon-green-vitalbits.png",
             "title": "L Shape",
             "copy": "<ul><li>Great for hips and belly</li><li>Takes the pressure off the knees</li><li>Aids upper body alignment</li></ul>"
           }
@@ -152,6 +154,7 @@
         "icon_item_4jBJ78": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-u-shape-icon-green-vitalbits.png",
             "title": "U Shape",
             "copy": "<ul><li>Dual-sided, wraparound comfort</li><li>Easy to roll between sides</li><li>Supports bump, back and knees</li></ul>"
           }
@@ -159,6 +162,7 @@
         "icon_item_AdpVat": {
           "type": "icon_item",
           "settings": {
+            "icon": "shopify://shop_images/pregnancy-pillow-c-shape-icon-green-vitalbits.png",
             "title": "C Shape",
             "copy": "<ul><li>Full-body, head-to-knee support</li><li>Promotes stable side sleeping</li><li>Reduces pressure on hips and back</li></ul>"
           }
