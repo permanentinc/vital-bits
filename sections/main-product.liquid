@@ -160,7 +160,7 @@
         data-amount="{{ product.price | money_without_currency }}"
       ></afterpay-placement>
 
-      {% if product.metafields.custom.feature_icon_1 %}
+      {% if product.metafields.custom.feature_icon_1 or product.metafields.custom.feature_icon_2 or product.metafields.custom.feature_icon_3 %}
         <div class="product-features">
           {% if product.metafields.custom.feature_icon_1 %}
             <div class="product-features__item">

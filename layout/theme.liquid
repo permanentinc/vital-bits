@@ -175,6 +175,7 @@
     data-collection="{{ collection.title | downcase | replace: " ", "-" }}"
     data-templatename="{{ template.name }}"
     data-templatesuffix="{{ template.suffix }}"
+
     {%- if page_title == 'Contact' -%}
       data-theme="pregnancy"
     {%- endif -%}
@@ -223,7 +224,7 @@
 
     {{ content_for_layout }}
 
-    {% if request.page_type == 'product' and template.suffix != 'product-page-with-blocks' %}
+    {% if request.page_type == 'product' and template.suffix == blank %}
       <div class="related-products main-theme-variant" data-suffix="{{ template.suffix }}">
         <div class="related-products-wave1 [ js-wave ]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">

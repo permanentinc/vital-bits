@@ -12,7 +12,7 @@
     }
 
     &__wrap {
-        max-width: var(--inner-content-width);
+        max-width: var(--content-width);
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -36,11 +36,15 @@
     }
 
     &__item {
-        width: calc(33.33333333%);
+        width: calc(25%);
         padding: 0 2rem;
         margin-bottom: 4rem;
 
-        @include media($md, max) {
+        @include media($lg, max) {
+            width: 50%;
+        }
+        
+        @include media($sm, max) {
             width: 100%;
         }
     }
@@ -62,6 +66,13 @@
 
         * {
             color: var(--green);
+        }
+
+        ul {
+            margin-top: 1rem;
+            li {
+                text-align: left;
+            }
         }
 
         p,
