@@ -152,15 +152,15 @@
         "icon_item_4jBJ78": {
           "type": "icon_item",
           "settings": {
-            "title": "U-Shape",
-            "copy": "<p>Dual-sided, wraparound comfort<br/>Easy to roll between sides<br/>Supports bump, back and knees</p>"
+            "title": "U Shape",
+            "copy": "<ul><li>Dual-sided, wraparound comfort</li><li>Easy to roll between sides</li><li>Supports bump, back and knees</li></ul>"
           }
         },
         "icon_item_AdpVat": {
           "type": "icon_item",
           "settings": {
             "title": "C Shape",
-            "copy": "<p>Full-body, head-to-knee support<br/>Promotes stable side sleeping<br/>Reduces pressure on hips and back</p>"
+            "copy": "<ul><li>Full-body, head-to-knee support</li><li>Promotes stable side sleeping</li><li>Reduces pressure on hips and back</li></ul>"
           }
         }
       },
