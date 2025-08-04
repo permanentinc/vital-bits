@@ -123,11 +123,13 @@
     },
     "reviews_block_Qf3ULn": {
       "type": "reviews-block",
+      "disabled": true,
       "name": "Reviews",
       "settings": {}
     },
     "related_products_block_3YdKaU": {
       "type": "related-products-block",
+      "disabled": true,
       "name": "Related products",
       "settings": {}
     }
