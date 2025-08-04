@@ -185,8 +185,9 @@
       "type": "image-text-block",
       "name": "Text and Image",
       "settings": {
+        "image": "shopify://shop_images/madxipad_snap.png",
         "heading": "No matter how you delivered, we've got your core",
-        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>",
+        "text": "<p>C-Section Recovery</p><ul><li>fwfwfewfwe</li></ul><p></p><p>V-Delivery Recovery</p><ul><li>fwfwfewfwev</li></ul>",
         "link_link": "",
         "link_label": "",
         "reverse_layout": false,
