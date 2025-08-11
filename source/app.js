@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         data-lightbox-image="${media.src}"
                                         width="1080"
                                         height="1080"
-                                        loading="lazy">
+                                       >
                                     </div>`}).join('')}
                                 </div>
                             </div>

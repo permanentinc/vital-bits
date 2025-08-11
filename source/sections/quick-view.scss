@@ -8,6 +8,18 @@
     transition: all $fast;
     overflow: hidden;
 
+    .product-gallery {
+        position: relative;
+        top: 0;
+    }
+
+    .product-details {
+        h6,
+        h4 {
+            width: 100%;
+        }
+    }
+
     &-background {
         @include full;
         background: var(--off-white);
@@ -153,8 +165,6 @@
             .product-details-price {
                 padding: 0 2rem;
                 width: 100%;
-
-              
 
                 p {
                     color: var(--green);
@@ -323,5 +333,3 @@ html .quickview {
         }
     }
 }
-
-

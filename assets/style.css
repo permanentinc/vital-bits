@@ -8541,6 +8541,15 @@ iframe.wait-autoplay {
   overflow: hidden;
 }
 
+.quickview .product-gallery {
+  position: relative;
+  top: 0;
+}
+
+.quickview .product-details h6, .quickview .product-details h4 {
+  width: 100%;
+}
+
 .quickview-background {
   background: var(--off-white);
   opacity: .9;
