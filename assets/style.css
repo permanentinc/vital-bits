@@ -3736,6 +3736,10 @@ html body #shopify-section-footer .footer-newsletter__field__button:before, [dat
   transform: translateX(10%);
 }
 
+.collections__slider .jdgm-widget {
+  margin-bottom: 1rem;
+}
+
 @media screen and (width <= 768px) {
   .collections__slider {
     margin-bottom: -6rem;
@@ -4728,6 +4732,11 @@ ol > li li:before {
   overflow: hidden;
 }
 
+.related-products .jdgm-widget * {
+  margin-bottom: 1rem;
+  color: #fff !important;
+}
+
 .related-products-wave2, .related-products-wave1 {
   pointer-events: none;
   z-index: 1;
@@ -5377,6 +5386,14 @@ ol > li li:before {
   background: var(--green);
 }
 
+[data-theme="postpartum"] .collection-grid__list__item *, [data-theme="postpartum"] .collection-grid__list__item *, [data-theme="c-section-delivery"] .collection-grid__list__item *, [data-theme="v-delivery"] .collection-grid__list__item * {
+  color: var(--orange) !important;
+}
+
+[data-theme="breast-care"] .collection-grid__list__item * {
+  color: var(--pink) !important;
+}
+
 html [data-theme="postpartum"], html [data-theme="postpartum"], html [data-theme="c-section-delivery"], html [data-theme="v-delivery"] {
   background: var(--purple-light);
 }
@@ -5813,6 +5830,10 @@ html [data-theme="breast-care"] .notyf__message a {
   padding-bottom: 4rem;
   position: relative;
   overflow: hidden;
+}
+
+.collection-grid .jdgm-widget {
+  margin-bottom: 1rem;
 }
 
 .collection-grid .js-gradient {

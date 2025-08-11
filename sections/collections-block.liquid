@@ -113,16 +113,24 @@
               {% endif %}
             </div>
             <div class="collections__slider__item__title">
+               
               <h6>
                 <b>{{ product.title }}</b>
               </h6>
+              
               <h6>
                 <b>{{ product.price | money }}</b>
               </h6>
             </div>
+            <!-- Start of Judge.me code -->
+            <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+              {{ product.metafields.judgeme.badge }}
+            </div>
+            <!-- End of Judge.me code -->
             <div class="collections__slider__item__description">
               <p>{{ product.metafields.custom.short_description }}</p>
             </div>
+            
           </a>
         {%- endfor -%}
       </div>

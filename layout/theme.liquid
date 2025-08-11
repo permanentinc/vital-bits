@@ -287,6 +287,11 @@
                       <b>{{ related_product.price | money }}</b>
                     </h6>
                   </div>
+                  <!-- Start of Judge.me code -->
+                  <div class="jdgm-widget jdgm-preview-badge" data-id="{{ related_product.id }}">
+                    {{ related_product.metafields.judgeme.badge }}
+                  </div>
+                <!-- End of Judge.me code -->
                   <div class="related-products__list__item__description">
                     <p>{{ related_product.metafields.custom.short_description }}</p>
                   </div>
@@ -332,6 +337,11 @@
                       <b>{{ related_product.price | money }}</b>
                     </h6>
                   </div>
+                  <!-- Start of Judge.me code -->
+                  <div class="jdgm-widget jdgm-preview-badge" data-id="{{ related_product.id }}">
+                    {{ related_product.metafields.judgeme.badge }}
+                  </div>
+                <!-- End of Judge.me code -->
                   <div class="related-products__list__item__description">
                     <p>{{ related_product.metafields.custom.short_description }}</p>
                   </div>

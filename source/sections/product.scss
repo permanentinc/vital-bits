@@ -414,6 +414,25 @@
     background: var(--blue-light);
 }
 
+[data-theme="postpartum"],
+[data-theme="postpartum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
+    .collection-grid__list__item {
+        * {
+            color: var(--orange) !important;
+        }
+    }
+}
+
+[data-theme="breast-care"] {
+    .collection-grid__list__item {
+        * {
+            color: var(--pink) !important;
+        }
+    }
+}
+
 html {
     [data-theme="postpartum"],
     [data-theme="postpartum"],

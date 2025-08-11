@@ -43,87 +43,14 @@
             <a href="{{ collections.pregnancy.url }}">View more</a>
           </p>
           
-          {% comment %}
-            V-DELIVERY
-          {% endcomment %}
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.v-delivery.url }}"><b>V-Delivery</b></a>
-          </h6>
-          {% comment %} {% for product in collections['v-delivery'].products limit: 2 %} {% endcomment %}
-          {% for link in linklists['mega-menu-v-delivery'].links -%}
-            {% if link.type == 'product_link' %}
-              {% assign product = link.object %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% else %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% endif %}
-          {%- endfor %}
-          <p class="mega__wrap__column__sublink">
-            <a
-              href="{{ collections.v-delivery.url }}"
-              >View more</a
-            >
-          </p>
+          
 
           
           
         </div>
 
         <div class="mega__wrap__column mega__wrap__column--bordered animated">
-          {% comment %}
-            C-Section
-          {% endcomment %}
-          <h6 class="mega__wrap__column__link">
-            <a class="" href="{{ collections.c-section-delivery.url }}"><b>C-Section Delivery</b></a>
-          </h6>
-          {% for link in linklists['mega-menu-c-section-delivery'].links -%}
-            {% if link.type == 'product_link' %}
-              {% assign product = link.object %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                  data-image="{{ product.featured_image | image_url: width: 160 | image_url: height: 160 }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% else %}
-              <p class="mega__wrap__column__sublink">
-                <a
-                  href="{{ link.url }}"
-                  class="[ js-mega-image ]"
-                  data-id="{{ link.title }}"
-                >
-                  {{ link.title }}
-                </a>
-              </p>
-            {% endif %}
-          {%- endfor %}
-          <p class="mega__wrap__column__sublink">
-            <a
-              href="{{ collections.c-section-delivery.url }}"
-              >View more</a
-            >
-          </p>
+          
 
           {% comment %}
             postpartum

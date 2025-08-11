@@ -596,7 +596,9 @@ function updateIndicator(element) {
     $indicator.style.width = `${rect.width}px`;
     $indicator.style.left = `${relativeLeft}px`; // Adjust for scrolling
 }
-updateIndicator($('.js-collection-slider-trigger.active'));
+
+if ($('.js-collection-slider-trigger.active')) updateIndicator($('.js-collection-slider-trigger.active'));
+if ($('.js-collection-slider-scroll.active')) updateIndicator($('.js-collection-slider-scroll.active'));
 
 
 // debounce window resize 
@@ -658,6 +660,8 @@ const updateSlider = (e) => {
                 $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
 
                 var newItems = [];
+                console.log(data.products);
+
                 data.products.forEach((product) => {
                     let full_description = product.body_html;
                     // extract the first paragraph from the description
@@ -685,6 +689,7 @@ const updateSlider = (e) => {
                         <img src="${product.images[0].src}" alt="${product.images[0].alt}">
                     </div>
                     <div class="collections__slider__item__title">
+                       
                         <h6><b>${product.title}</b></h6>
                         <h6><b>${product.variants[0].price}</b></h6>
                     </div>

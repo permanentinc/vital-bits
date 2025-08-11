@@ -4,6 +4,11 @@
     padding-bottom: 4rem;
     overflow: hidden;
 
+    .jdgm-widget * {
+        color: white !important;
+        margin-bottom: 1rem;
+    }
+
     &-wave2,
     &-wave1 {
         @include svg(1366, 768);
@@ -142,7 +147,7 @@
     width: 100vw;
 
     @media screen and (max-width: 768px) {
-        margin: 0 0 4rem; 
+        margin: 0 0 4rem;
     }
 
     &__track {
