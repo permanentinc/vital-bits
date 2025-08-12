@@ -1,0 +1,125 @@
+<section class="comparison-element [ element ]">
+  <div class="comparison-element__wrap">
+    <div class="comparison-element__image"></div>
+    <div class="comparison-element__content">
+      {%- for block in section.blocks -%}
+        <div class="comparison-element__item">
+          <h4 class="no-margin">
+            <b>{{ block.settings.title }}</b>
+          </h4>
+
+          <div
+            class="comparison-element__content [ js-content ]"
+            role="region"
+            aria-labelledby="accordion_{{ block.settings.id }}"
+          >
+            <div class="comparison-element__inner">
+              {{ block.settings.copy }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "list-item-block",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "id": "option_1_image",
+      "type": "image_picker",
+      "label": "Option 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "option_1_heading",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Option 1 Heading"
+    },
+    {
+      "type": "text",
+      "id": "option_1_line_item_1",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 1"
+    },
+    {
+      "type": "text",
+      "id": "option_1_line_item_2",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 2"
+    },
+    {
+      "type": "text",
+      "id": "option_1_line_item_3",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 3"
+    },
+    {
+      "type": "text",
+      "id": "option_1_line_item_4",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 4"
+    },
+    {
+      "type": "text",
+      "id": "option_1_line_item_5",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 5"
+    },
+    {
+      "id": "option_2_image",
+      "type": "image_picker",
+      "label": "Option 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "option_2_heading",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Option 2 Heading"
+    },
+    {
+      "type": "text",
+      "id": "option_2_line_item_1",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 1"
+    },
+    {
+      "type": "text",
+      "id": "option_2_line_item_2",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 2"
+    },
+    {
+      "type": "text",
+      "id": "option_2_line_item_3",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 3"
+    },
+    {
+      "type": "text",
+      "id": "option_2_line_item_4",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 4"
+    },
+    {
+      "type": "text",
+      "id": "option_2_line_item_5",
+      "default": "Sed ut perspiciatis unde",
+      "label": "Line Item 5"
+    },
+
+  ],
+  "presets": [
+    {
+      "name": "List Item"
+    }
+  ]
+}
+{% endschema %}

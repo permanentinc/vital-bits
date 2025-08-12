@@ -214,6 +214,7 @@
         &-lightbox {
             @include svg(40, 27);
             bottom: 2.5rem;
+            bottom: 5.5rem;
             right: 5rem;
             z-index: 33;
             cursor: pointer;
