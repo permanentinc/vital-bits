@@ -10,18 +10,20 @@
     <label class="field__label" for="SendAsGift-{{ section.id }}">I want to send this as a gift</label>
   </div>
 
-  <div id="RecipientBlock-{{ section.id }}" style="display:none;">
-    <div class="field">
-      <label class="field__label" for="RecipientEmail-{{ section.id }}">Recipient email*</label>
-      <input
-        class="field__input"
-        id="RecipientEmail-{{ section.id }}"
-        type="email"
-        name="properties[Recipient email]"
-        inputmode="email"
-        autocomplete="email"
-      >
-    </div>
+<div class="field">
+  <label class="field__label">
+    <input
+      class="checkbox"
+      type="checkbox"
+      id="SendAsGift-{{ section.id }}"
+      aria-controls="RecipientBlock-{{ section.id }}"
+      aria-expanded="false"
+      style="margin-right:0.5rem"
+    >
+    I want to send this as a gift
+  </label>
+</div>
+
 
     <div class="field">
       <label class="field__label" for="RecipientName-{{ section.id }}">Recipient name (optional)</label>
