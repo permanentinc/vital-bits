@@ -153,6 +153,18 @@
     },
     "list_item_block_nqEQtn": {
       "type": "list-item-block",
+      "blocks": {
+        "list_item_LLEc6C": {
+          "type": "list_item",
+          "settings": {
+            "title": "C-Section opr Vaginal Relief",
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_LLEc6C"
+      ],
       "name": "List Item",
       "settings": {
         "image": "shopify://shop_images/peri-bottle-front-vitalbits.jpg",
