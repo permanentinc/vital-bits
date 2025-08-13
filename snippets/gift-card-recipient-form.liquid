@@ -1,0 +1,30 @@
+<div class="gift-card-recipient-form">
+  <h3>Send to someone else</h3>
+
+  <div>
+    <label for="recipient-email">Recipient email*</label>
+    <input id="recipient-email" type="email" name="properties[Recipient email]" required>
+  </div>
+
+  <div>
+    <label for="recipient-name">Recipient name</label>
+    <input id="recipient-name" type="text" name="properties[Recipient name]">
+  </div>
+
+  <div>
+    <label for="recipient-message">Message (max 200 chars)</label>
+    <textarea id="recipient-message" name="properties[Message]" maxlength="200"></textarea>
+  </div>
+
+  <div>
+    <label for="recipient-send-on">Send on (YYYY-MM-DD)</label>
+    <input id="recipient-send-on" type="date" name="properties[Send on]">
+  </div>
+
+  <!-- Required flag so Shopify validates and sends the gift card -->
+  <input type="hidden" name="properties[__shopify_send_gift_card_to_recipient]" value="true">
+
+  {% if form and form.errors %}
+    <div class="form-errors">{{ form.errors | default_errors }}</div>
+  {% endif %}
+</div>
