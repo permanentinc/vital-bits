@@ -1,0 +1,52 @@
+.comparison-element {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 6rem 2rem;
+
+    &__wrap {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media($md, max) {
+            padding: 4rem 2rem;
+        }
+    }
+}
+
+[data-theme=""],
+[data-theme="pregnancy"] {
+    .list-item-element {
+        * {
+            color: var(--green);
+        }
+    }
+}
+
+[data-theme=""],
+[data-theme="postpartum"],
+[data-theme="c-section-delivery"],
+[data-theme="v-delivery"] {
+    .list-item-element {
+        background: var(--purple-light);
+
+        * {
+            color: var(--orange);
+        }
+
+        .coloured--background {
+            background: #fdeeea;
+        }
+    }
+}
+
+[data-theme="breast-care"] {
+    .list-item-element {
+        * {
+            color: var(--pink);
+        }
+    }
+}
+

@@ -9230,33 +9230,137 @@ html .quickview[data-theme="breast-care"] .button.busy {
 [data-theme="breast-care"] .text-text-image-element .text-text-image-element__wrap__text {
   color: var(--pink-light);
 }
-/*# sourceMappingURL=style.css.map */
 
-/* Gift card recipient form styling */
-.gift-card-recipient-form label {
-  font-family: inherit; /* Matches product page font */
-  font-size: inherit;
-  color: inherit;
-  display: block;
-  margin-bottom: 0.4rem;
-}
-
-.gift-card-recipient-form input,
-.gift-card-recipient-form textarea {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  border: 1px solid var(--color-foreground, #000); /* uses theme variable if present */
-  border-radius: 4px;
-  padding: 0.6rem;
+.list-item-element {
   width: 100%;
-  background-color: var(--color-background, #fff);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.gift-card-recipient-form textarea {
-  min-height: 5rem;
+.list-item-element__wrap {
+  max-width: var(--content-width);
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
 }
 
-.gift-card-recipient-form {
-  margin-bottom: 1.5rem;
+@media only screen and (width <= 767px) {
+  .list-item-element__wrap {
+    padding: 4rem 2rem;
+  }
 }
+
+.list-item-element__image {
+  width: 30%;
+}
+
+@media screen and (width <= 768px) {
+  .list-item-element__image {
+    width: 100%;
+  }
+}
+
+.list-item-element__content {
+  width: 70%;
+  padding: 0 6rem;
+}
+
+.list-item-element__content .spacer {
+  height: 3rem;
+}
+
+@media screen and (width <= 768px) {
+  .list-item-element__content {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0;
+  }
+}
+
+.list-item-element__item {
+  vertical-align: middle;
+  border-bottom: 1px solid #ffffff4d;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+}
+
+.list-item-element__item h6 {
+  width: 26rem;
+  margin: 0 auto;
+}
+
+@media screen and (width <= 968px) {
+  .list-item-element__item h6 {
+    width: 100%;
+  }
+}
+
+.list-item-element__item__content {
+  width: calc(100% - 26rem);
+  padding-left: 4rem;
+}
+
+@media screen and (width <= 968px) {
+  .list-item-element__item__content {
+    width: 100%;
+    margin-top: .5rem;
+    padding-left: 0;
+  }
+}
+
+.list-item-element__item__content p {
+  margin: 0 auto;
+}
+
+.coloured--background {
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  padding: .6rem 2rem 1rem;
+  display: inline-block;
+}
+
+.comparison-element {
+  width: 100%;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-element__wrap {
+  max-width: var(--content-width);
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+}
+
+@media only screen and (width <= 767px) {
+  .comparison-element__wrap {
+    padding: 4rem 2rem;
+  }
+}
+
+[data-theme=""] .list-item-element *, [data-theme="pregnancy"] .list-item-element * {
+  color: var(--green);
+}
+
+[data-theme=""] .list-item-element, [data-theme="postpartum"] .list-item-element, [data-theme="c-section-delivery"] .list-item-element, [data-theme="v-delivery"] .list-item-element {
+  background: var(--purple-light);
+}
+
+[data-theme=""] .list-item-element *, [data-theme="postpartum"] .list-item-element *, [data-theme="c-section-delivery"] .list-item-element *, [data-theme="v-delivery"] .list-item-element * {
+  color: var(--orange);
+}
+
+[data-theme=""] .list-item-element .coloured--background, [data-theme="postpartum"] .list-item-element .coloured--background, [data-theme="c-section-delivery"] .list-item-element .coloured--background, [data-theme="v-delivery"] .list-item-element .coloured--background {
+  background: #fdeeea;
+}
+
+[data-theme="breast-care"] .list-item-element * {
+  color: var(--pink);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,15 +1,31 @@
 <section class="list-item-element [ element ]">
   <div class="list-item-element__wrap">
-    <div class="list-item-element__image"></div>
+    <div class="list-item-element__image">
+      <img
+        src="{{ section.settings.image | image_url: width: 480 }}"
+        alt="{{ section.settings.heading }}"
+        width="480"
+        height="480"
+        loading="lazy"
+        class="list-item-element__image--img"
+      >
+    </div>
+
     <div class="list-item-element__content">
+      <h3 class="no-margin">
+        <b class="coloured--background">{{ section.settings.heading }}</b>
+      </h3>
+      <p>{{ section.settings.text }}</p>
+      <div class="spacer"></div>
+
       {%- for block in section.blocks -%}
         <div class="list-item-element__item">
-          <h4 class="no-margin">
+          <h6 class="no-margin">
             <b>{{ block.settings.title }}</b>
-          </h4>
+          </h6>
 
           <div
-            class="list-item-element__content [ js-content ]"
+            class="list-item-element__item__content [ js-content ]"
             role="region"
             aria-labelledby="accordion_{{ block.settings.id }}"
           >

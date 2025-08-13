@@ -1,31 +1,80 @@
 <section class="comparison-element [ element ]">
   <div class="comparison-element__wrap">
-    <div class="comparison-element__image"></div>
-    <div class="comparison-element__content">
-      {%- for block in section.blocks -%}
-        <div class="comparison-element__item">
-          <h4 class="no-margin">
-            <b>{{ block.settings.title }}</b>
-          </h4>
-
-          <div
-            class="comparison-element__content [ js-content ]"
-            role="region"
-            aria-labelledby="accordion_{{ block.settings.id }}"
-          >
-            <div class="comparison-element__inner">
-              {{ block.settings.copy }}
-            </div>
-          </div>
-        </div>
-      {%- endfor -%}
+    <div class="comparison-element__left">
+      <h3>
+        <b>
+          {{ settings.option_1_heading }}
+        </b>
+      </h3>
+      <img
+        src="{{ settings.option_1_image | image_url: width: 480 }}"
+        alt="{{ settings.option_1_heading }}"
+        width="480"
+        height="480"
+        loading="lazy"
+        class="comparison-element__image--img"
+      >
+      <div class="comparison-element__items">
+        {% if settings.option_1_line_item_1 %}
+          <div class="comparison-element__item">{{ settings.option_1_line_item_1 }}</div>
+        {% endif %}
+        {% if settings.option_1_line_item_2 %}
+          <div class="comparison-element__item">{{ settings.option_1_line_item_2 }}</div>
+        {% endif %}
+        {% if settings.option_1_line_item_3 %}
+          <div class="comparison-element__item">{{ settings.option_1_line_item_3 }}</div>
+        {% endif %}
+        {% if settings.option_1_line_item_4 %}
+          <div class="comparison-element__item">{{ settings.option_1_line_item_4 }}</div>
+        {% endif %}
+        {% if settings.option_1_line_item_5 %}
+          <div class="comparison-element__item">{{ settings.option_1_line_item_5 }}</div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="comparison-element__vs">
+      <span>
+        <b>VS</b>
+      </span>
+    </div>
+    <div class="comparison-element__right">
+      <h3>
+        <b>
+          {{ settings.option_2_heading }}
+        </b>
+      </h3>
+      <img
+        src="{{ settings.option_2_image | image_url: width: 480 }}"
+        alt="{{ settings.option_2_heading }}"
+        width="480"
+        height="480"
+        loading="lazy"
+        class="comparison-element__image--img"
+      >
+      <div class="comparison-element__items">
+        {% if settings.option_2_line_item_1 %}
+          <div class="comparison-element__item">{{ settings.option_2_line_item_1 }}</div>
+        {% endif %}
+        {% if settings.option_2_line_item_2 %}
+          <div class="comparison-element__item">{{ settings.option_2_line_item_2 }}</div>
+        {% endif %}
+        {% if settings.option_2_line_item_3 %}
+          <div class="comparison-element__item">{{ settings.option_2_line_item_3 }}</div>
+        {% endif %}
+        {% if settings.option_2_line_item_4 %}
+          <div class="comparison-element__item">{{ settings.option_2_line_item_4 }}</div>
+        {% endif %}
+        {% if settings.option_2_line_item_5 %}
+          <div class="comparison-element__item">{{ settings.option_2_line_item_5 }}</div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "list-item-block",
+  "name": "comparison-block",
   "class": "section",
   "tag": "section",
   "disabled_on": {
@@ -113,8 +162,7 @@
       "id": "option_2_line_item_5",
       "default": "Sed ut perspiciatis unde",
       "label": "Line Item 5"
-    },
-
+    }
   ],
   "presets": [
     {
