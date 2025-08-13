@@ -9260,3 +9260,8 @@ html .quickview[data-theme="breast-care"] .button.busy {
 .gift-card-recipient-form {
   margin-bottom: 1.5rem;
 }
+/* Hide product image arrows for the Gift Card only */
+.card--product[data-handle="/vital-bits-gift-card"] .slideshow__controls,
+.card--product[data-handle="/vital-bits-gift-card"] .slider-buttons {
+  display: none !important;
+}
