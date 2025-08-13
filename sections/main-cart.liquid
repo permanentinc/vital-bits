@@ -74,6 +74,15 @@
                   <h5 class="no-margin">{{ item.final_line_price | money }}</h5>
                 {% endif %}
               </td>
+{% if item.properties and item.properties != empty %}
+  <ul class="properties">
+    {% for p in item.properties %}
+      {% unless p.first contains '__shopify_' or p.last == blank %}
+        <li><strong>{{ p.first }}:</strong> {{ p.last }}</li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+{% endif %}
 
               <td class="cart__wrap__form__table__body__row__cell">
                 <a
