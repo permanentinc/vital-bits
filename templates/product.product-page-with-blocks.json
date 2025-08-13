@@ -150,6 +150,15 @@
         "option_2_line_item_4": "Flimsy feel",
         "option_2_line_item_5": ""
       }
+    },
+    "list_item_block_nqEQtn": {
+      "type": "list-item-block",
+      "name": "List Item",
+      "settings": {
+        "image": "shopify://shop_images/peri-bottle-front-vitalbits.jpg",
+        "heading": "Why It's a Must After Birth",
+        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. </p>"
+      }
     }
   },
   "order": [
@@ -160,6 +169,7 @@
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
     "related_products_block_3YdKaU",
-    "comparison_block_fyqECx"
+    "comparison_block_fyqECx",
+    "list_item_block_nqEQtn"
   ]
 }
