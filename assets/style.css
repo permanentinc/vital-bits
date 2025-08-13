@@ -9231,3 +9231,32 @@ html .quickview[data-theme="breast-care"] .button.busy {
   color: var(--pink-light);
 }
 /*# sourceMappingURL=style.css.map */
+
+/* Gift card recipient form styling */
+.gift-card-recipient-form label {
+  font-family: inherit; /* Matches product page font */
+  font-size: inherit;
+  color: inherit;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.gift-card-recipient-form input,
+.gift-card-recipient-form textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: 1px solid var(--color-foreground, #000); /* uses theme variable if present */
+  border-radius: 4px;
+  padding: 0.6rem;
+  width: 100%;
+  background-color: var(--color-background, #fff);
+}
+
+.gift-card-recipient-form textarea {
+  min-height: 5rem;
+}
+
+.gift-card-recipient-form {
+  margin-bottom: 1.5rem;
+}
