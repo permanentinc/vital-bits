@@ -8556,6 +8556,8 @@ iframe.wait-autoplay {
   perspective: 2000px;
   opacity: 0;
   visibility: hidden;
+  backdrop-filter: blur(5px);
+  background-color: #ffffff80;
   transition: all .5s cubic-bezier(.365, .04, .44, 1);
   position: fixed;
   inset: 0;
@@ -8571,71 +8573,21 @@ iframe.wait-autoplay {
   width: 100%;
 }
 
-.quickview-background {
-  background: var(--off-white);
-  opacity: .9;
-  opacity: 0;
-  visibility: hidden;
-  transition: all .75s cubic-bezier(.365, .04, .44, 1);
-  position: absolute;
-  inset: 0;
-  transform: scale(1.1);
-}
-
-.quickview-background:before {
-  content: "";
-  background-image: radial-gradient(var(--green) .5px, transparent .5px), radial-gradient(var(--green) .5px, var(--off-white) .5px);
-  opacity: .4;
-  background-position: 0 0, 10px 10px;
-  background-size: 20px 20px;
-  display: block;
-  position: absolute;
-  inset: 0;
-}
-
-.quickview-background-wave2, .quickview-background-wave1 {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(0%)translateX(-30%)rotate(-40deg);
-}
-
-.quickview-background-wave2:after, .quickview-background-wave1:after {
-  content: "";
-  padding-bottom: 56.2225%;
-  display: block;
-  position: relative;
-}
-
-.quickview-background-wave2 svg, .quickview-background-wave1 svg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.quickview-background-wave2 path, .quickview-background-wave1 path {
-  stroke: var(--green);
-}
-
-.quickview-background-wave2 {
-  transform: translateY(-50%)translateX(-20%)rotate(-220deg);
-}
-
 .quickview-draw {
   background: var(--blue-light);
   opacity: 0;
   transform-origin: 100% 100%;
-  width: 40rem;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  width: calc(100% - 5rem);
+  max-width: 90rem;
+  margin: 0 auto;
   transition: all .5s cubic-bezier(.365, .04, .44, 1);
+  display: flex;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+  top: 4rem;
   transform: rotateY(-25deg);
-  box-shadow: 0 10px 30px #0000000d;
+  box-shadow: 0 10px 30px #00000026;
 }
 
 @media screen and (width <= 768px) {
@@ -8645,6 +8597,7 @@ iframe.wait-autoplay {
 }
 
 .quickview-draw-head {
+  width: 100%;
   padding: 1rem 2rem 2rem;
 }
 
@@ -8753,9 +8706,20 @@ iframe.wait-autoplay {
   color: var(--green);
 }
 
+.quickview-visible {
+  height: calc(100% + 1px);
+  position: relative;
+  overflow: hidden;
+}
+
 .quickview-visible .quickview {
   opacity: 1;
   visibility: visible;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+  overflow: auto;
 }
 
 .quickview-visible .quickview-background {
@@ -8846,6 +8810,26 @@ html .quickview[data-theme="breast-care"] .button {
 
 html .quickview[data-theme="breast-care"] .button.busy {
   color: var(--pink) !important;
+}
+
+@media screen and (width <= 768px) {
+  .quickview-draw {
+    width: calc(100% - 2rem);
+  }
+}
+
+@media screen and (width >= 768px) {
+  .quickview-draw-content .product-details-form, .quickview-draw-content .product-details-price, .quickview-draw-content .product-details-description, .quickview-draw-content .product-details {
+    float: right;
+    width: 50%;
+    padding-left: 0;
+  }
+
+  .quickview-draw-content .product-gallery {
+    float: left;
+    width: 50%;
+    padding-right: 4rem;
+  }
 }
 
 .benefits {

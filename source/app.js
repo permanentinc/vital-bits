@@ -659,6 +659,12 @@ const updateSlider = (e) => {
 
                 $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
 
+                function unescapeHtml(escapedStr) {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = escapedStr;
+    return txt.value;
+}
+
                 var newItems = [];
                 console.log(data.products);
 
@@ -692,6 +698,9 @@ const updateSlider = (e) => {
                        
                         <h6><b>${product.title}</b></h6>
                         <h6><b>${product.variants[0].price}</b></h6>
+                    </div>
+                    <div class="jdgm-widget jdgm-preview-badge" data-id="${product.id}" >
+                    ${unescapeHtml(window.metafields[product.id].badge)}
                     </div>
                     <div class="collections__slider__item__title">
                         ${description}
