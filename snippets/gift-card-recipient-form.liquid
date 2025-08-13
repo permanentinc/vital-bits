@@ -1,30 +1,106 @@
 <div class="gift-card-recipient-form">
-  <h3>Send to someone else</h3>
-
-  <div>
-    <label for="recipient-email">Recipient email*</label>
-    <input id="recipient-email" type="email" name="properties[Recipient email]" required>
+  <div class="field">
+    <input
+      class="checkbox"
+      type="checkbox"
+      id="SendAsGift-{{ section.id }}"
+      aria-controls="RecipientBlock-{{ section.id }}"
+      aria-expanded="false"
+    >
+    <label class="field__label" for="SendAsGift-{{ section.id }}">I want to send this as a gift</label>
   </div>
 
-  <div>
-    <label for="recipient-name">Recipient name</label>
-    <input id="recipient-name" type="text" name="properties[Recipient name]">
+  <div id="RecipientBlock-{{ section.id }}" style="display:none;">
+    <div class="field">
+      <label class="field__label" for="RecipientEmail-{{ section.id }}">Recipient email*</label>
+      <input
+        class="field__input"
+        id="RecipientEmail-{{ section.id }}"
+        type="email"
+        name="properties[Recipient email]"
+        inputmode="email"
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="RecipientName-{{ section.id }}">Recipient name (optional)</label>
+      <input
+        class="field__input"
+        id="RecipientName-{{ section.id }}"
+        type="text"
+        name="properties[Recipient name]"
+        maxlength="255"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="RecipientMessage-{{ section.id }}">Message (max 200 chars)</label>
+      <textarea
+        class="field__input"
+        id="RecipientMessage-{{ section.id }}"
+        name="properties[Message]"
+        maxlength="200"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="RecipientSendOn-{{ section.id }}">Send on (optional)</label>
+      <input
+        class="field__input"
+        id="RecipientSendOn-{{ section.id }}"
+        type="date"
+        name="properties[Send on]"
+      >
+    </div>
+
+    <!-- Required so Shopify schedules/sends the gift card to the recipient -->
+    <input
+      type="hidden"
+      name="properties[__shopify_send_gift_card_to_recipient]"
+      value="true"
+    >
   </div>
-
-  <div>
-    <label for="recipient-message">Message (max 200 chars)</label>
-    <textarea id="recipient-message" name="properties[Message]" maxlength="200"></textarea>
-  </div>
-
-  <div>
-    <label for="recipient-send-on">Send on (YYYY-MM-DD)</label>
-    <input id="recipient-send-on" type="date" name="properties[Send on]">
-  </div>
-
-  <!-- Required flag so Shopify validates and sends the gift card -->
-  <input type="hidden" name="properties[__shopify_send_gift_card_to_recipient]" value="true">
-
-  {% if form and form.errors %}
-    <div class="form-errors">{{ form.errors | default_errors }}</div>
-  {% endif %}
 </div>
+
+<script>
+  (function() {
+    var cb = document.getElementById('SendAsGift-{{ section.id }}');
+    var block = document.getElementById('RecipientBlock-{{ section.id }}');
+    var email = document.getElementById('RecipientEmail-{{ section.id }}');
+
+    if (!cb || !block) return;
+
+    function setState(checked) {
+      block.style.display = checked ? '' : 'none';
+      cb.setAttribute('aria-expanded', checked ? 'true' : 'false');
+      // Only require email when sending as a gift
+      if (email) {
+        if (checked) {
+          email.setAttribute('required', 'required');
+        } else {
+          email.removeAttribute('required');
+        }
+      }
+    }
+
+    // Open automatically if any recipient fields already have a value (e.g., browser autofill)
+    var prefilled =
+      (email && email.value) ||
+      document.getElementById('RecipientName-{{ section.id }}')?.value ||
+      document.getElementById('RecipientMessage-{{ section.id }}')?.value ||
+      document.getElementById('RecipientSendOn-{{ section.id }}')?.value;
+
+    if (prefilled) {
+      cb.checked = true;
+    }
+
+    setState(cb.checked);
+
+    cb.addEventListener('change', function() {
+      setState(cb.checked);
+    });
+  })();
+</script>
