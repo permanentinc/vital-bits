@@ -660,13 +660,12 @@ const updateSlider = (e) => {
                 $('.collections').setAttribute('data-theme', handle.toLowerCase().replace(/ /g, '-'));
 
                 function unescapeHtml(escapedStr) {
-    const txt = document.createElement('textarea');
-    txt.innerHTML = escapedStr;
-    return txt.value;
-}
+                    const txt = document.createElement('textarea');
+                    txt.innerHTML = escapedStr;
+                    return txt.value;
+                }
 
                 var newItems = [];
-                console.log(data.products);
 
                 data.products.forEach((product) => {
                     let full_description = product.body_html;
