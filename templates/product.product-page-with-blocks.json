@@ -130,6 +130,26 @@
       "type": "related-products-block",
       "name": "Related products",
       "settings": {}
+    },
+    "comparison_block_fyqECx": {
+      "type": "comparison-block",
+      "name": "Comparison Block",
+      "settings": {
+        "option_1_image": "shopify://shop_images/disposable-postpartum-briefs-campaign-vitalbits.jpg",
+        "option_1_heading": "Our briefs",
+        "option_1_line_item_1": "Soft, comfy mesh",
+        "option_1_line_item_2": "Holds heavy pads securely",
+        "option_1_line_item_3": "High-wasted and C-Section friendly",
+        "option_1_line_item_4": "Durable fit",
+        "option_1_line_item_5": "",
+        "option_2_image": "shopify://shop_images/vaginal-birth-recovery-pack-main-vitalbits.jpg",
+        "option_2_heading": "Other brands",
+        "option_2_line_item_1": "Scratchy or stiff material",
+        "option_2_line_item_2": "Fall down easily",
+        "option_2_line_item_3": "Not ideal for stitches",
+        "option_2_line_item_4": "Flimsy feel",
+        "option_2_line_item_5": ""
+      }
     }
   },
   "order": [
@@ -139,6 +159,7 @@
     "steps_block_374MtM",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
-    "related_products_block_3YdKaU"
+    "related_products_block_3YdKaU",
+    "comparison_block_fyqECx"
   ]
 }
