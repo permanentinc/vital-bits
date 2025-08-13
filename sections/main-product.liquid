@@ -202,21 +202,13 @@
             </div>
             <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
           </div>
-
-          
-
           {% unless product.available %}
             <a href="#" class="button" disabled>Sold out</a>
           {% else %}
             <a href="#" class="button [ js-add-to-cart ]">Add to Cart <span class="loader"></span></a>
           {% endunless %}
         </div>
-{% form 'product', product %}
-  {% if product.gift_card? %}
-    {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
-  {% endif %}
-  <!-- variant/qty/add-to-cart -->
-{% endform %}
+
         <select
           {% if product.variants.size == 1 %}
             style="display:none;" class="[ js-variant ]"
