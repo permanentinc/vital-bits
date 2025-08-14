@@ -9,28 +9,31 @@
   <div class="product-wrap">
     <div class="product-gallery">
       <div class="product-gallery-left">
-        <div class="product-nav">
-          <div class="product-nav-slider [ js-product-nav-imagery-slider ]">
-            <section class="splide" id="thumbnail-slider">
-              <div class="splide__track">
-                <ul class="splide__list">
-                  {% for media in product.media %}
-                    <li class="splide__slide product-nav-slider-item">
-                      <img
-                        class="[ js-product-nav-slider-item-image ]"
-                        src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"
-                        alt="{{ media.preview_image.alt | escape }}"
-                        width="80"
-                        height="80"
-                        loading="lazy"
-                      >
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </section>
+        {% comment %} only show if media is more than 1 {% endcomment %}
+        {% if product.media.size > 1 %}
+          <div class="product-nav">
+            <div class="product-nav-slider [ js-product-nav-imagery-slider ]x">
+              <section class="splide" id="thumbnail-slider">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    {% for media in product.media %}
+                      <li class="splide__slide product-nav-slider-item">
+                        <img
+                          class="[ js-product-nav-slider-item-image ]"
+                          src="{{ media.preview_image | image_url: width: 160, height: 160, crop: 'center' }}"
+                          alt="{{ media.preview_image.alt | escape }}"
+                          width="80"
+                          height="80"
+                          loading="lazy"
+                        >
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </section>
+            </div>
           </div>
-        </div>
+        {% endif %}
       </div>
       <div class="product-gallery-right">
         <section class="splide" id="main-slider">
@@ -100,19 +103,21 @@
           <div class="product-gallery-previous [ js-cursor-previous ]"></div>
           <div class="product-gallery-next [ js-cursor-next ]"></div>
         {% endcomment %}
-        <div class="product-gallery-lightbox [ js-product-lightbox ]" data-tooltip>
-          <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.679 4.005a.899.899 0 00-.8.913v2.05a.899.899 0 101.797 0v-2.05a.899.899 0 00-.997-.913zm-9.635 1.138a.899.899 0 00-.772 1.166l.59 1.994a.902.902 0 001.727-.52l-.59-1.994a.899.899 0 00-.955-.646zm19.27 0a.899.899 0 00-.759.646l-.59 1.994a.902.902 0 001.728.52l.59-1.994a.899.899 0 00-.97-1.166zM1.168 8.88a.899.899 0 00-.675 1.39l1.152 1.784a.9.9 0 101.517-.969L2.01 9.3a.899.899 0 00-.842-.421zm37.092 0a.899.899 0 00-.716.421l-1.152 1.784a.9.9 0 101.517.97l1.152-1.785a.899.899 0 00-.8-1.39zm-18.483 1.419c-8.233 0-15.487 3.715-19.607 9.368a.899.899 0 000 1.053c4.12 5.652 11.374 9.368 19.607 9.368 8.233 0 15.487-3.716 19.607-9.368a.899.899 0 000-1.053c-4.12-5.653-11.374-9.368-19.607-9.368zm0 2.26c4.23 0 7.64 3.41 7.64 7.641 0 4.232-3.41 7.64-7.64 7.64a7.626 7.626 0 01-7.64-7.64c0-4.231 3.41-7.64 7.64-7.64zm-5.87.254a9.44 9.44 0 00-3.568 7.387c0 2.996 1.41 5.655 3.595 7.388-4.92-1.202-9.096-3.873-11.867-7.388 2.765-3.512 6.93-6.18 11.84-7.387zm11.741 0c4.91 1.208 9.074 3.875 11.84 7.387-2.771 3.515-6.948 6.186-11.868 7.388 2.186-1.733 3.595-4.392 3.595-7.388a9.44 9.44 0 00-3.567-7.387z" fill="#000" fill-rule="nonzero" />
-          </svg>
+        {% if product.media.size > 1 %}
+          <div class="product-gallery-lightbox [ js-product-lightbox ]" data-tooltip>
+            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.679 4.005a.899.899 0 00-.8.913v2.05a.899.899 0 101.797 0v-2.05a.899.899 0 00-.997-.913zm-9.635 1.138a.899.899 0 00-.772 1.166l.59 1.994a.902.902 0 001.727-.52l-.59-1.994a.899.899 0 00-.955-.646zm19.27 0a.899.899 0 00-.759.646l-.59 1.994a.902.902 0 001.728.52l.59-1.994a.899.899 0 00-.97-1.166zM1.168 8.88a.899.899 0 00-.675 1.39l1.152 1.784a.9.9 0 101.517-.969L2.01 9.3a.899.899 0 00-.842-.421zm37.092 0a.899.899 0 00-.716.421l-1.152 1.784a.9.9 0 101.517.97l1.152-1.785a.899.899 0 00-.8-1.39zm-18.483 1.419c-8.233 0-15.487 3.715-19.607 9.368a.899.899 0 000 1.053c4.12 5.652 11.374 9.368 19.607 9.368 8.233 0 15.487-3.716 19.607-9.368a.899.899 0 000-1.053c-4.12-5.653-11.374-9.368-19.607-9.368zm0 2.26c4.23 0 7.64 3.41 7.64 7.641 0 4.232-3.41 7.64-7.64 7.64a7.626 7.626 0 01-7.64-7.64c0-4.231 3.41-7.64 7.64-7.64zm-5.87.254a9.44 9.44 0 00-3.568 7.387c0 2.996 1.41 5.655 3.595 7.388-4.92-1.202-9.096-3.873-11.867-7.388 2.765-3.512 6.93-6.18 11.84-7.387zm11.741 0c4.91 1.208 9.074 3.875 11.84 7.387-2.771 3.515-6.948 6.186-11.868 7.388 2.186-1.733 3.595-4.392 3.595-7.388a9.44 9.44 0 00-3.567-7.387z" fill="#000" fill-rule="nonzero" />
+            </svg>
 
-          <svg class="eye-roll" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.045 12a4.058 4.058 0 014.045 4.045 4.058 4.058 0 01-4.045 4.045A4.058 4.058 0 0116 16.045 4.058 4.058 0 0120.045 12zm0 1.798a2.233 2.233 0 00-2.247 2.247c0 1.252.995 2.247 2.247 2.247a2.233 2.233 0 002.247-2.247 2.233 2.233 0 00-2.247-2.247z" fill="#000" fill-rule="nonzero" />
-          </svg>
+            <svg class="eye-roll" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.045 12a4.058 4.058 0 014.045 4.045 4.058 4.058 0 01-4.045 4.045A4.058 4.058 0 0116 16.045 4.058 4.058 0 0120.045 12zm0 1.798a2.233 2.233 0 00-2.247 2.247c0 1.252.995 2.247 2.247 2.247a2.233 2.233 0 002.247-2.247 2.233 2.233 0 00-2.247-2.247z" fill="#000" fill-rule="nonzero" />
+            </svg>
 
-          <div class="tooltip">
-            <div class="tooltip__wrap">Click to view full image</div>
+            <div class="tooltip">
+              <div class="tooltip__wrap">Click to view full image</div>
+            </div>
           </div>
-        </div>
+        {% endif %}
 
         <span class="product-gallery-progress">
           <span class="product-gallery-progress__bar [ js-gallery-progress ]"></span>
@@ -160,7 +165,10 @@
         data-amount="{{ product.price | money_without_currency }}"
       ></afterpay-placement>
 
-      {% if product.metafields.custom.feature_icon_1 or product.metafields.custom.feature_icon_2 or product.metafields.custom.feature_icon_3 %}
+      {% if product.metafields.custom.feature_icon_1
+        or product.metafields.custom.feature_icon_2
+        or product.metafields.custom.feature_icon_3
+      %}
         <div class="product-features">
           {% if product.metafields.custom.feature_icon_1 %}
             <div class="product-features__item">
@@ -171,7 +179,7 @@
               <p>{{ product.metafields.custom.feature_title_1 }}</p>
             </div>
           {% endif %}
-           {% if product.metafields.custom.feature_icon_2 %}
+          {% if product.metafields.custom.feature_icon_2 %}
             <div class="product-features__item">
               <img
                 src="{{ product.metafields.custom.feature_icon_2 | file_url  }}"
@@ -180,7 +188,7 @@
               <p>{{ product.metafields.custom.feature_title_2 }}</p>
             </div>
           {% endif %}
-           {% if product.metafields.custom.feature_icon_3 %}
+          {% if product.metafields.custom.feature_icon_3 %}
             <div class="product-features__item">
               <img
                 src="{{ product.metafields.custom.feature_icon_3 | file_url  }}"
@@ -189,60 +197,53 @@
               <p>{{ product.metafields.custom.feature_title_3 }}</p>
             </div>
           {% endif %}
-
         </div>
       {% endif %}
 
-{% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
-  <div class="product-actions">
-    
-    <!-- Quantity -->
-    <div class="quantity">
-      <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
-      <div class="quantity-input">
-        <input type="number" name="quantity" value="1" min="1" step="1" inputmode="numeric" pattern="[0-9]*">
-      </div>
-      <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
-    </div>
+      {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
+        <div class="product-actions">
+          {% if product.gift_card? %}
+            {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
+          {% endif %}
+          <!-- Variant selector: keep it inside the same form -->
+          <select
+            {% if product.variants.size == 1 %}
+              style="display:none;" class="[ js-variant ]"
+            {% else %}
+              class="[ js-variant ][ js-choices ]"
+            {% endif %}
+            name="id"
+            id="ProductSelect-{{ section.id }}"
+          >
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}">
+                {{ variant.title | downcase -}}
+                {%- if variant.available == false %} - Sold out{% endif %}
+              </option>
+            {% endfor %}
+          </select>
+          <!-- Quantity -->
+          <div class="quantity">
+            <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
+            <div class="quantity-input">
+              <input type="number" name="quantity" value="1" min="1" step="1" inputmode="numeric" pattern="[0-9]*">
+            </div>
+            <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
+          </div>
 
-    <!-- Recipient fields: INSIDE the SAME form -->
-    {% if product.gift_card? %}
-      {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
-    {% endif %}
-
-    <!-- Variant selector: keep it inside the same form -->
-    <select
-      {% if product.variants.size == 1 %}
-        style="display:none;" class="[ js-variant ]"
-      {% else %}
-        class="[ js-variant ][ js-choices ]"
-      {% endif %}
-      name="id"
-      id="ProductSelect-{{ section.id }}"
-    >
-      {% for variant in product.variants %}
-        <option value="{{ variant.id }}">
-          {{ variant.title | downcase }}{% if variant.available == false %} - Sold out{% endif %}
-        </option>
-      {% endfor %}
-    </select>
-
-    {% unless product.available %}
-      <button class="button" disabled>Sold out</button>
-    {% else %}
-      <!-- Prefer a real submit button -->
-      <button type="submit" name="add" class="button">
-        Add to Cart <span class="loader"></span>
-      </button>
-      {%- comment -%}
-        If your theme *must* use an <a> with JS:
-        <a href="#" class="button js-add-to-cart">Add to Cart <span class="loader"></span></a>
-        Make sure the JS targets THIS form element (e.g., closest('form')).
-      {%- endcomment -%}
-    {% endunless %}
-
-  </div>
-{% endform %}
+          {% unless product.available %}
+            <button class="button" disabled>Sold out</button>
+          {% else %}
+            <!-- Prefer a real submit button -->
+            <button type="submit" name="add" class="button">Add to Cart <span class="loader"></span></button>
+            {%- comment -%}
+              If your theme *must* use an <a> with JS:
+              <a href="#" class="button js-add-to-cart">Add to Cart <span class="loader"></span></a>
+              Make sure the JS targets THIS form element (e.g., closest('form')).
+            {%- endcomment -%}
+          {% endunless %}
+        </div>
+      {% endform %}
 
       <div class="wiz">
         <div

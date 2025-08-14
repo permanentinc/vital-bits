@@ -1,6 +1,40 @@
 .afterpay-info-icon {
     bottom: -4px !important;
 }
+
+.gift-card-recipient-form {
+    padding: 2rem;
+    border: 1px solid rgba(white, 0.3);
+    background: rgba(white, 0.23);
+    margin: 2rem 0;
+    border-radius: 1rem;
+    width: 100%;
+
+    .field {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        label {
+            width: 100%;
+            display: block;
+        }
+
+        textarea,
+        input {
+            border: 0;
+            border-bottom: 2px solid var(--green) !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            color: var(--green) !important;
+            font-size: 1.6rem;
+            padding: 0.5rem 0rem !important;
+            font-family: "sofia-pro", sans-serif !important;
+            width: 100% !important;
+            resize: none;
+            outline: 0;
+        }
+    }
+}
 .product {
     padding: 0 2rem;
     padding-top: 10rem;
@@ -354,6 +388,76 @@
         padding: 1rem 0;
         border-top: 1px solid var(--green-light);
         border-bottom: 1px solid var(--green-light);
+
+        input[type="checkbox"] {
+            opacity: 0;
+            z-index: -1;
+            position: absolute;
+
+            + label {
+                position: relative;
+                padding-left: 3rem;
+                user-select: none;
+                cursor: pointer;
+
+                &:before {
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    display: block;
+                    left: 0;
+                    top: 0.2rem;
+                    transition: all 333ms ease;
+                    background: white;
+                    border: 1px solid var(--green);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 0.2rem;
+                }
+
+                &:after {
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    transform: rotate(43deg);
+                    width: 5px;
+                    height: 9px;
+                    border: 2px solid white;
+                    border-top: 0;
+                    border-left: 0;
+                    left: 7px;
+                    top: 1.1rem;
+                    transition: all 333ms ease;
+                    margin-top: -1px;
+                    transform: rotate(20deg);
+                }
+            }
+
+            &:checked {
+                + label {
+                    &:before {
+                        background: var(--green);
+                        border-color: var(--green);
+                    }
+
+                    &:after {
+                        transform: translateY(-50%) rotate(43deg);
+                    }
+                }
+
+                ~ .gift-card-recipient-form {
+                    display: block;
+                }
+            }
+        }
+
+        .gift-card-recipient-form {
+            display: none;
+        }
+
+        .choices {
+            margin-bottom: 2rem;
+        }
 
         .quantity {
             margin-right: 2rem;

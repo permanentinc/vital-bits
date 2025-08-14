@@ -31,6 +31,41 @@ import Splide from '@splidejs/splide';
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    let $giftCheckbox = $('#gift-check');
+    let $giftForm = $('.gift-card-recipient-form');
+    const emailInput = $('#recipient-email');
+    const nameInput = $('#recipient-name');
+    const messageInput = $('#recipient-message');
+
+    $giftCheckbox.addEventListener('change', function () {
+        if ($giftCheckbox.checked) {
+           $giftForm.innerHTML=`<h5><b>Gift/Send to someone else</b></h5>
+
+  <div class="field">
+    <label for="recipient-email">Recipient email*</label>
+    <input id="recipient-email" type="email" name="properties[Recipient email]" required>
+  </div>
+
+  <div class="field">
+    <label for="recipient-name">Recipient name</label>
+    <input id="recipient-name" type="text" name="properties[Recipient name]">
+  </div>
+
+  <div class="field">
+    <label for="recipient-message">Message (max 200 chars)</label>
+    <textarea id="recipient-message" name="properties[Message]" maxlength="200"></textarea>
+  </div>
+
+  <!-- Required flag so Shopify validates and sends the gift card -->
+  <input type="hidden" id="send-gift-card" name="properties[__shopify_send_gift_card_to_recipient]" value="false">
+`
+            $giftForm.style.display = '';
+        } else {
+           $giftForm.innerHTML=``;
+            $giftForm.style.display = 'none';
+        }
+    });
+
 
     // find an em tag inside an A tag a inside grid-with-text__copy and make the a tag have a button class
     const gridWithText = $$('.grid-with-text__copy a em');
@@ -800,6 +835,7 @@ Product gallery slider
 document.addEventListener('DOMContentLoaded', () => {
 
     let $productSlider = $('#main-slider');
+    let $thumbnailSlider = $('#thumbnail-slider');
 
     if ($productSlider) {
 
@@ -819,33 +855,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        var thumbnails = new Splide('#thumbnail-slider', {
-            direction: 'ttb',
-            heightRatio: 1,
-            fixedWidth: 80,
-            fixedHeight: 80,
-            isNavigation: true,
-            perPage: 4,
-            gap: 5,
-            pagination: false,
-            wheel: true,
-            arrows: false,
-            breakpoints: {
-                768: {
-                    destroy: true,
-                    direction: 'ltr',
-                    pagination: true,
-                    heightRatio: undefined,
+        if ($thumbnailSlider) {
+            var thumbnails = new Splide('#thumbnail-slider', {
+                direction: 'ttb',
+                heightRatio: 1,
+                fixedWidth: 80,
+                fixedHeight: 80,
+                isNavigation: true,
+                perPage: 4,
+                gap: 5,
+                pagination: false,
+                wheel: true,
+                arrows: false,
+                breakpoints: {
+                    768: {
+                        destroy: true,
+                        direction: 'ltr',
+                        pagination: true,
+                        heightRatio: undefined,
+                    }
                 }
-            }
-        });
+            });
 
-        main.sync(thumbnails);
+        }
+        if ($thumbnailSlider) {
+
+            main.sync(thumbnails);
+        }
 
         main.mount();
-
-        thumbnails.mount();
-
+        if ($thumbnailSlider) {
+            thumbnails.mount();
+        }
         let images = [];
 
         const productSliderItemImages = $$('.js-product-slider-item-image');

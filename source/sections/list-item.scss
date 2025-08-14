@@ -30,7 +30,7 @@
         .spacer {
             height: 3rem;
         }
-        
+
         @media screen and (max-width: 768px) {
             width: 100%;
             padding: 0;
@@ -51,7 +51,7 @@
         h6 {
             width: 26rem;
             margin: 0 auto;
-            
+
             @media screen and (max-width: 968px) {
                 width: 100%;
             }
@@ -80,10 +80,16 @@
         * {
             color: var(--green);
         }
+
+        .coloured--background {
+            background: #a6d3d8 !important;
+        }
+
+        .list-item-element__item {
+            border-color: #a6d3d8;
+        }
     }
 }
-
-[data-theme=""],
 [data-theme="postpartum"],
 [data-theme="c-section-delivery"],
 [data-theme="v-delivery"] {
@@ -94,7 +100,11 @@
         }
 
         .coloured--background {
-            background: #fdeeea;
+            background: #fdeeea !important;
+        }
+
+        .list-item-element__item {
+            border-color: #fdeeea;
         }
     }
 }
