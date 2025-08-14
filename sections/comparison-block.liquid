@@ -3,32 +3,32 @@
     <div class="comparison-element__left">
       <h3>
         <b>
-          {{ settings.option_1_heading }}
+          {{ section.settings.option_1_heading }}
         </b>
       </h3>
       <img
-        src="{{ settings.option_1_image | image_url: width: 480 }}"
-        alt="{{ settings.option_1_heading }}"
+        src="{{ section.settings.option_1_image | image_url: width: 480 }}"
+        alt="{{ section.settings.option_1_heading }}"
         width="480"
         height="480"
         loading="lazy"
         class="comparison-element__image--img"
       >
       <div class="comparison-element__items">
-        {% if settings.option_1_line_item_1 %}
-          <div class="comparison-element__item">{{ settings.option_1_line_item_1 }}</div>
+        {% if section.settings.option_1_line_item_1 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_1_line_item_1 }}</b></div>
         {% endif %}
-        {% if settings.option_1_line_item_2 %}
-          <div class="comparison-element__item">{{ settings.option_1_line_item_2 }}</div>
+        {% if section.settings.option_1_line_item_2 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_1_line_item_2 }}</b></div>
         {% endif %}
-        {% if settings.option_1_line_item_3 %}
-          <div class="comparison-element__item">{{ settings.option_1_line_item_3 }}</div>
+        {% if section.settings.option_1_line_item_3 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_1_line_item_3 }}</b></div>
         {% endif %}
-        {% if settings.option_1_line_item_4 %}
-          <div class="comparison-element__item">{{ settings.option_1_line_item_4 }}</div>
+        {% if section.settings.option_1_line_item_4 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_1_line_item_4 }}</b></div>
         {% endif %}
-        {% if settings.option_1_line_item_5 %}
-          <div class="comparison-element__item">{{ settings.option_1_line_item_5 }}</div>
+        {% if section.settings.option_1_line_item_5 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_1_line_item_5 }}</b></div>
         {% endif %}
       </div>
     </div>
@@ -40,32 +40,32 @@
     <div class="comparison-element__right">
       <h3>
         <b>
-          {{ settings.option_2_heading }}
+          {{ section.settings.option_2_heading }}
         </b>
       </h3>
       <img
-        src="{{ settings.option_2_image | image_url: width: 480 }}"
-        alt="{{ settings.option_2_heading }}"
+        src="{{ section.settings.option_2_image | image_url: width: 480 }}"
+        alt="{{ section.settings.option_2_heading }}"
         width="480"
         height="480"
         loading="lazy"
         class="comparison-element__image--img"
       >
       <div class="comparison-element__items">
-        {% if settings.option_2_line_item_1 %}
-          <div class="comparison-element__item">{{ settings.option_2_line_item_1 }}</div>
+        {% if section.settings.option_2_line_item_1 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_2_line_item_1 }}</b></div>
         {% endif %}
-        {% if settings.option_2_line_item_2 %}
-          <div class="comparison-element__item">{{ settings.option_2_line_item_2 }}</div>
+        {% if section.settings.option_2_line_item_2 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_2_line_item_2 }}</b></div>
         {% endif %}
-        {% if settings.option_2_line_item_3 %}
-          <div class="comparison-element__item">{{ settings.option_2_line_item_3 }}</div>
+        {% if section.settings.option_2_line_item_3 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_2_line_item_3 }}</b></div>
         {% endif %}
-        {% if settings.option_2_line_item_4 %}
-          <div class="comparison-element__item">{{ settings.option_2_line_item_4 }}</div>
+        {% if section.settings.option_2_line_item_4 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_2_line_item_4 }}</b></div>
         {% endif %}
-        {% if settings.option_2_line_item_5 %}
-          <div class="comparison-element__item">{{ settings.option_2_line_item_5 }}</div>
+        {% if section.settings.option_2_line_item_5 != blank %}
+          <div class="comparison-element__item"><b>{{ section.settings.option_2_line_item_5 }}</b></div>
         {% endif %}
       </div>
     </div>

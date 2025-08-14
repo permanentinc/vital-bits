@@ -2,23 +2,87 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 6rem 2rem;
+    padding: 0 2rem;
 
     &__wrap {
         max-width: var(--content-width);
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
 
         @include media($md, max) {
             padding: 4rem 2rem;
         }
     }
+
+    &__image--img{
+        max-width: calc(100% - 4rem);
+    }
+
+    &__items {
+        position: relative;
+    }
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        border-bottom: 1px solid rgba(white, 0.3);
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+
+        &:last-of-type{
+            border-bottom: none;
+        }
+    }
+
+    &__left,
+    &__right {
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    &__left {
+        width: 50%;
+    }
+
+    &__vs {
+        width: 0;
+
+        span {
+            width: 6rem;
+            border-radius: 100%;
+            position: absolute;
+            top: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            aspect-ratio: 1;
+
+            b {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                color: white !important;
+            }
+        }
+    }
+
+    &__right {
+        width: 50%;
+        background: #F1F0E8;
+    }
 }
 
 [data-theme=""],
 [data-theme="pregnancy"] {
-    .list-item-element {
+    .comparison-element {
         * {
             color: var(--green);
         }
@@ -29,7 +93,7 @@
 [data-theme="postpartum"],
 [data-theme="c-section-delivery"],
 [data-theme="v-delivery"] {
-    .list-item-element {
+    .comparison-element {
         background: var(--purple-light);
 
         * {
@@ -43,10 +107,9 @@
 }
 
 [data-theme="breast-care"] {
-    .list-item-element {
+    .comparison-element {
         * {
             color: var(--pink);
         }
     }
 }
-
