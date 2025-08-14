@@ -193,49 +193,57 @@
         </div>
       {% endif %}
 
-      {% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
-        <div class="product-actions">
-          <div class="quantity">
-            <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
-            <div class="quantity-input">
-              <input type="text" value="1">
-            </div>
-            <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
-          </div>
-          {% form 'product', product %}
-  {%- if product.gift_card? -%}
-    {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-  {%- endif -%}
+{% form 'product', product, novalidate: 'novalidate', data-product-form: '' %}
+  <div class="product-actions">
+    
+    <!-- Quantity -->
+    <div class="quantity">
+      <div class="quantity-remove" onclick="changeQuantity(event,-1)">-</div>
+      <div class="quantity-input">
+        <input type="number" name="quantity" value="1" min="1" step="1" inputmode="numeric" pattern="[0-9]*">
+      </div>
+      <div class="quantity-add" onclick="changeQuantity(event,1)">+</div>
+    </div>
 
-  <!-- existing Buy buttons go here -->
+    <!-- Recipient fields: INSIDE the SAME form -->
+    {% if product.gift_card? %}
+      {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
+    {% endif %}
+
+    <!-- Variant selector: keep it inside the same form -->
+    <select
+      {% if product.variants.size == 1 %}
+        style="display:none;" class="[ js-variant ]"
+      {% else %}
+        class="[ js-variant ][ js-choices ]"
+      {% endif %}
+      name="id"
+      id="ProductSelect-{{ section.id }}"
+    >
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}">
+          {{ variant.title | downcase }}{% if variant.available == false %} - Sold out{% endif %}
+        </option>
+      {% endfor %}
+    </select>
+
+    {% unless product.available %}
+      <button class="button" disabled>Sold out</button>
+    {% else %}
+      <!-- Prefer a real submit button -->
+      <button type="submit" name="add" class="button">
+        Add to Cart <span class="loader"></span>
+      </button>
+      {%- comment -%}
+        If your theme *must* use an <a> with JS:
+        <a href="#" class="button js-add-to-cart">Add to Cart <span class="loader"></span></a>
+        Make sure the JS targets THIS form element (e.g., closest('form')).
+      {%- endcomment -%}
+    {% endunless %}
+
+  </div>
 {% endform %}
 
-          {% unless product.available %}
-            <a href="#" class="button" disabled>Sold out</a>
-          {% else %}
-            <a href="#" class="button [ js-add-to-cart ]">Add to Cart <span class="loader"></span></a>
-          {% endunless %}
-        </div>
-
-        <select
-          {% if product.variants.size == 1 %}
-            style="display:none;" class="[ js-variant ]"
-          {% else %}
-            class="[ js-variant ][ js-choices ]"
-          {% endif %}
-          name="id"
-          id="ProductSelect-{{ section.id }}"
-        >
-          {% for variant in product.variants %}
-            <option
-              value="{{ variant.id }}"
-            >
-              {{ variant.title | downcase }}
-              {%- if variant.available == false %} - Sold out{% endif %}
-            </option>
-          {% endfor %}
-        </select>
-      {% endform %}
       <div class="wiz">
         <div
           class="wizup-app sg-slider sg-floatingpop"
