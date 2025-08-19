@@ -180,22 +180,6 @@
       "type": "related-products-block",
       "name": "Related products",
       "settings": {}
-    },
-    "image_text_block_YQjVBM": {
-      "type": "image-text-block",
-      "name": "Text and Image",
-      "settings": {
-        "image": "shopify://shop_images/madxipad_snap.png",
-        "heading": "No matter how you delivered, we've got your core",
-        "text": "<h4><strong>C-Section Recovery</strong></h4><ul><li>Supports incision, reduces pulling and discomfort</li><li>Promotes posture to ease healing tissue strain</li><li>Minimises pain when moving or sitting up</li><li>Helps manage swelling and fluid post-op</li><li>Aids recovery from abdominal muscle separation</li><li>Adjustable fit avoids pressure on scar</li></ul><p></p><h4><strong>V-Delivery Recovery</strong></h4><ul><li>Gentle core support during postpartum recovery</li><li>Improves posture, reduced back strain while lifting</li><li>Provides a 'held together' secure feeling</li><li>Supports recovery from abdominal muscle separation</li><li>Helps reduce pelvic pressure and swelling</li></ul>",
-        "link_link": "",
-        "link_label": "",
-        "reverse_layout": false,
-        "smaller_image": false,
-        "background_color": "#E1EDF9",
-        "text_color": "#367B7F",
-        "link_colour": "green"
-      }
     }
   },
   "order": [
@@ -206,7 +190,6 @@
     "icons_block_MrUEHb",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
-    "related_products_block_3YdKaU",
-    "image_text_block_YQjVBM"
+    "related_products_block_3YdKaU"
   ]
 }
