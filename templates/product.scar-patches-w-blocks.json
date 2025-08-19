@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "175254656927b951ba": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    },
+    "benefits_block_aTb9y3": {
+      "type": "benefits-block",
+      "blocks": {
+        "icon_item_tEcPdY": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-soothes-post-birth-pain-purple-icon-vitalbits-small.png",
+            "title": "Soothes post birth pain"
+          }
+        },
+        "icon_item_iqnKdN": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-relieves-swelling-purple-icon-vitalbits-small.png",
+            "title": "Helps relieve swelling"
+          }
+        },
+        "icon_item_hhYyY3": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-universal-toilet-purple-icon-vitalbits-small.png",
+            "title": "Universal toilet fit"
+          }
+        },
+        "icon_item_8xNnJW": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-mess-free-purple-icon-vitalbits-small.png",
+            "title": "Mess free design"
+          }
+        },
+        "icon_item_Wg3qRQ": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-folds-for-storage-purple-icon-vitalbits-small.png",
+            "title": "Folds for storage"
+          }
+        },
+        "icon_item_UfJiEn": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/sitz-bath-easy-instant-use-purple-icon-vitalbits.png",
+            "title": "Easy instant use"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_tEcPdY",
+        "icon_item_iqnKdN",
+        "icon_item_hhYyY3",
+        "icon_item_8xNnJW",
+        "icon_item_Wg3qRQ",
+        "icon_item_UfJiEn"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "Key benefits",
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>sitz bath.</p>"
+      }
+    },
+    "list_item_block_pNqnJd": {
+      "type": "list-item-block",
+      "blocks": {
+        "list_item_8FEpNb": {
+          "type": "list_item",
+          "settings": {
+            "title": "Soothes Pain and Tenderness",
+            "copy": "<p>Relieves the sting from stitches,<br/>swelling, and stretched skin, giving you a moment of calm when everything else<br/>feels raw.</p>"
+          }
+        },
+        "list_item_izfRwg": {
+          "type": "list_item",
+          "settings": {
+            "title": "Reduces Swelling and Inflammation",
+            "copy": "<p>Warm water helps decrease swelling and improves blood flow, easing discomfort and speeding up recovery down there.</p>"
+          }
+        },
+        "list_item_VVAkWe": {
+          "type": "list_item",
+          "settings": {
+            "title": "Cleans Without Wiping",
+            "copy": "<p>Gentle rinsing keeps the area clean, especially helpful when wiping feels impossible or risky with stitches or tearing.</p>"
+          }
+        },
+        "list_item_UfWHAW": {
+          "type": "list_item",
+          "settings": {
+            "title": "Supports Faster Healing",
+            "copy": "<p>Daily use encourages circulation to the perineal area, which helps your body repair tissue and reduce soreness more quickly.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_8FEpNb",
+        "list_item_izfRwg",
+        "list_item_VVAkWe",
+        "list_item_UfWHAW"
+      ],
+      "name": "List Item",
+      "settings": {
+        "image": "shopify://shop_images/sitz-bath-main-benefits-vitalbits.png",
+        "heading": "Why it matters more than you think",
+        "text": "<p>Postpartum recovery isn’t just about bleeding. For many, sitting, peeing, or wiping is uncomfortable - even painful. A warm soak can make a real difference.</p>"
+      }
+    },
+    "text_text_image_block_qmyMJf": {
+      "type": "text-text-image-block",
+      "name": "Text Text and Image",
+      "settings": {
+        "text_left": "<h3><strong>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket.</strong></h3>",
+        "text_right": "<h6><strong>This helps their wraparound care for whānau, including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.</strong></h6>",
+        "image": "shopify://shop_images/pickme_clear.png"
+      }
+    },
+    "reviews_block_Qf3ULn": {
+      "type": "reviews-block",
+      "name": "Reviews",
+      "settings": {}
+    },
+    "related_products_block_3YdKaU": {
+      "type": "related-products-block",
+      "name": "Related products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "175254656927b951ba",
+    "benefits_block_aTb9y3",
+    "list_item_block_pNqnJd",
+    "text_text_image_block_qmyMJf",
+    "reviews_block_Qf3ULn",
+    "related_products_block_3YdKaU"
+  ]
+}
