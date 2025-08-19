@@ -156,6 +156,7 @@
         "icon_item_4jBJ78",
         "icon_item_AdpVat"
       ],
+      "disabled": true,
       "name": "Icon",
       "settings": {
         "heading": "Adjust to your preference",
@@ -196,6 +197,14 @@
         "text_color": "#367b7f",
         "link_colour": "green"
       }
+    },
+    "list_item_block_pNqnJd": {
+      "type": "list-item-block",
+      "name": "List Item",
+      "settings": {
+        "heading": "Why it matters more than you think",
+        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>"
+      }
     }
   },
   "order": [
@@ -207,6 +216,7 @@
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
     "related_products_block_3YdKaU",
-    "image_text_block_YQjVBM"
+    "image_text_block_YQjVBM",
+    "list_item_block_pNqnJd"
   ]
 }
