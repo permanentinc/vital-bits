@@ -114,52 +114,20 @@
         "heading": "Easy as 1.2.3."
       }
     },
-    "icons_block_MrUEHb": {
-      "type": "icons-block",
-      "blocks": {
-        "icon_item_P4M6WM": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/pregnancy-pillow-i-shape-icon-green-vitalbits.png",
-            "title": "I Shape",
-            "copy": "<ul><li>Simple, no-fuss body support</li><li>Aligns belly, back and knees</li><li>Great for couch or travel</li></ul>"
-          }
-        },
-        "icon_item_7WWbHb": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/pregnancy-pillow-l-shape-icon-green-vitalbits.png",
-            "title": "L Shape",
-            "copy": "<ul><li>Great for hips and belly</li><li>Takes the pressure off the knees</li><li>Aids upper body alignment</li></ul>"
-          }
-        },
-        "icon_item_4jBJ78": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/pregnancy-pillow-u-shape-icon-green-vitalbits.png",
-            "title": "U Shape",
-            "copy": "<ul><li>Dual-sided, wraparound comfort</li><li>Easy to roll between sides</li><li>Supports bump, back and knees</li></ul>"
-          }
-        },
-        "icon_item_AdpVat": {
-          "type": "icon_item",
-          "settings": {
-            "icon": "shopify://shop_images/pregnancy-pillow-c-shape-icon-green-vitalbits.png",
-            "title": "C Shape",
-            "copy": "<ul><li>Full-body, head-to-knee support</li><li>Promotes stable side sleeping</li><li>Reduces pressure on hips and back</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "icon_item_P4M6WM",
-        "icon_item_7WWbHb",
-        "icon_item_4jBJ78",
-        "icon_item_AdpVat"
-      ],
-      "name": "Icon",
+    "image_text_block_ALddYE": {
+      "type": "image-text-block",
+      "name": "Text and Image",
       "settings": {
-        "heading": "Adjust to your preference",
-        "text": ""
+        "image": "shopify://shop_images/belly-belt-benefits-vitalbits.jpg",
+        "heading": "No matter how you delivered, we’ve got your core",
+        "text": "<p><strong>C-Section Recovery</strong></p><ul><li>Supports incision, reduces pulling and discomfort</li><li>Promotes posture to ease healing tissue strain</li><li>Minimises pain when moving or sitting up</li><li>Helps manage swelling and fluid post-op</li><li>Aids recovery from abdominal muscle separation</li><li>Adjustable fit avoids pressure on your scar</li></ul><p></p><p><strong>V-Delivery Recovery</strong></p><ul><li>Gentle core support during postpartum recovery</li><li>Improves posture, reduces back strain while lifting</li><li>Provides a ‘held together’ secure feeling</li><li>Supports recovery from abdominal muscle separation</li><li>Helps reduce pelvic pressure and swelling</li></ul>",
+        "link_link": "",
+        "link_label": "",
+        "reverse_layout": false,
+        "smaller_image": false,
+        "background_color": "#dfdfee",
+        "text_color": "#ec5b44",
+        "link_colour": "orange"
       }
     },
     "text_text_image_block_qmyMJf": {
@@ -180,22 +148,6 @@
       "type": "related-products-block",
       "name": "Related products",
       "settings": {}
-    },
-    "image_text_block_ALddYE": {
-      "type": "image-text-block",
-      "name": "Text and Image",
-      "settings": {
-        "image": "shopify://shop_images/belly-belt-benefits-vitalbits.jpg",
-        "heading": "No matter how you delivered, we’ve got your core",
-        "text": "<p><strong>C-Section Recovery</strong></p><ul><li>Supports incision, reduces pulling and discomfort</li><li>Promotes posture to ease healing tissue strain</li><li>Minimises pain when moving or sitting up</li><li>Helps manage swelling and fluid post-op</li><li>Aids recovery from abdominal muscle separation</li><li>Adjustable fit avoids pressure on your scar</li></ul><p></p><p><strong>V-Delivery Recovery</strong></p><ul><li>Gentle core support during postpartum recovery</li><li>Improves posture, reduces back strain while lifting</li><li>Provides a ‘held together’ secure feeling</li><li>Supports recovery from abdominal muscle separation</li><li>Helps reduce pelvic pressure and swelling</li></ul>",
-        "link_link": "",
-        "link_label": "",
-        "reverse_layout": false,
-        "smaller_image": false,
-        "background_color": "#dfdfee",
-        "text_color": "#ec5b44",
-        "link_colour": "orange"
-      }
     }
   },
   "order": [
@@ -203,10 +155,9 @@
     "175254656927b951ba",
     "benefits_block_aTb9y3",
     "steps_block_374MtM",
-    "icons_block_MrUEHb",
+    "image_text_block_ALddYE",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
-    "related_products_block_3YdKaU",
-    "image_text_block_ALddYE"
+    "related_products_block_3YdKaU"
   ]
 }
