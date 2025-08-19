@@ -75,7 +75,7 @@
       "name": "Benefits",
       "settings": {
         "heading": "Key benefits",
-        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>pregnancy pillow.</p>"
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>sitz bath.</p>"
       }
     },
     "steps_block_374MtM": {
@@ -192,8 +192,8 @@
         "link_label": "",
         "reverse_layout": false,
         "smaller_image": false,
-        "background_color": "#E1EDF9",
-        "text_color": "#367B7F",
+        "background_color": "#e1edf9",
+        "text_color": "#367b7f",
         "link_colour": "green"
       }
     }
