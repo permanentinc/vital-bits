@@ -207,10 +207,34 @@
             "title": "Soothes Pain and Tenderness",
             "copy": "<p>Relieves the sting from stitches,<br/>swelling, and stretched skin, giving you a moment of calm when everything else<br/>feels raw.</p>"
           }
+        },
+        "list_item_izfRwg": {
+          "type": "list_item",
+          "settings": {
+            "title": "Reduces Swelling and Inflammation",
+            "copy": "<p>Warm water helps decrease swelling and improves blood flow, easing discomfort and speeding up recovery down there.</p>"
+          }
+        },
+        "list_item_VVAkWe": {
+          "type": "list_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet",
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+          }
+        },
+        "list_item_UfWHAW": {
+          "type": "list_item",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet",
+            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+          }
         }
       },
       "block_order": [
-        "list_item_8FEpNb"
+        "list_item_8FEpNb",
+        "list_item_izfRwg",
+        "list_item_VVAkWe",
+        "list_item_UfWHAW"
       ],
       "name": "List Item",
       "settings": {
