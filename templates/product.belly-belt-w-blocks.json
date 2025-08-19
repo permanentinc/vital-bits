@@ -192,9 +192,9 @@
         "link_label": "",
         "reverse_layout": false,
         "smaller_image": false,
-        "background_color": "#E1EDF9",
-        "text_color": "#367B7F",
-        "link_colour": "green"
+        "background_color": "#dfdfee",
+        "text_color": "#ec5b44",
+        "link_colour": "orange"
       }
     }
   },
