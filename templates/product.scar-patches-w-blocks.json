@@ -108,13 +108,21 @@
             "title": "Safe for Postpartum Recovery",
             "copy": "<p>Gentle on sensitive, post-C-section skin. Use once your incision has healed.</p>"
           }
+        },
+        "list_item_NC8YyP": {
+          "type": "list_item",
+          "settings": {
+            "title": "",
+            "copy": "<p>O’Brien et al., 2015. Silicone gel sheeting is recommended as first-line scar therapy. J Plast Reconstr Aesthet Surg. Lee et al., 2024. Consistent use of silicone sheets (4+ days/week) improves scar visibility. J Wound Manag Res.</p>"
+          }
         }
       },
       "block_order": [
         "list_item_8FEpNb",
         "list_item_izfRwg",
         "list_item_VVAkWe",
-        "list_item_UfWHAW"
+        "list_item_UfWHAW",
+        "list_item_NC8YyP"
       ],
       "name": "List Item",
       "settings": {
