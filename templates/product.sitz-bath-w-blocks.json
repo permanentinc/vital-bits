@@ -202,8 +202,9 @@
       "type": "list-item-block",
       "name": "List Item",
       "settings": {
+        "image": "shopify://shop_images/sitz-bath-main-benefits-vitalbits.png",
         "heading": "Why it matters more than you think",
-        "text": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam. Et ducimus aperiam est nihil unde ut corporis maxime ut consequatur magnam ut consequatur voluptatem. Et delectus facere quo aspernatur temporibus ut quia ipsam et possimus eius ut necessitatibus blanditiis et eius voluptatem aut incidunt quia.</p>"
+        "text": "<p>Postpartum recovery isn’t just about bleeding. For many, sitting, peeing, or wiping is uncomfortable - even painful. A warm soak can make a real difference.</p>"
       }
     }
   },
