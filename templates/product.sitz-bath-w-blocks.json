@@ -200,6 +200,18 @@
     },
     "list_item_block_pNqnJd": {
       "type": "list-item-block",
+      "blocks": {
+        "list_item_8FEpNb": {
+          "type": "list_item",
+          "settings": {
+            "title": "Soothes Pain and Tenderness",
+            "copy": "<p>Relieves the sting from stitches,<br/>swelling, and stretched skin, giving you a moment of calm when everything else<br/>feels raw.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_8FEpNb"
+      ],
       "name": "List Item",
       "settings": {
         "image": "shopify://shop_images/sitz-bath-main-benefits-vitalbits.png",
