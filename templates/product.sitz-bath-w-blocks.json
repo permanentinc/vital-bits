@@ -219,14 +219,14 @@
           "type": "list_item",
           "settings": {
             "title": "Cleans Without Wiping",
-            "copy": "<p>Gentle rinsing keeps the area clean, especially helpful when wiping feels impossible or risky with stitches or tearing.<br/><br/><br/><br/></p>"
+            "copy": "<p>Gentle rinsing keeps the area clean, especially helpful when wiping feels impossible or risky with stitches or tearing.</p>"
           }
         },
         "list_item_UfWHAW": {
           "type": "list_item",
           "settings": {
-            "title": "Lorem ipsum dolor sit amet",
-            "copy": "<p>Lorem ipsum dolor sit amet. Et fuga nemo eum temporibus sint At perspiciatis deserunt ab nulla quia id fugiat voluptatem ad suscipit numquam.</p>"
+            "title": "Supports Faster Healing",
+            "copy": "<p>Daily use encourages circulation to the perineal area, which helps your body repair tissue and reduce soreness more quickly.</p>"
           }
         }
       },
