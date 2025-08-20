@@ -1,19 +1,23 @@
 <div class="element image-element {% if section.settings.reverse_layout %}image-element--reversed{%- endif -%} {% if section.settings.smaller_image %}image-element--smaller-image{%- endif -%}">
   <div class="image-element__background" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="image-element__wrap image-element__wrap--{$Width}">
+       
+      {% if section.settings.heading != blank %}
+        <h2 class="image-element__wrap__heading " style="color: {{ section.settings.text_color }};">
+          <b class="coloured--background" style="color: {{ section.settings.text_color }};">{{ section.settings.heading }}</b>
+        </h2>
+      {% endif %}
+
     <div class="image-element__wrap__image">
       {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
     </div>
 
     <div class="image-element__wrap__text"  style="color: {{ section.settings.text_color }};" data-color="{{ section.settings.background_color }}">
-      
-      {% if section.settings.heading != blank %}
-        <h2 class="image-element__wrap__text__heading" style="color: {{ section.settings.text_color }};">
-          <b style="color: {{ section.settings.text_color }};">{{ section.settings.heading }}</b>
-        </h2>
-      {% endif %}
+   
 
-      {{ section.settings.text }}
+      <div style="color: {{ section.settings.text_color }};">
+     {{ section.settings.text }}
+      </div>
 
       {% if section.settings.link_link != blank %}
         <p class="">

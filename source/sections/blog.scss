@@ -1,7 +1,7 @@
 .blog {
     position: relative;
     overflow: hidden;
-    padding-top: 16rem; 
+    padding-top: 16rem;
     padding-bottom: 8rem;
 
     &-content {
@@ -46,6 +46,7 @@ List items
 ------------------------------------------------------------------*/
 
 ul {
+    width: 100%;
     list-style: none;
     margin: 0 auto 3rem;
     word-break: break-word;
@@ -98,7 +99,7 @@ ol {
             @include pseudo;
             top: 4%;
             left: 0rem;
-            content: counter(counter) '.';
+            content: counter(counter) ".";
             color: inherit;
             font-size: 1.2rem;
             color: var(--green);
@@ -109,7 +110,7 @@ ol {
             counter-increment: internalcounter;
 
             &:before {
-                content: counter(internalcounter) '.';
+                content: counter(internalcounter) ".";
             }
         }
     }

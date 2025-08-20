@@ -34,8 +34,14 @@ Image and text blocka
     position: relative;
     z-index: 3;
 
+    &__heading {
+      width: 100%;
+      text-align: center;
+      margin: 4rem auto;
+    }
+
     &__image {
-      width: 50%;
+      width: 45%;
       position: relative;
       display: flex;
       flex-wrap: wrap;
@@ -51,16 +57,23 @@ Image and text blocka
       img {
         width: 100%;
         height: auto;
+        border-radius: 100rem;
+        max-width: 55rem;
       }
     }
 
     &__text {
-      width: 50%;
+      width: 55%;
       padding: 8rem;
       position: relative;
       display: flex;
       flex-wrap: wrap;
       align-content: center;
+
+      p,
+      li {
+        color: inherit;
+      }
 
       @include media($md, max) {
         width: 100%;
