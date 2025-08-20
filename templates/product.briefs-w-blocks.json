@@ -24,43 +24,43 @@
         "icon_item_tEcPdY": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-soothes-post-birth-pain-purple-icon-vitalbits-small.png",
-            "title": "Soothes post birth pain"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-high-waisted-comfort-purple-vitalbits-small.png",
+            "title": "High-waisted comfort"
           }
         },
         "icon_item_iqnKdN": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-relieves-swelling-purple-icon-vitalbits-small.png",
-            "title": "Helps relieve swelling"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-seam-free-purple-vitalbits-smal.png",
+            "title": "Seam-free for zero irritation"
           }
         },
         "icon_item_hhYyY3": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-universal-toilet-purple-icon-vitalbits-small.png",
-            "title": "Universal toilet fit"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-secure-fit-purple-vitalbits-small.png",
+            "title": "Secure pad support"
           }
         },
         "icon_item_8xNnJW": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-mess-free-purple-icon-vitalbits-small.png",
-            "title": "Mess free design"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-no-laundry-needed-purple-vitalbits-small.png",
+            "title": "No laundry needed"
           }
         },
         "icon_item_Wg3qRQ": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-folds-for-storage-purple-icon-vitalbits-small.png",
-            "title": "Folds for storage"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-made-for-postpartum-purple-vitalbits-small.png",
+            "title": "Made for postpartum"
           }
         },
         "icon_item_UfJiEn": {
           "type": "icon_item",
           "settings": {
-            "icon": "shopify://shop_images/sitz-bath-easy-instant-use-purple-icon-vitalbits.png",
-            "title": "Easy instant use"
+            "icon": "shopify://shop_images/disposable-postpartum-briefs-vaginal-cesarean-ready-purple-vitalbits-small.png",
+            "title": "Vaginal and c-section ready"
           }
         }
       },
@@ -75,7 +75,7 @@
       "name": "Benefits",
       "settings": {
         "heading": "Key benefits",
-        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>sitz bath.</p>"
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>disposable briefs.</p>"
       }
     },
     "comparison_block_MRdab6": {
