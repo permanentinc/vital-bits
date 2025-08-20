@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "175254656927b951ba": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    },
+    "benefits_block_aTb9y3": {
+      "type": "benefits-block",
+      "blocks": {
+        "icon_item_tEcPdY": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-medical-grade-silicone-purple-icon-vitalbits-small.png",
+            "title": "Medical grade silicone"
+          }
+        },
+        "icon_item_iqnKdN": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-reduces-scar-visibility-purple-icon-vitalbits-small.png",
+            "title": "Reduces scar visibility"
+          }
+        },
+        "icon_item_hhYyY3": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-soft-flexible-purple-icon-vitalbits-small.png",
+            "title": "Soft and flexible"
+          }
+        },
+        "icon_item_8xNnJW": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-csection-safe-purple-icon-vitalbits-small.png",
+            "title": "C-section safe"
+          }
+        },
+        "icon_item_Wg3qRQ": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-reusable-patches-purple-icon-vitalbits-small.png",
+            "title": "Reusable patches"
+          }
+        },
+        "icon_item_UfJiEn": {
+          "type": "icon_item",
+          "settings": {
+            "icon": "shopify://shop_images/cesarean-scar-patches-no-mess-purple-icon-vitalbits-small.png",
+            "title": "No mess"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_tEcPdY",
+        "icon_item_iqnKdN",
+        "icon_item_hhYyY3",
+        "icon_item_8xNnJW",
+        "icon_item_Wg3qRQ",
+        "icon_item_UfJiEn"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "heading": "Key benefits",
+        "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>silicone scar patches.</p>"
+      }
+    },
+    "list_item_block_pNqnJd": {
+      "type": "list-item-block",
+      "blocks": {
+        "list_item_8FEpNb": {
+          "type": "list_item",
+          "settings": {
+            "title": "Clinically Proven",
+            "copy": "<p>Widely used by surgeons for scar therapy. Studies show visible improvement in scar thickness, colour, and texture over time.</p>"
+          }
+        },
+        "list_item_izfRwg": {
+          "type": "list_item",
+          "settings": {
+            "title": "Backed by Experts",
+            "copy": "<p>Recognised as the gold standard in non-invasive scar treatment by dermatologists and wound-care specialists.</p>"
+          }
+        },
+        "list_item_VVAkWe": {
+          "type": "list_item",
+          "settings": {
+            "title": "Comfortable for Daily Use",
+            "copy": "<p>Thin, flexible, and breathable – easy to wear under clothes without irritation.</p>"
+          }
+        },
+        "list_item_UfWHAW": {
+          "type": "list_item",
+          "settings": {
+            "title": "Safe for Postpartum Recovery",
+            "copy": "<p>Gentle on sensitive, post-C-section skin. Use once your incision has healed.</p>"
+          }
+        },
+        "list_item_NC8YyP": {
+          "type": "list_item",
+          "settings": {
+            "title": "",
+            "copy": "<p>O’Brien et al., 2015. Silicone gel sheeting is recommended as first-line scar therapy. J Plast Reconstr Aesthet Surg. Lee et al., 2024. Consistent use of silicone sheets (4+ days/week) improves scar visibility. J Wound Manag Res.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_8FEpNb",
+        "list_item_izfRwg",
+        "list_item_VVAkWe",
+        "list_item_UfWHAW",
+        "list_item_NC8YyP"
+      ],
+      "name": "List Item",
+      "settings": {
+        "image": "shopify://shop_images/csection-scar-patches-advantages-vitalbits.png",
+        "heading": "Why Medical Grade Silicone Works",
+        "text": "<p>Our scar patches are made with medical-grade silicone - the same material used by surgeons and physios to support post-op<br/>healing. It's clinically proven to help reduce the appearance of scars, including those from C-sections, by softening, flattening, and fading them over time.</p>"
+      }
+    },
+    "text_text_image_block_qmyMJf": {
+      "type": "text-text-image-block",
+      "name": "Text Text and Image",
+      "settings": {
+        "text_left": "<h3><strong>5% of every Pick Me, Help Plunket Vital Bits product goes directly to Plunket.</strong></h3>",
+        "text_right": "<h6><strong>This helps their wraparound care for whānau, including health checks; guidance and advice for caregivers through services like PlunketLine and community services that make a tangible difference for tamariki and their families across Aotearoa. Because pregnancy and postpartum care isn’t just about products - it’s about feeling supported through the hard bits, the healing bits, and the ‘what now?’ bits.</strong></h6>",
+        "image": "shopify://shop_images/pickme_clear.png"
+      }
+    },
+    "reviews_block_Qf3ULn": {
+      "type": "reviews-block",
+      "name": "Reviews",
+      "settings": {}
+    },
+    "related_products_block_3YdKaU": {
+      "type": "related-products-block",
+      "name": "Related products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "175254656927b951ba",
+    "benefits_block_aTb9y3",
+    "list_item_block_pNqnJd",
+    "text_text_image_block_qmyMJf",
+    "reviews_block_Qf3ULn",
+    "related_products_block_3YdKaU"
+  ]
+}
