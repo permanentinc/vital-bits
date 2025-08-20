@@ -78,49 +78,22 @@
         "text": "<p>Just some of the incredible benefits<br/>you can experience when using our<br/>sitz bath.</p>"
       }
     },
-    "list_item_block_pNqnJd": {
-      "type": "list-item-block",
-      "blocks": {
-        "list_item_8FEpNb": {
-          "type": "list_item",
-          "settings": {
-            "title": "Soothes Pain and Tenderness",
-            "copy": "<p>Relieves the sting from stitches,<br/>swelling, and stretched skin, giving you a moment of calm when everything else<br/>feels raw.</p>"
-          }
-        },
-        "list_item_izfRwg": {
-          "type": "list_item",
-          "settings": {
-            "title": "Reduces Swelling and Inflammation",
-            "copy": "<p>Warm water helps decrease swelling and improves blood flow, easing discomfort and speeding up recovery down there.</p>"
-          }
-        },
-        "list_item_VVAkWe": {
-          "type": "list_item",
-          "settings": {
-            "title": "Cleans Without Wiping",
-            "copy": "<p>Gentle rinsing keeps the area clean, especially helpful when wiping feels impossible or risky with stitches or tearing.</p>"
-          }
-        },
-        "list_item_UfWHAW": {
-          "type": "list_item",
-          "settings": {
-            "title": "Supports Faster Healing",
-            "copy": "<p>Daily use encourages circulation to the perineal area, which helps your body repair tissue and reduce soreness more quickly.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "list_item_8FEpNb",
-        "list_item_izfRwg",
-        "list_item_VVAkWe",
-        "list_item_UfWHAW"
-      ],
-      "name": "List Item",
+    "comparison_block_MRdab6": {
+      "type": "comparison-block",
+      "name": "Comparison Block",
       "settings": {
-        "image": "shopify://shop_images/sitz-bath-main-benefits-vitalbits.png",
-        "heading": "Why it matters more than you think",
-        "text": "<p>Postpartum recovery isn’t just about bleeding. For many, sitting, peeing, or wiping is uncomfortable - even painful. A warm soak can make a real difference.</p>"
+        "option_1_heading": "Our briefs",
+        "option_1_line_item_1": "Soft, comfy mesh",
+        "option_1_line_item_2": "Holds heavy pads securely",
+        "option_1_line_item_3": "High-waisted and C-section friendly",
+        "option_1_line_item_4": "Durable fit",
+        "option_1_line_item_5": "",
+        "option_2_heading": "Other brands",
+        "option_2_line_item_1": "Scratchy or stiff material",
+        "option_2_line_item_2": "Falls down easily",
+        "option_2_line_item_3": "Not ideal for stitches",
+        "option_2_line_item_4": "Flimsy feel",
+        "option_2_line_item_5": ""
       }
     },
     "text_text_image_block_qmyMJf": {
@@ -147,7 +120,7 @@
     "main",
     "175254656927b951ba",
     "benefits_block_aTb9y3",
-    "list_item_block_pNqnJd",
+    "comparison_block_MRdab6",
     "text_text_image_block_qmyMJf",
     "reviews_block_Qf3ULn",
     "related_products_block_3YdKaU"
