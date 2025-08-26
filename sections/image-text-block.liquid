@@ -8,7 +8,7 @@
         </h2>
       {% endif %}
 
-    <div class="image-element__wrap__image">
+    <div class="image-element__wrap__image {% if section.settings.round_image %}image-element__wrap__image--round{% endif %}">
       {{ section.settings.image | image_url: width: 1200 | image_url: height: 800 | image_tag }}
     </div>
 
@@ -79,6 +79,12 @@
       "type": "checkbox",
       "id": "reverse_layout",
       "label": "Reverse layout",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "round_image",
+      "label": "Round image",
       "default": false
     },
     {

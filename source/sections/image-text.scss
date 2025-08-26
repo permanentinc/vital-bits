@@ -57,8 +57,14 @@ Image and text blocka
       img {
         width: 100%;
         height: auto;
-        border-radius: 100rem;
+        // border-radius: 100rem;
         max-width: 55rem;
+      }
+
+      &.image-element__wrap__image--round {
+        img {
+          border-radius: 100rem;
+        }
       }
     }
 
