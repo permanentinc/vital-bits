@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailInput = $('#recipient-email');
     const nameInput = $('#recipient-name');
     const messageInput = $('#recipient-message');
-
-    $giftCheckbox.addEventListener('change', function () {
-        if ($giftCheckbox.checked) {
-           $giftForm.innerHTML=`<h5><b>Gift/Send to someone else</b></h5>
+    if ($giftCheckbox) {
+        $giftCheckbox.addEventListener('change', function () {
+            if ($giftCheckbox.checked) {
+                $giftForm.innerHTML = `<h5><b>Gift/Send to someone else</b></h5>
 
   <div class="field">
     <label for="recipient-email">Recipient email*</label>
@@ -56,15 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
     <textarea id="recipient-message" name="properties[Message]" maxlength="200"></textarea>
   </div>
 
-  <!-- Required flag so Shopify validates and sends the gift card -->
   <input type="hidden" id="send-gift-card" name="properties[__shopify_send_gift_card_to_recipient]" value="false">
 `
-            $giftForm.style.display = '';
-        } else {
-           $giftForm.innerHTML=``;
-            $giftForm.style.display = 'none';
-        }
-    });
+                $giftForm.style.display = '';
+            } else {
+                $giftForm.innerHTML = ``;
+                $giftForm.style.display = 'none';
+            }
+        });
+    }
 
 
     // find an em tag inside an A tag a inside grid-with-text__copy and make the a tag have a button class
