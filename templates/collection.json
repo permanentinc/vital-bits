@@ -14,6 +14,13 @@
       "disabled": true,
       "settings": {}
     },
+    "text_banner_x4MqMb": {
+      "type": "text-banner",
+      "name": "Text Banner",
+      "settings": {
+        "heading": "CARE PACKS"
+      }
+    },
     "03b62737-0d59-41b2-a53d-4092c2c042d8": {
       "type": "banner",
       "disabled": true,
@@ -22,7 +29,10 @@
         "image": "shopify://shop_images/collection_banner.jpg",
         "link_label": "",
         "link_link": "",
-        "height": "normal"
+        "height": "normal",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.3,
+        "show_button": false
       }
     },
     "product-grid": {
@@ -32,6 +42,7 @@
   },
   "order": [
     "banner",
+    "text_banner_x4MqMb",
     "03b62737-0d59-41b2-a53d-4092c2c042d8",
     "product-grid"
   ]
