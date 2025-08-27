@@ -737,7 +737,7 @@ const updateSlider = (e) => {
                     ${unescapeHtml(window.metafields[product.id].badge)}
                     </div>
                     <div class="collections__slider__item__title">
-                        ${description}
+                        ${window.metafields[product.id].short_description}
                     </div>
                     `;
 

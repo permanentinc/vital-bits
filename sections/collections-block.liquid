@@ -178,6 +178,7 @@
     window.metafields['{{ product.id }}'] = {
       id: '{{ product.id }}',
       badge: '{{ product.metafields.judgeme.badge | escape }}',
+      short_description: '{{ product.metafields.custom.short_description | escape }}'
     };
   {%- endfor -%}
   {%- endfor -%}

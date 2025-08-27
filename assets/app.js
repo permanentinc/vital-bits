@@ -221,7 +221,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 <p>
                   <a href="${s}" class="button">Shop all</a>
                 </p>
-            `,t.forEach(e=>{window.flkty.remove(e)}),x(".collections").setAttribute("data-theme",i.toLowerCase().replace(/ /g,"-"));var o=[];if(e.products.forEach(e=>{let t=e.body_html.match(/<p>(.*?)<\/p>/)[0],n=document.createElement("a");n.classList.add("collections__slider__item"),n.classList.add("collections__slider__item--product"),n.setAttribute("href","/products/"+e.handle),n.innerHTML=`
+            `,t.forEach(e=>{window.flkty.remove(e)}),x(".collections").setAttribute("data-theme",i.toLowerCase().replace(/ /g,"-"));var o=[];if(e.products.forEach(e=>{e.body_html.match(/<p>(.*?)<\/p>/)[0];let t=document.createElement("a");t.classList.add("collections__slider__item"),t.classList.add("collections__slider__item--product"),t.setAttribute("href","/products/"+e.handle),t.innerHTML=`
                     <div
                       class="collections__slider__item__quickview [ js-show-quickview ]"
                       data-tooltip
@@ -248,9 +248,9 @@ PERFORMANCE OF THIS SOFTWARE.
                     ${function(e){let t=document.createElement("textarea");return t.innerHTML=e,t.value}(window.metafields[e.id].badge)}
                     </div>
                     <div class="collections__slider__item__title">
-                        ${t}
+                        ${window.metafields[e.id].short_description}
                     </div>
-                    `,o.push(n)}),0===e.products.length){let e=document.createElement("div");e.classList.add("collections__slider__item"),e.classList.add("collections__slider__item--empty"),e.innerHTML=`<div class="collections__slider__item collections__slider__item--empty">
+                    `,o.push(t)}),0===e.products.length){let e=document.createElement("div");e.classList.add("collections__slider__item"),e.classList.add("collections__slider__item--empty"),e.innerHTML=`<div class="collections__slider__item collections__slider__item--empty">
                     <div class="collections__slider__item__inner">
                     <h1>
                       <b>COMING <BR>SOON</b>
