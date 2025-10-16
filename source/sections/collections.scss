@@ -647,7 +647,8 @@
             -webkit-text-stroke-color: var(--pink);
         }
     }
-
+    
+    &[data-theme="care-packs"],
     &[data-theme="pregnancy"] {
         background: var(--blue-light) !important;
 
