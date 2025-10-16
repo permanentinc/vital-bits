@@ -705,7 +705,7 @@ const updateSlider = (e) => {
                 data.products.forEach((product) => {
                     let full_description = product.body_html;
                     // extract the first paragraph from the description
-                    let description = full_description.match(/<p>(.*?)<\/p>/)[0];
+                    // let description = full_description.match(/<p>(.*?)<\/p>/)[0];
                     let newElement = document.createElement('a');
                     newElement.classList.add('collections__slider__item');
                     newElement.classList.add('collections__slider__item--product');
