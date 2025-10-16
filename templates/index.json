@@ -36,14 +36,6 @@
             "Collection": "v-delivery"
           }
         },
-        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
-          "type": "collection_item",
-          "disabled": true,
-          "settings": {
-            "copy": "Care for your core (and everything else). Gentle, supportive essentials to help with incision care, movement, and all the unexpected bits that follow major surgery.",
-            "Collection": "c-section-delivery"
-          }
-        },
         "d378cc3d-6a59-4d94-b5df-516c0967eff0": {
           "type": "collection_item",
           "settings": {
@@ -64,14 +56,21 @@
             "copy": "For the bits that leak, ache, and need a break. Breastfeeding is tough - these essentials are designed to ease pain, support your supply, and help you feel more like you.",
             "Collection": "breast-care"
           }
+        },
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac": {
+          "type": "collection_item",
+          "settings": {
+            "copy": "Everything you need for postpartum healing, in one no-fuss bundle. Whether you’ve had a vaginal birth or a C-section, this kit is packed with expert-backed essentials to help you heal, feel comfortable, and get back to feeling like yourself again. No fluff - just the stuff that actually helps.",
+            "Collection": "care-packs"
+          }
         }
       },
       "block_order": [
         "26b9ebd2-ff12-4d6f-b12a-0195c4812106",
-        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac",
         "d378cc3d-6a59-4d94-b5df-516c0967eff0",
         "collection_item_GBdkyR",
-        "d683b406-8e0d-447b-ae6c-56ad44da3326"
+        "d683b406-8e0d-447b-ae6c-56ad44da3326",
+        "e6afb53a-37d9-4935-a852-5bcf9b9f45ac"
       ],
       "settings": {
         "marquee": "Through life's most vital moments."
@@ -87,6 +86,7 @@
         "link_link": "https://vitalbits.co.nz/pages/proud-to-be-a-pick-me-help-plunket-brand",
         "link_label": "Read more",
         "reverse_layout": false,
+        "round_image": false,
         "smaller_image": false,
         "background_color": "#f5d6dc",
         "text_color": "#703f6c",
