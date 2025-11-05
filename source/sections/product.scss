@@ -342,6 +342,7 @@
         &-price {
             position: relative;
 
+
             .jdgm-widget {
                 position: absolute;
                 left: 13rem;
@@ -350,8 +351,9 @@
         }
 
         &-old-price {
-            position: relative;
-            font-size: 70%;
+            position: absolute;
+            font-size: 50%;
+            bottom: calc(100% - 0.5rem);
 
             &:after {
                 @include pseudo;
