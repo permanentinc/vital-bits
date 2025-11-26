@@ -15,7 +15,9 @@
 
   {% render 'grid-slide' %}
 
-  {% assign ordered_collections = 'pregnancy,postpartum,v-delivery,c-section-delivery,care-packs,breast-care' | split: ',' %}
+  {% assign ordered_collections = 'pregnancy,postpartum,v-delivery,c-section-delivery,care-packs,breast-care'
+    | split: ','
+  %}
 
   <div class="collection-grid__list">
     {% for ordered_handle in ordered_collections %}
@@ -37,6 +39,13 @@
             Item
           {% endcomment %}
           <div class="collection-grid__list__item collection-grid__list__item--product">
+            {% assign on_sale = false %}
+            {% if product.compare_at_price > product.price %}
+              {%- assign on_sale = true -%}
+            {% endif %}
+            {% if on_sale %}
+              <span class="sale-item">SALE</span>
+            {% endif %}
             <div
               class="collections__slider__item__quickview [ js-show-quickview ]"
               data-tooltip
@@ -74,15 +83,18 @@
                 <b>{{ product.title }}</b>
               </h6>
               <h6>
+                {% if on_sale %}
+                  <span class="old-price"> {{ product.compare_at_price | money }}</span>
+                {% endif %}
                 <b>{{ product.price | money }}</b>
               </h6>
             </a>
             <a href="{{ product.url }}" class="">
-            <!-- Start of Judge.me code -->
-            <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
-              {{ product.metafields.judgeme.badge }}
-            </div>
-            <!-- End of Judge.me code -->
+              <!-- Start of Judge.me code -->
+              <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+                {{ product.metafields.judgeme.badge }}
+              </div>
+              <!-- End of Judge.me code -->
             </a>
             <a href="{{ product.url }}" class="collection-grid__list__item__description">
               <p>{{ product.metafields.custom.short_description }}</p>

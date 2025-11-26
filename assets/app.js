@@ -221,7 +221,8 @@ PERFORMANCE OF THIS SOFTWARE.
                 <p>
                   <a href="${s}" class="button">Shop all</a>
                 </p>
-            `,t.forEach(e=>{window.flkty.remove(e)}),x(".collections").setAttribute("data-theme",i.toLowerCase().replace(/ /g,"-"));var o=[];if(e.products.forEach(e=>{e.body_html;let t=document.createElement("a");t.classList.add("collections__slider__item"),t.classList.add("collections__slider__item--product"),t.setAttribute("href","/products/"+e.handle),t.innerHTML=`
+            `,t.forEach(e=>{window.flkty.remove(e)}),x(".collections").setAttribute("data-theme",i.toLowerCase().replace(/ /g,"-"));var o=[];if(e.products.forEach(e=>{console.log(e.variants[0].compare_at_price);let t=!1;e.variants[0].compare_at_price>e.variants[0].price&&(t=!0),e.body_html;let n=document.createElement("a");n.classList.add("collections__slider__item"),n.classList.add("collections__slider__item--product"),n.setAttribute("href","/products/"+e.handle),n.innerHTML=`
+                    ${t?'<span class="sale-item">SALE</span>':""}
                     <div
                       class="collections__slider__item__quickview [ js-show-quickview ]"
                       data-tooltip
@@ -242,7 +243,10 @@ PERFORMANCE OF THIS SOFTWARE.
                     <div class="collections__slider__item__title">
                        
                         <h6><b>${e.title}</b></h6>
-                        <h6><b>${e.variants[0].price}</b></h6>
+                        <h6>
+                        ${t?`<span class="old-price">$${e.variants[0].compare_at_price}</span>`:""}
+                        <b>${e.variants[0].price}</b>
+                        </h6>
                     </div>
                     <div class="jdgm-widget jdgm-preview-badge" data-id="${e.id}" >
                     ${function(e){let t=document.createElement("textarea");return t.innerHTML=e,t.value}(window.metafields[e.id].badge)}
@@ -250,7 +254,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     <div class="collections__slider__item__title">
                         ${window.metafields[e.id].short_description}
                     </div>
-                    `,o.push(t)}),0===e.products.length){let e=document.createElement("div");e.classList.add("collections__slider__item"),e.classList.add("collections__slider__item--empty"),e.innerHTML=`<div class="collections__slider__item collections__slider__item--empty">
+                    `,o.push(n)}),0===e.products.length){let e=document.createElement("div");e.classList.add("collections__slider__item"),e.classList.add("collections__slider__item--empty"),e.innerHTML=`<div class="collections__slider__item collections__slider__item--empty">
                     <div class="collections__slider__item__inner">
                     <h1>
                       <b>COMING <BR>SOON</b>

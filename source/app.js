@@ -703,6 +703,13 @@ const updateSlider = (e) => {
                 var newItems = [];
 
                 data.products.forEach((product) => {
+                    console.log(product.variants[0].compare_at_price)
+
+                    let is_on_sale = false;
+                    if (product.variants[0].compare_at_price > product.variants[0].price) {
+                        is_on_sale = true;
+                    }
+
                     let full_description = product.body_html;
                     // extract the first paragraph from the description
                     // let description = full_description.match(/<p>(.*?)<\/p>/)[0];
@@ -711,6 +718,7 @@ const updateSlider = (e) => {
                     newElement.classList.add('collections__slider__item--product');
                     newElement.setAttribute('href', '/products/' + product.handle);
                     newElement.innerHTML = `
+                    ${(is_on_sale) ? `<span class="sale-item">SALE</span>` : ''}
                     <div
                       class="collections__slider__item__quickview [ js-show-quickview ]"
                       data-tooltip
@@ -731,7 +739,10 @@ const updateSlider = (e) => {
                     <div class="collections__slider__item__title">
                        
                         <h6><b>${product.title}</b></h6>
-                        <h6><b>${product.variants[0].price}</b></h6>
+                        <h6>
+                        ${(is_on_sale) ? `<span class="old-price">$${product.variants[0].compare_at_price}</span>` : ''}
+                        <b>${product.variants[0].price}</b>
+                        </h6>
                     </div>
                     <div class="jdgm-widget jdgm-preview-badge" data-id="${product.id}" >
                     ${unescapeHtml(window.metafields[product.id].badge)}

@@ -58,16 +58,18 @@
             <b>{{ product.title }}</b>
           </h6>
           <h6>
+            
+
             <b>{{ product.price | money }}</b>
           </h6>
         </a>
         <a href="{{ product.url }}" class="">
-        <!-- Start of Judge.me code -->
-            <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
-              {{ product.metafields.judgeme.badge }}
-            </div>
+          <!-- Start of Judge.me code -->
+          <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+            {{ product.metafields.judgeme.badge }}
+          </div>
           <!-- End of Judge.me code -->
-          </a>
+        </a>
         <a href="{{ product.url }}" class="collection-grid__list__item__description">
           <p>{{ product.metafields.custom.short_description }}</p>
         </a>
