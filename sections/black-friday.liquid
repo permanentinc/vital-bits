@@ -26,11 +26,19 @@
         media="(min-width: 768px)"
       >
 
+        {% if section.settings.mobile_image != blank %}
+      <!-- Small screen image -->
+      <source
+        srcset="{{ section.settings.mobile_image | image_url: width: 767   }}"
+        media="(max-width: 767px)"
+      > 
+      {% else %}
       <!-- Small screen image -->
       <source
         srcset="{{ section.settings.image | image_url: width: 1640   }}"
         media="(max-width: 767px)"
       >
+      {% endif %}     
 
       <!-- Fallback image -->
       <img
@@ -73,6 +81,11 @@
       "id": "image",
       "type": "image_picker",
       "label": "Image"
+    },
+     {
+      "id": "mobile_image",
+      "type": "image_picker",
+      "label": "Mobile Image"
     },
     {
       "type": "select",
