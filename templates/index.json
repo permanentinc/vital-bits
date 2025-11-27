@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "black_friday_gPhkCj": {
+      "type": "black-friday",
+      "name": "BlackFriday",
+      "settings": {
+        "image": "shopify://shop_images/BLACK_FRIDAY.png",
+        "height": "normal",
+        "overlay_color": "#ec5c44",
+        "overlay_opacity": 0.3
+      }
+    },
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9": {
       "type": "banner",
       "custom_css": [
@@ -144,6 +154,7 @@
     }
   },
   "order": [
+    "black_friday_gPhkCj",
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9",
     "2e7b8157-5d21-422b-80a8-300911cfa1b4",
     "image_text_block_FDaNEf",
