@@ -13,10 +13,10 @@
       "type": "black-friday",
       "name": "BlackFriday",
       "settings": {
-        "image": "shopify://shop_images/BLACK_FRIDAY.png",
+        "image": "shopify://shop_images/BLACK_FRIDAY.jpg",
         "height": "normal",
         "overlay_color": "#ec5c44",
-        "overlay_opacity": 0.3
+        "overlay_opacity": 0
       }
     },
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9": {
