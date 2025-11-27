@@ -11,6 +11,7 @@
   "sections": {
     "black_friday_gPhkCj": {
       "type": "black-friday",
+      "disabled": true,
       "name": "BlackFriday",
       "settings": {
         "image": "shopify://shop_images/BLACK_FRIDAY.png",
