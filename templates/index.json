@@ -11,12 +11,13 @@
   "sections": {
     "black_friday_gPhkCj": {
       "type": "black-friday",
+      "custom_css": [],
       "name": "BlackFriday",
       "settings": {
-        "image": "shopify://shop_images/BLACK_FRIDAY.jpg",
-        "mobile_image": "shopify://shop_images/BLACK_FRIDAY_MOBILE.jpg",
+        "image": "shopify://shop_images/BLACK2_FRIDAY.jpg",
+        "mobile_image": "shopify://shop_images/BLACK_FRIDAY_1200_x_1600_px.jpg",
         "height": "normal",
-        "overlay_color": "#ec5c44",
+        "overlay_color": "#703f6c",
         "overlay_opacity": 0
       }
     },
