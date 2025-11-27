@@ -14,8 +14,8 @@
       "custom_css": [],
       "name": "BlackFriday",
       "settings": {
-        "image": "shopify://shop_images/BLACK2_FRIDAY.jpg",
-        "mobile_image": "shopify://shop_images/BLACK_FRIDAY_1200_x_1600_px.jpg",
+        "image": "shopify://shop_images/BLACK-FRIDAY.jpg",
+        "mobile_image": "shopify://shop_images/3.jpg",
         "height": "normal",
         "overlay_color": "#703f6c",
         "overlay_opacity": 0
