@@ -1,42 +1,40 @@
 <div
-  class="banner banner--{{ section.settings.height }} {% if section.settings.show_button == false %}banner--no-button{% endif %}"
-  style="display: none !important;"
->
+  class="banner banner--{{ section.settings.height }} {% if section.settings.show_button == false %}banner--no-button{% endif %}">
   <div class="banner-image">
     <picture>
       <!-- Larger screen image -->
       <source
-        srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}"
+        srcset="{{ section.settings.image | image_url: width: 1920   }}"
         media="(min-width: 1280px)"
       >
 
       <!-- Large screen image -->
       <source
-        srcset="{{ section.settings.image | image_url: width: 1920 | image_url: height: 967  }}"
+        srcset="{{ section.settings.image | image_url: width: 1920   }}"
         media="(min-width: 1280px)"
       >
 
       <!-- Large screen image -->
       <source
-        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        srcset="{{ section.settings.image | image_url: width: 1640 }}"
         media="(min-width: 1024px)"
       >
 
       <!-- Medium screen image -->
       <source
-        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        srcset="{{ section.settings.image | image_url: width: 1640  }}"
         media="(min-width: 768px)"
       >
 
       <!-- Small screen image -->
       <source
-        srcset="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        srcset="{{ section.settings.image | image_url: width: 1640   }}"
         media="(max-width: 767px)"
       >
 
       <!-- Fallback image -->
       <img
-        src="{{ section.settings.image | image_url: width: 1640 | image_url: height: 760  }}"
+        src="{{ section.settings.image | image_url: width: 1640  }}"
         width="1640"
         height="760"
         alt="Responsive Image"
@@ -50,14 +48,14 @@
   ></div>
 
   <div class="banner-text">
-    <div class="banner-constraint">
-      <h1 class="black">
+    <div class="banner-constrasdint">
+      <h1 class="white text-center">
         <b>
           BLACK FRIDAY<br>
           25% OFF STOREWIDE
         </b>
       </h1>
-      <p>Ends midnight 1 December 2025. No additional discounts apply.</p>
+      <p class="small white text-center">Ends midnight 1 December 2025. No additional discounts apply.</p>
     </div>
   </div>
 </div>
