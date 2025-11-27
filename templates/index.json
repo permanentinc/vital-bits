@@ -11,7 +11,6 @@
   "sections": {
     "black_friday_gPhkCj": {
       "type": "black-friday",
-      "disabled": true,
       "name": "BlackFriday",
       "settings": {
         "image": "shopify://shop_images/BLACK_FRIDAY.png",
@@ -22,6 +21,7 @@
     },
     "ad3834d4-e660-4815-a38c-63cd6e3f84a9": {
       "type": "banner",
+      "disabled": true,
       "custom_css": [
         "h1 {color: #367b7f;}"
       ],
