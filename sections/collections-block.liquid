@@ -108,9 +108,7 @@
             {% if product.compare_at_price > product.price %}
               {%- assign on_sale = true -%}
             {% endif %}
-            {% if on_sale %}
-              <span class="sale-item">SALE</span>
-            {% endif %}
+          
             <div
               class="collections__slider__item__quickview [ js-show-quickview ]"
               data-tooltip

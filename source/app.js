@@ -718,7 +718,6 @@ const updateSlider = (e) => {
                     newElement.classList.add('collections__slider__item--product');
                     newElement.setAttribute('href', '/products/' + product.handle);
                     newElement.innerHTML = `
-                    ${(is_on_sale) ? `<span class="sale-item">SALE</span>` : ''}
                     <div
                       class="collections__slider__item__quickview [ js-show-quickview ]"
                       data-tooltip
