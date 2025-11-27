@@ -14,6 +14,7 @@
       "name": "BlackFriday",
       "settings": {
         "image": "shopify://shop_images/BLACK_FRIDAY.jpg",
+        "mobile_image": "shopify://shop_images/BLACK_FRIDAY_MOBILE.jpg",
         "height": "normal",
         "overlay_color": "#ec5c44",
         "overlay_opacity": 0
