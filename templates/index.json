@@ -116,7 +116,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/whats-this-peri-bottle-all-about",
-            "article": "important-bits/understanding-paid-parental-leave-in-new-zealand"
+            "article": "important-bits/how-to-prepare-for-postpartum-before-baby-arrives"
           }
         },
         "325f533f-69ab-4121-9411-7e4d3783bad6": {
@@ -125,7 +125,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/understanding-paid-parental-leave-in-new-zealand",
-            "article": "important-bits/baby-cues-cries"
+            "article": "important-bits/hospital-bag-checklist-what-to-pack-for-birth-and-postpartum"
           }
         },
         "627e16b6-df21-46fd-8b33-e12ae818a945": {
@@ -134,7 +134,7 @@
             "title": "",
             "copy": "",
             "link_link": "shopify://blogs/important-bits/morning-sickness",
-            "article": "important-bits/the-4th-trimester"
+            "article": "important-bits/a-comprehensive-guide-to-c-section-recovery"
           }
         }
       },
@@ -155,6 +155,60 @@
         "heading": "Because we care for your bits. The important bits. The life-changing bits.",
         "image": "shopify://shop_images/Vital_Bits-peri-bottle-postpartum.jpg"
       }
+    },
+    "text_block_NEfkeU": {
+      "type": "text-block",
+      "name": "Text",
+      "settings": {
+        "text": ""
+      }
+    },
+    "177561081791920ca3": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_J4LxRH": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "product_reviews",
+            "products": [],
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 4,
+            "review_length": "large",
+            "text_size": "small",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": false,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1300,
+            "corner_styling": "soft",
+            "header_text_color": "#703f6c",
+            "text_color": "#703f6c",
+            "card_color": "#ffffff",
+            "stars_color": "#f5d6dc",
+            "arrows_color": "#000000",
+            "transition_speed": 5,
+            "header_text": "From our Vital Bits māmā",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_J4LxRH"
+      ],
+      "settings": {}
+    },
+    "text_block_taBQ7m": {
+      "type": "text-block",
+      "name": "Text",
+      "settings": {
+        "text": ""
+      }
     }
   },
   "order": [
@@ -163,6 +217,9 @@
     "2e7b8157-5d21-422b-80a8-300911cfa1b4",
     "image_text_block_FDaNEf",
     "grid-block",
-    "hero-block"
+    "hero-block",
+    "text_block_NEfkeU",
+    "177561081791920ca3",
+    "text_block_taBQ7m"
   ]
 }
