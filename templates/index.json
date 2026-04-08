@@ -91,16 +91,17 @@
     },
     "image_text_block_FDaNEf": {
       "type": "image-text-block",
+      "custom_css": [],
       "name": "Text and Image",
       "settings": {
         "image": "shopify://shop_images/Plunket-Endorsed_c7e8c016-8ef1-40e1-8822-e2dc0c2a192f.png",
-        "heading": "We're a Pick Me, Help Plunket Partner.",
-        "text": "<h6>Motherhood comes with a lot of opinions, but one thing we know for sure, you deserve products that work, backed by experts you can trust. Vital Bits has teamed up with Whānau Āwhina Plunket as a proud Pick Me, Help Plunket partner, because supporting new māmā shouldn’t stop at great products.</h6>",
+        "heading": "",
+        "text": "<h3>We're a Pick Me, Help Plunket Partner.</h3><h6>Motherhood comes with a lot of opinions, but one thing we know for sure, you deserve products that work, backed by experts you can trust. Vital Bits has teamed up with Whānau Āwhina Plunket as a proud Pick Me, Help Plunket partner, because supporting new māmā shouldn’t stop at great products.</h6>",
         "link_link": "https://vitalbits.co.nz/pages/proud-to-be-a-pick-me-help-plunket-brand",
         "link_label": "Read more",
         "reverse_layout": false,
         "round_image": false,
-        "smaller_image": false,
+        "smaller_image": true,
         "background_color": "#f5d6dc",
         "text_color": "#703f6c",
         "link_colour": "purple"
