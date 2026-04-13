@@ -55,6 +55,12 @@
     style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }}"
   ></div>
 
+   {% if section.settings.show_shop_now_button %}
+  <div class="shop-now-button">
+    <a href="/collections/all" class="button">Shop Now</a>
+  </div>
+  {% endif %}
+
   <div class="banner-text">
     <div class="banner-constrasdint">
       <h1 class="white text-center">
@@ -108,6 +114,12 @@
     {
       "type": "header",
       "content": "Mobile settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shop_now_button",
+      "default" : false,
+      "label": "Show 'Shop Now' button bottom left"
     },
     {
       "type": "color",
