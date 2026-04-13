@@ -12,6 +12,17 @@
     }
 }
 
+.shop-now-button {
+    position: absolute;
+    bottom: 5rem;
+    left: 7%;
+
+    @media screen and (max-width: 768px) {
+        left: 2rem;
+        bottom: 1rem;
+    }
+}
+
 .banner {
     position: relative;
 
