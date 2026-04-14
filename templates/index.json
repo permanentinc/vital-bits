@@ -13,7 +13,8 @@
       "type": "black-friday",
       "disabled": true,
       "custom_css": [
-        "@media screen and (max-width: 768px) {.black-friday-banner {}}"
+        ".black-friday-banner {background: #e2edf9;}",
+        "@media screen and (max-width: 1024px) {.black-friday-banner {}}"
       ],
       "name": "Free Gift with Purchase",
       "settings": {
