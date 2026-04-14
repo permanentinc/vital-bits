@@ -11,11 +11,12 @@
   "sections": {
     "black_friday_gPhkCj": {
       "type": "black-friday",
+      "disabled": true,
       "custom_css": [
         ".black-friday-banner .banner-image {background: #e2edf9 !important;}",
         ".black-friday-banner img {object-position: center 65%;}",
         "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; } .black-friday-banner .banner-text {padding: 30rem 2rem 10rem; } .black-friday-banner .shop-now-button {width: 100%; text-align: center; left: 0; }}",
-        "@media only screen and (min-width: 768px) {.black-friday-banner .banner-image {max-height: 81rem; } .black-friday-banner .shop-now-button {bottom:10rem; }}"
+        "@media only screen and (min-width: 768px) {.black-friday-banner .banner-image {max-height: 81rem; } .black-friday-banner .shop-now-button {bottom: 10rem; }}"
       ],
       "name": "Free Gift with Purchase",
       "settings": {
