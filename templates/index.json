@@ -11,10 +11,9 @@
   "sections": {
     "black_friday_gPhkCj": {
       "type": "black-friday",
-      "disabled": true,
       "custom_css": [
         ".black-friday-banner .banner-image {background: #e2edf9 !important;}",
-        "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; }}"
+        "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; } .black-friday-banner .banner-text {padding: 30rem 2rem 10rem; }}"
       ],
       "name": "Free Gift with Purchase",
       "settings": {
