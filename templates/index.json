@@ -18,6 +18,7 @@
         "image": "shopify://shop_images/Website_VB-BdayBanne1_e9488640-ab8f-4be0-a43e-0498a4819166.png",
         "mobile_image": "shopify://shop_images/birthdaY_gift-mob.png",
         "height": "normal",
+        "show_shop_now_button": true,
         "overlay_color": "#703f6c",
         "overlay_opacity": 0
       }
