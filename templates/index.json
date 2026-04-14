@@ -12,7 +12,9 @@
     "black_friday_gPhkCj": {
       "type": "black-friday",
       "disabled": true,
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.black-friday-banner {}}"
+      ],
       "name": "Free Gift with Purchase",
       "settings": {
         "image": "shopify://shop_images/Website_VB-BdayBanne1_e9488640-ab8f-4be0-a43e-0498a4819166.png",
