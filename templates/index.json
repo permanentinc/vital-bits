@@ -13,7 +13,7 @@
       "type": "black-friday",
       "custom_css": [
         ".black-friday-banner .banner-image {background: #e2edf9 !important;}",
-        ".black-friday-banner img {object-fit: contain; }",
+        ".black-friday-banner img {object-position:center bottom}",
         "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; } .black-friday-banner .banner-text {padding: 30rem 2rem 10rem; } .black-friday-banner .shop-now-button {width: 100%; text-align: center; }}"
       ],
       "name": "Free Gift with Purchase",
