@@ -83,17 +83,24 @@
         ]
     },
     {
-        "name": {
-            "en": "Favicon"
-        },
+        "name": "Favicon",
         "settings": [
             {
                 "type": "image_picker",
                 "id": "favicon",
                 "label": "Favicon image",
-                "info": {
-                    "en": "Upload a square image at 1000px by 1000px"
-                }
+                "info": "Upload a square image at 1000px by 1000px"
+            }
+        ]
+    },
+    {
+        "name": "Announcement bar",
+        "settings": [
+            {
+                "type": "text",
+                "id": "announcement_bar_text",
+                "label": "Announcement text",
+                "default": "FREE SHIPPING ON ORDERS OVER $85 + SIGNUP FOR 10% OFF FIRST ORDER"
             }
         ]
     }
