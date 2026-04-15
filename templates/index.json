@@ -12,6 +12,7 @@
     "black_friday_gPhkCj": {
       "type": "black-friday",
       "custom_css": [
+        ".shop-now-button {z-index: 6 ;}",
         ".black-friday-banner .banner-image {background: #e2edf9 !important;}",
         ".black-friday-banner img {object-position: center 65%;}",
         "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; } .black-friday-banner .banner-text {padding: 30rem 2rem 10rem; } .black-friday-banner .shop-now-button {width: 100%; text-align: center; left: 0; }}",
