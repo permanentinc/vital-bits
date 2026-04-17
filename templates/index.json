@@ -12,7 +12,7 @@
     "black_friday_gPhkCj": {
       "type": "black-friday",
       "custom_css": [
-        ".shop-now-button {z-index: 6 ;}",
+        ".shop-now-button {z-index: 6;}",
         ".black-friday-banner .banner-image {background: #e2edf9 !important;}",
         ".black-friday-banner img {object-position: center 65%;}",
         "@media screen and (max-width: 1024px) {.black-friday-banner img {object-fit: contain; } .black-friday-banner .banner-text {padding: 30rem 2rem 10rem; } .black-friday-banner .shop-now-button {width: 100%; text-align: center; left: 0; }}",
@@ -20,8 +20,8 @@
       ],
       "name": "Free Gift with Purchase",
       "settings": {
-        "image": "shopify://shop_images/Website_VB-BdayBanne1_e9488640-ab8f-4be0-a43e-0498a4819166.png",
-        "mobile_image": "shopify://shop_images/birthdaY_gift-mob.png",
+        "image": "shopify://shop_images/birthdaYdeals.jpg",
+        "mobile_image": "shopify://shop_images/birthdaYdealsmob.jpg",
         "height": "normal",
         "show_shop_now_button": true,
         "overlay_color": "#703f6c",
